@@ -1,15 +1,15 @@
-import { HeroSection } from "@/components/sections/hero";
-import Event from "@/components/sections/event";
-import { FeaturesSection } from "@/components/sections/features";
-import Account from "@/components/sections/account";
-import { ExtraFeaturesSection } from "@/components/sections/extra";
-import { DataMigrationSection } from "@/components/sections/migration";
-import Clients from "@/components/sections/clients";
-import Cta from "@/components/sections/cta";
-import { FaqSection } from "@/components/sections/faq";
-import { PartnersSection } from "@/components/sections/partners";
-import { TestimonialsSection } from "@/components/sections/testimonials";
-import { JoinSection } from "@/components/sections/join";
+import { HeroSection } from "@ui/blocks/hero";
+import Event from "@ui/blocks/event";
+import { FeaturesSection } from "@ui/blocks/features";
+import Account from "@ui/blocks/account";
+import { ExtraFeaturesSection } from "@ui/blocks/extra";
+import { DataMigrationSection } from "@ui/blocks/migration";
+import Clients from "@ui/blocks/clients";
+import Cta from "@ui/blocks/cta";
+import { FaqSection } from "@ui/blocks/faq";
+import { PartnersSection } from "@ui/blocks/partners";
+import { TestimonialsSection } from "@ui/blocks/testimonials";
+import { JoinSection } from "@ui/blocks/join";
 import { app, home } from "@content";
 
 export default function Page() {

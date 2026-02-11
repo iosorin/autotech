@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Lead } from "@/components/sections/lead";
-import { Grid } from "@/components/sections/grid";
-import { Icons } from "@/components/sections/icons";
-import { Form } from "@/components/sections/form";
-import { Links } from "@/components/sections/links";
-import { Requisites } from "@/components/sections/requisites";
+import { Lead } from "@ui/blocks/lead";
+import { Grid } from "@ui/blocks/grid";
+import { Icons } from "@ui/blocks/icons";
+import { Form } from "@ui/blocks/form";
+import { Links } from "@ui/blocks/links";
+import { Requisites } from "@ui/blocks/requisites";
 import { app, contacts } from "@content";
 
 export default function ContactsPage() {

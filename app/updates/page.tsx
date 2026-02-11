@@ -1,5 +1,5 @@
-import { Intro } from "@/components/sections/intro";
-import { Changelog } from "@/components/sections/changelog";
+import { Intro } from "@ui/blocks/intro";
+import { Changelog } from "@ui/blocks/changelog";
 import { updates } from "@content";
 
 export default function UpdatesPage() {

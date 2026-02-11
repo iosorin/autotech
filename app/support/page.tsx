@@ -1,8 +1,8 @@
 "use client";
 
-import { Lead } from "@/components/sections/lead";
-import { Split } from "@/components/sections/split";
-import { Links } from "@/components/sections/links";
+import { Lead } from "@ui/blocks/lead";
+import { Split } from "@ui/blocks/split";
+import { Links } from "@ui/blocks/links";
 import { app, support } from "@content";
 
 export default function SupportPage() {

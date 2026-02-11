@@ -1,8 +1,8 @@
 import React from "react"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { Header } from "@ui/blocks/header";
+import { Footer } from "@ui/blocks/footer";
 import { app, seo } from "@content";
 import "./globals.css";
 

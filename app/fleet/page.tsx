@@ -1,15 +1,15 @@
 "use client";
 
 import { Heart, Settings, SlidersHorizontal, Eye } from "lucide-react";
-import { Banner } from "@/components/sections/banner";
-import { Icons } from "@/components/sections/icons";
-import { Columns } from "@/components/sections/columns";
-import { Promo } from "@/components/sections/promo";
-import { Compare } from "@/components/sections/compare";
-import { Halves } from "@/components/sections/halves";
-import { Cards } from "@/components/sections/cards";
-import { Steps } from "@/components/sections/steps";
-import { Accordion } from "@/components/sections/accordion";
+import { Banner } from "@ui/blocks/banner";
+import { Icons } from "@ui/blocks/icons";
+import { Columns } from "@ui/blocks/columns";
+import { Promo } from "@ui/blocks/promo";
+import { Compare } from "@ui/blocks/compare";
+import { Halves } from "@ui/blocks/halves";
+import { Cards } from "@ui/blocks/cards";
+import { Steps } from "@ui/blocks/steps";
+import { Accordion } from "@ui/blocks/accordion";
 import { app, fleet } from "@content";
 
 export default function FleetPage() {
