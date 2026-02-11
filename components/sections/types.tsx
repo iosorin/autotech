@@ -12,7 +12,7 @@ type Props = {
   types: Type[];
 };
 
-export function SupportResponse({ id, heading, types }: Props) {
+export function Types({ id, heading, types }: Props) {
   return (
     <div id={id}>
       <h2 className="mb-6 text-2xl font-bold text-foreground">{heading}</h2>

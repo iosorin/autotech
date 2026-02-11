@@ -8,7 +8,7 @@ type Props = {
   discounts: Discount[];
 };
 
-export function TariffsDiscounts({ id, heading, discounts }: Props) {
+export function Rates({ id, heading, discounts }: Props) {
   return (
     <section id={id} className="py-12">
       <div className="max-w-4xl mx-auto px-4">

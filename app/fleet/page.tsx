@@ -1,23 +1,22 @@
 "use client";
 
-import { FleetHero } from "@/components/sections/fleet-hero";
-import { FleetWhy } from "@/components/sections/fleet-why";
-import { FleetCabinet } from "@/components/sections/fleet-cabinet";
-import { FleetHrd } from "@/components/sections/fleet-hrd";
-import { FleetBeforeAfter } from "@/components/sections/fleet-before-after";
-import { FleetSeasonal } from "@/components/sections/fleet-seasonal";
-import { FleetApproaches } from "@/components/sections/fleet-approaches";
-import { FleetFlexible } from "@/components/sections/fleet-flexible";
-import { FleetSteps } from "@/components/sections/fleet-steps";
-import { FleetTransparency } from "@/components/sections/fleet-transparency";
-import { FleetFaq } from "@/components/sections/fleet-faq";
+import { Heart, Settings, SlidersHorizontal, Eye } from "lucide-react";
+import { Banner } from "@/components/sections/banner";
+import { Icons } from "@/components/sections/icons";
+import { Columns } from "@/components/sections/columns";
+import { Promo } from "@/components/sections/promo";
+import { Compare } from "@/components/sections/compare";
+import { Halves } from "@/components/sections/halves";
+import { Cards } from "@/components/sections/cards";
+import { Steps } from "@/components/sections/steps";
+import { Accordion } from "@/components/sections/accordion";
 import { app, fleet } from "@content";
 
 export default function FleetPage() {
   const f = fleet;
   return (
     <>
-      <FleetHero
+      <Banner
         id="fleet"
         eyebrow={f.eyebrow}
         heroTitle={f.heroTitle}
@@ -28,8 +27,14 @@ export default function FleetPage() {
         heroImageAlt={f.heroImageAlt}
         contactCta={app.cta.contact}
       />
-      <FleetWhy id="why" heading={f.whyHeading} items={f.whyConvenient} />
-      <FleetCabinet
+      <Icons
+        id="why"
+        heading={f.whyHeading}
+        items={f.whyConvenient}
+        cols={2}
+        variant="highlight"
+      />
+      <Columns
         id="cabinet"
         heading={f.cabinetHeading}
         list={f.cabinetList}
@@ -39,47 +44,59 @@ export default function FleetPage() {
         filterTags={f.cabinetFilterTags}
         imageAlt={f.appImageAlt}
       />
-      <FleetHrd
+      <Promo
         id="hrd"
         title={f.hrdTitle}
         desc={f.hrdDesc}
-        cabinetCta={app.cta.cabinet}
-        moreCta={app.cta.more}
+        primaryCta={app.cta.cabinet}
+        primaryHref="#"
+        secondaryCta={app.cta.more}
+        secondaryHref="/contacts"
+        icon={<Heart className="w-10 h-10 text-accent-foreground mx-auto mb-4 opacity-60" />}
       />
-      <FleetBeforeAfter
+      <Compare
         id="before-after"
         beforeLabel={f.beforeLabel}
         afterLabel={f.afterLabel}
         items={f.beforeAfter}
       />
-      <FleetSeasonal
+      <Halves
         id="seasonal"
-        heading={f.seasonalHeading}
+        title={f.seasonalHeading}
         list={f.seasonalList}
+        imageSrc="/images/tire-mechanic.jpg"
         imageAlt={f.seasonalImageAlt}
+        imagePosition="right"
+        headingIcon={<Settings className="w-7 h-7 text-muted-foreground" />}
       />
-      <FleetApproaches id="approaches" heading={f.approachesHeading} items={f.approaches} />
-      <FleetFlexible
+      <Cards id="approaches" heading={f.approachesHeading} items={f.approaches} />
+      <Halves
         id="flexible"
         title={f.flexibleTitle}
         list={f.flexibleList}
+        imageSrc="/images/fleet-dashboard.jpg"
         imageAlt={f.dashboardImageAlt}
-        contactCta={app.cta.contact}
+        imagePosition="left"
+        headingIcon={<SlidersHorizontal className="w-7 h-7 text-primary" />}
+        cta={app.cta.contact}
       />
-      <FleetSteps
+      <Steps
         id="steps"
         heading={f.howHeading}
         steps={f.steps}
         cabinetCta={app.cta.cabinet}
         moreCta={app.cta.more}
       />
-      <FleetTransparency
+      <Halves
         id="transparency"
         title={f.transparencyTitle}
-        items={f.transparencyItems}
+        list={f.transparencyItems}
+        imageSrc="/images/app-mockup.jpg"
         imageAlt={f.transparencyImageAlt}
+        imagePosition="left"
+        headingIcon={<Eye className="w-7 h-7 text-primary" />}
       />
-      <FleetFaq id="faq" heading={f.faqHeading} items={f.faq} />
+      <Accordion id="faq" heading={f.faqHeading} items={f.faq} />
     </>
   );
 }

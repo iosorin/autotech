@@ -8,7 +8,7 @@ type Props = {
   blocks: Block[];
 };
 
-export function DesignedFor({ id, heading, blocks }: Props) {
+export function Grid({ id, heading, blocks }: Props) {
   return (
     <section id={id} className="px-4 pb-16">
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">

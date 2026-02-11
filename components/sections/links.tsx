@@ -13,7 +13,7 @@ type Props = {
   phoneRaw: string;
 };
 
-export function ContactLinks({
+export function Links({
   id,
   heading,
   labels,

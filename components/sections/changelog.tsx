@@ -7,7 +7,7 @@ type Props = {
   updates: Update[];
 };
 
-export function UpdatesList({ id, updates }: Props) {
+export function Changelog({ id, updates }: Props) {
   return (
     <section id={id} className="mx-auto max-w-3xl px-4">
       <div className="space-y-12">

@@ -12,7 +12,7 @@ type Props = {
   items: Item[];
 };
 
-export function FleetBeforeAfter({ id, beforeLabel, afterLabel, items }: Props) {
+export function Compare({ id, beforeLabel, afterLabel, items }: Props) {
   return (
     <section id={id} className="py-16 md:py-20">
       <div className="max-w-5xl mx-auto px-4">

@@ -1,26 +1,26 @@
 "use client";
 
 import Cta from "@/components/sections/cta";
-import { TariffsHero } from "@/components/sections/tariffs-hero";
-import { TariffsTable } from "@/components/sections/tariffs-table";
-import { TariffsDiscounts } from "@/components/sections/tariffs-discounts";
-import { TariffsIncluded } from "@/components/sections/tariffs-included";
+import { Lead } from "@/components/sections/lead";
+import { Table } from "@/components/sections/table";
+import { Rates } from "@/components/sections/rates";
+import { Checklist } from "@/components/sections/checklist";
 import { app, tariffs } from "@content";
 
 export default function TariffsPage() {
   const p = tariffs;
   return (
     <>
-      <TariffsHero id="tariffs" platformLabel={p.platformLabel} title={p.title} />
-      <TariffsTable
+      <Lead id="tariffs" label={p.platformLabel} title={p.title} />
+      <Table
         id="table"
         periods={p.periods}
         plans={p.plans}
         priceNote={p.priceNote}
         priceNote2={p.priceNote2}
       />
-      <TariffsDiscounts id="discounts" heading={p.discountsHeading} discounts={p.discounts} />
-      <TariffsIncluded
+      <Rates id="discounts" heading={p.discountsHeading} discounts={p.discounts} />
+      <Checklist
         id="included"
         heading={p.includedHeading}
         items={p.included}

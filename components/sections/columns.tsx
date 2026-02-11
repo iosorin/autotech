@@ -15,7 +15,7 @@ type Props = {
   imageAlt: string;
 };
 
-export function FleetCabinet({
+export function Columns({
   id,
   heading,
   list,

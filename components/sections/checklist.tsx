@@ -10,7 +10,7 @@ type Props = {
   imageAlt: string;
 };
 
-export function TariffsIncluded({ id, heading, items, imageAlt }: Props) {
+export function Checklist({ id, heading, items, imageAlt }: Props) {
   return (
     <section id={id} className="py-12 md:py-20">
       <div className="max-w-5xl mx-auto px-4">

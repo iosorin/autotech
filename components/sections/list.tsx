@@ -8,7 +8,7 @@ type Props = {
   events: Event[];
 };
 
-export function EventsPast({ id, heading, events }: Props) {
+export function List({ id, heading, events }: Props) {
   return (
     <section id={id} className="mt-16 mx-auto max-w-3xl px-4">
       <h2 className="mb-8 text-2xl font-bold text-foreground">{heading}</h2>
