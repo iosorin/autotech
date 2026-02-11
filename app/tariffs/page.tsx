@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { CtaSection } from "@/components/home/cta-section";
+import Cta from "@/components/sections/cta";
 import { CheckCircle2, Droplets, Scissors, Car } from "lucide-react";
-import { tariffs } from "@content";
+import { app, tariffs } from "@content";
 
 const iconMap = { Droplets, Scissors, Car };
 
@@ -143,7 +143,7 @@ export default function TariffsPage() {
         </div>
       </section>
 
-      <CtaSection title={p.ctaTitle} />
+      <Cta title={p.ctaTitle} start={app.cta.start} contact={app.cta.contact} />
     </>
   );
 }

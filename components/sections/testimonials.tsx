@@ -4,11 +4,17 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
-import { home } from "@content";
+type Testimonial = { name: string; role: string; company: string; text: string };
 
-const testimonials = home.testimonials.list;
+type Props = {
+  id?: string;
+  heading: string;
+  prevAria: string;
+  nextAria: string;
+  list: Testimonial[];
+};
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ id, heading, prevAria, nextAria, list }: Props) {
   const [current, setCurrent] = useState(0);
   const [sliding, setSliding] = useState(false);
 
@@ -16,29 +22,28 @@ export function TestimonialsSection() {
     setSliding(true);
     setTimeout(() => {
       if (direction === "prev") {
-        setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
+        setCurrent((c) => (c === 0 ? list.length - 1 : c - 1));
       } else {
-        setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+        setCurrent((c) => (c === list.length - 1 ? 0 : c + 1));
       }
       setSliding(false);
     }, 250);
   };
 
-  const t = home.testimonials;
   return (
-    <section className="py-12 md:py-20 bg-secondary/50">
+    <section id={id} className="py-12 md:py-20 bg-secondary/50">
       <div className="max-w-6xl mx-auto px-4">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
-              {t.heading}
+              {heading}
             </h2>
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => slide("prev")}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors bg-background active:scale-90 transition-transform duration-150"
-                aria-label={t.prevAria}
+                aria-label={prevAria}
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -46,7 +51,7 @@ export function TestimonialsSection() {
                 type="button"
                 onClick={() => slide("next")}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors bg-background active:scale-90 transition-transform duration-150"
-                aria-label={t.nextAria}
+                aria-label={nextAria}
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -64,24 +69,22 @@ export function TestimonialsSection() {
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="flex flex-col items-center md:items-start flex-shrink-0">
                   <div className="w-24 h-24 rounded-full border-4 border-primary bg-secondary flex items-center justify-center text-2xl font-bold text-muted-foreground mb-3">
-                    {testimonials[current].name.charAt(0)}
+                    {list[current].name.charAt(0)}
                   </div>
                   <h4 className="font-bold text-foreground text-sm text-center md:text-left">
-                    {testimonials[current].name}
+                    {list[current].name}
                   </h4>
                   <p className="text-xs text-muted-foreground text-center md:text-left">
-                    {testimonials[current].role}
+                    {list[current].role}
                   </p>
                 </div>
                 <div className="flex-1">
                   <div className="mb-3">
                     <span className="rounded-md border border-border px-3 py-1 text-xs font-medium text-foreground">
-                      {testimonials[current].company}
+                      {list[current].company}
                     </span>
                   </div>
-                  <p className="text-sm text-foreground leading-relaxed">
-                    {testimonials[current].text}
-                  </p>
+                  <p className="text-sm text-foreground leading-relaxed">{list[current].text}</p>
                 </div>
               </div>
             </div>
@@ -95,17 +98,17 @@ export function TestimonialsSection() {
             <div className="rounded-2xl border border-border p-8 bg-background h-full">
               <div className="flex flex-col items-center mb-4">
                 <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center text-xl font-bold text-muted-foreground mb-3">
-                  {testimonials[(current + 1) % testimonials.length].name.charAt(0)}
+                  {list[(current + 1) % list.length].name.charAt(0)}
                 </div>
                 <h4 className="font-bold text-foreground text-sm text-center">
-                  {testimonials[(current + 1) % testimonials.length].name}
+                  {list[(current + 1) % list.length].name}
                 </h4>
                 <p className="text-xs text-muted-foreground text-center">
-                  {testimonials[(current + 1) % testimonials.length].role}
+                  {list[(current + 1) % list.length].role}
                 </p>
               </div>
               <p className="text-xs text-muted-foreground line-clamp-4">
-                {testimonials[(current + 1) % testimonials.length].text}
+                {list[(current + 1) % list.length].text}
               </p>
             </div>
           </div>

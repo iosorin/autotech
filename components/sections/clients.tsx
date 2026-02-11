@@ -5,6 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 type Props = {
+  id?: string;
   subtitle: string;
   titleLine1: string;
   titleLine2: string;
@@ -13,9 +14,9 @@ type Props = {
   imageAlt: string;
 };
 
-const Clients = ({ subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
+const Clients = ({ id, subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
   return (
-    <section className="py-16 md:py-24">
+    <section id={id} className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <div className="text-center mb-10">

@@ -6,6 +6,7 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 const iconMap = { Shield, BarChart3, Building2 };
 
 type Props = {
+  id?: string;
   titleLine1: string;
   titleLine2: string;
   descLine1: string;
@@ -19,9 +20,9 @@ type Props = {
   }[];
 };
 
-const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
+const Account = ({ id, titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
-    <section className="py-12 md:py-20">
+    <section id={id} className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <div className="text-center mb-4">
