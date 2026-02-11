@@ -28,7 +28,16 @@
       ],
       "@content": [
         "./content/"
-      ]
+      ],
+      "@hooks/*": [
+        "./lib/hooks/*"
+      ],
+      "@utils/*": [
+        "./lib/utils/*"
+      ],
+      "@utils": [
+        "./lib/utils"
+      ],
     }
   },
   "include": [
