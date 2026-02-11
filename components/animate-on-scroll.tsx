@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@utils";
 
 type AnimationVariant = "fade-up" | "fade-down" | "fade-left" | "fade-right" | "fade" | "scale-up" | "blur-in";
 
@@ -106,17 +106,17 @@ export function StaggerChildren({
     <div ref={ref} className={className}>
       {Array.isArray(children)
         ? children.map((child, i) => (
-            <div
-              key={i}
-              className={cn(
-                `stagger-item animate-on-scroll animate-${variant}`,
-                childClassName
-              )}
-              style={{ transitionDuration: `${duration}ms` }}
-            >
-              {child}
-            </div>
-          ))
+          <div
+            key={i}
+            className={cn(
+              `stagger-item animate-on-scroll animate-${variant}`,
+              childClassName
+            )}
+            style={{ transitionDuration: `${duration}ms` }}
+          >
+            {child}
+          </div>
+        ))
         : children}
     </div>
   );
