@@ -2,33 +2,45 @@
 
 import { Shield, BarChart3, Building2 } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { home } from "@content";
 
 const iconMap = { Shield, BarChart3, Building2 };
 
-export function UnifiedAccountSection() {
-  const s = home.unifiedAccount;
+type Props = {
+  titleLine1: string;
+  titleLine2: string;
+  descLine1: string;
+  descLine2: string;
+  subtitle: string;
+  cards: {
+    icon: string;
+    title: string;
+    tags: string[];
+    description: string;
+  }[];
+};
+
+const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <div className="text-center mb-4">
-            <p className="text-sm font-medium text-primary mb-2">{s.subtitle}</p>
+            <p className="text-sm font-medium text-primary mb-2">{subtitle}</p>
             <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance leading-tight">
-              {s.titleLine1}
+              {titleLine1}
               <br />
-              {s.titleLine2}
+              {titleLine2}
             </h2>
           </div>
           <p className="text-center text-muted-foreground mb-10 text-balance">
-            {s.descLine1}
+            {descLine1}
             <br />
-            {s.descLine2}
+            {descLine2}
           </p>
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {s.cards.map((card, i) => {
+          {cards.map((card, i) => {
             const Icon = iconMap[card.icon as keyof typeof iconMap];
             return (
               <AnimateOnScroll key={card.title} variant="fade-up" delay={i * 120} duration={600}>
@@ -54,3 +66,5 @@ export function UnifiedAccountSection() {
     </section>
   );
 }
+
+export default Account;
