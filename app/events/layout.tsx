@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Мероприятия",
-  description:
-    "Закрытые мероприятия для собственников и управляющих автомойками, детейлинг-центрами и шиномонтажами. Присоединяйтесь к сообществу Автотех.",
+  title: seo.pages.events.title,
+  description: seo.pages.events.description,
 };
 
 export default function EventsLayout({

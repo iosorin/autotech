@@ -6,82 +6,32 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CtaSection } from "@/components/home/cta-section";
 import { CheckCircle2, Droplets, Scissors, Car } from "lucide-react";
+import { pages } from "@content";
 
-const periods = [
-  { id: "1m", label: "1 месяц" },
-  { id: "3m", label: "3 месяца" },
-  { id: "12m", label: "12 месяцев" },
-];
-
-const plans = [
-  {
-    icons: [Droplets],
-    name: "Автомойка",
-    prices: { "1m": "4 000", "3m": "11 000", "12m": "40 000" },
-  },
-  {
-    icons: [Droplets, Scissors],
-    name: "Автомойка + Шиномонтаж",
-    prices: { "1m": "5 000", "3m": "13 750", "12m": "50 000" },
-  },
-  {
-    icons: [Droplets, Car],
-    name: "Автомойка + Детейлинг",
-    prices: { "1m": "6 000", "3m": "16 500", "12m": "60 000" },
-  },
-  {
-    icons: [Droplets, Car, Scissors],
-    name: "Автомойка + Детейлинг + Шиномонтаж",
-    prices: { "1m": "7 000", "3m": "19 250", "12m": "70 000" },
-    highlighted: true,
-  },
-  {
-    icons: [Scissors],
-    name: "Шиномонтаж",
-    prices: { "1m": "2 000", "3m": "5 500", "12m": "20 000" },
-  },
-];
-
-const discounts = [
-  { range: "2 - 5 точки", percent: "10%", color: "text-primary" },
-  { range: "6 - 10 точки", percent: "15%", color: "text-primary" },
-  { range: "11 - 20 точки", percent: "20%", color: "text-primary" },
-  { range: "21 - 30 точки", percent: "25%", color: "text-primary" },
-  { range: "от 31 точки", percent: "30%", color: "text-primary" },
-];
-
-const included = [
-  "Любое количество дополнительных личных кабинетов. Мы не ограничиваем доступ для ваших исполнителей, менеджеров и кассиров",
-  "Любое количество боксов/постов",
-  "Хранение ваших данных в облаке без ограничения по времени",
-  "Поддержка и обновления",
-];
+const iconMap = { Droplets, Scissors, Car };
 
 export default function TariffsPage() {
   const [activePeriod, setActivePeriod] = useState("1m");
-
+  const p = pages.tariffs;
   return (
     <>
       <Header />
       <main>
-        {/* Hero */}
         <section className="py-12 md:py-20">
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-center mb-10">
               <p className="text-sm font-medium text-primary mb-2">
-                {"Платформа Автотех"}
+                {p.platformLabel}
               </p>
               <h1 className="text-3xl md:text-5xl font-bold text-foreground">
-                {"Тарифы"}
+                {p.title}
               </h1>
             </div>
 
-            {/* Pricing table */}
             <div className="rounded-2xl border border-border p-6 md:p-8">
-              {/* Period selector */}
               <div className="flex justify-end mb-6">
                 <div className="flex gap-2">
-                  {periods.map((period) => (
+                  {p.periods.map((period) => (
                     <button
                       key={period.id}
                       type="button"
@@ -98,9 +48,8 @@ export default function TariffsPage() {
                 </div>
               </div>
 
-              {/* Plans */}
               <div className="flex flex-col gap-1">
-                {plans.map((plan) => (
+                {p.plans.map((plan) => (
                   <div
                     key={plan.name}
                     className={`flex items-center justify-between py-4 px-4 rounded-xl ${
@@ -109,19 +58,22 @@ export default function TariffsPage() {
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex gap-1">
-                        {plan.icons.map((Icon, i) => (
-                          <Icon
-                            key={`${plan.name}-icon-${i}`}
-                            className="w-4 h-4 text-muted-foreground"
-                          />
-                        ))}
+                        {plan.icons.map((iconName, i) => {
+                          const Icon = iconMap[iconName as keyof typeof iconMap];
+                          return Icon ? (
+                            <Icon
+                              key={`${plan.name}-icon-${i}`}
+                              className="w-4 h-4 text-muted-foreground"
+                            />
+                          ) : null;
+                        })}
                       </div>
                       <span className="text-sm font-medium text-foreground">
                         {plan.name}
                       </span>
                     </div>
                     <div className="flex gap-8 md:gap-16">
-                      {periods.map((period) => (
+                      {p.periods.map((period) => (
                         <span
                           key={period.id}
                           className={`text-sm font-semibold min-w-[60px] text-right ${
@@ -139,24 +91,23 @@ export default function TariffsPage() {
               </div>
 
               <p className="text-xs text-muted-foreground mt-4">
-                {"Цены указаны без учета налогов."}
+                {p.priceNote}
                 <br />
-                {"Уточните полную стоимость у менеджера"}
+                {p.priceNote2}
               </p>
             </div>
           </div>
         </section>
 
-        {/* Discounts */}
         <section className="py-12">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
-              {"Скидки"}
+              {p.discountsHeading}
             </h2>
             <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-              {discounts.map((d) => (
+              {p.discounts.map((d) => (
                 <div key={d.range} className="text-center">
-                  <p className={`text-sm font-medium ${d.color} mb-1`}>
+                  <p className="text-sm font-medium text-primary mb-1">
                     {d.range}
                   </p>
                   <p className="text-4xl md:text-5xl font-bold text-foreground">
@@ -168,14 +119,13 @@ export default function TariffsPage() {
           </div>
         </section>
 
-        {/* What's included */}
         <section className="py-12 md:py-20">
           <div className="max-w-5xl mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-10 items-center">
               <div className="lg:w-2/5 flex justify-center">
                 <Image
                   src="/images/app-mockup.jpg"
-                  alt="Интерфейс приложения"
+                  alt={p.imageAlt}
                   width={280}
                   height={560}
                   className="rounded-3xl shadow-lg w-auto h-auto"
@@ -183,10 +133,10 @@ export default function TariffsPage() {
               </div>
               <div className="lg:w-3/5">
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
-                  {"Что включено в тариф"}
+                  {p.includedHeading}
                 </h2>
                 <div className="flex flex-col gap-5">
-                  {included.map((item) => (
+                  {p.included.map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground leading-relaxed">
@@ -200,7 +150,7 @@ export default function TariffsPage() {
           </div>
         </section>
 
-        <CtaSection title="Подключайтесь и получите 2 недели бесплатно" />
+        <CtaSection title={p.ctaTitle} />
       </main>
       <Footer />
     </>

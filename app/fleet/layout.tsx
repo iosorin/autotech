@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Автопаркам",
-  description:
-    "Оплачивайте услуги автомойки, шиномонтажа, сезонного хранения и мелкого ремонта через приложение Автотех. Консолидированная отчётность, безнал и НДС для автопарков.",
+  title: seo.pages.fleet.title,
+  description: seo.pages.fleet.description,
 };
 
 export default function FleetLayout({

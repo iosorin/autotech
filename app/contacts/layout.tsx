@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Контакты",
-  description:
-    "Связь с командой Автотех. Обращение в техническую поддержку, контакты для партнёрства и внедрения приложения для автомойки, детейлинга и шиномонтажа.",
+  title: seo.pages.contacts.title,
+  description: seo.pages.contacts.description,
 };
 
 export default function ContactsLayout({

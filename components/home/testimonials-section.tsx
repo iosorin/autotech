@@ -4,26 +4,9 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
-const testimonials = [
-  {
-    name: "Илья Ковыков",
-    role: "Основатель CARTEL",
-    company: "CARTEL",
-    text: "Мы перешли на Автотех с другого приложения и очень довольны. У нас одновременно обслуживается до 40 автомобилей, поэтому нам крайне важна стабильная работа приложения и мгновенная техническая поддержка. Кроме того, у нас есть специфичные требования к логике работы приложения, которые были реализованы командой Автотех в кратчайшие сроки. Мы видим, что в лице команды Автотех мы нашли надежного партнера, оперативно выполняющего все доработки, необходимые нам для ведения оперативной деятельности",
-  },
-  {
-    name: "Вячеслав Житенев и Сергей Федоткин",
-    role: 'Основатели сети автомоек и шиномонтажей "Княжье Озеро"',
-    company: "Княжье Озеро",
-    text: "Мы начали тестирование Автотех на нескольких наших точках. Для нас важна бесперебойную работу приложения, точный перенос данных с остатками бонусов. Клиентов стало обслуживать этим меньше, число заказов и услуг ушло меньше.",
-  },
-  {
-    name: "Андрей Петров",
-    role: "Владелец автомойки",
-    company: "АвтоБлеск",
-    text: "Автотех значительно упростил управление нашей автомойкой. Раньше мы тратили часы на подсчет зарплат и ведение статистики, а теперь все автоматизировано. Особенно нравится функция онлайн-записи - клиенты оценили удобство.",
-  },
-];
+import { home } from "@content";
+
+const testimonials = home.testimonials.list;
 
 export function TestimonialsSection() {
   const [current, setCurrent] = useState(0);
@@ -41,20 +24,21 @@ export function TestimonialsSection() {
     }, 250);
   };
 
+  const t = home.testimonials;
   return (
     <section className="py-12 md:py-20 bg-secondary/50">
       <div className="max-w-6xl mx-auto px-4">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
-              {"Отзывы клиентов"}
+              {t.heading}
             </h2>
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => slide("prev")}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors bg-background active:scale-90 transition-transform duration-150"
-                aria-label="Предыдущий отзыв"
+                aria-label={t.prevAria}
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -62,7 +46,7 @@ export function TestimonialsSection() {
                 type="button"
                 onClick={() => slide("next")}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-secondary transition-colors bg-background active:scale-90 transition-transform duration-150"
-                aria-label="Следующий отзыв"
+                aria-label={t.nextAria}
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -71,7 +55,6 @@ export function TestimonialsSection() {
         </AnimateOnScroll>
 
         <div className="flex gap-6 overflow-hidden">
-          {/* Main testimonial */}
           <div
             className={`flex-1 min-w-0 transition-all duration-300 ${
               sliding ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"
@@ -104,7 +87,6 @@ export function TestimonialsSection() {
             </div>
           </div>
 
-          {/* Peek at next testimonial */}
           <div
             className={`hidden lg:block w-72 flex-shrink-0 transition-all duration-300 ${
               sliding ? "opacity-0 translate-x-4" : "opacity-50 translate-x-0"

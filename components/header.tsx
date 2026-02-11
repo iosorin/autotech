@@ -4,14 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-
-const navLinks = [
-  { label: "Тарифы", href: "/tariffs" },
-  { label: "Обновления", href: "/updates" },
-  { label: "Мероприятия", href: "/events" },
-  { label: "Поддержка", href: "/support" },
-  { label: "Контакты", href: "/contacts" },
-];
+import { app } from "@content";
 
 export function Header() {
   const pathname = usePathname();
@@ -40,12 +33,12 @@ export function Header() {
               <div className="w-2.5 h-2.5 rounded-sm bg-primary" />
             </div>
             <span className="font-bold text-lg text-foreground">
-              {"Автотех"}
+              {app.name}
             </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+            {app.nav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -65,10 +58,10 @@ export function Header() {
 
           <div className="hidden md:block">
             <Link
-              href="/fleet"
+              href={app.fleetHref}
               className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 hover:scale-105"
             >
-              {"Автопаркам"}
+              {app.fleetLabel}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -92,7 +85,7 @@ export function Header() {
           }`}
         >
           <nav className="flex flex-col gap-3 px-4 py-3">
-            {navLinks.map((link) => (
+            {app.nav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -107,11 +100,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/fleet"
+              href={app.fleetHref}
               className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground w-fit"
               onClick={() => setMobileOpen(false)}
             >
-              {"Автопаркам"}
+              {app.fleetLabel}
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </nav>
