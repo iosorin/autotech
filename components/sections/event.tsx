@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 type Props = {
-  id: string;
+  id?: string;
   date: string;
   title: string;
   line1: string;

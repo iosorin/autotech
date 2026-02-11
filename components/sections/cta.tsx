@@ -5,14 +5,15 @@ import { ArrowUpRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 type Props = {
+  id?: string;
   title: string;
   start: string;
   contact: string;
 };
 
-const Cta = ({ title, start, contact }: Props) => {
+const Cta = ({ id, title, start, contact }: Props) => {
   return (
-    <section className="bg-gradient-to-b from-accent/60 to-background py-16">
+    <section id={id} className="bg-gradient-to-b from-accent/60 to-background py-16">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <AnimateOnScroll variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
