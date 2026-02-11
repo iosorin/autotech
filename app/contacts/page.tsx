@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ContactForm } from "@/components/contact-form";
@@ -24,12 +25,12 @@ export default function ContactsPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
             {"Обращение в техническую поддержку: перейдите на страницу "}
-            <a
+            <Link
               href="/support"
               className="text-primary underline hover:text-primary/80"
             >
               Поддержка
-            </a>
+            </Link>
           </p>
         </section>
 
