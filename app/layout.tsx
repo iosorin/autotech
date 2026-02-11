@@ -1,13 +1,14 @@
 import React from "react"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
-import "./globals.css";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import { app, seo } from "@content";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 
-const siteurl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru";
+const siteurl = app.siteurl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteurl),
@@ -61,7 +62,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
         />
-        {children}
+        <Header />
+        <main className="px-4 py-16">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

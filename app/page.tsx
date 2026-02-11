@@ -1,5 +1,3 @@
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/home/hero-section";
 import { EventBanner } from "@/components/home/event-banner";
 import { FeaturesSection } from "@/components/home/features-section";
@@ -16,22 +14,18 @@ import { JoinSection } from "@/components/home/join-section";
 export default function Page() {
   return (
     <>
-      <Header />
-      <main>
-        <HeroSection />
-        <EventBanner />
-        <FeaturesSection />
-        <UnifiedAccountSection />
-        <ExtraFeaturesSection />
-        <DataMigrationSection />
-        <NewClientsSection />
-        <CtaSection />
-        <FaqSection />
-        <PartnersSection />
-        <TestimonialsSection />
-        <JoinSection />
-      </main>
-      <Footer />
+      <HeroSection />
+      <EventBanner />
+      <FeaturesSection />
+      <UnifiedAccountSection />
+      <ExtraFeaturesSection />
+      <DataMigrationSection />
+      <NewClientsSection />
+      <CtaSection />
+      <FaqSection />
+      <PartnersSection />
+      <TestimonialsSection />
+      <JoinSection />
     </>
   );
 }

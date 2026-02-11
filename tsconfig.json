@@ -27,7 +27,7 @@
         "./*"
       ],
       "@content": [
-        "./content.ts"
+        "./content/"
       ]
     }
   },
