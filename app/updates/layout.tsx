@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Обновления",
-  description:
-    "Что нового в приложении Автотех. Описание доработок и обновлений для автомойки, детейлинга и шиномонтажа.",
+  title: seo.pages.updates.title,
+  description: seo.pages.updates.description,
 };
 
 export default function UpdatesLayout({

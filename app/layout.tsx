@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import { app, seo } from "@content";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 
@@ -11,44 +12,41 @@ const siteurl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru";
 export const metadata: Metadata = {
   metadataBase: new URL(siteurl),
   title: {
-    default: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
-    template: "%s | Автотех",
+    default: seo.defaultTitle,
+    template: seo.templateTitle,
   },
-  description:
-    "Платформа Автотех - приложение для управления автомойками, детейлинг-центрами и шиномонтажами. Статистика, CRM, онлайн-запись и расчет зарплат.",
+  description: seo.defaultDescription,
   openGraph: {
     type: "website",
     locale: "ru_RU",
     url: siteurl,
-    siteName: "Автотех",
-    title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
-    description:
-      "Платформа Автотех - приложение для управления автомойками, детейлинг-центрами и шиномонтажами. Статистика, CRM, онлайн-запись и расчет зарплат.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Автотех" }],
+    siteName: seo.siteName,
+    title: seo.defaultTitle,
+    description: seo.defaultDescription,
+    images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
-    description:
-      "Платформа Автотех - приложение для управления автомойками, детейлинг-центрами и шиномонтажами.",
+    title: seo.defaultTitle,
+    description: seo.defaultDescription,
   },
 };
 
 const jsonld = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Автотех",
+  name: app.name,
   url: siteurl,
   logo: `${siteurl}/placeholder-logo.svg`,
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+7-909-904-1111",
-    email: "info@moykazdes.ru",
+    telephone: app.phone.replace(/\s/g, "-"),
+    email: app.email,
     contactType: "customer service",
     areaServed: "RU",
     availableLanguage: "Russian",
   },
-  sameAs: ["https://t.me/moykazdes"],
+  sameAs: [app.telegramUrl],
 };
 
 export default function RootLayout({

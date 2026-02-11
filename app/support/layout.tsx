@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Поддержка",
-  description:
-    "Техническая поддержка Автотех. Обрабатываем заявки ежедневно с 08:00 до 23:00. Критические ошибки, доработки, вопросы по приложению для автомойки и шиномонтажа.",
+  title: seo.pages.support.title,
+  description: seo.pages.support.description,
 };
 
 export default function SupportLayout({

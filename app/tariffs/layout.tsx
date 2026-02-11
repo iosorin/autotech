@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@content";
 
 export const metadata: Metadata = {
-  title: "Тарифы",
-  description:
-    "Тарифы на приложение Автотех: автомойка, детейлинг, шиномонтаж. Помесячно, на 3 и 12 месяцев. Скидки для сетей от 2 точек.",
+  title: seo.pages.tariffs.title,
+  description: seo.pages.tariffs.description,
 };
 
 export default function TariffsLayout({
