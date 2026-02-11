@@ -20,7 +20,7 @@ type Props = {
   }[];
 };
 
-const Account = ({ id, titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
+export const Account = ({ id, titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
     <section id={id} className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4">

@@ -11,7 +11,7 @@ type Props = {
   note: string;
 };
 
-export function PartnersSection({ id, heading, name, nameSup, desc, note }: Props) {
+export function Partners({ id, heading, name, nameSup, desc, note }: Props) {
   return (
     <section id={id} className="py-12 md:py-20">
       <div className="max-w-3xl mx-auto px-4">

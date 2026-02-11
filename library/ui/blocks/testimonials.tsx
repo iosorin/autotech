@@ -14,7 +14,7 @@ type Props = {
   list: Testimonial[];
 };
 
-export function TestimonialsSection({ id, heading, prevAria, nextAria, list }: Props) {
+export function Testimonials({ id, heading, prevAria, nextAria, list }: Props) {
   const [current, setCurrent] = useState(0);
   const [sliding, setSliding] = useState(false);
 

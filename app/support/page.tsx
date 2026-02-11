@@ -1,9 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Lead } from "@ui/blocks/lead";
 import { Split } from "@ui/blocks/split";
 import { Links } from "@ui/blocks/links";
-import { app, support } from "@content";
+import { app, seo, support } from "@data";
+
+
+export const metadata: Metadata = {
+  title: seo.pages.support.title,
+  description: seo.pages.support.description,
+};
 
 export default function SupportPage() {
   const p = support;

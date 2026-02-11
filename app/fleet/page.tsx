@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Heart, Settings, SlidersHorizontal, Eye } from "lucide-react";
 import { Banner } from "@ui/blocks/banner";
 import { Icons } from "@ui/blocks/icons";
@@ -10,7 +9,12 @@ import { Halves } from "@ui/blocks/halves";
 import { Cards } from "@ui/blocks/cards";
 import { Steps } from "@ui/blocks/steps";
 import { Accordion } from "@ui/blocks/accordion";
-import { app, fleet } from "@content";
+import { app, fleet, seo } from "@data";
+
+export const metadata: Metadata = {
+  title: seo.pages.fleet.title,
+  description: seo.pages.fleet.description,
+};
 
 export default function FleetPage() {
   const f = fleet;

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { app } from "@content";
+import { app } from "@data";
 
 const robots = (): MetadataRoute.Robots => ({
   rules: { userAgent: "*", allow: "/" },

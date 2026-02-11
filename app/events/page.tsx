@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { Intro } from "@ui/blocks/intro";
 import { Promo } from "@ui/blocks/promo";
 import { List } from "@ui/blocks/list";
-import { events } from "@content";
+import { seo, events } from "@data";
+
+export const metadata: Metadata = {
+  title: seo.pages.events.title,
+  description: seo.pages.events.description,
+};
 
 export default function EventsPage() {
   const p = events;

@@ -14,7 +14,7 @@ type Props = {
   imageAlt: string;
 };
 
-const Clients = ({ id, subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
+export const Clients = ({ id, subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
   return (
     <section id={id} className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-4">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { app } from "@content";
+import { app } from "@data";
 
 export function Footer() {
   return (
