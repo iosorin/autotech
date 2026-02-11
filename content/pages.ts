@@ -87,7 +87,7 @@ export const home = {
         },
         imageAlt: "Интерфейс приложения",
     },
-    unifiedAccount: {
+    account: {
         subtitle: "У вас сеть автомоек или шиномонтажей?",
         titleLine1: "Теперь у вас будет",
         titleLine2: "единый аккаунт для всех точек",
@@ -175,7 +175,7 @@ export const home = {
             "Количество визитов",
         ],
     },
-    newClients: {
+    clients: {
         subtitle: "Самое главное:",
         titleLine1: "Мы будем приводить к вам",
         titleLine2: "новых клиентов!",
