@@ -1,0 +1,85 @@
+import React from "react"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Header } from "@ui/blocks/header";
+import { Footer } from "@ui/blocks/footer";
+import { Sonner } from "@ui/atoms/sonner";
+import { app, seo } from "@data";
+import "./style.css";
+import { openGraph } from "./utils";
+
+const inter = Inter({ subsets: ["cyrillic"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  metadataBase: new URL(app.siteurl),
+  alternates: { canonical: "/", },
+  title: { default: seo.defaultTitle, template: seo.templateTitle, },
+  description: seo.defaultDescription,
+  keywords: seo.keywords,
+  openGraph: openGraph(seo.defaultTitle, seo.defaultDescription),
+  publisher: app.company.name,
+  manifest: "/site.webmanifest",
+  icons: { icon: "/favicon/favicon.ico", apple: "/favicon/apple-touch-icon.png" },
+  twitter: {
+    card: "summary_large_image",
+    site: app.telegram.label,  // todo - change to twitter account
+    title: seo.defaultTitle,
+    description: seo.defaultDescription,
+    images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
+
+  },
+  verification: {
+    google: "BOArqqCtqsRqa5JhqbSN7ZSxkLVlpPNtPoGupnwPHiY",
+  },
+};
+
+export const Layout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
+  return (
+    <html lang="ru">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              { "@type": "Organization", ...seo.jsonld },
+              { "@type": "LocalBusiness", ...seo.jsonld },
+            ])
+          }}
+        />
+
+        <Header
+          title={app.name}
+          logo={app.logo}
+          nav={app.nav}
+          featured={app.featured}
+          className="max-w-6xl px-4 mx-auto fixed top-4 lg:top-8 left-0 right-0 z-50 rounded-full h-header"
+        />
+
+        <main className="max-w-6xl px-4 mx-auto">
+          {children}
+        </main>
+
+        <Footer
+          title={app.name}
+          logo={app.logo}
+          nav={app.nav}
+          links={app.links}
+          phone={app.phone} email={app.email}
+          telegram={app.telegram}
+          featured={app.featured}
+          company={app.company}
+          copyright={app.copyright}
+          className="max-w-6xl"
+        />
+
+        <Sonner />
+      </body>
+    </html>
+  );
+}
+
+export default Layout;

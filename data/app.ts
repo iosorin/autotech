@@ -1,0 +1,106 @@
+const lkurl = "https://work.moykazdes.ru/";
+
+// https://autotech-gammma.vercel.app/
+export const app = {
+  name: "Автотех",
+  tagline: "Платформа Автотех",
+  // title: "Автотех - Приложение для Управления Автосервисом",
+  title: "Автотех - Управление автомойкой, детейлингом и шиномонтажем",
+  description:
+    "Полный комплекс для автоматизации автосервиса: онлайн-запись, CRM, учет сезонного хранения шин, гибкий расчет зарплат, интеграции с камерами и 1С.",
+  siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://autotech-gammma.vercel.app",
+  app: lkurl,
+  copyright: "© " + new Date().getFullYear(),
+  logo: "/logo.png",
+  phone: "+7 909 904 1111",
+  phoneRaw: "+79099041111",
+  email: "info@moykazdes.ru",
+  supportEmail: "support@avtotech.com",
+  telegram: {
+    label: "@moykazdes",
+    href: "https://t.me/moykazdes",
+  },
+  telegramSupport: {
+    label: "@avtotech_support",
+    href: "https://t.me/avtotech_support",
+  },
+  company: {
+    name: "ООО ГТМ Лабс",
+    short: "ООО «ГТМ Лабс»",
+    inn: "9709051668",
+    kpp: "770901001",
+    ogrn: "1197746443036",
+    bik: "044525104",
+    kс: "30101810745374525104",
+    head: "Г.В. Шухрин",
+    headfull: "Шухрин Геннадий Владимирович",
+    okpo: "40652356",
+    phone: "+7 925 192 3699",
+    city: "Москва",
+    postalCode: "105064",
+    fulladdress: "105064, Москва, Нижний Сусальный пер., 5, стр. 17, помещение I, комната 6",
+    address: "Нижний Сусальный пер., 5с17, 4 этаж",
+    addressLine1: "Нижний Сусальный пер.,",
+    addressLine2: "5с17, 4 этаж",
+    addressFull:
+      "105064, Москва, Нижний Сусальный переулок, дом 5, строение 17, помещение I, комната 6",
+    bank: {
+      account: "40702810001500047419",
+      name: "ТОЧКА ПАО БАНКА «ФК ОТКРЫТИЕ»",
+      inn: "7706092528",
+      kpp: "770543002",
+      bik: "044525999",
+      city: "Москва",
+      corr: "30101810845250000999 в ГУ БАНКА РОССИИ ПО ЦФО",
+    },
+  },
+  nav: [
+    { label: "Тарифы", href: "/tariffs", alt: "Посмотреть наши тарифы и цены на услуги" },
+    { label: "Обновления", href: "/updates", alt: "Последние новости и обновления сервиса" },
+    // { label: "Мероприятия", href: "/events" },
+    { label: "Поддержка", href: "/support", alt: "Техническая поддержка и помощь клиентам" },
+    { label: "Контакты", href: "/contacts", alt: "Свяжитесь с нами - контактная информация" },
+  ],
+  links: [
+    { label: "Агентский договор", href: "/contract", alt: "Полный текст агентского договора для партнеров" },
+    { label: "Пользовательское соглашение", href: "/license", alt: "Условия использования и пользовательское соглашение" },
+    { label: "Политика обработки персональных данных", href: "/privacy", alt: "Политика конфиденциальности и обработки личных данных" },
+  ],
+  featured: { label: "Автопаркам", href: "/fleet", alt: "Решения для управления автопарком" },
+  cta: {
+    start: {
+      id: "cta-start",
+      label: "Начать работать",
+      href: lkurl,
+      blank: true,
+    },
+    contact: {
+      id: "cta-contact",
+      label: "Связаться с нами",
+      href: "/contacts",
+      props: {
+        variant: "outline",
+        className: "rounded-full",
+      },
+    },
+    cabinet: {
+      id: "cta-cabinet",
+      label: "Перейти в личный кабинет",
+      href: lkurl,
+      blank: true,
+    },
+    more: {
+      id: "cta-more",
+      label: "Узнать больше",
+      href: lkurl,
+      blank: true,
+    },
+    telegram: {
+      label: "Подпишитесь на наш телеграм-канал",
+      href: "https://t.me/moykazdes",
+    },
+    details: "Узнать детали",
+    // more: "Узнать больше",
+    // cabinet: "Перейти в личный кабинет",
+  },
+};
