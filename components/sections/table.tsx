@@ -21,7 +21,7 @@ type Props = {
   priceNote2: string;
 };
 
-export function TariffsTable({ id, periods, plans, priceNote, priceNote2 }: Props) {
+export function Table({ id, periods, plans, priceNote, priceNote2 }: Props) {
   const [activePeriod, setActivePeriod] = useState(periods[0]?.id ?? "1m");
   return (
     <section id={id} className="px-4 pb-12">

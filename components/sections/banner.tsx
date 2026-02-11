@@ -17,7 +17,7 @@ type Props = {
   contactCta: string;
 };
 
-export function FleetHero({
+export function Banner({
   id,
   eyebrow,
   heroTitle,

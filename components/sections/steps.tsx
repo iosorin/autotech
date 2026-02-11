@@ -14,7 +14,7 @@ type Props = {
   moreCta: string;
 };
 
-export function FleetSteps({ id, heading, steps, cabinetCta, moreCta }: Props) {
+export function Steps({ id, heading, steps, cabinetCta, moreCta }: Props) {
   return (
     <section id={id} className="py-16 md:py-20 bg-gradient-to-b from-[#e8f5e9] to-[#f1f8e9]">
       <div className="max-w-3xl mx-auto px-4">

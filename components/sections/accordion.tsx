@@ -12,7 +12,7 @@ type Props = {
   items: FaqItem[];
 };
 
-export function FleetFaq({ id, heading, items }: Props) {
+export function Accordion({ id, heading, items }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   return (
     <section id={id} className="py-16 md:py-20">

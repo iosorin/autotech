@@ -10,7 +10,7 @@ type Props = {
   items: Item[];
 };
 
-export function FleetApproaches({ id, heading, items }: Props) {
+export function Cards({ id, heading, items }: Props) {
   return (
     <section id={id} className="py-16 md:py-20">
       <div className="max-w-6xl mx-auto px-4">

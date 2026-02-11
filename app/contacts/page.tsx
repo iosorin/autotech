@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { PageHero } from "@/components/sections/page-hero";
-import { DesignedFor } from "@/components/sections/designed-for";
-import { IconCards } from "@/components/sections/icon-cards";
-import { MissionBlock } from "@/components/sections/mission-block";
-import { ContactFormBlock } from "@/components/sections/contact-form-block";
-import { ContactLinks } from "@/components/sections/contact-links";
+import { Lead } from "@/components/sections/lead";
+import { Grid } from "@/components/sections/grid";
+import { Icons } from "@/components/sections/icons";
+import { Form } from "@/components/sections/form";
+import { Links } from "@/components/sections/links";
 import { Requisites } from "@/components/sections/requisites";
 import { app, contacts } from "@content";
 
@@ -14,7 +13,7 @@ export default function ContactsPage() {
   const p = contacts;
   return (
     <>
-      <PageHero
+      <Lead
         id="contacts"
         title={p.title}
         hint={
@@ -26,11 +25,11 @@ export default function ContactsPage() {
           </>
         }
       />
-      <DesignedFor id="designed-for" heading={p.designedForHeading} blocks={p.designedFor} />
-      <IconCards id="dev" heading={p.devHeading} items={p.dev} />
-      <MissionBlock id="mission" heading={p.missionHeading} items={p.mission} />
-      <ContactFormBlock id="form" heading={p.contactHeading} />
-      <ContactLinks
+      <Grid id="designed-for" heading={p.designedForHeading} blocks={p.designedFor} />
+      <Icons id="dev" heading={p.devHeading} items={p.dev} />
+      <Icons id="mission" heading={p.missionHeading} items={p.mission} variant="stack" />
+      <Form id="form" heading={p.contactHeading} />
+      <Links
         id="other-contact"
         heading={p.otherContactHeading}
         labels={p.contactLabels}

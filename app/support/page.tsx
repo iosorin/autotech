@@ -1,25 +1,21 @@
 "use client";
 
-import { PageHero } from "@/components/sections/page-hero";
-import { SupportLayout } from "@/components/sections/support-layout";
-import { ContactLinks } from "@/components/sections/contact-links";
+import { Lead } from "@/components/sections/lead";
+import { Split } from "@/components/sections/split";
+import { Links } from "@/components/sections/links";
 import { app, support } from "@content";
 
 export default function SupportPage() {
   const p = support;
   return (
     <>
-      <PageHero
-        id="support"
-        title={p.title}
-        hint={p.subtitle}
-      />
-      <SupportLayout
+      <Lead id="support" title={p.title} hint={p.subtitle} />
+      <Split
         id="response"
         responseHeading={p.responseHeading}
         responseTypes={p.responseTypes}
       />
-      <ContactLinks
+      <Links
         id="other-contact"
         heading={p.otherContactHeading}
         labels={p.contactLabels}
