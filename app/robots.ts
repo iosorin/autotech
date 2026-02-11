@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru";
+import { app } from "@content";
 
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: { userAgent: "*", allow: "/" },
-    sitemap: `${base}/sitemap.xml`,
-  };
-}
+const robots = (): MetadataRoute.Robots => ({
+  rules: { userAgent: "*", allow: "/" },
+  sitemap: `${app.siteurl}/sitemap.xml`,
+});
+
+export default robots;

@@ -1,6 +1,6 @@
-import { Intro } from "@/components/sections/intro";
-import { Promo } from "@/components/sections/promo";
-import { List } from "@/components/sections/list";
+import { Intro } from "@ui/blocks/intro";
+import { Promo } from "@ui/blocks/promo";
+import { List } from "@ui/blocks/list";
 import { events } from "@content";
 
 export default function EventsPage() {

@@ -1,10 +1,10 @@
 "use client";
 
-import Cta from "@/components/sections/cta";
-import { Lead } from "@/components/sections/lead";
-import { Table } from "@/components/sections/table";
-import { Rates } from "@/components/sections/rates";
-import { Checklist } from "@/components/sections/checklist";
+import Cta from "@ui/blocks/cta";
+import { Lead } from "@ui/blocks/lead";
+import { Table } from "@ui/blocks/table";
+import { Rates } from "@ui/blocks/rates";
+import { Checklist } from "@ui/blocks/checklist";
 import { app, tariffs } from "@content";
 
 export default function TariffsPage() {

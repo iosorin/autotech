@@ -32,11 +32,14 @@
       "@hooks/*": [
         "./lib/hooks/*"
       ],
+      "@utils": [
+        "./lib/utils"
+      ],
       "@utils/*": [
         "./lib/utils/*"
       ],
-      "@utils": [
-        "./lib/utils"
+      "@ui/*": [
+        "./lib/ui/*"
       ],
     }
   },
