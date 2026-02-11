@@ -31,7 +31,7 @@ type Props = {
   ctaContact: string;
 };
 
-export function HeroSection({
+export function Hero({
   id,
   subtitle,
   titleLine1,

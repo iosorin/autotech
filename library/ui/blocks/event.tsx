@@ -14,7 +14,7 @@ type Props = {
   button: string;
 };
 
-const Event = ({ id, date, title, line1, line2, cta, button }: Props) => {
+export const Event = ({ id, date, title, line1, line2, cta, button }: Props) => {
   return (
     <section id={id} className="py-8">
       <div className="max-w-3xl mx-auto px-4">

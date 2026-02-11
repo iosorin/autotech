@@ -11,7 +11,7 @@ type Props = {
   contact: string;
 };
 
-const Cta = ({ id, title, start, contact }: Props) => {
+export const Cta = ({ id, title, start, contact }: Props) => {
   return (
     <section id={id} className="bg-gradient-to-b from-accent/60 to-background py-16">
       <div className="max-w-3xl mx-auto px-4 text-center">

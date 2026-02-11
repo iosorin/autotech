@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { app } from "@content";
+import { app } from "@data";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const routes = [

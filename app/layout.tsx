@@ -3,15 +3,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
-import { app, seo } from "@content";
+import { app, seo } from "@data";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 
-const siteurl = app.siteurl;
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteurl),
+  metadataBase: new URL(app.siteurl),
   title: {
     default: seo.defaultTitle,
     template: seo.templateTitle,
@@ -20,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: siteurl,
+    url: app.siteurl,
     siteName: seo.siteName,
     title: seo.defaultTitle,
     description: seo.defaultDescription,
@@ -37,8 +35,8 @@ const jsonld = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: app.name,
-  url: siteurl,
-  logo: `${siteurl}/placeholder-logo.svg`,
+  url: app.siteurl,
+  logo: `${app.siteurl}/placeholder-logo.svg`,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: app.phone.replace(/\s/g, "-"),

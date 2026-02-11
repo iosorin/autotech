@@ -11,7 +11,7 @@ type Props = {
   items: string[];
 };
 
-export function DataMigrationSection({ id, titleLine1, titleLine2, desc, items }: Props) {
+export function DataMigration({ id, titleLine1, titleLine2, desc, items }: Props) {
   return (
     <section id={id} className="bg-gradient-to-b from-accent/60 to-background py-16 md:py-24">
       <div className="max-w-3xl mx-auto px-4 text-center">

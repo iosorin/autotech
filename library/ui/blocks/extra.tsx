@@ -17,7 +17,7 @@ type ExtraProps = {
   mechanicImageAlt: string;
 };
 
-export function ExtraFeaturesSection({
+export function ExtraFeatures({
   id,
   title,
   titleHighlight,

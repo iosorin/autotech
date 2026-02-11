@@ -39,7 +39,7 @@ type Props = {
   imageAlt: string;
 };
 
-export function FeaturesSection({ id, tabs, content, imageAlt }: Props) {
+export function Features({ id, tabs, content, imageAlt }: Props) {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? "orders");
   const tabContent = content[activeTab];
 

@@ -26,20 +26,20 @@
       "@/*": [
         "./*"
       ],
-      "@content": [
-        "./content/"
+      "@data": [
+        "./data/"
       ],
       "@hooks/*": [
-        "./lib/hooks/*"
+        "./library/hooks/*"
       ],
       "@utils": [
-        "./lib/utils"
+        "./library/utils"
       ],
       "@utils/*": [
-        "./lib/utils/*"
+        "./library/utils/*"
       ],
       "@ui/*": [
-        "./lib/ui/*"
+        "./library/ui/*"
       ],
     }
   },

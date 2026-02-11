@@ -14,7 +14,7 @@ type Props = {
   items: { question: string; answer: string }[];
 };
 
-export function FaqSection({ id, heading, items }: Props) {
+export function Faq({ id, heading, items }: Props) {
   return (
     <section id={id} className="py-16 md:py-24">
       <div className="max-w-3xl mx-auto px-4">

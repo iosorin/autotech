@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { app } from "@content";
+import { app } from "@data";
 
 export function Header() {
   const pathname = usePathname();
@@ -21,11 +21,10 @@ export function Header() {
     <>
       <div className="h-1 bg-accent w-full" />
       <header
-        className={`sticky top-0 z-50 border-b border-border transition-all duration-300 ${
-          scrolled
+        className={`sticky top-0 z-50 border-b border-border transition-all duration-300 ${scrolled
             ? "bg-background/80 backdrop-blur-lg shadow-sm"
             : "bg-background"
-        }`}
+          }`}
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
           <Link href="/" className="flex items-center gap-2 group">
@@ -42,11 +41,10 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors duration-200 hover:text-foreground relative ${
-                  pathname === link.href
+                className={`text-sm transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
                     ? "text-foreground font-medium"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
                 {pathname === link.href && (
@@ -80,20 +78,18 @@ export function Header() {
         </div>
 
         <div
-          className={`md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${
-            mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
-          }`}
+          className={`md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
+            }`}
         >
           <nav className="flex flex-col gap-3 px-4 py-3">
             {app.nav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm py-1 transition-colors duration-200 ${
-                  pathname === link.href
+                className={`text-sm py-1 transition-colors duration-200 ${pathname === link.href
                     ? "text-foreground font-medium"
                     : "text-muted-foreground"
-                }`}
+                  }`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

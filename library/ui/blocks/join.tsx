@@ -12,7 +12,7 @@ type Props = {
   ctaContact: string;
 };
 
-export function JoinSection({ id, titleLine1, titleLine2, ctaStart, ctaContact }: Props) {
+export function Join({ id, titleLine1, titleLine2, ctaStart, ctaContact }: Props) {
   return (
     <section id={id} className="py-16 md:py-24">
       <div className="max-w-3xl mx-auto px-4 text-center">

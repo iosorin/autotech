@@ -1,13 +1,18 @@
-"use client";
-
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Lead } from "@ui/blocks/lead";
 import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
 import { Form } from "@ui/blocks/form";
 import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
-import { app, contacts } from "@content";
+import { seo, app, contacts } from "@data";
+
+
+export const metadata: Metadata = {
+  title: seo.pages.contacts.title,
+  description: seo.pages.contacts.description,
+};
 
 export default function ContactsPage() {
   const p = contacts;

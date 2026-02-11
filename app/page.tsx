@@ -1,21 +1,21 @@
-import { HeroSection } from "@ui/blocks/hero";
-import Event from "@ui/blocks/event";
-import { FeaturesSection } from "@ui/blocks/features";
-import Account from "@ui/blocks/account";
-import { ExtraFeaturesSection } from "@ui/blocks/extra";
-import { DataMigrationSection } from "@ui/blocks/migration";
-import Clients from "@ui/blocks/clients";
-import Cta from "@ui/blocks/cta";
-import { FaqSection } from "@ui/blocks/faq";
-import { PartnersSection } from "@ui/blocks/partners";
-import { TestimonialsSection } from "@ui/blocks/testimonials";
-import { JoinSection } from "@ui/blocks/join";
-import { app, home } from "@content";
+import { Hero } from "@ui/blocks/hero";
+import { Event } from "@ui/blocks/event";
+import { Features } from "@ui/blocks/features";
+import { Account } from "@ui/blocks/account";
+import { ExtraFeatures } from "@ui/blocks/extra";
+import { DataMigration } from "@ui/blocks/migration";
+import { Clients } from "@ui/blocks/clients";
+import { Cta } from "@ui/blocks/cta";
+import { Faq } from "@ui/blocks/faq";
+import { Partners } from "@ui/blocks/partners";
+import { Testimonials } from "@ui/blocks/testimonials";
+import { Join } from "@ui/blocks/join";
+import { app, home } from "@data";
 
-export default function Page() {
+const Page = () => {
   return (
     <>
-      <HeroSection
+      <Hero
         id="hero"
         subtitle={home.hero.subtitle}
         titleLine1={home.hero.titleLine1}
@@ -41,7 +41,7 @@ export default function Page() {
         button={home.eventBanner.button}
       />
 
-      <FeaturesSection
+      <Features
         id="features"
         tabs={home.features.tabs}
         content={home.features.content}
@@ -58,7 +58,7 @@ export default function Page() {
         cards={home.account.cards}
       />
 
-      <ExtraFeaturesSection
+      <ExtraFeatures
         id="extra"
         title={home.extraFeatures.title}
         titleHighlight={home.extraFeatures.titleHighlight}
@@ -71,7 +71,7 @@ export default function Page() {
         mechanicImageAlt={home.extraFeatures.mechanicImageAlt}
       />
 
-      <DataMigrationSection
+      <DataMigration
         id="migration"
         titleLine1={home.dataMigration.titleLine1}
         titleLine2={home.dataMigration.titleLine2}
@@ -96,13 +96,13 @@ export default function Page() {
         contact={app.cta.contact}
       />
 
-      <FaqSection
+      <Faq
         id="faq"
         heading={home.faq.heading}
         items={home.faq.items}
       />
 
-      <PartnersSection
+      <Partners
         id="partners"
         heading={home.partners.heading}
         name={home.partners.name}
@@ -111,7 +111,7 @@ export default function Page() {
         note={home.partners.note}
       />
 
-      <TestimonialsSection
+      <Testimonials
         id="testimonials"
         heading={home.testimonials.heading}
         prevAria={home.testimonials.prevAria}
@@ -119,7 +119,7 @@ export default function Page() {
         list={home.testimonials.list}
       />
 
-      <JoinSection
+      <Join
         id="join"
         titleLine1={home.join.titleLine1}
         titleLine2={home.join.titleLine2}
@@ -129,3 +129,5 @@ export default function Page() {
     </>
   );
 }
+
+export default Page;
