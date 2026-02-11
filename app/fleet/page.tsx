@@ -1,0 +1,128 @@
+import type { Metadata } from "next";
+import { Icons } from "@ui/blocks/icons";
+import { Promo } from "@ui/blocks/promo";
+import { Compare } from "@ui/blocks/compare";
+import { Hero } from "@ui/blocks/hero";
+import { Cabinet } from "@ui/blocks/cabinet";
+import { Extra } from "@ui/blocks/extra";
+import { Cta } from "@ui/blocks/cta";
+import { Faq } from "@ui/blocks/faq";
+import { Block } from "@ui/blocks/block";
+import { Lead } from "@ui/atoms/lead";
+import { Form } from "@ui/blocks/form";
+import contact from "@api/contact";
+import { app, fleet, forms, seo } from "@data";
+import { openGraph } from "@/app/utils";
+
+export const metadata: Metadata = {
+  title: seo.pages.fleet.title,
+  description: seo.pages.fleet.description,
+  alternates: { canonical: "/fleet" },
+  openGraph: openGraph(seo.pages.fleet.title, seo.pages.fleet.description, '/fleet'),
+};
+
+export const Fleet = () => {
+  const p = fleet;
+
+  const ctaCabinet = <Cta items={[app.cta.cabinet, app.cta.more]}>
+    <Cta.Slot id={app.cta.more.id}>
+      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+    </Cta.Slot>
+  </Cta>
+  const ctaContact = <Cta items={[app.cta.contact]}>
+    <Cta.Slot id={app.cta.contact.id}>
+      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+    </Cta.Slot>
+  </Cta>
+
+  return (
+    <>
+      <section id="fleet" className="layered pb-0">
+        <Hero
+          heading={<Lead title={p.hero.subtitle} tags={{ title: 'h1', label: 'h2' }} label={p.hero.title} />}
+          features={p.hero.features}
+          card={p.hero.card}
+          image={p.hero.image}
+          cta={ctaContact}
+        />
+        <div className="layer bg-gradient-lime" />
+      </section>
+
+      <section id="why">
+        <Lead title={p.why.heading} />
+        <Icons items={p.why.items} cols={2} />
+      </section>
+
+      <section id="compare">
+        <Compare data={p.compare} />
+      </section>
+
+      <section id="seasonal">
+        <Extra tire={p.seasonal} />
+      </section>
+
+      <section id="approaches">
+        <Lead title={p.approaches.heading} className="max-md:text-left" />
+        <Icons items={p.approaches.items} left />
+      </section>
+
+      <section id="flexible">
+        <Block
+          heading={<Lead title={p.flexible.heading} className="text-left !mb-0" />}
+          items={p.flexible.items}
+          image={p.flexible.image}
+          cta={ctaContact}
+          // className="flex-row-reverse"
+          reverse
+        />
+      </section>
+
+      <section id="how-it-works" className="layered pb-0">
+        <div className="md:max-w-[85%] mx-auto mb-16">
+          <Lead title={p.how.heading} className="!mb-0" />
+          <Icons items={p.how.items} variant="stack" />
+        </div>
+        {ctaCabinet}
+        <div className="layer bg-gradient-lime" />
+      </section>
+
+      <section id="transparency">
+        <Block
+          heading={<Lead title={p.transparency.heading} className="text-left !mb-0" />}
+          items={p.transparency.items}
+          image={p.transparency.image}
+          // className="flex-row-reverse"
+          reverse
+        />
+      </section>
+
+      <section id="cabinet">
+        <Lead title={p.cabinet.heading} className="max-md:text-left" />
+        <Cabinet
+          list={p.cabinet.list}
+          choice={p.cabinet.choice}
+          filter={p.cabinet.filter}
+          image={p.cabinet.image}
+        />
+      </section>
+
+      <section id="hrd">
+        <Promo
+          title={p.hrd.heading}
+          desc={p.hrd.desc}
+          icon={p.hrd.icon}
+          cta={ctaCabinet}
+          className="bg-gradient-blue"
+        />
+      </section>
+
+      <section id="faq" className="layered">
+        <Lead title={p.faq.heading} />
+        <Faq items={p.faq.items} />
+        <div className="layer bg-gradient-gray-white" />
+      </section>
+    </>
+  );
+}
+
+export default Fleet; 
