@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
-import { app, home } from "@content";
+import { home } from "@content";
 
 export function EventBanner() {
   const b = home.eventBanner;
