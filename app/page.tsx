@@ -15,7 +15,9 @@ import { app, home } from "@data";
 const Page = () => {
   return (
     <>
-      <section id="hero" className="py-12 md:py-20">
+      <section id="hero" className="py-12 md:py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-100 via-blue-50 to-background -z-10" />
+        
         <div className="max-w-6xl mx-auto px-4">
           <Hero
             subtitle={home.hero.subtitle}
@@ -48,7 +50,6 @@ const Page = () => {
       </section>
 
       <section id="features" className="py-12 md:py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-sky-100 via-blue-50 to-background -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 relative">
           <Features
