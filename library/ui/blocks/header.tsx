@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, } from "lucide-react";
 import { cn } from "@utils";
 
 type Props = {
@@ -71,10 +71,10 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
         <div className="hidden md:block">
           <Link
             href={featured.href}
-            className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 hover:scale-105"
+            className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 "
           >
             {featured.label}
-            <ArrowRight className="w-3.5 h-3.5" />
+            {/* <ArrowRight className="w-3.5 h-3.5" /> */}
           </Link>
         </div>
 
@@ -115,7 +115,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             onClick={() => setMobileOpen(false)}
           >
             {featured.label}
-            <ArrowRight className="w-3.5 h-3.5" />
+            {/* <ArrowRight className="w-3.5 h-3.5" /> */}
           </Link>
         </nav>
       </div>

@@ -41,7 +41,7 @@ export const Halves = ({
       {cta ? (
         <Link
           href="/contacts"
-          className="mt-8 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-7 py-3 text-sm font-medium hover:opacity-90 hover:scale-105 transition-all duration-200"
+          className="mt-8 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-7 py-3 text-sm font-medium hover:opacity-90  transition-all duration-200"
         >
           {cta}
           <ArrowUpRight className="w-4 h-4" />
@@ -60,27 +60,27 @@ export const Halves = ({
   );
   return (
     <div className="flex flex-col lg:flex-row gap-10 items-center">
-          {imagePosition === "left" ? (
-            <>
-              <Enter variant="fade-right" duration={700} className="lg:w-1/2">
-                {img}
-              </Enter>
-              <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/2">
-                {content}
-              </Enter>
-            </>
-          ) : (
-            <>
-              <Enter variant="fade-right" duration={600} className="lg:w-1/2">
-                {content}
-              </Enter>
-              <Enter variant="fade-left" delay={200} duration={700} className="lg:w-1/2">
-                {img}
-              </Enter>
-            </>
-          )
-          }
-        </div >
+      {imagePosition === "left" ? (
+        <>
+          <Enter variant="fade-right" duration={700} className="lg:w-1/2">
+            {img}
+          </Enter>
+          <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/2">
+            {content}
+          </Enter>
+        </>
+      ) : (
+        <>
+          <Enter variant="fade-right" duration={600} className="lg:w-1/2">
+            {content}
+          </Enter>
+          <Enter variant="fade-left" delay={200} duration={700} className="lg:w-1/2">
+            {img}
+          </Enter>
+        </>
+      )
+      }
+    </div >
   );
 };
 
