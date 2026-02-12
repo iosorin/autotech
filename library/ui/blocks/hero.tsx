@@ -25,7 +25,10 @@ type Props = {
   cardTitle1: string;
   cardTitle2: string;
   cardDesc: string;
-  imageAlt: string;
+  image: {
+    src: string;
+    alt: string;
+  }
   ctaStart: {
     label: string;
     href: string;
@@ -47,7 +50,7 @@ export const Hero = ({
   cardTitle1,
   cardTitle2,
   cardDesc,
-  imageAlt,
+  image,
   ctaStart,
   ctaContact,
   className,
@@ -122,16 +125,18 @@ export const Hero = ({
         </div >
 
         <Enter variant="scale-up" delay={150} duration={800} className="lg:w-2/4 flex justify-center" >
-          <div className="relative w-full max-w-md">
-            <Image
-              src="/images/app-mockup.jpg"
-              alt={imageAlt}
-              width={500}
-              height={600}
-              className="rounded-3xl shadow-lg w-auto h-auto"
-              priority
-            />
-          </div>
+          {image &&
+            <div className="relative w-full max-w-md">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={500}
+                height={600}
+                className="rounded-3xl shadow-lg w-auto h-auto"
+                priority
+              />
+            </div>
+          }
         </Enter >
 
         <Enter variant="fade-left" delay={300} duration={600} className="lg:w-1/4" >

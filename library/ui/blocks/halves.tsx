@@ -12,7 +12,10 @@ type Props = {
   imageAlt: string;
   imagePosition: "left" | "right";
   headingIcon?: React.ReactNode;
-  cta?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
 };
 
 export const Halves = ({
@@ -40,10 +43,10 @@ export const Halves = ({
       </div>
       {cta ? (
         <Link
-          href="/contacts"
+          href={cta.href}
           className="mt-8 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-7 py-3 text-sm font-medium hover:opacity-90  transition-all duration-200"
         >
-          {cta}
+          {cta.label}
           <ArrowUpRight className="w-4 h-4" />
         </Link>
       ) : null}

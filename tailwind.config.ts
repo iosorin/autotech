@@ -80,6 +80,10 @@ const config: Config = {
           border: 'var(--sidebar-border)',
           ring: 'var(--sidebar-ring)',
         },
+
+      },
+      backgroundImage: {
+        'gradient-gray': 'var(--gradient-gray)',
       },
       borderRadius: {
         lg: 'var(--radius)',

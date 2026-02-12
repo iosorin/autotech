@@ -17,20 +17,20 @@ export const metadata: Metadata = {
 };
 
 export default function FleetPage() {
-  const f = fleet;
+  const p = fleet;
   return (
     <>
       <section id="fleet" className="py-16 md:py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-[#e8f5e9] to-background -z-10" />
         <div className="max-w-6xl mx-auto px-4 relative">
           <Banner
-            eyebrow={f.eyebrow}
-            heroTitle={f.heroTitle}
-            heroBadge1={f.heroBadge1}
-            heroBadge2={f.heroBadge2}
-            heroCardTitle={f.heroCardTitle}
-            heroCardDesc={f.heroCardDesc}
-            heroImageAlt={f.heroImageAlt}
+            eyebrow={p.eyebrow}
+            heroTitle={p.heroTitle}
+            heroBadge1={p.heroBadge1}
+            heroBadge2={p.heroBadge2}
+            heroCardTitle={p.heroCardTitle}
+            heroCardDesc={p.heroCardDesc}
+            image={p.image}
             contactCta={app.cta.contact}
           />
         </div>
@@ -39,8 +39,8 @@ export default function FleetPage() {
       <section id="why" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <Icons
-            heading={f.whyHeading}
-            items={f.whyConvenient}
+            heading={p.whyHeading}
+            items={p.whyConvenient}
             cols={2}
             variant="highlight"
           />
@@ -50,13 +50,13 @@ export default function FleetPage() {
       <section id="cabinet" className="py-16 md:py-20 bg-secondary">
         <div className="max-w-6xl mx-auto px-4">
           <Columns
-            heading={f.cabinetHeading}
-            list={f.cabinetList}
-            choiceTitle={f.cabinetChoiceTitle}
-            choiceTags={f.cabinetChoiceTags}
-            filterTitle={f.cabinetFilterTitle}
-            filterTags={f.cabinetFilterTags}
-            imageAlt={f.appImageAlt}
+            heading={p.cabinetHeading}
+            list={p.cabinetList}
+            choiceTitle={p.cabinetChoiceTitle}
+            choiceTags={p.cabinetChoiceTags}
+            filterTitle={p.cabinetFilterTitle}
+            filterTags={p.cabinetFilterTags}
+            imageAlt={p.appImageAlt}
           />
         </div>
       </section>
@@ -64,8 +64,8 @@ export default function FleetPage() {
       <section id="hrd" className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4">
           <Promo
-            title={f.hrdTitle}
-            desc={f.hrdDesc}
+            title={p.hrdTitle}
+            desc={p.hrdDesc}
             primaryCta={app.cta.cabinet}
             primaryHref="#"
             secondaryCta={app.cta.more}
@@ -78,9 +78,9 @@ export default function FleetPage() {
       <section id="before-after" className="py-16 md:py-20">
         <div className="max-w-5xl mx-auto px-4">
           <Compare
-            beforeLabel={f.beforeLabel}
-            afterLabel={f.afterLabel}
-            items={f.beforeAfter}
+            beforeLabel={p.beforeLabel}
+            afterLabel={p.afterLabel}
+            items={p.beforeAfter}
           />
         </div>
       </section>
@@ -88,10 +88,10 @@ export default function FleetPage() {
       <section id="seasonal" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <Halves
-            title={f.seasonalHeading}
-            list={f.seasonalList}
+            title={p.seasonalHeading}
+            list={p.seasonalList}
             imageSrc="/images/tire-mechanic.jpg"
-            imageAlt={f.seasonalImageAlt}
+            imageAlt={p.seasonalImageAlt}
             imagePosition="right"
             headingIcon={<Settings className="w-7 h-7 text-muted-foreground" />}
           />
@@ -100,17 +100,17 @@ export default function FleetPage() {
 
       <section id="approaches" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <Cards heading={f.approachesHeading} items={f.approaches} />
+          <Cards heading={p.approachesHeading} items={p.approaches} />
         </div>
       </section>
 
       <section id="flexible" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <Halves
-            title={f.flexibleTitle}
-            list={f.flexibleList}
+            title={p.flexibleTitle}
+            list={p.flexibleList}
             imageSrc="/images/fleet-dashboard.jpg"
-            imageAlt={f.dashboardImageAlt}
+            imageAlt={p.dashboardImageAlt}
             imagePosition="left"
             headingIcon={<SlidersHorizontal className="w-7 h-7 text-primary" />}
             cta={app.cta.contact}
@@ -122,8 +122,8 @@ export default function FleetPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#e8f5e9] to-[#f1f8e9] -z-10" />
         <div className="max-w-3xl mx-auto px-4 relative">
           <Steps
-            heading={f.howHeading}
-            steps={f.steps}
+            heading={p.howHeading}
+            steps={p.steps}
             cabinetCta={app.cta.cabinet}
             moreCta={app.cta.more}
           />
@@ -133,10 +133,10 @@ export default function FleetPage() {
       <section id="transparency" className="py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4">
           <Halves
-            title={f.transparencyTitle}
-            list={f.transparencyItems}
+            title={p.transparencyTitle}
+            list={p.transparencyItems}
             imageSrc="/images/app-mockup.jpg"
-            imageAlt={f.transparencyImageAlt}
+            imageAlt={p.transparencyImageAlt}
             imagePosition="left"
             headingIcon={<Eye className="w-7 h-7 text-primary" />}
           />
@@ -145,7 +145,7 @@ export default function FleetPage() {
 
       <section id="faq" className="py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4">
-          <Accordion heading={f.faqHeading} items={f.faq} />
+          <Accordion heading={p.faqHeading} items={p.faq} />
         </div>
       </section>
     </>

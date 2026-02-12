@@ -12,8 +12,14 @@ type Props = {
   heroBadge2: string;
   heroCardTitle: string;
   heroCardDesc: string;
-  heroImageAlt: string;
-  contactCta: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  contactCta: {
+    label: string;
+    href: string;
+  };
 };
 
 export const Banner = ({
@@ -23,7 +29,7 @@ export const Banner = ({
   heroBadge2,
   heroCardTitle,
   heroCardDesc,
-  heroImageAlt,
+  image,
   contactCta,
 }: Props) => {
   return (
@@ -46,27 +52,31 @@ export const Banner = ({
               <Building2 className="w-4 h-4 text-primary" />
               {heroBadge2}
             </div>
-            <Link
-              href="/contacts"
-              className="inline-flex items-center gap-1 rounded-full border border-foreground px-5 py-2.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 "
-            >
-              {contactCta}
-            </Link>
+            {contactCta && (
+              <Link
+                href={contactCta.href}
+                className="inline-flex items-center gap-1 rounded-full border border-foreground px-5 py-2.5 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 "
+              >
+                {contactCta.label}
+              </Link>
+            )}
           </div>
         </Enter>
 
-        <Enter variant="scale-up" delay={100} duration={800}>
-          <div className="relative">
-            <Image
-              src="/images/fleet-app.jpg"
-              alt={heroImageAlt}
-              width={320}
-              height={500}
-              className="rounded-3xl shadow-xl w-auto h-auto"
-              priority
-            />
-          </div>
-        </Enter>
+        {image &&
+          <Enter variant="scale-up" delay={100} duration={800}>
+            <div className="relative">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={320}
+                height={500}
+                className="rounded-3xl shadow-xl w-auto h-auto"
+                priority
+              />
+            </div>
+          </Enter>
+        }
 
         <Enter variant="fade-left" delay={300} duration={600} >
           <div className="bg-background rounded-2xl border border-border p-6 shadow-sm text-center max-w-xs hover:shadow-lg transition-shadow duration-300">
