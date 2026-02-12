@@ -75,7 +75,7 @@ export const Hero = ({
             <Button asChild variant="default" className="rounded-full" size="xl">
               <Link href={ctaStart.href}>
                 {ctaStart.label}
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight />
               </Link>
             </Button>
           )}
