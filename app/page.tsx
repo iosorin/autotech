@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <>
       <section id="hero" className="pt-from-header relative">
-        <div className="gradlayer bg-gradient-to-b from-sky-100 via-blue-50 to-background" />
+        <div className="gradlayer bg-gradient-gray" />
 
         <div className="mx-auto">
           <Hero
@@ -29,7 +29,7 @@ const Page = () => {
             cardTitle1={home.hero.cardTitle1}
             cardTitle2={home.hero.cardTitle2}
             cardDesc={home.hero.cardDesc}
-            imageAlt={home.hero.imageAlt}
+            image={home.hero.image}
             ctaStart={app.cta.start}
             ctaContact={app.cta.contact}
           />
