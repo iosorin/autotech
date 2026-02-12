@@ -34,7 +34,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
 
   return (
     <header
-      className={cn('transition-all duration-300', scrolled
+      className={cn('w-full transition-all duration-300', scrolled
         ? "bg-background/80 backdrop-blur-lg shadow-sm"
         : "bg-background", className)}
     >
@@ -56,14 +56,14 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
               key={link.href}
               href={link.href}
               className={`text-sm transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
-                ? "text-foreground font-medium"
-                : "text-muted-foreground"
+                ? "text-primary font-medium"
+                : ""
                 }`}
             >
               {link.label}
-              {pathname === link.href && (
+              {/* {pathname === link.href && (
                 <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
-              )}
+              )} */}
             </Link>
           ))}
         </nav>

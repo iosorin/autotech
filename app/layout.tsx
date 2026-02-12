@@ -66,10 +66,9 @@ export default function RootLayout({
           logo={app.logo}
           nav={app.nav}
           featured={app.featured}
-          className="sticky top-6 z-50 max-w-6xl mx-auto rounded-full"
+          className="fixed top-6 z-50 center-x rounded-full max-w-6xl"
         />
 
-        {/* <main className="px-4 py-16"> */}
         <main>
           {children}
         </main>
@@ -83,6 +82,7 @@ export default function RootLayout({
           telegram={app.telegram}
           featured={app.featured}
           company={app.company}
+          className="max-w-6xl"
         />
       </body>
     </html>

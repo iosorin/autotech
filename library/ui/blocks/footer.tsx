@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { cn } from "@utils";
 // import { app } from "@data";
 
 type Props = {
@@ -27,12 +28,13 @@ type Props = {
     label: string;
     href: string;
   }[];
+  className?: string;
 }
 
-export const Footer = ({ title, copyright, phone, email, telegram, nav, featured, company, links }: Props) => {
+export const Footer = ({ title, copyright, phone, email, telegram, nav, featured, company, links, className }: Props) => {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="max-w-6xl mx-auto px-4 py-10">
+      <div className={cn("mx-auto px-4 py-10", className)}>
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-between">
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2">
