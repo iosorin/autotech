@@ -20,9 +20,7 @@ type Props = {
   subtitle: string;
   titleLine1: string;
   titleLine2: string;
-  featureTags: { icon: string; label: string }[];
-  telegramCta: string;
-  telegramUrl: string;
+  features: { icon: string; label: string }[];
   cardTitle1: string;
   cardTitle2: string;
   cardDesc: string;
@@ -38,6 +36,10 @@ type Props = {
     label: string;
     href: string;
   };
+  ctaTelegram: {
+    label: string;
+    href: string;
+  };
   className?: string;
 };
 
@@ -45,9 +47,8 @@ export const Hero = ({
   subtitle,
   titleLine1,
   titleLine2,
-  featureTags,
-  telegramCta,
-  telegramUrl,
+  features,
+  ctaTelegram,
   cardTitle1,
   cardTitle2,
   cardDesc,
@@ -57,7 +58,7 @@ export const Hero = ({
   className,
 }: Props) => {
   return (
-    <>
+    <div className="flex flex-col mx-auto">
       <Enter variant="fade-up" duration={700}>
         <div className="text-center mb-8">
           <p className="text-lg font-medium text-primary mb-3">{subtitle}</p>
@@ -70,7 +71,7 @@ export const Hero = ({
       </Enter>
 
       <Enter variant="fade-up" delay={200} duration={600}>
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3">
           {ctaStart && (
             <Button asChild variant="default" className="rounded-full" size="xl">
               <Link href={ctaStart.href}>
@@ -87,41 +88,43 @@ export const Hero = ({
         </div>
       </Enter>
 
-      <div className="flex flex-col lg:flex-row gap-8 items-start">
-        <div className="flex flex-col gap-3 lg:w-1/4">
-          {featureTags.map((tag, i) => {
-            const Icon = iconMap[tag.icon as keyof typeof iconMap];
+      <div className="flex flex-col lg:flex-row gap-0 items-center">
+        <div className="flex flex-wrap gap-3 flex-1">
+          {features.map((item, i) => {
+            const Icon = iconMap[item.icon as keyof typeof iconMap];
             return (
-              <Enter key={tag.label
+              <Enter key={item.label
               } variant="fade-right" delay={i * 80} duration={500} >
-                <div className="inline-flex items-center gap-2.5 rounded-full border border-border px-4 py-2.5 text-sm text-foreground w-fit">
-                  {Icon ? <Icon className="w-4 h-4 text-muted-foreground flex-shrink-0" /> : null}
-                  <span>{tag.label}</span>
+                <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm w-fit bg-white whitespace-nowrap">
+                  {Icon ? <Icon className="size-5 text-primary flex-shrink-0" /> : null}
+                  <span className="text-lg">{item.label}</span>
                 </div>
               </Enter>
             );
           })}
 
-          <Enter variant="fade-right" delay={500} duration={500}>
-            <Link
-              href={telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 rounded-2xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground mt-2 w-fit hover:opacity-90 transition-opacity"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-6 h-6 fill-current flex-shrink-0"
-                aria-hidden="true"
+          {ctaTelegram && (
+            <Enter variant="fade-right" delay={500} duration={500}>
+              <Link
+                href={ctaTelegram.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-2xl bg-accent px-5 py-3 text-sm font-medium text-primary-foreground mt-2 w-fit hover:opacity-90 transition-opacity"
               >
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
-              </svg>
-              {telegramCta}
-            </Link>
-          </Enter>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-6 h-6 fill-current flex-shrink-0"
+                  aria-hidden="true"
+                >
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
+                </svg>
+                {ctaTelegram.label}
+              </Link>
+            </Enter>
+          )}
         </div >
 
-        <Enter variant="scale-up" delay={150} duration={800} className="lg:w-2/4 flex justify-center" >
+        <Enter variant="scale-up" delay={150} duration={800} className="lg:w-1/3 flex justify-center" >
           {image &&
             <div className="relative w-full max-w-md">
               <Image
@@ -136,8 +139,9 @@ export const Hero = ({
           }
         </Enter >
 
-        <Enter variant="fade-left" delay={300} duration={600} className="lg:w-1/4" >
-          <div className="rounded-2xl border border-border p-6 text-center">
+        <Enter variant="fade-left" delay={300} duration={600} className="flex-1" >
+          {/* <div className="rounded-2xl bg-gradient-gray p-6 text-center"> */}
+          <div className="rounded-2xl bg-gradient-to-b from-white to-transparent p-6 text-center">
             <RefreshCw className="w-8 h-8 mx-auto mb-3 text-primary" />
             <h3 className="font-bold text-foreground mb-1">{cardTitle1}</h3>
             <h3 className="font-bold text-foreground mb-2">{cardTitle2}</h3>
@@ -145,7 +149,7 @@ export const Hero = ({
           </div>
         </Enter >
       </div >
-    </>
+    </div >
   );
 };
 

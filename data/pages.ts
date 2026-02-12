@@ -3,7 +3,7 @@ export const home = {
         subtitle: "Платформа Автотех",
         titleLine1: "Приложение для автомойки,",
         titleLine2: "детейлинга и шиномонтажа",
-        featureTags: [
+        features: [
             { icon: "ScanLine", label: "Распознавание марок и номеров" },
             { icon: "BarChart3", label: "Статистика и аналитика" },
             { icon: "Calculator", label: "Гибкий расчет зарплат" },
