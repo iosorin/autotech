@@ -58,8 +58,14 @@ export const app = {
     href: "/auto-park",
   },
   cta: {
-    start: "Начать работать",
-    contact: "Связаться с нами",
+    start: {
+      label: "Начать работать",
+      href: "/",
+    },
+    contact: {
+      label: "Связаться с нами",
+      href: "/contacts",
+    },
     details: "Узнать детали",
     more: "Узнать больше",
     cabinet: "Перейти в личный кабинет",

@@ -45,6 +45,7 @@
     --sidebar-accent-foreground: #18181b;
     --sidebar-border: #e8e9ed;
     --sidebar-ring: #0CC15E;
+    --header-height: 58px;
   }
 }
 
@@ -53,11 +54,13 @@
     @apply border-border;
   }
 
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
+    overflow-x: hidden;
     @apply bg-background text-foreground;
   }
 }
@@ -105,9 +108,29 @@
   filter: none;
 }
 
+.center {
+  @apply flex items-center justify-center;
+}
+
 .center-x {
   left: 50%;
   transform: translateX(-50%);
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+
+.gradlayer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: -1;
 }
 
 /* @media (prefers-reduced-motion: reduce) {

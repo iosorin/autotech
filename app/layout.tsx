@@ -66,10 +66,10 @@ export default function RootLayout({
           logo={app.logo}
           nav={app.nav}
           featured={app.featured}
-          className="fixed top-6 z-50 center-x rounded-full max-w-6xl"
+          className="fixed top-6 z-50 center-x rounded-full max-w-6xl h-header"
         />
 
-        <main>
+        <main className="max-w-6xl px-4 mx-auto">
           {children}
         </main>
 

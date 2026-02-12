@@ -34,11 +34,11 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
 
   return (
     <header
-      className={cn('w-full transition-all duration-300', scrolled
+      className={cn('w-full center transition-all duration-300', scrolled
         ? "bg-background/80 backdrop-blur-lg shadow-sm"
         : "bg-background", className)}
     >
-      <div className="flex items-center justify-between px-4 py-3">
+      <div className="w-full flex items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 group">
           {logo &&
             <Image src={logo} alt={title} width={26} height={26} />
@@ -50,49 +50,50 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           }
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
-          {nav.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
-                ? "text-primary font-medium"
-                : ""
-                }`}
-            >
-              {link.label}
-              {/* {pathname === link.href && (
+        <div className="flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-6">
+            {nav.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
+                  ? "text-primary font-medium"
+                  : "text-foreground"
+                  }`}
+              >
+                {link.label}
+                {/* {pathname === link.href && (
                 <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
               )} */}
-            </Link>
-          ))}
-        </nav>
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden md:block">
           <Link
             href={featured.href}
-            className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-all duration-200 "
+            className="hidden md:inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-secondary-foreground bg-secondary"
           >
             {featured.label}
             {/* <ArrowRight className="w-3.5 h-3.5" /> */}
           </Link>
+
+          <button
+            type="button"
+            className="md:hidden p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="relative w-5 h-5">
+              <Menu className={`w-5 h-5 absolute transition-all duration-200 ${mobileOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"}`} />
+              <X className={`w-5 h-5 absolute transition-all duration-200 ${mobileOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"}`} />
+            </div>
+          </button>
         </div>
 
-        <button
-          type="button"
-          className="md:hidden p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <div className="relative w-5 h-5">
-            <Menu className={`w-5 h-5 absolute transition-all duration-200 ${mobileOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0"}`} />
-            <X className={`w-5 h-5 absolute transition-all duration-200 ${mobileOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90"}`} />
-          </div>
-        </button>
       </div>
 
       <div
-        className={`md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
+        className={`w-full md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
           }`}
       >
         <nav className="flex flex-col gap-3 px-4 py-3">
