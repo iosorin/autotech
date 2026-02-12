@@ -7,14 +7,13 @@ import { Enter } from "@ui/atoms/enter";
 type Testimonial = { name: string; role: string; company: string; text: string };
 
 type Props = {
-  id?: string;
   heading: string;
   prevAria: string;
   nextAria: string;
   list: Testimonial[];
 };
 
-export function Testimonials({ id, heading, prevAria, nextAria, list }: Props) {
+export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
   const [current, setCurrent] = useState(0);
   const [sliding, setSliding] = useState(false);
 
@@ -31,9 +30,8 @@ export function Testimonials({ id, heading, prevAria, nextAria, list }: Props) {
   };
 
   return (
-    <section id={id} className="py-12 md:py-20 bg-secondary/50">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
               {heading}
@@ -111,7 +109,8 @@ export function Testimonials({ id, heading, prevAria, nextAria, list }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </section >
+    </>
   );
-}
+};
+
+export default Testimonials;

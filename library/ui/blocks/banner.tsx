@@ -6,7 +6,6 @@ import { Enter } from "@ui/atoms/enter";
 import { FileText, Building2 } from "lucide-react";
 
 type Props = {
-  id?: string;
   eyebrow: string;
   heroTitle: string;
   heroBadge1: string;
@@ -17,8 +16,7 @@ type Props = {
   contactCta: string;
 };
 
-export function Banner({
-  id,
+export const Banner = ({
   eyebrow,
   heroTitle,
   heroBadge1,
@@ -27,11 +25,10 @@ export function Banner({
   heroCardDesc,
   heroImageAlt,
   contactCta,
-}: Props) {
+}: Props) => {
   return (
-    <section id={id} className="bg-gradient-to-b from-[#e8f5e9] to-background py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={700}>
+    <>
+      <Enter variant="fade-up" duration={700}>
           <p className="text-center text-sm text-muted-foreground mb-3">{eyebrow}</p>
           <h1 className="text-3xl md:text-5xl font-bold text-center text-foreground leading-tight text-balance max-w-4xl mx-auto">
             {heroTitle}
@@ -81,7 +78,8 @@ export function Banner({
             </div>
           </Enter >
         </div >
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Banner;

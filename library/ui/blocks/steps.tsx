@@ -7,18 +7,16 @@ import { ArrowUpRight } from "lucide-react";
 type Step = { title: string; desc: string };
 
 type Props = {
-  id?: string;
   heading: string;
   steps: Step[];
   cabinetCta: string;
   moreCta: string;
 };
 
-export function Steps({ id, heading, steps, cabinetCta, moreCta }: Props) {
+export const Steps = ({ heading, steps, cabinetCta, moreCta }: Props) => {
   return (
-    <section id={id} className="py-16 md:py-20 bg-gradient-to-b from-[#e8f5e9] to-[#f1f8e9]">
-      <div className="max-w-3xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12">
             {heading}
           </h2>
@@ -57,8 +55,9 @@ export function Steps({ id, heading, steps, cabinetCta, moreCta }: Props) {
               {moreCta}
             </Link>
           </div>
-        </Enter >
-      </div >
-    </section >
+        </Enter>
+      </>
   );
-}
+};
+
+export default Steps;

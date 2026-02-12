@@ -7,17 +7,15 @@ import { ChevronDown } from "lucide-react";
 type FaqItem = { q: string; a: string };
 
 type Props = {
-  id?: string;
   heading: string;
   items: FaqItem[];
 };
 
-export function Accordion({ id, heading, items }: Props) {
+export const Accordion = ({ heading, items }: Props) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   return (
-    <section id={id} className="py-16 md:py-20">
-      <div className="max-w-4xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-10">
             {heading}
           </h2>
@@ -49,7 +47,8 @@ export function Accordion({ id, heading, items }: Props) {
             <div className="border-t border-border" />
           </div>
         </Enter>
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Accordion;

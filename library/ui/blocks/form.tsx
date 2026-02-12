@@ -3,17 +3,18 @@
 import { Contact } from "@ui/blocks/contact";
 
 type Props = {
-  id?: string;
   heading: string;
 };
 
-export function Form({ id, heading }: Props) {
+export const Form = ({ heading }: Props) => {
   return (
-    <section id={id} className="px-4 py-20">
+    <>
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
         {heading}
       </h2>
       <Contact />
-    </section>
+    </>
   );
-}
+};
+
+export default Form;

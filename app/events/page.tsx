@@ -13,17 +13,30 @@ export default function EventsPage() {
   const p = events;
   return (
     <>
-      <Intro id="events" title={p.title} subtitle={p.subtitle} />
-      <Promo
-        id="upcoming"
-        date={p.upcomingDate}
-        title={p.upcomingTitle}
-        desc={`${p.upcomingDesc1} ${p.upcomingDesc2}`}
-        ctaText={p.upcomingCta}
-        primaryCta={p.button}
-        primaryHref="/contacts"
-      />
-      <List id="past" heading={p.pastHeading} events={p.past} />
+      <section id="events" className="py-12">
+        <div className="max-w-3xl mx-auto px-4">
+          <Intro title={p.title} subtitle={p.subtitle} />
+        </div>
+      </section>
+
+      <section id="upcoming" className="py-8">
+        <div className="max-w-3xl mx-auto px-4">
+          <Promo
+            date={p.upcomingDate}
+            title={p.upcomingTitle}
+            desc={`${p.upcomingDesc1} ${p.upcomingDesc2}`}
+            ctaText={p.upcomingCta}
+            primaryCta={p.button}
+            primaryHref="/contacts"
+          />
+        </div>
+      </section>
+
+      <section id="past" className="mt-16 py-16">
+        <div className="max-w-3xl mx-auto px-4">
+          <List heading={p.pastHeading} events={p.past} />
+        </div>
+      </section>
     </>
   );
 }

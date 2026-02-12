@@ -5,17 +5,14 @@ import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
 type Props = {
-  id?: string;
   title: string;
   start: string;
   contact: string;
 };
 
-export const Cta = ({ id, title, start, contact }: Props) => {
+export const Cta = ({ title, start, contact }: Props) => {
   return (
-    <section id={id} className="bg-gradient-to-b from-accent/60 to-background py-16">
-      <div className="max-w-3xl mx-auto px-4 text-center">
-        <Enter variant="fade-up" duration={600}>
+    <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
             {title}
           </h2>
@@ -35,8 +32,6 @@ export const Cta = ({ id, title, start, contact }: Props) => {
             </Link>
           </div>
         </Enter>
-      </div>
-    </section >
   );
 }
 

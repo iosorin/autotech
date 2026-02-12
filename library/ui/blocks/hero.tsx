@@ -12,12 +12,10 @@ import {
   Users,
 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
-import { cn } from "@utils";
 
 const iconMap = { ScanLine, BarChart3, Calculator, CalendarCheck, Users };
 
 type Props = {
-  id?: string;
   subtitle: string;
   titleLine1: string;
   titleLine2: string;
@@ -30,11 +28,9 @@ type Props = {
   imageAlt: string;
   ctaStart: string;
   ctaContact: string;
-  className?: string;
 };
 
-export function Hero({
-  id,
+export const Hero = ({
   subtitle,
   titleLine1,
   titleLine2,
@@ -47,12 +43,10 @@ export function Hero({
   imageAlt,
   ctaStart,
   ctaContact,
-  className,
-}: Props) {
+}: Props) => {
   return (
-    <section id={id} className={cn("py-12 md:py-20", className)}>
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={700}>
+    <>
+      <Enter variant="fade-up" duration={700}>
           <div className="text-center mb-8">
             <p className="text-sm font-medium text-primary mb-3">{subtitle}</p>
             <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight text-balance">
@@ -137,7 +131,8 @@ export function Hero({
             </div>
           </Enter >
         </div >
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Hero;

@@ -5,7 +5,6 @@ import { CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
 type Props = {
-  id?: string;
   subtitle: string;
   titleLine1: string;
   titleLine2: string;
@@ -14,11 +13,10 @@ type Props = {
   imageAlt: string;
 };
 
-export const Clients = ({ id, subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
+export const Clients = ({ subtitle, titleLine1, titleLine2, intro, items, imageAlt }: Props) => {
   return (
-    <section id={id} className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <div className="text-center mb-10">
             <p className="text-sm font-medium text-primary mb-2">{subtitle}</p>
             <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance">
@@ -56,8 +54,7 @@ export const Clients = ({ id, subtitle, titleLine1, titleLine2, intro, items, im
             </div>
           </div >
         </div >
-      </div >
-    </section >
+    </>
   );
 }
 

@@ -5,16 +5,14 @@ import { Enter } from "@ui/atoms/enter";
 type Item = { num: string; title: string; desc?: string };
 
 type Props = {
-  id?: string;
   heading: string;
   items: Item[];
 };
 
-export function Cards({ id, heading, items }: Props) {
+export const Cards = ({ heading, items }: Props) => {
   return (
-    <section id={id} className="py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-10 text-balance">
             {heading}
           </h2>
@@ -34,7 +32,8 @@ export function Cards({ id, heading, items }: Props) {
             </Enter>
           ))}
         </div>
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Cards;

@@ -4,17 +4,14 @@ import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 
 type Props = {
-  id?: string;
   heading: string;
   items: string[];
   imageAlt: string;
 };
 
-export function Checklist({ id, heading, items, imageAlt }: Props) {
+export const Checklist = ({ heading, items, imageAlt }: Props) => {
   return (
-    <section id={id} className="py-12 md:py-20">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-10 items-center">
+    <div className="flex flex-col lg:flex-row gap-10 items-center">
           <div className="lg:w-2/5 flex justify-center">
             <Image
               src="/images/app-mockup.jpg"
@@ -38,7 +35,7 @@ export function Checklist({ id, heading, items, imageAlt }: Props) {
             </div>
           </div>
         </div>
-      </div>
-    </section>
   );
-}
+};
+
+export default Checklist;

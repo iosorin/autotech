@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 type Props = {
-  id?: string;
   title: string;
   desc: string;
   primaryCta: string;
@@ -16,8 +15,7 @@ type Props = {
   ctaText?: string;
 };
 
-export function Promo({
-  id,
+export const Promo = ({
   title,
   desc,
   primaryCta,
@@ -27,10 +25,9 @@ export function Promo({
   date,
   icon,
   ctaText,
-}: Props) {
+}: Props) => {
   return (
-    <section id={id} className="max-w-3xl mx-auto px-4">
-      <div className="rounded-3xl bg-gradient-to-br from-accent to-[#e6fff0] p-8 text-center md:p-12">
+    <div className="rounded-3xl bg-gradient-to-br from-accent to-[#e6fff0] p-8 text-center md:p-12">
         {date ? <p className="mb-4 text-sm font-semibold text-primary">{date}</p> : null}
         {icon ? <div className="mb-4 flex justify-center opacity-60">{icon}</div> : null}
         <h2 className="mb-4 text-2xl font-bold text-foreground md:text-3xl">{title}</h2>
@@ -53,7 +50,8 @@ export function Promo({
             </Link>
           ) : null}
         </div>
-      </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Promo;

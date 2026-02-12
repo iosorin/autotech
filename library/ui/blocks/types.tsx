@@ -7,14 +7,13 @@ const iconMap = { Zap, Clock, Wrench, MessageCircle };
 type Type = { icon: string; title: string; desc: string; bg: string; border: string };
 
 type Props = {
-  id?: string;
   heading: string;
   types: Type[];
 };
 
-export function Types({ id, heading, types }: Props) {
+export const Types = ({ heading, types }: Props) => {
   return (
-    <div id={id}>
+    <div>
       <h2 className="mb-6 text-2xl font-bold text-foreground">{heading}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {types.map((type) => (
@@ -41,4 +40,6 @@ export function Types({ id, heading, types }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default Types;

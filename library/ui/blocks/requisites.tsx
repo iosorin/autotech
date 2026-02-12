@@ -20,7 +20,6 @@ type Bank = {
 };
 
 type Props = {
-  id?: string;
   heading: string;
   bankHeading: string;
   accountLabel: string;
@@ -28,13 +27,13 @@ type Props = {
   bank: Bank;
 };
 
-export function Requisites({ id, heading, bankHeading, accountLabel, company, bank }: Props) {
+export const Requisites = ({ heading, bankHeading, accountLabel, company, bank }: Props) => {
   return (
-    <section id={id} className="px-4 pb-20">
+    <>
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
         {heading}
       </h2>
-      <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+      <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-2 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">{company.short}</p>
           <p>Юридический и фактический адрес: {company.addressFull}</p>
@@ -54,6 +53,8 @@ export function Requisites({ id, heading, bankHeading, accountLabel, company, ba
           <p>Корр. счёт: {bank.corr}</p>
         </div>
       </div>
-    </section>
+    </>
   );
-}
+};
+
+export default Requisites;
