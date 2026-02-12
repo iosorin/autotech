@@ -27,8 +27,8 @@
     --accent-foreground: #fff;
     --destructive: #e63939;
     --destructive-foreground: #fafafa;
-    --border: #e6e6e6;
-    --input: #e6e6e6;
+    --border: #000;
+    --input: #000;
     --ring: #0CC15E;
     --radius: 0.75rem;
     --chart-1: #e67e4a;
