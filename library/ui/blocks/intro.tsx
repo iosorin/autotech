@@ -1,15 +1,14 @@
 "use client";
 
 type Props = {
-  id?: string;
   title: string;
   subtitle: string;
   labelFirst?: boolean;
 };
 
-export function Intro({ id, title, subtitle, labelFirst = false }: Props) {
+export const Intro = ({ title, subtitle, labelFirst = false }: Props) => {
   return (
-    <section id={id} className="mx-auto max-w-3xl px-4">
+    <>
       {labelFirst ? (
         <>
           <p className="mb-2 text-center text-sm text-muted-foreground">{subtitle}</p>
@@ -25,6 +24,8 @@ export function Intro({ id, title, subtitle, labelFirst = false }: Props) {
           <p className="mb-12 text-center text-muted-foreground">{subtitle}</p>
         </>
       )}
-    </section>
+    </>
   );
-}
+};
+
+export default Intro;

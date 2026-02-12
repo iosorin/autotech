@@ -5,7 +5,6 @@ import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
 type Props = {
-  id?: string;
   date: string;
   title: string;
   line1: string;
@@ -14,11 +13,9 @@ type Props = {
   button: string;
 };
 
-export const Event = ({ id, date, title, line1, line2, cta, button }: Props) => {
+export const Event = ({ date, title, line1, line2, cta, button }: Props) => {
   return (
-    <section id={id} className="py-8">
-      <div className="max-w-3xl mx-auto px-4">
-        <Enter variant="scale-up" duration={700}>
+    <Enter variant="scale-up" duration={700}>
           <div className="rounded-2xl border-2 border-primary p-8 text-center">
             <p className="text-sm font-medium text-primary mb-2">{date}</p>
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2 text-balance">
@@ -36,8 +33,6 @@ export const Event = ({ id, date, title, line1, line2, cta, button }: Props) => 
             </Link>
           </div>
         </Enter>
-      </div>
-    </section >
   );
 }
 

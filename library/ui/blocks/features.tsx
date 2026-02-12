@@ -33,22 +33,20 @@ type Tab = { id: string; label: string };
 type TabContent = { title: string; features: { icon: string; text: string }[] };
 
 type Props = {
-  id?: string;
   tabs: Tab[];
   content: Record<string, TabContent>;
   imageAlt: string;
 };
 
-export function Features({ id, tabs, content, imageAlt }: Props) {
+export const Features = ({ tabs, content, imageAlt }: Props) => {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? "orders");
   const tabContent = content[activeTab];
 
   if (!tabContent) return null;
 
   return (
-    <section id={id} className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={500}>
+    <>
+      <Enter variant="fade-up" duration={500}>
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {tabs.map((tab) => (
               <button
@@ -100,7 +98,8 @@ export function Features({ id, tabs, content, imageAlt }: Props) {
             })}
           </div >
         </div >
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Features;

@@ -3,18 +3,17 @@
 type Block = { num: string; title: string; desc: string };
 
 type Props = {
-  id?: string;
   heading: string;
   blocks: Block[];
 };
 
-export function Grid({ id, heading, blocks }: Props) {
+export const Grid = ({ heading, blocks }: Props) => {
   return (
-    <section id={id} className="px-4 pb-16">
+    <>
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
         {heading}
       </h2>
-      <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {blocks.map((block) => (
           <div
             key={block.num}
@@ -32,6 +31,8 @@ export function Grid({ id, heading, blocks }: Props) {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
-}
+};
+
+export default Grid;

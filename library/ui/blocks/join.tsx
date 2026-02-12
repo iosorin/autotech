@@ -5,18 +5,15 @@ import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
 type Props = {
-  id?: string;
   titleLine1: string;
   titleLine2: string;
   ctaStart: string;
   ctaContact: string;
 };
 
-export function Join({ id, titleLine1, titleLine2, ctaStart, ctaContact }: Props) {
+export const Join = ({ titleLine1, titleLine2, ctaStart, ctaContact }: Props) => {
   return (
-    <section id={id} className="py-16 md:py-24">
-      <div className="max-w-3xl mx-auto px-4 text-center">
-        <Enter variant="blur-in" duration={700}>
+    <Enter variant="blur-in" duration={700}>
           <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-8 text-balance">
             {titleLine1}
             <br />
@@ -38,7 +35,7 @@ export function Join({ id, titleLine1, titleLine2, ctaStart, ctaContact }: Props
             </Link>
           </div>
         </Enter>
-      </div>
-    </section >
   );
-}
+};
+
+export default Join;

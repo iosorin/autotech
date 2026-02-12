@@ -3,7 +3,6 @@
 import { ExternalLink } from "lucide-react";
 
 type Props = {
-  id?: string;
   heading: string;
   labels: { telegram: string; email: string; phone: string };
   telegramUrl: string;
@@ -13,8 +12,7 @@ type Props = {
   phoneRaw: string;
 };
 
-export function Links({
-  id,
+export const Links = ({
   heading,
   labels,
   telegramUrl,
@@ -22,13 +20,13 @@ export function Links({
   email,
   phone,
   phoneRaw,
-}: Props) {
+}: Props) => {
   return (
-    <section id={id} className="px-4 pb-16">
+    <>
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
         {heading}
       </h2>
-      <div className="mx-auto max-w-md space-y-8 text-center">
+      <div className="max-w-md mx-auto space-y-8 text-center">
         <div>
           <p className="text-sm font-medium text-primary">{labels.telegram}</p>
           <a
@@ -60,6 +58,8 @@ export function Links({
           </a>
         </div>
       </div>
-    </section>
+    </>
   );
-}
+};
+
+export default Links;

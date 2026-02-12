@@ -30,24 +30,22 @@ const iconMap = {
 type Item = { icon: string; title: string; desc: string };
 
 type Props = {
-  id?: string;
   heading: string;
   items: Item[];
   cols?: 2 | 3;
   variant?: "cards" | "stack" | "highlight";
 };
 
-export function Icons({ id, heading, items, cols = 3, variant = "cards" }: Props) {
+export const Icons = ({ heading, items, cols = 3, variant = "cards" }: Props) => {
   if (variant === "highlight") {
     return (
-      <section id={id} className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Enter variant="fade-up" duration={600}>
-            <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12 text-balance">
-              {heading}
-            </h2>
-          </Enter>
-          <div className={`grid gap-6 ${cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+      <>
+        <Enter variant="fade-up" duration={600}>
+          <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12 text-balance">
+            {heading}
+          </h2>
+        </Enter>
+        <div className={`grid gap-6 ${cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
             {items.map((item, i) => {
               const Icon = iconMap[item.icon as keyof typeof iconMap];
               return (
@@ -63,18 +61,17 @@ export function Icons({ id, heading, items, cols = 3, variant = "cards" }: Props
                 </Enter>
               );
             })}
-          </div>
-        </div >
-      </section >
+        </div>
+    </>
     );
   }
   if (variant === "stack") {
     return (
-      <section id={id} className="bg-gradient-to-b from-[#e6fff0] to-[#f0fdf4] px-4 py-20">
+      <>
         <h2 className="mb-12 text-center text-2xl font-bold text-foreground md:text-3xl">
           {heading}
         </h2>
-        <div className="mx-auto max-w-2xl space-y-10">
+        <div className="max-w-2xl mx-auto space-y-10">
           {items.map((item, i) => {
             const Icon = iconMap[item.icon as keyof typeof iconMap];
             return (
@@ -89,16 +86,16 @@ export function Icons({ id, heading, items, cols = 3, variant = "cards" }: Props
             );
           })}
         </div>
-      </section>
+      </>
     );
   }
   return (
-    <section id={id} className="px-4 pb-16">
+    <>
       <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
         {heading}
       </h2>
       <div
-        className={`mx-auto grid max-w-5xl gap-6 ${cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}
+        className={`grid gap-6 ${cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}
       >
         {items.map((item) => {
           const Icon = iconMap[item.icon as keyof typeof iconMap];
@@ -116,6 +113,8 @@ export function Icons({ id, heading, items, cols = 3, variant = "cards" }: Props
           );
         })}
       </div>
-    </section>
+    </>
   );
-}
+};
+
+export default Icons;

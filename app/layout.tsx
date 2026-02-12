@@ -66,7 +66,7 @@ export default function RootLayout({
           logo={app.logo}
           nav={app.nav}
           featured={app.featured}
-          className="sticky top-0 z-50"
+          className="sticky top-6 z-50 max-w-6xl mx-auto rounded-full"
         />
 
         {/* <main className="px-4 py-16"> */}

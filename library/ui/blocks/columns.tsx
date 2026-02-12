@@ -5,7 +5,6 @@ import { Enter } from "@ui/atoms/enter";
 import { CheckCircle2 } from "lucide-react";
 
 type Props = {
-  id?: string;
   heading: string;
   list: string[];
   choiceTitle: string;
@@ -15,8 +14,7 @@ type Props = {
   imageAlt: string;
 };
 
-export function Columns({
-  id,
+export const Columns = ({
   heading,
   list,
   choiceTitle,
@@ -24,11 +22,10 @@ export function Columns({
   filterTitle,
   filterTags,
   imageAlt,
-}: Props) {
+}: Props) => {
   return (
-    <section id={id} className="py-16 md:py-20 bg-secondary">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12 text-balance">
             {heading}
           </h2>
@@ -87,7 +84,8 @@ export function Columns({
             </div>
           </Enter >
         </div >
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default Columns;

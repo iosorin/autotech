@@ -38,7 +38,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
         ? "bg-background/80 backdrop-blur-lg shadow-sm"
         : "bg-background", className)}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <div className="flex items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 group">
           {logo &&
             <Image src={logo} alt={title} width={26} height={26} />

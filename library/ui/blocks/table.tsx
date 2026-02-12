@@ -14,19 +14,16 @@ type Plan = {
 };
 
 type Props = {
-  id?: string;
   periods: Period[];
   plans: Plan[];
   priceNote: string;
   priceNote2: string;
 };
 
-export function Table({ id, periods, plans, priceNote, priceNote2 }: Props) {
+export const Table = ({ periods, plans, priceNote, priceNote2 }: Props) => {
   const [activePeriod, setActivePeriod] = useState(periods[0]?.id ?? "1m");
   return (
-    <section id={id} className="px-4 pb-12">
-      <div className="max-w-4xl mx-auto">
-        <div className="rounded-2xl border border-border p-6 md:p-8">
+    <div className="rounded-2xl border border-border p-6 md:p-8">
           <div className="flex justify-end mb-6">
             <div className="flex gap-2">
               {periods.map((period) => (
@@ -101,8 +98,8 @@ export function Table({ id, periods, plans, priceNote, priceNote2 }: Props) {
             <br />
             {priceNote2}
           </p>
-        </div>
-      </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Table;

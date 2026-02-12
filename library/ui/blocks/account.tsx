@@ -6,7 +6,6 @@ import { Enter } from "@ui/atoms/enter";
 const iconMap = { Shield, BarChart3, Building2 };
 
 type Props = {
-  id?: string;
   titleLine1: string;
   titleLine2: string;
   descLine1: string;
@@ -20,11 +19,10 @@ type Props = {
   }[];
 };
 
-export const Account = ({ id, titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
+export const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
-    <section id={id} className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <div className="text-center mb-4">
             <p className="text-sm font-medium text-primary mb-2">{subtitle}</p>
             <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance leading-tight">
@@ -64,8 +62,7 @@ export const Account = ({ id, titleLine1, titleLine2, descLine1, descLine2, subt
             );
           })}
         </div>
-      </div >
-    </section >
+    </>
   );
 }
 

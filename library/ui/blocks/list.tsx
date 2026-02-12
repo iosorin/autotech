@@ -3,14 +3,13 @@
 type Event = { date: string; title: string; attendees: string };
 
 type Props = {
-  id?: string;
   heading: string;
   events: Event[];
 };
 
-export function List({ id, heading, events }: Props) {
+export const List = ({ heading, events }: Props) => {
   return (
-    <section id={id} className="mt-16 mx-auto max-w-3xl px-4">
+    <>
       <h2 className="mb-8 text-2xl font-bold text-foreground">{heading}</h2>
       <div className="space-y-6">
         {events.map((event) => (
@@ -21,6 +20,8 @@ export function List({ id, heading, events }: Props) {
           </div>
         ))}
       </div>
-    </section>
+    </>
   );
-}
+};
+
+export default List;

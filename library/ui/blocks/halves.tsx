@@ -6,7 +6,6 @@ import { Enter } from "@ui/atoms/enter";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 
 type Props = {
-  id?: string;
   title: string;
   list: string[];
   imageSrc: string;
@@ -16,8 +15,7 @@ type Props = {
   cta?: string;
 };
 
-export function Halves({
-  id,
+export const Halves = ({
   title,
   list,
   imageSrc,
@@ -25,7 +23,7 @@ export function Halves({
   imagePosition,
   headingIcon,
   cta,
-}: Props) {
+}: Props) => {
   const content = (
     <>
       <div className="flex items-center gap-3 mb-6">
@@ -61,9 +59,7 @@ export function Halves({
     />
   );
   return (
-    <section id={id} className="py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-10 items-center">
+    <div className="flex flex-col lg:flex-row gap-10 items-center">
           {imagePosition === "left" ? (
             <>
               <Enter variant="fade-right" duration={700} className="lg:w-1/2">
@@ -85,7 +81,7 @@ export function Halves({
           )
           }
         </div >
-      </div >
-    </section >
   );
-}
+};
+
+export default Halves;

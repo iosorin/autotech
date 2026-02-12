@@ -5,7 +5,6 @@ import { Settings, CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
 type ExtraProps = {
-  id?: string;
   title: string;
   titleHighlight: string;
   titleSuffix: string;
@@ -17,8 +16,7 @@ type ExtraProps = {
   mechanicImageAlt: string;
 };
 
-export function ExtraFeatures({
-  id,
+export const ExtraFeatures = ({
   title,
   titleHighlight,
   titleSuffix,
@@ -28,11 +26,10 @@ export function ExtraFeatures({
   support,
   devices,
   mechanicImageAlt,
-}: ExtraProps) {
+}: ExtraProps) => {
   return (
-    <section id={id} className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <Enter variant="fade-up" duration={600}>
+    <>
+      <Enter variant="fade-up" duration={600}>
           <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-16 text-balance">
             {title}
             <span className="text-primary">{titleHighlight}</span>
@@ -148,7 +145,8 @@ export function ExtraFeatures({
             </div>
           </div>
         </Enter >
-      </div >
-    </section >
+    </>
   );
-}
+};
+
+export default ExtraFeatures;

@@ -3,14 +3,12 @@
 type Update = { date: string; items: string[] };
 
 type Props = {
-  id?: string;
   updates: Update[];
 };
 
-export function Changelog({ id, updates }: Props) {
+export const Changelog = ({ updates }: Props) => {
   return (
-    <section id={id} className="mx-auto max-w-3xl px-4">
-      <div className="space-y-12">
+    <div className="space-y-12">
         {updates.map((update) => (
           <div
             key={update.date}
@@ -39,7 +37,8 @@ export function Changelog({ id, updates }: Props) {
             </div>
           </div>
         ))}
-      </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Changelog;

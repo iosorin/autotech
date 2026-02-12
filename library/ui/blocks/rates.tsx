@@ -3,16 +3,14 @@
 type Discount = { range: string; percent: string };
 
 type Props = {
-  id?: string;
   heading: string;
   discounts: Discount[];
 };
 
-export function Rates({ id, heading, discounts }: Props) {
+export const Rates = ({ heading, discounts }: Props) => {
   return (
-    <section id={id} className="py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
+    <>
+      <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
           {heading}
         </h2>
         <div className="flex flex-wrap justify-center gap-6 md:gap-10">
@@ -23,7 +21,8 @@ export function Rates({ id, heading, discounts }: Props) {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+    </>
   );
-}
+};
+
+export default Rates;
