@@ -19,7 +19,7 @@
     --popover-foreground: #000;
     --primary: #0CC15E;
     --primary-foreground: #ffffff;
-    --secondary: #000000;
+    --secondary: #222325;
     --secondary-foreground: #fff;
     --muted: #eef6f6;
     --muted-foreground: #737373;
@@ -45,7 +45,7 @@
     --sidebar-border: #e8e9ed;
     --sidebar-ring: #0CC15E;
     --header-height: 58px;
-    --gradient-gray: linear-gradient(180deg, #EDEEF3 0%, #FFFFFF 100%);
+    --gradient-gray: linear-gradient(180deg, #EDEEF3 0%, #EDEEF3 65%, #FFFFFF 100%);
   }
 }
 

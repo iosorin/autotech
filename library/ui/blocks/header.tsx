@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Menu, X, } from "lucide-react";
+import { ArrowRight, Menu, X, } from "lucide-react";
 import { cn } from "@utils";
+import { Button } from "@ui/atoms/button";
 
 type Props = {
   title: string;
@@ -41,23 +42,23 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
       <div className="w-full flex items-center justify-between px-4 py-3">
         <Link href="/" className="flex items-center gap-2 group">
           {logo &&
-            <Image src={logo} alt={title} width={26} height={26} />
+            <Image src={logo} alt={title} width={27} height={27} />
           }
           {title &&
-            <span className="font-bold text-xl text-foreground">
+            <span className="font-bold text-2xl text-foreground">
               {title}
             </span>
           }
         </Link>
 
-        <div className="flex items-center gap-6">
-          <nav className="hidden md:flex items-center gap-6">
+        <div className="flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-7">
             {nav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
-                  ? "text-primary font-medium"
+                className={`text-sm font-medium transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
+                  ? "text-primary"
                   : "text-foreground"
                   }`}
               >
@@ -69,13 +70,14 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             ))}
           </nav>
 
-          <Link
-            href={featured.href}
-            className="hidden md:inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-secondary-foreground bg-secondary"
-          >
-            {featured.label}
-            {/* <ArrowRight className="w-3.5 h-3.5" /> */}
-          </Link>
+          <Button asChild variant="secondary">
+            <Link href={featured.href}>
+              {featured.label}
+              <ArrowRight className="size-4" />
+            </Link>
+
+          </Button>
+
 
           <button
             type="button"

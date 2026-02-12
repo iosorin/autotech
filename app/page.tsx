@@ -20,12 +20,11 @@ const Page = () => {
 
         <div className="mx-auto">
           <Hero
-            subtitle={home.hero.subtitle}
             titleLine1={home.hero.titleLine1}
             titleLine2={home.hero.titleLine2}
-            featureTags={home.hero.featureTags}
-            telegramCta={home.hero.telegramCta}
-            telegramUrl={app.telegramUrl}
+            subtitle={home.hero.subtitle}
+            features={home.hero.features}
+            ctaTelegram={app.cta.telegram}
             cardTitle1={home.hero.cardTitle1}
             cardTitle2={home.hero.cardTitle2}
             cardDesc={home.hero.cardDesc}
@@ -48,7 +47,6 @@ const Page = () => {
       </section>
 
       <section id="features" className="py-12 md:py-20 relative">
-
         <Features
           tabs={home.features.tabs}
           content={home.features.content}

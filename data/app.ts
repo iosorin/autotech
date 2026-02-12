@@ -66,6 +66,10 @@ export const app = {
       label: "Связаться с нами",
       href: "/contacts",
     },
+    telegram: {
+      label: "Подпишитесь на наш телеграм-канал",
+      href: "https://t.me/moykazdes",
+    },
     details: "Узнать детали",
     more: "Узнать больше",
     cabinet: "Перейти в личный кабинет",
