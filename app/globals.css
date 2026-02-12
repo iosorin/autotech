@@ -50,9 +50,11 @@
   * {
     @apply border-border;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -69,21 +71,27 @@
 .animate-fade-up {
   transform: translateY(32px);
 }
+
 .animate-fade-down {
   transform: translateY(-32px);
 }
+
 .animate-fade-left {
   transform: translateX(-40px);
 }
+
 .animate-fade-right {
   transform: translateX(40px);
 }
+
 .animate-fade {
   transform: none;
 }
+
 .animate-scale-up {
   transform: scale(0.92);
 }
+
 .animate-blur-in {
   transform: translateY(16px);
   filter: blur(8px);

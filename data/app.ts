@@ -1,10 +1,11 @@
 export const app = {
   name: "Автотех",
-  tagline: "Платформа Автотех",
   title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
+  tagline: "Платформа Автотех",
   description:
     "Платформа Автотех - приложение для управления автомойками, детейлинг-центрами и шиномонтажами. Статистика, CRM, онлайн-запись и расчет зарплат.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
+  logo: "/logo.svg",
   phone: "+7 909 904 1111",
   phoneRaw: "+79099041111",
   email: "info@moykazdes.ru",
@@ -48,8 +49,14 @@ export const app = {
     { label: "Поддержка", href: "/support" },
     { label: "Контакты", href: "/contacts" },
   ],
-  fleetHref: "/fleet",
-  fleetLabel: "Автопаркам",
+  links: [
+    { label: "Договор оферты", href: "/offer" },
+    { label: "Политика обработки персональных данных", href: "/privacy" },
+  ],
+  featured: {
+    label: "Автопаркам",
+    href: "/auto-park",
+  },
   cta: {
     start: "Начать работать",
     contact: "Связаться с нами",

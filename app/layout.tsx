@@ -36,7 +36,7 @@ const jsonld = {
   "@type": "Organization",
   name: app.name,
   url: app.siteurl,
-  logo: `${app.siteurl}/placeholder-logo.svg`,
+  logo: `${app.siteurl}/logo.svg`,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: app.phone.replace(/\s/g, "-"),
@@ -60,11 +60,30 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
         />
-        <Header />
-        <main className="px-4 py-16">
+
+        <Header
+          title={app.name}
+          logo={app.logo}
+          nav={app.nav}
+          featured={app.featured}
+          className="sticky top-0 z-50"
+        />
+
+        {/* <main className="px-4 py-16"> */}
+        <main>
           {children}
         </main>
-        <Footer />
+
+        <Footer
+          title={app.name}
+          nav={app.nav}
+          links={app.links}
+          copyright={app.copyright}
+          phone={app.phone} email={app.email}
+          telegram={app.telegram}
+          featured={app.featured}
+          company={app.company}
+        />
       </body>
     </html>
   );

@@ -29,6 +29,7 @@ const Page = () => {
         imageAlt={home.hero.imageAlt}
         ctaStart={app.cta.start}
         ctaContact={app.cta.contact}
+      // className="bg-gradient-to-b from-primary to-primary/80"
       />
 
       <Event
