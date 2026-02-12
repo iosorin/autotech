@@ -22,7 +22,7 @@
     --secondary: #222325;
     --secondary-foreground: #fff;
     --muted: #eef6f6;
-    --muted-foreground: #737373;
+    --muted-foreground: #A6A9B9;
     --accent: #25A0E8;
     --accent-foreground: #fff;
     --destructive: #e63939;
@@ -46,6 +46,7 @@
     --sidebar-ring: #0CC15E;
     --header-height: 58px;
     --gradient-gray: linear-gradient(180deg, #EDEEF3 0%, #EDEEF3 65%, #FFFFFF 100%);
+    --gradient-blue: linear-gradient(90deg, #25A0E8 0%, #5EC3FE 100%);
   }
 }
 
@@ -62,6 +63,14 @@
   body {
     overflow-x: hidden;
     @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply text-3xl md:text-5xl font-bold text-foreground text-balance tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-bold text-foreground text-balance tracking-tight;
   }
 }
 

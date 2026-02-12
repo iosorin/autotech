@@ -59,34 +59,36 @@ export const Hero = ({
 }: Props) => {
   return (
     <div className="flex flex-col mx-auto">
-      <Enter variant="fade-up" duration={700}>
-        <div className="text-center mb-8">
-          <p className="text-lg font-medium text-primary mb-3">{subtitle}</p>
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground leading-tight text-balance">
-            {titleLine1}
-            <br />
-            {titleLine2}
-          </h1>
-        </div>
-      </Enter>
+      <div className="flex flex-col gap-6">
+        <Enter variant="fade-up" duration={700}>
+          <div className="text-center">
+            <p className="text-lg font-medium text-primary mb-3">{subtitle}</p>
+            <h1>
+              {titleLine1}
+              <br />
+              {titleLine2}
+            </h1>
+          </div>
+        </Enter>
 
-      <Enter variant="fade-up" delay={200} duration={600}>
-        <div className="flex flex-wrap justify-center gap-3">
-          {ctaStart && (
-            <Button asChild variant="default" className="rounded-full" size="xl">
-              <Link href={ctaStart.href}>
-                {ctaStart.label}
-                <ArrowUpRight />
-              </Link>
-            </Button>
-          )}
-          {ctaContact && (
-            <Button asChild variant="outline" className="rounded-full" size="xl">
-              <Link href={ctaContact.href}>{ctaContact.label}</Link>
-            </Button>
-          )}
-        </div>
-      </Enter>
+        <Enter variant="fade-up" delay={200} duration={600}>
+          <div className="flex flex-wrap justify-center gap-3">
+            {ctaStart && (
+              <Button asChild variant="default" className="rounded-full" size="xl">
+                <Link href={ctaStart.href}>
+                  {ctaStart.label}
+                  <ArrowUpRight />
+                </Link>
+              </Button>
+            )}
+            {ctaContact && (
+              <Button asChild variant="outline" className="rounded-full" size="xl">
+                <Link href={ctaContact.href}>{ctaContact.label}</Link>
+              </Button>
+            )}
+          </div>
+        </Enter>
+      </div>
 
       <div className="flex flex-col lg:flex-row gap-0 items-center">
         <div className="flex flex-wrap gap-3 flex-1">

@@ -11,41 +11,32 @@ export const metadata: Metadata = {
   description: seo.pages.tariffs.description,
 };
 
-export default function TariffsPage() {
+const Tariffs = () => {
   const p = tariffs;
   return (
     <>
-      <section id="tariffs" className="py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <Lead label={p.platformLabel} title={p.title} />
-        </div>
-      </section>
-
-      <section id="table" className="pb-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <Table
-            periods={p.periods}
-            plans={p.plans}
-            priceNote={p.priceNote}
-            priceNote2={p.priceNote2}
-          />
-        </div>
+      <section id="tariffs" className="pt-from-header pb-8 relative">
+        <div className="gradlayer bg-gradient-blue" />
+        <Lead label={p.platformLabel} title={p.title} />
+        <Table
+          cols={p.periods}
+          rows={p.plans}
+          note={p.priceNote}
+          note2={p.priceNote2}
+          className="bg-white"
+        />
       </section>
 
       <section id="discounts" className="py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <Rates heading={p.discountsHeading} discounts={p.discounts} />
-        </div>
+        <Rates heading={p.discountsHeading} discounts={p.discounts} />
       </section>
 
       <section id="included" className="py-12 md:py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <Checklist
-            heading={p.includedHeading}
-            items={p.included}
-            imageAlt={p.imageAlt}
-          />
-        </div>
+        <Checklist
+          heading={p.includedHeading}
+          items={p.included}
+          imageAlt={p.imageAlt}
+        />
       </section>
 
       <section id="cta" className="py-16 relative">
@@ -57,3 +48,5 @@ export default function TariffsPage() {
     </>
   );
 }
+
+export default Tariffs

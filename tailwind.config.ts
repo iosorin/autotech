@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        'from-header': 'calc(var(--header-height) + 5rem)',
+        'from-header': 'calc(var(--header-height) + 5.25rem)',
       },
       height: {
         'header': 'var(--header-height)',
@@ -31,7 +31,7 @@ const config: Config = {
         '2xl': ['1.5rem', { lineHeight: '2rem' }],
         '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
         '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
+        '5xl': ['3rem', { lineHeight: '1.2' }],
       },
       colors: {
         background: 'var(--background)',
@@ -88,6 +88,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-gray': 'var(--gradient-gray)',
+        'gradient-blue': 'var(--gradient-blue)',
       },
       borderRadius: {
         lg: 'var(--radius)',
