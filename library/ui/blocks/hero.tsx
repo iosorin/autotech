@@ -132,7 +132,7 @@ export const Hero = ({
                 alt={image.alt}
                 width={500}
                 height={600}
-                className="rounded-3xl shadow-lg w-auto h-auto"
+                className="rounded-3xl w-full h-auto"
                 priority
               />
             </div>

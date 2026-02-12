@@ -15,7 +15,7 @@ export const home = {
         cardTitle2: "с других приложений",
         cardDesc: "Автоматический перенос услуг и настроек",
         image: {
-            src: "/images/app-mockup.jpg",
+            src: "/images/app-order.png",
             alt: "Интерфейс приложения Автотех",
         },
     },
