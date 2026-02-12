@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
+import { Button } from "@ui/atoms/button";
 
 const iconMap = { ScanLine, BarChart3, Calculator, CalendarCheck, Users };
 
@@ -71,21 +72,17 @@ export const Hero = ({
       <Enter variant="fade-up" delay={200} duration={600}>
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {ctaStart && (
-            <Link
-              href={ctaStart.href}
-              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
-            >
-              {ctaStart.label}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            <Button asChild variant="default" className="rounded-full" size="xl">
+              <Link href={ctaStart.href}>
+                {ctaStart.label}
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Button>
           )}
           {ctaContact && (
-            <Link
-              href={ctaContact.href}
-              className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:bg-secondary transition-colors"
-            >
-              {ctaContact.label}
-            </Link>
+            <Button asChild variant="outline" className="rounded-full" size="xl">
+              <Link href={ctaContact.href}>{ctaContact.label}</Link>
+            </Button>
           )}
         </div>
       </Enter>
