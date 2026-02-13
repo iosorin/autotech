@@ -1,34 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "../atoms/button";
 import { cn } from "@utils";
+import { Tabs, TabsTrigger, TabsList, TabsContent } from "../atoms/tabs";
 
 type Tab = { id: string; label: string };
 type Feature = { icon: React.ReactNode; text: string };
-type TabContent = { title: string; features: Feature[]; image?: string };
+type TabContent = {
+  title: string;
+  features: Feature[];
+  image?: { src: string; alt: string };
+};
 
 type Props = {
   tabs: Tab[];
   content: Record<string, TabContent>;
-  image: {
-    src: string;
-    alt: string;
-  };
 };
 
-export const Features = ({ tabs, content, image }: Props) => {
-  const [active, setActive] = useState(tabs[0]?.id ?? "orders");
-  const data = content[active];
-
-  if (!data) return null;
-
-  const half = Math.ceil(data.features.length / 2);
-  const left = data.features.slice(0, half);
-  const right = data.features.slice(half);
-
+export const Features = ({ tabs, content }: Props) => {
   const renderFeatures = (features: Feature[], delay: number) => {
     return features.map((item, i) => {
       return (
@@ -44,57 +36,63 @@ export const Features = ({ tabs, content, image }: Props) => {
     })
   }
 
+  const defaultTab = tabs[0]?.id ?? "orders";
+
   return (
-    <>
-      {/* Табы */}
+    <Tabs defaultValue={defaultTab} className="flex flex-col items-center w-full">
       <Enter variant="fade-up" duration={500}>
-        <div className="flex flex-wrap justify-center gap-2 mb-12 bg-gray">
+        <TabsList className="mb-12 mx-auto">
           {tabs.map((tab) => (
-            <Button
+            <TabsTrigger
               key={tab.id}
-              variant="secondary"
-              className={cn(active === tab.id && "bg-foreground text-background")}
-              // size="lg"
-              onClick={() => setActive(tab.id)}
+              value={tab.id}
             >
               {tab.label}
-            </Button>
+            </TabsTrigger>
           ))}
-        </div>
+        </TabsList>
       </Enter>
 
-      <Enter variant="fade" duration={500} key={active}>
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-12 text-balance">
-          {data.title}
-        </h2>
-      </Enter>
+      {tabs.map((tab) => {
+        const data = content[tab.id];
+        if (!data) return null;
+        const half = Math.ceil(data.features.length / 2);
+        const left = data.features.slice(0, half);
+        const right = data.features.slice(half);
 
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
-        {image && (
-          <Enter variant="fade-right" duration={700} className="flex-1 min-w-0">
-            <div className="relative w-full">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={435}
-                height={664}
-                className="w-full h-auto"
-              />
+        return (
+          <TabsContent key={tab.id} value={tab.id} className="mt-0">
+            <Enter variant="fade" duration={500}>
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-12 text-balance">
+                {data.title}
+              </h2>
+            </Enter>
+
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
+              {data.image && (
+                <div className="relative w-full flex-1 min-w-0">
+                  <Image
+                    src={data.image.src}
+                    alt={data.image.alt}
+                    width={435}
+                    height={664}
+                    className="w-full h-auto"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-6 flex-1">
+                {renderFeatures(left, 0)}
+              </div>
+
+              <div className="flex flex-col gap-6 flex-1">
+                {renderFeatures(right, half)}
+              </div>
             </div>
-          </Enter>
-        )}
-
-        {/* Левая колонка фич */}
-        <div className="flex flex-col gap-6 flex-1">
-          {renderFeatures(left, 0)}
-        </div>
-
-        {/* Правая колонка фич */}
-        <div className="flex flex-col gap-6 flex-1">
-          {renderFeatures(right, half)}
-        </div>
-      </div>
-    </>
+          </TabsContent>
+        );
+      })}
+    </Tabs>
   );
 };
 
