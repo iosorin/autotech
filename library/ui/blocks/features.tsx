@@ -1,36 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import {
-  ScanLine,
-  Palette,
-  Calculator,
-  BarChart3,
-  CalendarCheck,
-  Users,
-  CheckCircle2,
-  Phone,
-  CreditCard,
-  Scissors,
-} from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 
-const iconMap = {
-  ScanLine,
-  Palette,
-  Calculator,
-  BarChart3,
-  CalendarCheck,
-  Users,
-  CheckCircle2,
-  Phone,
-  CreditCard,
-  Scissors,
-};
-
 type Tab = { id: string; label: string };
-type Feature = { icon: string; text: string };
+type Feature = { icon: React.ReactNode; text: string };
 type TabContent = { title: string; features: Feature[]; image?: string };
 
 type Props = {
@@ -59,11 +34,10 @@ export const Features = ({ tabs, content, imageAlt }: Props) => {
               key={tab.id}
               type="button"
               onClick={() => setActive(tab.id)}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 ${
-                active === tab.id
-                  ? "bg-foreground text-background"
-                  : "border border-border text-foreground hover:bg-secondary"
-              }`}
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 ${active === tab.id
+                ? "bg-foreground text-background"
+                : "border border-border text-foreground hover:bg-secondary"
+                }`}
             >
               {tab.label}
             </button>
@@ -95,13 +69,14 @@ export const Features = ({ tabs, content, imageAlt }: Props) => {
 
         {/* Левая колонка фич */}
         <div className="flex flex-col gap-6">
-          {left.map((feature, i) => {
-            const Icon = iconMap[feature.icon as keyof typeof iconMap];
+          {left.map((item, i) => {
             return (
-              <Enter key={feature.text} variant="fade-up" delay={i * 60} duration={500}>
+              <Enter key={item.text} variant="fade-up" delay={i * 60} duration={500}>
                 <div className="flex items-start gap-3">
-                  {Icon ? <Icon className="size-5 text-primary flex-shrink-0 mt-0.5" /> : null}
-                  <p className="text-sm text-foreground leading-relaxed">{feature.text}</p>
+                  {item.icon && <span className="flex-shrink-0 mt-0.5">
+                    {item.icon}
+                  </span>}
+                  <p className="text-sm text-foreground leading-relaxed">{item.text}</p>
                 </div>
               </Enter>
             );
@@ -110,13 +85,14 @@ export const Features = ({ tabs, content, imageAlt }: Props) => {
 
         {/* Правая колонка фич */}
         <div className="flex flex-col gap-6">
-          {right.map((feature, i) => {
-            const Icon = iconMap[feature.icon as keyof typeof iconMap];
+          {right.map((item, i) => {
             return (
-              <Enter key={feature.text} variant="fade-up" delay={(half + i) * 60} duration={500}>
+              <Enter key={item.text} variant="fade-up" delay={(half + i) * 60} duration={500}>
                 <div className="flex items-start gap-3">
-                  {Icon ? <Icon className="size-5 text-primary flex-shrink-0 mt-0.5" /> : null}
-                  <p className="text-sm text-foreground leading-relaxed">{feature.text}</p>
+                  {item.icon && <span className="flex-shrink-0 mt-0.5">
+                    {item.icon}
+                  </span>}
+                  <p className="text-sm text-foreground leading-relaxed">{item.text}</p>
                 </div>
               </Enter>
             );
