@@ -50,7 +50,6 @@ const Page = () => {
         <Features
           tabs={home.features.tabs}
           content={home.features.content}
-          image={home.features.image}
         />
       </section>
 
