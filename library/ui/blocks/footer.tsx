@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { cn } from "@utils";
+import { Button } from "../atoms/button";
 // import { app } from "@data";
 
 type Props = {
@@ -33,7 +34,7 @@ type Props = {
 
 export const Footer = ({ title, copyright, phone, email, telegram, nav, featured, company, links, className }: Props) => {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="bg-background">
       <div className={cn("mx-auto px-4 py-10", className)}>
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-between">
           <div className="flex flex-col gap-2">
@@ -83,7 +84,7 @@ export const Footer = ({ title, copyright, phone, email, telegram, nav, featured
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground"
+                  className="hover:underline"
                 >
                   {link.label}
                 </Link>
@@ -91,16 +92,14 @@ export const Footer = ({ title, copyright, phone, email, telegram, nav, featured
             </div>
           }
 
+
           {featured &&
-            <div>
-              <Link
-                href={featured.href}
-                className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground hover:bg-foreground hover:text-background transition-colors"
-              >
+            <Button asChild variant="secondary">
+              <Link href={featured.href}>
                 {featured.label}
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowRight className="size-4" />
               </Link>
-            </div>
+            </Button>
           }
         </div>
 

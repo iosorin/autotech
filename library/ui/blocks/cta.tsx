@@ -6,7 +6,8 @@ import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
 
 type Props = {
-  title: string;
+  title1: string;
+  title2?: string;
   start: {
     label: string;
     href: string;
@@ -17,12 +18,18 @@ type Props = {
   };
 };
 
-export const Cta = ({ title, start, contact }: Props) => {
+export const Cta = ({ title1, title2, start, contact }: Props) => {
   return (
     <Enter variant="fade-up" duration={600}>
       <div className="flex flex-col gap-8 text-center py-8">
         <h2>
-          {title}
+          {title1}
+          {title2 && (
+            <>
+              <br />
+              {title2}
+            </>
+          )}
         </h2>
         <div className="flex flex-wrap justify-center gap-3">
           {start && (

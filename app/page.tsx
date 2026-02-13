@@ -9,7 +9,6 @@ import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
-import { Join } from "@ui/blocks/join";
 import { app, home } from "@data";
 
 const Page = () => {
@@ -101,7 +100,7 @@ const Page = () => {
       <section id="cta" className="py-16 relative">
         <div className="gradlayer bg-gradient-blue" />
         <Cta
-          title={home.cta.defaultTitle}
+          title1={home.cta.defaultTitle}
           start={app.cta.start}
           contact={app.cta.contact}
         />
@@ -131,12 +130,13 @@ const Page = () => {
         />
       </section>
 
-      <section id="join" className="py-16 md:py-24">
-        <Join
-          titleLine1={home.join.titleLine1}
-          titleLine2={home.join.titleLine2}
-          ctaStart={app.cta.start}
-          ctaContact={app.cta.contact}
+      <section id="cta" className="py-16 relative">
+        <div className="gradlayer bg-muted" />
+        <Cta
+          title1={home.join.titleLine1}
+          title2={home.join.titleLine2}
+          start={app.cta.start}
+          contact={app.cta.contact}
         />
       </section>
     </>
