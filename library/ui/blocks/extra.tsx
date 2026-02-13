@@ -14,7 +14,11 @@ type ExtraProps = {
   title: string;
   titleHighlight: string;
   titleSuffix: string;
-  tire: { heading: string; items: string[]; imageAlt: string; image?: string };
+  tire: { heading: string; items: string[]; };
+  image: {
+    alt: string;
+    href: string;
+  }
   integrations: { heading: string; desc: string; items: { name: string; label: string; logo?: string }[] };
   security: { heading: string; items: string[] };
   support: { heading: string; items: string[] };
@@ -34,6 +38,7 @@ export const ExtraFeatures = ({
   devices,
   mechanicImageAlt,
   mechanicImage,
+  image,
 }: ExtraProps) => {
   return (
     <>
@@ -62,15 +67,17 @@ export const ExtraFeatures = ({
             ))}
           </div>
         </Enter>
-        <Enter variant="fade-left" delay={200} duration={700}>
-          <Image
-            src={tire.image ?? "/images/tires.jpg"}
-            alt={tire.imageAlt}
-            width={500}
-            height={350}
-            className="rounded-2xl w-full h-auto"
-          />
-        </Enter>
+        {image &&
+          <Enter variant="fade-left" delay={200} duration={700}>
+            <Image
+              src={image.href}
+              alt={image.alt}
+              width={500}
+              height={350}
+              className="rounded-2xl w-full h-auto"
+            />
+          </Enter>
+        }
       </div>
 
       {/* Интеграции */}

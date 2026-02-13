@@ -31,7 +31,7 @@ const Page = () => {
             ctaContact={app.cta.contact}
           />
         </div>
-        <div className="fade-bottom h-10" />
+        <div className="fade-bottom" />
       </section>
 
       <section id="event" className="py-8 max-w-[60%] mx-auto">
@@ -70,6 +70,7 @@ const Page = () => {
           titleHighlight={home.extraFeatures.titleHighlight}
           titleSuffix={home.extraFeatures.titleSuffix}
           tire={home.extraFeatures.tire}
+          image={home.extraFeatures.image}
           integrations={home.extraFeatures.integrations}
           security={home.extraFeatures.security}
           support={home.extraFeatures.support}
