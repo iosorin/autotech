@@ -3,138 +3,146 @@ import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
 import { Account } from "@ui/blocks/account";
 import { Extra } from "@ui/blocks/extra";
+import { Badges } from "@ui/blocks/badges";
 import { Migration } from "@ui/blocks/migration";
 import { Clients } from "@ui/blocks/clients";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
+import { Cards } from "@ui/blocks/cards";
+import { Lead } from "@ui/atoms/lead";
 import { app, home } from "@data";
 
 const Page = () => {
+  const p = home;
   return (
     <>
-      <section id="hero" className="pt-from-header relative">
+      <section id="hero">
         <div className="gradlayer bg-gradient-gray" />
 
         <div className="mx-auto my-4">
           <Hero
-            titleLine1={home.hero.titleLine1}
-            titleLine2={home.hero.titleLine2}
-            subtitle={home.hero.subtitle}
-            features={home.hero.features}
-            ctaTelegram={app.cta.telegram}
-            card={home.hero.card}
-            image={home.hero.image}
-            ctaStart={app.cta.start}
-            ctaContact={app.cta.contact}
+            titleLine1={p.hero.titleLine1}
+            titleLine2={p.hero.titleLine2}
+            subtitle={p.hero.subtitle}
+            features={p.hero.features}
+            links={[app.cta.start, app.cta.contact]}
+            cta={p.hero.cta}
+            card={p.hero.card}
+            image={p.hero.image}
           />
         </div>
         <div className="fade-bottom" />
       </section>
 
-      <section id="event" className="py-8 max-w-[65%] mx-auto">
+      <section id="event">
         <Event
-          date={home.eventBanner.date}
-          title={home.eventBanner.title}
-          line1={home.eventBanner.line1}
-          line2={home.eventBanner.line2}
-          cta={home.eventBanner.cta}
-          button={home.eventBanner.button}
+          date={p.eventBanner.date}
+          title={p.eventBanner.title}
+          line1={p.eventBanner.line1}
+          line2={p.eventBanner.line2}
+          cta={p.eventBanner.cta}
+          button={p.eventBanner.button}
           className="bg-gradient-blue"
         />
       </section>
 
-      <section id="features" className="py-12 md:py-20 relative">
+      <section id="features">
         <Features
-          tabs={home.features.tabs}
-          content={home.features.content}
+          tabs={p.features.tabs}
+          content={p.features.content}
         />
       </section>
 
-      <section id="account" className="py-12 md:py-20">
+      <section id="account">
         <Account
-          titleLine1={home.account.titleLine1}
-          titleLine2={home.account.titleLine2}
-          descLine1={home.account.descLine1}
-          descLine2={home.account.descLine2}
-          subtitle={home.account.subtitle}
-          cards={home.account.cards}
+          titleLine1={p.account.titleLine1}
+          titleLine2={p.account.titleLine2}
+          descLine1={p.account.descLine1}
+          descLine2={p.account.descLine2}
+          subtitle={p.account.subtitle}
+          cards={p.account.cards}
         />
       </section>
 
-      <section id="extra" className="py-12 md:py-20">
+      <section id="extra">
         <Extra
-          title={home.extraFeatures.title}
-          titleHighlight={home.extraFeatures.titleHighlight}
-          titleSuffix={home.extraFeatures.titleSuffix}
-          tire={home.extraFeatures.tire}
-          integrations={home.extraFeatures.integrations}
-          security={home.extraFeatures.security}
-          support={home.extraFeatures.support}
-          devices={home.extraFeatures.devices}
+          title={p.extra.title}
+          tire={p.extra.tire}
+          integrations={p.extra.integrations}
+          security={p.extra.security}
+          support={p.extra.support}
         />
       </section>
 
-      <section id="migration" className="max-w-[70%] mx-auto py-16 md:py-24 relative">
+      <section id="devices">
+        <Lead title={p.extra.devices.heading} />
+        <Badges list={p.extra.devices.list} />
+      </section>
+
+      <section id="migration">
         <div className="gradlayer bg-gradient-green" />
         <Migration
-          titleLine1={home.dataMigration.titleLine1}
-          titleLine2={home.dataMigration.titleLine2}
-          desc={home.dataMigration.desc}
-          items={home.dataMigration.items}
+          titleLine1={p.dataMigration.titleLine1}
+          titleLine2={p.dataMigration.titleLine2}
+          desc={p.dataMigration.desc}
+          items={p.dataMigration.items}
         />
       </section>
 
-      <section id="clients" className="py-16 md:py-24 relative">
+      <section id="clients">
+        <Lead
+          label={p.clients.subtitle}
+          title={p.clients.titleLine1}
+          title2={p.clients.titleLine2}
+        />
         <Clients
-          titleLine1={home.clients.titleLine1}
-          titleLine2={home.clients.titleLine2}
-          subtitle={home.clients.subtitle}
-          intro={home.clients.intro}
-          items={home.clients.items}
-          image={home.clients.image}
+          intro={p.clients.intro}
+          items={p.clients.items}
+          image={p.clients.image}
         />
       </section>
 
-      <section id="cta" className="py-16 relative">
+      <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
         <Cta
-          title1={home.cta.defaultTitle}
+          title1={p.cta.defaultTitle}
           start={app.cta.start}
           contact={app.cta.contact}
         />
       </section>
 
-      <section id="faq" className="py-16 md:py-24">
-        <Faq heading={home.faq.heading} items={home.faq.items} />
+      <section id="faq">
+        <Lead title={p.faq.heading} />
+        <Faq items={p.faq.items} />
       </section>
 
-      <section id="partners" className="py-12 md:py-20">
+      <section id="partners">
+        <Lead title={p.partners.heading} />
         <Partners
-          heading={home.partners.heading}
-          name={home.partners.name}
-          nameSup={home.partners.nameSup}
-          desc={home.partners.desc}
-          note={home.partners.note}
+          name={p.partners.name}
+          nameSup={p.partners.nameSup}
+          desc={p.partners.desc}
+          note={p.partners.note}
         />
       </section>
 
-      <section id="testimonials" className="py-12 md:py-20 relative">
+      <section id="testimonials">
         <div className="gradlayer bg-muted" />
+        <Lead title={p.testimonials.heading} />
         <Testimonials
-          heading={home.testimonials.heading}
-          prevAria={home.testimonials.prevAria}
-          nextAria={home.testimonials.nextAria}
-          list={home.testimonials.list}
+          prevAria={p.testimonials.prevAria}
+          nextAria={p.testimonials.nextAria}
+          list={p.testimonials.list}
         />
       </section>
 
-      <section id="cta" className="py-16 relative">
+      <section id="cta-join">
         <div className="gradlayer bg-muted" />
         <Cta
-          title1={home.join.titleLine1}
-          title2={home.join.titleLine2}
+          title1={p.join.titleLine1}
+          title2={p.join.titleLine2}
           start={app.cta.start}
           contact={app.cta.contact}
         />

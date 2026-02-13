@@ -70,13 +70,13 @@ export const Features = ({ tabs, content }: Props) => {
 
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
               {data.image && (
-                <div className="relative w-full flex-1 min-w-0">
+                <div className="relative w-full lg:flex-1 min-w-0 order-first">
                   <Image
                     src={data.image.src}
                     alt={data.image.alt}
                     width={435}
                     height={664}
-                    className="w-full h-auto"
+                    className="w-full h-auto max-w-sm mx-auto lg:max-w-none"
                   />
                 </div>
               )}

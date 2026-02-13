@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-// import { Droplets, Scissors, Car } from "lucide-react";
 import { cn } from "@utils";
 import { Button } from "../atoms/button";
 

@@ -14,35 +14,35 @@ export default function SupportPage() {
   const p = support;
   return (
     <>
-      <section id="support" className="pt-from-header relative">
+      <section id="support">
         <div className="gradlayer bg-gradient-lime" />
-
         <div className="flex flex-col gap-12">
-
           <Lead label={p.subtitle} title={p.title} titleFirst />
           <div className="md:w-[60%] mx-auto">
-            <Contact topics={p.topics} />
+            <Contact heading={p.form.heading} topics={p.form.topics} />
           </div>
         </div>
 
       </section>
 
-      <section id="support-types" className="pb-16">
-        <Types heading={p.responseHeading} types={p.types} />
-      </section>
+      <section>
+        <div className="gradlayer bg-gradient-gray-light" />
 
-      <section id="other-contact" className="pb-16">
-        <div className="max-w-md mx-auto px-4">
+        <section id="support-types">
+          <Lead title={p.responseHeading} />
+          <Types types={p.types} />
+        </section>
+
+        <section id="other-contact">
+          <Lead title={p.otherContactHeading} />
           <Links
-            heading={p.otherContactHeading}
             labels={p.contactLabels}
-            telegramUrl={app.supportTelegramUrl}
-            telegramLabel={app.telegramSupport}
+            telegramSupport={app.telegramSupport}
             email={app.supportEmail}
             phone={app.phone}
             phoneRaw={app.phoneRaw}
           />
-        </div>
+        </section>
       </section>
     </>
   );

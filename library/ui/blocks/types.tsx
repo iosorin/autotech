@@ -3,13 +3,11 @@ import { cn } from "@utils";
 type Type = { title: string; desc: string; icon?: React.ReactNode; className: string };
 
 type Props = {
-  heading: string;
   types: Type[];
 };
 
-export const Types = ({ heading, types }: Props) => (
+export const Types = ({ types }: Props) => (
   <div className="text-center flex flex-col items-center">
-    <h2 className="mb-10">{heading}</h2>
     <div className="grid gap-4 sm:grid-cols-2">
       {types.map((type) => (
         <div

@@ -9,34 +9,25 @@ import {
 import { Enter } from "@ui/atoms/enter";
 
 type Props = {
-  heading: string;
-  items: { question: string; answer: string }[];
+  items: { q: string; a: string }[];
 };
 
-export const Faq = ({ heading, items }: Props) => {
+export const Faq = ({ items }: Props) => {
   return (
-    <>
-      <Enter variant="fade-up" duration={600}>
-        <h2 className="text-center mb-10">
-          {heading}
-        </h2>
-      </Enter>
-
-      <Enter variant="fade-up" delay={150} duration={600}>
-        <Accordion type="single" collapsible className="w-full">
-          {items.map((item, index) => (
-            <AccordionItem key={item.question} value={`item-${index}`}>
-              <AccordionTrigger className="text-left font-medium">
-                {item.question}
-              </AccordionTrigger>
-              <AccordionContent className="leading-relaxed">
-                {item.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Enter>
-    </>
+    <Accordion type="single" collapsible className="w-full">
+      {items.map((item, index) => (
+        <Enter variant="fade-up" delay={150 * index} duration={600} key={item.q}>
+          <AccordionItem key={item.q} value={`item-${index}`}>
+            <AccordionTrigger className="text-left font-medium">
+              {item.q}
+            </AccordionTrigger>
+            <AccordionContent className="leading-relaxed">
+              {item.a}
+            </AccordionContent>
+          </AccordionItem>
+        </Enter>
+      ))}
+    </Accordion>
   );
 };
 

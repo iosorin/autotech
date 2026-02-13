@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   const p = events;
   return (
-    <section id="events" className="pt-from-header relative">
+    <section id="events">
       <div className="gradlayer bg-gradient-blue" />
 
       <Lead label={p.subtitle} title={p.title} titleFirst />
@@ -25,7 +25,8 @@ export default function EventsPage() {
         button={home.eventBanner.button}
         className="bg-white shadow-lg"
       />
-      <List heading={p.pastHeading} events={p.past} className="my-12" />
+      <Lead title={p.pastHeading} />
+      <List events={p.past} className="my-12" />
     </section>
   );
 }

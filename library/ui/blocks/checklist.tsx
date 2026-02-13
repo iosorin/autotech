@@ -5,12 +5,11 @@ import { CheckCircle2 } from "lucide-react";
 import { Enter } from "../atoms/enter";
 
 type Props = {
-  heading: string;
   items: string[];
   image: { alt: string; href: string; };
 };
 
-export const Checklist = ({ heading, items, image }: Props) => {
+export const Checklist = ({ items, image }: Props) => {
   const checkIcon = <CheckCircle2 className="size-6 text-primary flex-shrink-0 mt-0.5" />
   return (
     <div className="flex justify-between items-center gap-20">
@@ -26,7 +25,6 @@ export const Checklist = ({ heading, items, image }: Props) => {
         </Enter>
       }
       <Enter variant="fade-right" duration={600} className="flex-1">
-        <h2 className="mb-6">{heading}</h2>
         <div className="flex flex-col gap-6">
           {items.map((item) => (
             <div key={item} className="flex items-start gap-3">

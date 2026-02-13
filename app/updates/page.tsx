@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function UpdatesPage() {
   const p = updates;
   return (
-    <section id="updates" className="pt-from-header relative">
+    <section id="updates">
       <div className="gradlayer bg-gradient-blue" />
 
       <div className="mx-auto my-4">

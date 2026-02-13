@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
-import { Form } from "@ui/blocks/form";
+// import { Form } from "@ui/blocks/form";
 import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
+import { Contact } from "@ui/blocks/contact";
 import { seo, app, contacts } from "@data";
 
 export const metadata: Metadata = {
@@ -17,65 +18,65 @@ export const Contacts = () => {
   const p = contacts;
   return (
     <>
-      <section id="contacts" className="py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <Lead
-            title={p.title}
-            hint={
-              <>
-                {p.supportHint}
-                <Link href="/support" className="text-primary underline hover:text-primary/80">
-                  {p.supportLinkLabel}
-                </Link>
-              </>
-            }
-          />
+      <section id="contacts">
+        <div className="gradlayer bg-gradient-gray" />
+
+        <Lead
+          title={p.title}
+          hint={
+            <span className="inline-flex gap-1 justify-center">
+              {p.supportHint}
+              <Link href="/support" className="text-primary underline hover:text-primary/80">
+                «{p.supportLinkLabel}»
+              </Link>
+            </span>
+          }
+        />
+
+        <div className="pb-10">
+          <Lead title={p.designedForHeading} />
+          <Grid blocks={p.designedFor} />
         </div>
       </section>
 
-      <section id="designed-for" className="pb-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <Grid heading={p.designedForHeading} blocks={p.designedFor} />
+
+      <section id="dev">
+        <Lead title={p.devHeading} />
+        <Icons items={p.dev} left />
+      </section>
+
+      <section id="mission">
+        <div className="gradlayer bg-gradient-lime" />
+        <div className="max-w-[85%] mx-auto">
+          <Lead title={p.mission.heading} />
+          <Icons items={p.mission.items} variant="stack" />
         </div>
       </section>
 
-      <section id="dev" className="pb-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <Icons heading={p.devHeading} items={p.dev} />
+      <section id="form">
+        <Lead title={p.form.heading} />
+        <div className="md:w-[60%] mx-auto">
+          <Contact topics={p.form.topics} className="shadow-primary/25" />
         </div>
       </section>
 
-      <section id="mission" className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#e6fff0] to-[#f0fdf4] -z-10" />
-        <div className="max-w-2xl mx-auto px-4 relative">
-          <Icons heading={p.missionHeading} items={p.mission} variant="stack" />
-        </div>
+      <section id="other-contact">
+        <Lead title={p.otherContactHeading} />
+        <Links
+          labels={p.contactLabels}
+          telegramSupport={app.telegram}
+          email={app.supportEmail}
+          phone={app.phone}
+          phoneRaw={app.phoneRaw}
+        />
       </section>
 
-      <section id="form" className="py-20">
-        <div className="max-w-2xl mx-auto px-4">
-          <Form heading={p.contactHeading} />
-        </div>
-      </section>
+      <section id="requisites">
+        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="max-w-[85%] mx-auto">
 
-      <section id="other-contact" className="pb-16">
-        <div className="max-w-md mx-auto px-4">
-          <Links
-            heading={p.otherContactHeading}
-            labels={p.contactLabels}
-            telegramUrl={app.supportTelegramUrl}
-            telegramLabel={app.telegramSupport}
-            email={app.supportEmail}
-            phone={app.phone}
-            phoneRaw={app.phoneRaw}
-          />
-        </div>
-      </section>
-
-      <section id="requisites" className="pb-20">
-        <div className="max-w-4xl mx-auto px-4">
+          <Lead title={p.requisitesHeading} />
           <Requisites
-            heading={p.requisitesHeading}
             bankHeading={p.bankHeading}
             accountLabel={p.accountLabel}
             company={{
@@ -89,6 +90,7 @@ export const Contacts = () => {
             bank={app.company.bank}
           />
         </div>
+
       </section>
     </>
   );

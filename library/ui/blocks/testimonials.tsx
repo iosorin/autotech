@@ -16,13 +16,12 @@ type Testimonial = {
 };
 
 type Props = {
-  heading: string;
   prevAria: string;
   nextAria: string;
   list: Testimonial[];
 };
 
-export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
+export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
   const [current, setCurrent] = useState(0);
   const [sliding, setSliding] = useState(false);
 
@@ -43,12 +42,9 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
 
   return (
     <>
-      {/* Заголовок и навигация */}
+      {/* Навигация */}
       <Enter variant="fade-up" duration={600}>
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
-            {heading}
-          </h2>
+        <div className="flex items-center justify-end mb-10">
           <div className="flex items-center gap-4">
             <Button
               variant="outline"
@@ -80,7 +76,7 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
           <div className="rounded-2xl p-6 md:p-8 bg-white h-full shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
               {/* Аватар и имя */}
-              <div className="flex flex-col items-center md:items-start flex-shrink-0 w-1/5">
+              <div className="flex flex-col items-center md:items-start flex-shrink-0 w-full md:w-1/5">
                 <div className="size-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-muted-foreground mb-3 overflow-hidden">
                   {item.avatar ? (
                     <Image src={item.avatar} alt={item.name} width={80} height={80} className="object-cover" />
@@ -104,7 +100,7 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
                   </div>
                 ) : (
                   <div className="mb-4">
-                    <span className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-foreground">
+                    <span className="rounded-md px-3 py-1.5 text-xs font-medium bg-muted text-foreground">
                       {item.company}
                     </span>
                   </div>
