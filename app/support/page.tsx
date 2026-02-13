@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
-import { Split } from "@ui/blocks/split";
 import { Links } from "@ui/blocks/links";
 import { app, seo, support } from "@data";
+import { Contact } from "@ui/blocks/contact";
+import { Types } from "@ui/blocks/types";
 
 export const metadata: Metadata = {
   title: seo.pages.support.title,
@@ -18,12 +19,14 @@ export default function SupportPage() {
 
         <div className="mx-auto my-4">
           <Lead label={p.subtitle} title={p.title} titleFirst />
-          <Split
-            responseHeading={p.responseHeading}
-            responseTypes={p.responseTypes}
-          />
+
+          <div className="flex flex-col gap-12">
+            <div className="md:w-[60%] mx-auto">
+              <Contact />
+            </div>
+            <Types heading={p.responseHeading} types={p.responseTypes} />
+          </div>
         </div>
-        <div className="fade-bottom" />
       </section>
 
       <section id="other-contact" className="pb-16">
