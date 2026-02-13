@@ -1,10 +1,8 @@
 "use client";
 
-import { Zap, Clock, Wrench, MessageCircle } from "lucide-react";
+import { cn } from "@utils";
 
-const iconMap = { Zap, Clock, Wrench, MessageCircle };
-
-type Type = { icon: string; title: string; desc: string; bg: string; border: string };
+type Type = { icon: React.ReactNode; title: string; desc: string; className: string };
 
 type Props = {
   heading: string;
@@ -13,25 +11,16 @@ type Props = {
 
 export const Types = ({ heading, types }: Props) => {
   return (
-    <div>
-      <h2 className="mb-6 text-2xl font-bold text-foreground">{heading}</h2>
+    <div className="text-center flex flex-col items-center">
+      <h2 className="mb-10">{heading}</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {types.map((type) => (
           <div
             key={type.title}
-            className={`rounded-2xl border ${type.border} ${type.bg} p-5`}
+            className={cn(`rounded-2xl border p-5`, type.className)}
           >
-            <div className="mb-3">
-              {type.icon === "Zap" ? (
-                <Zap className="h-6 w-6 text-destructive" />
-              ) : type.icon === "Clock" ? (
-                <Clock className="h-6 w-6 text-amber-500" />
-              ) : (
-                (() => {
-                  const Icon = iconMap[type.icon as keyof typeof iconMap];
-                  return Icon ? <Icon className="h-6 w-6 text-foreground" /> : null;
-                })()
-              )}
+            <div className="mb-3 flex justify-center">
+              {type.icon}
             </div>
             <h3 className="mb-2 text-sm font-bold text-foreground">{type.title}</h3>
             <p className="text-xs leading-relaxed text-muted-foreground">{type.desc}</p>

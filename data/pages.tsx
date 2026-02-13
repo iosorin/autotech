@@ -1,4 +1,4 @@
-import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Scissors, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Car, Droplets } from "lucide-react"
+import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Scissors, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Car, Droplets, Clock, Zap, Wrench, MessageCircle } from "lucide-react"
 
 export const home = {
     hero: {
@@ -440,10 +440,10 @@ export const support = {
     subtitle: "Обрабатываем ваши заявки ежедневно с 08:00 до 23:00",
     responseHeading: "Сроки обработки обращений",
     responseTypes: [
-        { icon: "Zap", title: "Критическая ошибка, блокирующая работу", desc: "Берем в работу сразу, срок решения зависит от технических возможностей и от того, на чьей стороне возникла проблема — на нашей или на стороне внешних провайдеров, на кого мы не в силах повлиять", bg: "bg-red-50", border: "border-red-200" },
-        { icon: "Clock", title: "Некритическая ошибка, не блокирующая работу", desc: "Берем в работу сразу, решение будет предоставлено в согласованные сроки, в среднем от 1 дня до двух недель", bg: "bg-amber-50", border: "border-amber-200" },
-        { icon: "Wrench", title: "Пожелание по доработке", desc: "Берем в анализ сразу, возвращаемся в течение двух-трех дней с ответом о принятии в работу или дополнительными вопросами", bg: "bg-muted", border: "border-border" },
-        { icon: "MessageCircle", title: "Вопрос по приложению", desc: "Отвечаем в течение часа", bg: "bg-muted", border: "border-border" },
+        { icon: <Zap />, title: "Критическая ошибка, блокирующая работу", desc: "Берем в работу сразу, срок решения зависит от технических возможностей и от того, на чьей стороне возникла проблема — на нашей или на стороне внешних провайдеров, на кого мы не в силах повлиять", className: "bg-red-50 border-red-200" },
+        { icon: <Clock />, title: "Некритическая ошибка, не блокирующая работу", desc: "Берем в работу сразу, решение будет предоставлено в согласованные сроки, в среднем от 1 дня до двух недель", className: "bg-amber-50 border-amber-200" },
+        { icon: <Wrench />, title: "Пожелание по доработке", desc: "Берем в анализ сразу, возвращаемся в течение двух-трех дней с ответом о принятии в работу или дополнительными вопросами", className: "bg-muted border-border" },
+        { icon: <MessageCircle />, title: "Вопрос по приложению", desc: "Отвечаем в течение часа", className: "bg-muted border-border" },
     ],
     otherContactHeading: "Другие способы связи",
     contactLabels: { telegram: "Telegram", email: "Электронная почта", phone: "Телефон" },

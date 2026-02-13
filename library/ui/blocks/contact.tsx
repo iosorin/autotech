@@ -29,7 +29,7 @@ export const Contact = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border p-6 md:p-8 bg-background"
+      className="rounded-2xl ring-5 p-6 md:p-8 bg-background w-full"
     >
       <h3 className="text-lg font-bold text-foreground mb-6">
         {"Заполните форму обращения"}
