@@ -2,39 +2,41 @@
 
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import { Enter } from "../atoms/enter";
 
 type Props = {
   heading: string;
   items: string[];
-  imageAlt: string;
+  image: { alt: string; href: string; };
 };
 
-export const Checklist = ({ heading, items, imageAlt }: Props) => {
+export const Checklist = ({ heading, items, image }: Props) => {
+  const checkIcon = <CheckCircle2 className="size-6 text-primary flex-shrink-0 mt-0.5" />
   return (
-    <div className="flex flex-col lg:flex-row gap-10 items-center">
-          <div className="lg:w-2/5 flex justify-center">
-            <Image
-              src="/images/app-mockup.jpg"
-              alt={imageAlt}
-              width={280}
-              height={560}
-              className="rounded-3xl shadow-lg w-auto h-auto"
-            />
-          </div>
-          <div className="lg:w-3/5">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
-              {heading}
-            </h2>
-            <div className="flex flex-col gap-5">
-              {items.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">{item}</p>
-                </div>
-              ))}
+    <div className="flex justify-between items-center gap-20">
+      {image &&
+        <Enter variant="fade-left" delay={200} duration={700} className="flex-[0_0_35%]">
+          <Image
+            src={image.href}
+            alt={image.alt}
+            width={500}
+            height={350}
+            className="rounded-2xl w-full h-auto"
+          />
+        </Enter>
+      }
+      <Enter variant="fade-right" duration={600} className="flex-1">
+        <h2 className="mb-6">{heading}</h2>
+        <div className="flex flex-col gap-6">
+          {items.map((item) => (
+            <div key={item} className="flex items-start gap-3">
+              {checkIcon}
+              <p className="text-lg text-foreground">{item}</p>
             </div>
-          </div>
+          ))}
         </div>
+      </Enter>
+    </div>
   );
 };
 

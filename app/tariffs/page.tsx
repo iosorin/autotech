@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MapPin } from "lucide-react";
 import { Cta } from "@ui/blocks/cta";
 import { Lead } from "@ui/atoms/lead";
 import { Table } from "@ui/blocks/table";
@@ -32,22 +33,20 @@ const Tariffs = () => {
       </section>
 
       <section id="discounts" className="py-12">
-        <Rates heading={p.discountsHeading} discounts={p.discounts} />
+        <Rates heading={p.discountsHeading} discounts={p.discounts} icon={<MapPin className="size-5 text-accent" />} />
       </section>
 
       <section id="included" className="py-12 md:py-20">
         <Checklist
           heading={p.includedHeading}
           items={p.included}
-          imageAlt={p.imageAlt}
+          image={p.image}
         />
       </section>
 
       <section id="cta" className="py-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/60 to-background -z-10" />
-        <div className="max-w-3xl mx-auto px-4 text-center relative">
-          <Cta title1={p.ctaTitle} start={app.cta.start} contact={app.cta.contact} />
-        </div>
+        <div className="gradlayer bg-gradient-green" />
+        <Cta title1={p.cta.title1} title2={p.cta.title2} start={p.cta.start} contact={p.cta.contact} />
       </section>
     </>
   );
