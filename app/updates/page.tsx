@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Intro } from "@ui/blocks/intro";
 import { Changelog } from "@ui/blocks/changelog";
+import { Lead } from "@ui/atoms/lead";
 import { seo, updates } from "@data";
 
 export const metadata: Metadata = {
@@ -11,18 +11,13 @@ export const metadata: Metadata = {
 export default function UpdatesPage() {
   const p = updates;
   return (
-    <>
-      <section id="updates" className="py-12">
-        <div className="max-w-3xl mx-auto px-4">
-          <Intro subtitle={p.subtitle} title={p.title} labelFirst />
-        </div>
-      </section>
+    <section id="updates" className="pt-from-header relative">
+      <div className="gradlayer bg-gradient-blue" />
 
-      <section id="list" className="py-12">
-        <div className="max-w-3xl mx-auto px-4">
-          <Changelog updates={p.list} />
-        </div>
-      </section>
-    </>
+      <div className="mx-auto my-4">
+        <Lead label={p.subtitle} title={updates.title} />
+        <Changelog updates={p.list} />
+      </div>
+    </section>
   );
 }

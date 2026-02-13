@@ -5,22 +5,26 @@ type Discount = { range: string; percent: string };
 type Props = {
   heading: string;
   discounts: Discount[];
+  icon?: React.ReactNode;
 };
 
-export const Rates = ({ heading, discounts }: Props) => {
+export const Rates = ({ heading, discounts, icon }: Props) => {
   return (
     <>
-      <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
-          {heading}
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-          {discounts.map((d) => (
-            <div key={d.range} className="text-center">
-              <p className="text-sm font-medium text-primary mb-1">{d.range}</p>
-              <p className="text-4xl md:text-5xl font-bold text-foreground">{d.percent}</p>
+      <h2 className="text-center mb-10">
+        {heading}
+      </h2>
+      <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+        {discounts.map((d) => (
+          <div key={d.range} className="text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              {icon}
+              <p className="text-lg font-medium text-accent">{d.range}</p>
             </div>
-          ))}
-        </div>
+            <p className="text-4xl md:text-5xl font-bold text-foreground">{d.percent}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
