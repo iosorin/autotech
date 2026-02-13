@@ -87,6 +87,7 @@ const config: Config = {
 
       },
       backgroundImage: {
+        // gray: 'var(--gray)',
         'gradient-gray': 'var(--gradient-gray)',
         'gradient-blue': 'var(--gradient-blue)',
         'gradient-telegram': 'var(--gradient-telegram)',
