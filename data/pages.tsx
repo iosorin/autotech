@@ -32,6 +32,10 @@ export const home = {
         button: "Узнать детали",
     },
     features: {
+        image: {
+            src: "/images/app-box-3.png",
+            alt: "Интерфейс приложения",
+        },
         tabs: [
             { id: "orders", label: "Работа с заказом" },
             { id: "stats", label: "Статистика" },
