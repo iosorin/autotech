@@ -5,15 +5,12 @@ import React from "react"
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-const topics = [
-  "Подключение",
-  "Техническая проблема",
-  "Пожелание по доработке",
-  "Вопрос по приложению",
-  "Другое",
-];
 
-export const Contact = () => {
+type Props = {
+  topics: string[];
+}
+
+export const Contact = ({ topics }: Props) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

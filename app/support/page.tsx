@@ -22,7 +22,7 @@ export default function SupportPage() {
 
           <div className="flex flex-col gap-12">
             <div className="md:w-[60%] mx-auto">
-              <Contact />
+              <Contact topics={p.topics} />
             </div>
             <Types heading={p.responseHeading} types={p.responseTypes} />
           </div>
