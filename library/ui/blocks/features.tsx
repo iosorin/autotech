@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
+import { Button } from "../atoms/button";
+import { cn } from "@utils";
 
 type Tab = { id: string; label: string };
 type Feature = { icon: React.ReactNode; text: string };
@@ -11,10 +13,13 @@ type TabContent = { title: string; features: Feature[]; image?: string };
 type Props = {
   tabs: Tab[];
   content: Record<string, TabContent>;
-  imageAlt: string;
+  image: {
+    src: string;
+    alt: string;
+  };
 };
 
-export const Features = ({ tabs, content, imageAlt }: Props) => {
+export const Features = ({ tabs, content, image }: Props) => {
   const [active, setActive] = useState(tabs[0]?.id ?? "orders");
   const data = content[active];
 
@@ -28,47 +33,44 @@ export const Features = ({ tabs, content, imageAlt }: Props) => {
     <>
       {/* Табы */}
       <Enter variant="fade-up" duration={500}>
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12 bg-gray">
           {tabs.map((tab) => (
-            <button
+            <Button
               key={tab.id}
-              type="button"
+              variant="secondary"
+              className={cn(active === tab.id && "bg-foreground text-background")}
+              // size="lg"
               onClick={() => setActive(tab.id)}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 ${active === tab.id
-                ? "bg-foreground text-background"
-                : "border border-border text-foreground hover:bg-secondary"
-                }`}
             >
               {tab.label}
-            </button>
+            </Button>
           ))}
         </div>
       </Enter>
 
-      {/* Заголовок */}
       <Enter variant="fade" duration={500} key={active}>
         <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-12 text-balance">
           {data.title}
         </h2>
       </Enter>
 
-      {/* Контент: телефон + 2 колонки фич */}
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_1fr] gap-8 lg:gap-12 items-start">
-        {/* Телефон */}
-        <Enter variant="fade-right" duration={700} className="flex justify-center lg:justify-start">
-          <div className="relative w-[240px]">
-            <Image
-              src={data.image ?? "/images/app-mockup.png"}
-              alt={imageAlt}
-              width={240}
-              height={490}
-              className="w-full h-auto"
-            />
-          </div>
-        </Enter>
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between">
+        {image && (
+          <Enter variant="fade-right" duration={700} className="flex-1 min-w-0">
+            <div className="relative w-full">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={435}
+                height={664}
+                className="w-full h-auto"
+              />
+            </div>
+          </Enter>
+        )}
 
         {/* Левая колонка фич */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 flex-1 pt-2">
           {left.map((item, i) => {
             return (
               <Enter key={item.text} variant="fade-up" delay={i * 60} duration={500}>
@@ -84,7 +86,7 @@ export const Features = ({ tabs, content, imageAlt }: Props) => {
         </div>
 
         {/* Правая колонка фич */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 flex-1 pt-2">
           {right.map((item, i) => {
             return (
               <Enter key={item.text} variant="fade-up" delay={(half + i) * 60} duration={500}>
