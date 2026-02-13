@@ -17,25 +17,25 @@ export const Faq = ({ heading, items }: Props) => {
   return (
     <>
       <Enter variant="fade-up" duration={600}>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 text-balance">
-            {heading}
-          </h2>
-        </Enter>
+        <h2 className="text-center mb-10">
+          {heading}
+        </h2>
+      </Enter>
 
-        <Enter variant="fade-up" delay={150} duration={600}>
-          <Accordion type="single" collapsible className="w-full">
-            {items.map((item, index) => (
-              <AccordionItem key={item.question} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-sm font-medium text-foreground">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Enter>
+      <Enter variant="fade-up" delay={150} duration={600}>
+        <Accordion type="single" collapsible className="w-full">
+          {items.map((item, index) => (
+            <AccordionItem key={item.question} value={`item-${index}`}>
+              <AccordionTrigger className="text-left font-medium">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="leading-relaxed">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Enter>
     </>
   );
 };
