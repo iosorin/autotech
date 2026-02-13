@@ -1,4 +1,4 @@
-import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Scissors, CheckCircle2, Palette } from "lucide-react"
+import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Scissors, CheckCircle2, Palette, Smartphone, Laptop, Laptop2 } from "lucide-react"
 
 export const home = {
     hero: {
@@ -134,20 +134,24 @@ export const home = {
                 "Учет периода хранения шин, напоминания о необходимости смены резины",
                 "Формирование и печать заказ-нарядов для мелкого ремонта",
             ],
-        },
-        image: {
-            alt: "Хранение шин",
-            href: "/images/work-1.png",
+            image: {
+                alt: "Хранение шин",
+                href: "/images/work-1.png",
+            },
         },
         integrations: {
             heading: "Интеграции с внешними сервисами",
             desc: "Поможем настроить интеграции и рассылки вашим клиентам, напоминания и другие акции для продвижения услуг вашего сервиса, а также настроим интеграцию с 1С для ведения бухгалтерии",
-            items: [
-                { name: "amoCRM", label: "amoCRM" },
-                { name: "Битрикс24", label: "Битрикс24" },
-                { name: "Telegram", label: "Telegram" },
-                { name: "1C", label: "1С" },
-            ],
+            // items: [
+            //     { name: "amoCRM", label: "amoCRM" },
+            //     { name: "Битрикс24", label: "Битрикс24" },
+            //     { name: "Telegram", label: "Telegram" },
+            //     { name: "1C", label: "1С" },
+            // ],
+            image: {
+                alt: "Интеграции",
+                href: "/images/integrations.svg",
+            },
         },
         security: {
             heading: "Наше приложение безопасно",
@@ -156,6 +160,10 @@ export const home = {
                 "Автоматические бекапы баз данных",
                 "Логирование авторизаций и действий пользователей",
             ],
+            image: {
+                alt: "Безопасность",
+                href: "/images/work-2.png",
+            },
         },
         support: {
             heading: "Доработки и поддержка",
@@ -168,9 +176,9 @@ export const home = {
         devices: {
             heading: "Доступно на любом типе устройств",
             list: [
-                { label: "Мобильный телефон" },
-                { label: "Планшет" },
-                { label: "Ноутбук" },
+                { label: "Мобильный телефон", icon: <Smartphone className="size-6" /> },
+                { label: "Планшет", icon: <Laptop2 className="size-6" /> },
+                { label: "Ноутбук", icon: <Laptop className="size-6" /> },
             ],
         },
         mechanicImageAlt: "Автосервис",
