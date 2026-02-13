@@ -71,12 +71,12 @@
     @apply text-3xl md:text-5xl font-bold text-foreground text-balance tracking-tight;
   }
 
-  /* h2 {
-    @apply text-3xl md:text-4xl font-bold text-foreground text-balance tracking-tight;
-  } */
+  h2 {
+    @apply text-2xl md:text-3xl font-bold text-foreground text-balance tracking-tight;
+  }
 
   h3 {
-    @apply text-2xl font-bold text-foreground text-balance tracking-tight;
+    @apply text-xl font-bold text-foreground text-balance tracking-tight;
   }
 }
 
