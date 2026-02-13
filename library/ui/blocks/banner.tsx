@@ -6,8 +6,8 @@ import { Enter } from "@ui/atoms/enter";
 import { FileText, Building2 } from "lucide-react";
 
 type Props = {
-  eyebrow: string;
-  heroTitle: string;
+  eyebrow?: string;
+  heroTitle?: string;
   heroBadge1: string;
   heroBadge2: string;
   heroCardTitle: string;
@@ -35,10 +35,14 @@ export const Banner = ({
   return (
     <>
       <Enter variant="fade-up" duration={700}>
-        <p className="text-center text-sm text-muted-foreground mb-3">{eyebrow}</p>
-        <h1 className="text-3xl md:text-5xl font-bold text-center text-foreground leading-tight text-balance max-w-4xl mx-auto">
-          {heroTitle}
-        </h1>
+        {eyebrow && (
+          <p className="text-center text-sm text-muted-foreground mb-3">{eyebrow}</p>
+        )}
+        {heroTitle && (
+          <h1 className="text-center leading-tight text-balance mx-auto">
+            {heroTitle}
+          </h1>
+        )}
       </Enter>
 
       <div className="mt-12 flex flex-col lg:flex-row items-center gap-8 justify-center">
@@ -71,7 +75,7 @@ export const Banner = ({
                 alt={image.alt}
                 width={320}
                 height={500}
-                className="rounded-3xl shadow-xl w-auto h-auto"
+                className="rounded-3xl w-auto h-auto"
                 priority
               />
             </div>

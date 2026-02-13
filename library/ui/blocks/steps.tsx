@@ -7,20 +7,14 @@ import { ArrowUpRight } from "lucide-react";
 type Step = { title: string; desc: string };
 
 type Props = {
-  heading: string;
   steps: Step[];
   cabinetCta: string;
   moreCta: string;
 };
 
-export const Steps = ({ heading, steps, cabinetCta, moreCta }: Props) => {
+export const Steps = ({ steps, cabinetCta, moreCta }: Props) => {
   return (
     <>
-      <Enter variant="fade-up" duration={600}>
-        <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12">
-          {heading}
-        </h2>
-      </Enter>
       <div className="flex flex-col gap-0">
         {steps.map((step, i) => (
           <Enter key={i} variant="fade-up" delay={i * 150} duration={600}>

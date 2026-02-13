@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Heart, Settings, SlidersHorizontal, Eye } from "lucide-react";
-import { Banner } from "@ui/blocks/banner";
 import { Icons } from "@ui/blocks/icons";
 import { Columns } from "@ui/blocks/columns";
 import { Promo } from "@ui/blocks/promo";
 import { Compare } from "@ui/blocks/compare";
-import { Halves } from "@ui/blocks/halves";
+import { Hero } from "@ui/blocks/hero";
+import { Extra } from "@ui/blocks/extra";
+import { Cta } from "@ui/blocks/cta";
+import { Faq } from "@ui/blocks/faq";
 import { Cards } from "@ui/blocks/cards";
-import { Steps } from "@ui/blocks/steps";
-import { Accordion } from "@ui/blocks/accordion";
-import { app, fleet, seo } from "@data";
+import { Lead } from "@ui/atoms/lead";
+import { fleet, seo } from "@data";
 
 export const metadata: Metadata = {
   title: seo.pages.fleet.title,
@@ -20,134 +20,99 @@ export default function FleetPage() {
   const p = fleet;
   return (
     <>
-      <section id="fleet" className="py-16 md:py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#e8f5e9] to-background -z-10" />
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <Banner
-            eyebrow={p.eyebrow}
-            heroTitle={p.heroTitle}
-            heroBadge1={p.heroBadge1}
-            heroBadge2={p.heroBadge2}
-            heroCardTitle={p.heroCardTitle}
-            heroCardDesc={p.heroCardDesc}
-            image={p.image}
-            contactCta={app.cta.contact}
+      <section id="fleet">
+        <div className="gradlayer bg-gradient-lime" />
+
+        <div className="mx-auto my-4">
+          <Hero
+            subtitle={p.hero.subtitle}
+            titleLine1={p.hero.titleLine1}
+            features={p.hero.features}
+            card={p.hero.card}
+            image={p.hero.image}
+            cta={p.hero.cta}
           />
         </div>
+        <div className="fade-bottom" />
       </section>
 
-      <section id="why" className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Icons
-            heading={p.whyHeading}
-            items={p.whyConvenient}
-            cols={2}
-            variant="highlight"
-          />
-        </div>
+      <section id="why">
+        <Lead title={p.why.heading} />
+        <Icons items={p.why.items} cols={2} />
       </section>
 
-      <section id="cabinet" className="py-16 md:py-20 bg-secondary">
-        <div className="max-w-6xl mx-auto px-4">
-          <Columns
-            heading={p.cabinetHeading}
-            list={p.cabinetList}
-            choiceTitle={p.cabinetChoiceTitle}
-            choiceTags={p.cabinetChoiceTags}
-            filterTitle={p.cabinetFilterTitle}
-            filterTags={p.cabinetFilterTags}
-            imageAlt={p.appImageAlt}
-          />
-        </div>
+      <section id="compare">
+        <Compare data={p.compare} />
       </section>
 
-      <section id="hrd" className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <Promo
-            title={p.hrdTitle}
-            desc={p.hrdDesc}
-            primaryCta={app.cta.cabinet}
-            primaryHref="#"
-            secondaryCta={app.cta.more}
-            secondaryHref="/contacts"
-            icon={<Heart className="w-10 h-10 text-accent-foreground mx-auto mb-4 opacity-60" />}
-          />
-        </div>
+      <section id="seasonal">
+        <Extra tire={p.seasonal} />
       </section>
 
-      <section id="before-after" className="py-16 md:py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <Compare
-            beforeLabel={p.beforeLabel}
-            afterLabel={p.afterLabel}
-            items={p.beforeAfter}
-          />
-        </div>
+      <section id="approaches">
+        <Lead title={p.approaches.heading} />
+        <Icons items={p.approaches.items} left />
       </section>
 
-      <section id="seasonal" className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Halves
-            title={p.seasonalHeading}
-            list={p.seasonalList}
-            imageSrc="/images/tire-mechanic.jpg"
-            imageAlt={p.seasonalImageAlt}
-            imagePosition="right"
-            headingIcon={<Settings className="w-7 h-7 text-muted-foreground" />}
-          />
-        </div>
+      <section id="flexible">
+        <Cards
+          heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
+          items={p.flexible.items}
+          image={p.flexible.image}
+          cta={p.flexible.cta}
+          className="flex-row-reverse"
+        />
       </section>
 
-      <section id="approaches" className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Cards heading={p.approachesHeading} items={p.approaches} />
+      <section id="how-it-works">
+        <div className="gradlayer bg-gradient-lime" />
+        <div className="max-w-[85%] mx-auto mb-16">
+          <Lead title={p.how.heading} />
+          <Icons items={p.how.items} variant="stack" />
         </div>
+
+        <Cta
+          start={p.how.cta.cabinet}
+          contact={p.how.cta.more}
+        />
       </section>
 
-      <section id="flexible" className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Halves
-            title={p.flexibleTitle}
-            list={p.flexibleList}
-            imageSrc="/images/fleet-dashboard.jpg"
-            imageAlt={p.dashboardImageAlt}
-            imagePosition="left"
-            headingIcon={<SlidersHorizontal className="w-7 h-7 text-primary" />}
-            cta={app.cta.contact}
-          />
-        </div>
+      <section id="transparency">
+        <Cards
+          heading={<Lead title={p.transparency.heading} className="text-left mb-0" />}
+          items={p.transparency.items}
+          image={p.transparency.image}
+          className="flex-row-reverse"
+        />
       </section>
 
-      <section id="steps" className="py-16 md:py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#e8f5e9] to-[#f1f8e9] -z-10" />
-        <div className="max-w-3xl mx-auto px-4 relative">
-          <Steps
-            heading={p.howHeading}
-            steps={p.steps}
-            cabinetCta={app.cta.cabinet}
-            moreCta={app.cta.more}
-          />
-        </div>
+      <section id="cabinet">
+        <Lead title={p.cabinet.heading} />
+        <Columns
+          list={p.cabinet.list}
+          choice={p.cabinet.choice}
+          filter={p.cabinet.filter}
+          image={p.cabinet.image}
+        />
       </section>
 
-      <section id="transparency" className="py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <Halves
-            title={p.transparencyTitle}
-            list={p.transparencyItems}
-            imageSrc="/images/app-mockup.jpg"
-            imageAlt={p.transparencyImageAlt}
-            imagePosition="left"
-            headingIcon={<Eye className="w-7 h-7 text-primary" />}
-          />
-        </div>
+      <section id="hrd">
+        <Promo
+          title={p.hrd.heading}
+          desc={p.hrd.desc}
+          icon={p.hrd.icon}
+          cta={p.hrd.cta}
+          className="bg-gradient-blue"
+        />
       </section>
 
-      <section id="faq" className="py-16 md:py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <Accordion heading={p.faqHeading} items={p.faq} />
-        </div>
+      <section id="faq">
+        <div className="gradlayer bg-gradient-gray-light" />
+
+        <Lead title={p.faq.heading} />
+        <Faq items={p.faq.items} />
       </section>
+
     </>
   );
 }

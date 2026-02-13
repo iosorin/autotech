@@ -36,10 +36,10 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
   return (
     <header
       className={cn('w-full center transition-all duration-300', scrolled
-        ? "bg-background/80 backdrop-blur-lg shadow-sm"
+        ? "bg-background/80 backdrop-blur-lg shadow-md"
         : "bg-background", className)}
     >
-      <div className="w-full flex items-center justify-between px-3">
+      <div className="w-full flex items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 group">
           {logo &&
             <Image src={logo} alt={title} width={27} height={27} />
@@ -58,7 +58,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
                 key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
-                  ? "text-primary"
+                  ? "underline"
                   : "text-foreground"
                   }`}
               >

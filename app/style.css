@@ -13,7 +13,7 @@
     font-size: 16px;
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
+    --card: 234 20% 94%;
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
@@ -21,13 +21,16 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 220 4% 14%;
     --secondary-foreground: 0 0% 100%;
+    /* --tertiary: 234 20% 94%; */
+    --tertiary: 98 100% 92%;
     --muted: 234 20% 94%;
     --muted-foreground: 229 12% 69%;
     --accent: 202 80% 53%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 77% 56%;
     --destructive-foreground: 0 0% 98%;
-    --border: 229 12% 69%;
+    /* --border: 229 12% 69%; */
+    --border: 0 0% 0% / 0.2;
     --input: 229 12% 69%;
     --ring: 145 88% 40%;
     --radius: 0.75rem;
@@ -46,9 +49,10 @@
     --sidebar-ring: 145 88% 40%;
     --header-height: 58px;
     --gradient-gray: linear-gradient(180deg, #EDEEF3 0%, #EDEEF3 50%, #FFFFFF 100%);
+    --gradient-gray-light: linear-gradient(180deg, #EDEEF3 0%, #F5F7F9 100%);
     --gradient-blue: linear-gradient(180deg, #DAF4FF 0%, #DAF4FF 65%, #FFFFFF 100%);
     --gradient-green: linear-gradient(180deg, rgba(209, 255, 230, 1) 0%, rgba(209, 255, 230, 0.3) 100%);
-    --gradient-lime: linear-gradient(180deg, #E4FFD4 0%, #E4FFD4 65%, #FFFFFF 100%);
+    --gradient-lime: linear-gradient(180deg, #E4FFD4 0%, #E4FFD4 45%, #FFFFFF 100%);
     --gradient-telegram: linear-gradient(90deg, #25A0E8 0%, #5EC3FE 100%);
     --gradient-white: linear-gradient(180deg, #FFFFFF 0%, transparent 100%);
     --gradient-amber: linear-gradient(180deg, #FFE4CC 0%, transparent 65%, #FFFFFF 100%);
@@ -56,7 +60,10 @@
 }
 
 @layer base {
-  * {
+
+  *,
+  :before,
+  ::after {
     @apply border-border;
   }
 
@@ -79,7 +86,23 @@
   }
 
   h3 {
-    @apply text-xl font-bold text-foreground text-balance tracking-tight;
+    @apply text-xl font-bold text-foreground text-balance;
+  }
+
+  h5 {
+    @apply text-xl font-medium text-foreground text-balance;
+  }
+
+  main {
+    /* @apply flex flex-col gap-14 md:gap-20; */
+  }
+
+  section {
+    @apply relative py-10 md:py-16;
+  }
+
+  section:first-child {
+    @apply pt-header pb-0;
   }
 }
 
@@ -159,14 +182,31 @@
   transform: translateX(-50%);
   width: 100vw;
   height: 5%;
-  /* background: linear-gradient(to top, #fff 0%, #fff 10%, transparent 100%); */
-  /* background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0.6) 15%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.2) 70%, transparent 100%); */
   background: linear-gradient(to top,
       rgba(255, 255, 255, 1) 0%,
       rgba(255, 255, 255, 0.7) 25%,
       rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0.2) 75%,
       transparent 100%);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.line::before,
+.line::after {
+  content: "";
+  flex: 1;
+  height: 0;
+  border-bottom: 1.5px solid hsl(var(--primary));
+}
+
+.lucide {
+  stroke-width: 1.5;
 }
 
 /* @media (prefers-reduced-motion: reduce) {

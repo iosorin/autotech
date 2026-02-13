@@ -1,51 +1,68 @@
 "use client";
 
-import { Enter } from "@ui/atoms/enter";
-import { AlertCircle, CheckCircle2 } from "lucide-react";
+import { cn } from "@utils";
 
-type Item = { before: string; after: string };
-
-type Props = {
-  beforeLabel: string;
-  afterLabel: string;
-  items: Item[];
+type Col = {
+  label: string;
+  items: string[];
+  icon?: React.ReactNode;
+  color?: string;
+  text?: string;
 };
 
-export const Compare = ({ beforeLabel, afterLabel, items }: Props) => {
-  return (
-    <>
-      <Enter variant="fade-up" duration={500}>
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <div>
-              <span className="inline-block bg-primary text-primary-foreground rounded-full px-5 py-1.5 text-sm font-medium">
-                {beforeLabel}
-              </span>
-            </div>
-            <div>
-              <span className="inline-block bg-primary text-primary-foreground rounded-full px-5 py-1.5 text-sm font-medium">
-                {afterLabel}
-              </span>
-            </div>
-          </div>
-        </Enter>
+type Props = {
+  data: Col[];
+  className?: string;
+};
 
-        <div className="flex flex-col gap-0">
-          {items.map((item, i) => (
-            <Enter key={i} variant="fade-up" delay={i * 100} duration={500}>
-              <div className="grid grid-cols-2 gap-4 py-5 border-t border-border">
-                <div className="flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground">{item.before}</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground font-medium">{item.after}</p>
-                </div>
-              </div>
-            </Enter>
-          ))}
+export const Compare = ({ data, className }: Props) => {
+  if (!data || data.length === 0) return null;
+
+  const rowCount = Math.max(0, ...data.map((col) => col.items.length));
+
+  return (
+    <div
+      className={cn("grid w-full rounded-2xl overflow-hidden", className)}
+      style={{ gridTemplateColumns: `repeat(${data.length}, minmax(0, 1fr))` }}
+    >
+      {data.map((col, colIndex) => (
+        <div
+          key={colIndex}
+          className={cn(
+            "px-4 py-3 flex justify-start",
+            colIndex === 0 && "rounded-tl-2xl",
+            colIndex === data.length - 1 && "rounded-tr-2xl",
+          )}
+        >
+          <span
+            className="text-lg text-white inline-block px-6 py-3 rounded-full font-medium"
+            style={{ backgroundColor: col.color }}
+          >
+            {col.label}
+          </span>
         </div>
-    </>
+      ))}
+      {Array.from({ length: rowCount }, (_, rowIndex) =>
+        data.map((col, colIndex) => (
+          <div
+            key={`${colIndex}-${rowIndex}`}
+            className={cn(
+              "flex items-start gap-3 p-4 bg-background",
+              rowIndex !== 0 && "border-t border-border",
+              colIndex === 0 && rowIndex === rowCount - 1 && "rounded-bl-2xl",
+              colIndex === data.length - 1 && rowIndex === rowCount - 1 && "rounded-br-2xl",
+            )}
+            style={{ color: col.color }}
+          >
+            <div className="shrink-0">
+              {col.icon}
+            </div>
+
+            <span className="text-lg md:max-w-md" style={{ color: col.text || 'inherit' }}>{col.items[rowIndex] ?? ""}</span>
+          </div>
+        ))
+      )}
+    </div>
   );
 };
 

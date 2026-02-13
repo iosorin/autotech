@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
 import { app, seo } from "@data";
-import "./globals.css";
+import "./style.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 
@@ -24,12 +24,23 @@ export const metadata: Metadata = {
     description: seo.defaultDescription,
     images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
   },
+  icons: {
+    icon: "/favicon/favicon.ico",
+    apple: "/favicon/apple-touch-icon.png",
+  },
+  manifest: "/favicon/site.webmanifest",
   twitter: {
     card: "summary_large_image",
     title: seo.defaultTitle,
     description: seo.defaultDescription,
   },
 };
+
+// export const metadata: Metadata = {
+//   metadataBase: new URL(app.siteurl),
+//   manifest: "/favicon/site.webmanifest",
+//   // ... остальное
+// };
 
 const jsonld = {
   "@context": "https://schema.org",
@@ -45,7 +56,7 @@ const jsonld = {
     areaServed: "RU",
     availableLanguage: "Russian",
   },
-  sameAs: [app.telegramUrl],
+  sameAs: [app.telegram.href],
 };
 
 export default function RootLayout({
@@ -75,13 +86,14 @@ export default function RootLayout({
 
         <Footer
           title={app.name}
+          logo={app.logo}
           nav={app.nav}
           links={app.links}
-          copyright={app.copyright}
           phone={app.phone} email={app.email}
           telegram={app.telegram}
           featured={app.featured}
           company={app.company}
+          copyright={app.copyright}
           className="max-w-6xl"
         />
       </body>

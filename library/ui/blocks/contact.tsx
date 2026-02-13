@@ -5,12 +5,16 @@ import React from "react"
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import { cn } from "@utils";
+
 
 type Props = {
+  heading?: string;
   topics: string[];
+  className?: string;
 }
 
-export const Contact = ({ topics }: Props) => {
+export const Contact = ({ heading, topics, className }: Props) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -26,11 +30,13 @@ export const Contact = ({ topics }: Props) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl ring-5 p-6 md:p-8 bg-background w-full"
+      className={cn("rounded-2xl p-6 md:p-8 bg-background w-full shadow-lg", className)}
     >
-      <h3 className="text-lg font-bold text-foreground mb-6">
-        {"Заполните форму обращения"}
-      </h3>
+      {heading &&
+        <h3 className="mb-6">
+          {heading}
+        </h3>
+      }
 
       <div className="flex flex-col gap-4">
         <div>

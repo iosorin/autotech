@@ -5,16 +5,20 @@ export const app = {
   description:
     "Платформа Автотех - приложение для управления автомойками, детейлинг-центрами и шиномонтажами. Статистика, CRM, онлайн-запись и расчет зарплат.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
+  // manifest: "/favicon/site.webmanifest",
   logo: "/logo.svg",
   phone: "+7 909 904 1111",
   phoneRaw: "+79099041111",
   email: "info@moykazdes.ru",
   supportEmail: "support@avtotech.com",
-  telegram: "@moykazdes",
-  telegramSupport: "@avtotech_support",
-  telegramUrl: "https://t.me/moykazdes",
-  supportTelegramUrl: "https://t.me/avtotech_support",
-  copyright: "(c) 2026",
+  telegram: {
+    label: "@moykazdes",
+    href: "https://t.me/moykazdes",
+  },
+  telegramSupport: {
+    label: "@avtotech_support",
+    href: "https://t.me/avtotech_support",
+  },
   company: {
     name: "ООО ГТМ Лабс",
     short: "ООО «ГТМ Лабс»",
@@ -42,6 +46,7 @@ export const app = {
     privacy: "Политика обработки",
     privacySuffix: "персональных данных",
   },
+  copyright: "© " + new Date().getFullYear(),
   nav: [
     { label: "Тарифы", href: "/tariffs" },
     { label: "Обновления", href: "/updates" },
@@ -55,7 +60,7 @@ export const app = {
   ],
   featured: {
     label: "Автопаркам",
-    href: "/auto-park",
+    href: "/fleet",
   },
   cta: {
     start: {
@@ -65,6 +70,10 @@ export const app = {
     contact: {
       label: "Связаться с нами",
       href: "/contacts",
+      props: {
+        variant: "outline",
+        className: "rounded-full",
+      },
     },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",

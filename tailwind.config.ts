@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        'from-header': 'calc(var(--header-height) + 5.25rem)',
+        'header': 'calc(var(--header-height) + 5.25rem)',
       },
       height: {
         'header': 'var(--header-height)',
@@ -38,6 +38,7 @@ const config: Config = {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        tertiary: 'hsl(var(--tertiary))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -88,9 +89,15 @@ const config: Config = {
         },
 
       },
+      // boxShadow: {
+      //   // 'primary': '0 0 15.6px 0 rgba(var(--primary) / 0.23)',
+      //   'primary': '0 0 15.6px 0 hsl(var(--primary) / 0.23)',
+
+      // },
       backgroundImage: {
         // gray: 'var(--gray)',
         'gradient-gray': 'var(--gradient-gray)',
+        'gradient-gray-light': 'var(--gradient-gray-light)',
         'gradient-blue': 'var(--gradient-blue)',
         'gradient-telegram': 'var(--gradient-telegram)',
         'gradient-green': 'var(--gradient-green)',

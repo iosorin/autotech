@@ -3,88 +3,78 @@
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
 import { CheckCircle2 } from "lucide-react";
+import { cn } from "@utils";
+
+type Group = {
+  title: string;
+  tags: string[];
+  tagClassName?: string;
+};
 
 type Props = {
-  heading: string;
   list: string[];
-  choiceTitle: string;
-  choiceTags: string[];
-  filterTitle: string;
-  filterTags: string[];
-  imageAlt: string;
+  choice: Group;
+  filter: Group;
+  image: { alt: string; href: string; };
 };
 
 export const Columns = ({
-  heading,
   list,
-  choiceTitle,
-  choiceTags,
-  filterTitle,
-  filterTags,
-  imageAlt,
+  choice,
+  filter,
+  image,
 }: Props) => {
+  const renderGroup = (group: Group) => {
+    return (
+      <div className="pb-6 border-b last:border-b-0">
+        <h5 className="mb-3">{group.title}</h5>
+        <div className="flex flex-wrap gap-2">
+          {group.tags.map((tag) => (
+            <span
+              key={tag}
+              className={cn("bg-muted rounded-full px-4 py-1.5", group.tagClassName)}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  };
   return (
-    <>
-      <Enter variant="fade-up" duration={600}>
-          <h2 className="text-2xl md:text-4xl font-bold text-center text-foreground mb-12 text-balance">
-            {heading}
-          </h2>
+    <div className="flex flex-col lg:flex-row items-center gap-10">
+      {list && (
+        <Enter variant="fade-right" duration={600} className="lg:w-1/3">
+          <div className="flex flex-col gap-8">
+            {list.map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <CheckCircle2 className="size-7 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-lg text-foreground">{item}</p>
+              </div>
+            ))}
+          </div>
         </Enter>
+      )}
 
-        <div className="flex flex-col lg:flex-row items-center gap-10">
-          <Enter variant="fade-right" duration={600} className="lg:w-1/3">
-            <div className="flex flex-col gap-6">
-              {list.map((text) => (
-                <div key={text} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-foreground font-medium">{text}</p>
-                </div>
-              ))}
-            </div>
-          </Enter>
+      {image && (
+        <Enter variant="scale-up" delay={150} duration={700} className="lg:w-1/3 flex justify-center">
+          <Image
+            src={image.href}
+            alt={image.alt}
+            width={280}
+            height={500}
+            className="rounded-3xl w-auto h-auto"
+          />
+        </Enter>
+      )}
 
-          <Enter variant="scale-up" delay={150} duration={700} className="lg:w-1/3 flex justify-center">
-            <Image
-              src="/images/app-mockup.jpg"
-              alt={imageAlt}
-              width={280}
-              height={500}
-              className="rounded-3xl shadow-lg w-auto h-auto"
-            />
-          </Enter>
-
-          <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/3" >
-            <div className="flex flex-col gap-8">
-              <div>
-                <h3 className="font-bold text-foreground mb-3">{choiceTitle}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {choiceTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-background border border-border rounded-full px-4 py-1.5 text-sm text-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-t border-border pt-6">
-                <h3 className="font-bold text-foreground mb-3">{filterTitle}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {filterTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-accent rounded-full px-4 py-1.5 text-sm text-accent-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Enter >
-        </div >
-    </>
+      <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/3" >
+        <div className="flex flex-col gap-8">
+          {renderGroup(choice)}
+          {renderGroup(filter)}
+        </div>
+      </Enter >
+    </div >
   );
 };
 

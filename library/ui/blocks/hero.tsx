@@ -4,43 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
-  RefreshCw,
-  ScanLine,
-  BarChart3,
-  Calculator,
-  CalendarCheck,
-  Users,
 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
 import React from "react";
+import { cn } from "@/library/utils";
 
 type Props = {
   subtitle: string;
   titleLine1: string;
-  titleLine2: string;
+  titleLine2?: string;
   features: { icon: React.ReactNode; label: string }[];
   card: {
     title: string;
     desc: string;
     icon: React.ReactNode;
-  },
+  };
   image: {
     src: string;
     alt: string;
-  }
-  ctaStart: {
+  };
+  links?: {
     label: string;
     href: string;
-  };
-  ctaContact: {
-    label: string;
-    href: string;
-  };
-  ctaTelegram: {
-    label: string;
-    href: string;
-  };
+    props?: React.ComponentProps<typeof Button>;
+  }[];
+  cta?: { label: string; } & React.ComponentProps<typeof Link>;
   className?: string;
 };
 
@@ -49,48 +38,48 @@ export const Hero = ({
   titleLine1,
   titleLine2,
   features,
-  ctaTelegram,
   card,
   image,
-  ctaStart,
-  ctaContact,
+  links,
+  cta,
   className,
 }: Props) => {
   return (
-    <div className="flex flex-col mx-auto">
+    <div className={cn("flex flex-col mx-auto", className)}>
       <div className="flex flex-col gap-6">
         <Enter variant="fade-up" duration={700}>
           <div className="text-center">
             <p className="text-lg font-medium text-primary mb-3">{subtitle}</p>
             <h1>
               {titleLine1}
-              <br />
-              {titleLine2}
+              {titleLine2 && (
+                <>
+                  <br />
+                  {titleLine2}
+                </>
+              )}
             </h1>
           </div>
         </Enter>
 
-        <Enter variant="fade-up" delay={200} duration={600}>
-          <div className="flex flex-wrap justify-center gap-3">
-            {ctaStart && (
-              <Button asChild variant="default" className="rounded-full" size="xl">
-                <Link href={ctaStart.href}>
-                  {ctaStart.label}
-                  <ArrowUpRight />
-                </Link>
-              </Button>
-            )}
-            {ctaContact && (
-              <Button asChild variant="outline" className="rounded-full" size="xl">
-                <Link href={ctaContact.href}>{ctaContact.label}</Link>
-              </Button>
-            )}
-          </div>
-        </Enter>
+        {links && links.length > 0 && (
+          <Enter variant="fade-up" delay={200} duration={600}>
+            <div className="flex flex-wrap justify-center gap-3">
+              {links.map((link, i) => (
+                <Button asChild variant="default" className="rounded-full" size="xl" key={link.href} {...link.props}>
+                  <Link href={link.href}>
+                    {link.label}
+                    {i === 0 && <ArrowUpRight />}
+                  </Link>
+                </Button>
+              ))}
+            </div>
+          </Enter>
+        )}
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-0 items-center">
-        <div className="flex flex-wrap gap-3 flex-1">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-0 items-center mt-6 lg:mt-0">
+        <div className="flex flex-wrap gap-3 flex-1 justify-center lg:justify-start order-2 lg:order-1">
           {features.map((item, i) => {
             return (
               <Enter key={item.label
@@ -108,30 +97,26 @@ export const Hero = ({
             );
           })}
 
-          {ctaTelegram && (
+          {cta && (
             <Enter variant="fade-right" delay={500} duration={500}>
               <Link
-                href={ctaTelegram.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-telegram px-5 py-3 text-sm font-medium text-primary-foreground mt-2 w-fit hover:opacity-90 transition-opacity"
+                {...cta}
+                className={cn("inline-flex items-center gap-3 rounded-2xl px-5 py-3 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", cta.className)}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="size-10 fill-current flex-shrink-0"
-                  aria-hidden="true"
-                >
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
-                </svg>
-                <span className="text-lg max-w-[220px]">{ctaTelegram.label}</span>
+                {cta.children}
+                {cta.label && (
+                  <span className="text-lg max-w-[220px]">{cta.label}</span>
+                )}
               </Link>
             </Enter>
           )}
         </div>
 
-        <Enter variant="scale-up" delay={150} duration={800} className="lg:w-1/3 flex justify-center" >
+        <Enter variant="scale-up" delay={150} duration={800} className="w-full lg:w-1/3 flex justify-center order-1 lg:order-2" >
           {image &&
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-xs lg:max-w-md">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -145,7 +130,7 @@ export const Hero = ({
         </Enter >
 
         {card && (
-          <Enter variant="fade-left" delay={300} duration={600} className="flex-1" >
+          <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3" >
             <div className="rounded-2xl bg-gradient-white p-6 center flex-col text-center gap-4">
               {card.icon}
               <h3 className="font-bold text-foreground mb-1 md:max-w-[235px]">{card.title}</h3>

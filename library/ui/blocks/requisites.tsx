@@ -20,40 +20,34 @@ type Bank = {
 };
 
 type Props = {
-  heading: string;
   bankHeading: string;
   accountLabel: string;
   company: Company;
   bank: Bank;
 };
 
-export const Requisites = ({ heading, bankHeading, accountLabel, company, bank }: Props) => {
+export const Requisites = ({ bankHeading, accountLabel, company, bank }: Props) => {
   return (
-    <>
-      <h2 className="mb-8 text-center text-2xl font-bold text-foreground md:text-3xl">
-        {heading}
-      </h2>
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-2 text-sm text-muted-foreground">
-          <p className="font-semibold text-foreground">{company.short}</p>
-          <p>Юридический и фактический адрес: {company.addressFull}</p>
-          <p>ИНН: {company.inn}</p>
-          <p>КПП: {company.kpp}</p>
-          <p>ОГРН: {company.ogrn}</p>
-          <p>ОКПО: {company.okpo}</p>
-        </div>
-        <div className="space-y-2 text-sm text-muted-foreground">
-          <p className="font-semibold text-foreground">{bankHeading}</p>
-          <p>{accountLabel} {bank.account}</p>
-          <p>Название: {bank.name}</p>
-          <p>ИНН: {bank.inn}</p>
-          <p>КПП: {bank.kpp}</p>
-          <p>БИК: {bank.bik}</p>
-          <p>Город: {bank.city}</p>
-          <p>Корр. счёт: {bank.corr}</p>
-        </div>
+    <div className="grid gap-10 md:grid-cols-2">
+      <div className="space-y-3">
+        <p className="text-lg font-semibold mb-3">{company.short}</p>
+        <p>Юридический и фактический адрес: {company.addressFull}</p>
+        <p>ИНН: {company.inn}</p>
+        <p>КПП: {company.kpp}</p>
+        <p>ОГРН: {company.ogrn}</p>
+        <p>ОКПО: {company.okpo}</p>
       </div>
-    </>
+      <div className="space-y-3">
+        <p className="text-lg font-semibold mb-3">{bankHeading}</p>
+        <p>{accountLabel} {bank.account}</p>
+        <p>Название: {bank.name}</p>
+        <p>ИНН: {bank.inn}</p>
+        <p>КПП: {bank.kpp}</p>
+        <p>БИК: {bank.bik}</p>
+        <p>Город: {bank.city}</p>
+        <p>Корр. счёт: {bank.corr}</p>
+      </div>
+    </div>
   );
 };
 
