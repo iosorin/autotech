@@ -15,18 +15,6 @@ const Tariffs = () => {
   const p = tariffs;
   return (
     <>
-      {/* <section id="tariffs" className="pt-from-header pb-8 relative">
-        <div className="gradlayer bg-gradient-blue" />
-        <Lead label={p.platformLabel} title={p.title} />
-        <Table
-          cols={p.periods}
-          rows={p.plans}
-          note={p.priceNote}
-          note2={p.priceNote2}
-          className="bg-white"
-        />
-      </section> */}
-
       <section id="hero" className="pt-from-header relative">
         <div className="gradlayer bg-gradient-blue" />
 
@@ -37,7 +25,7 @@ const Tariffs = () => {
             rows={p.plans}
             note={p.priceNote}
             note2={p.priceNote2}
-            className="bg-white"
+            className="bg-gradient-white"
           />
         </div>
         <div className="fade-bottom" />

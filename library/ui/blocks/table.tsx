@@ -27,7 +27,7 @@ type Props = {
 export const Table = ({ cols, rows, note, note2, className }: Props) => {
   const [activePeriod, setActivePeriod] = useState(cols[0]?.id ?? "1m");
   return (
-    <div className={cn("rounded-2xl border border-border p-6 md:p-8", className)}>
+    <div className={cn("rounded-2xl p-6 md:p-8", className)}>
       <div className="flex justify-end mb-6">
         <div className="flex gap-2">
           {cols.map((item) => (<Button key={item.id} variant="accent" size="lg" onClick={() => setActivePeriod(item.id)}>{item.label}</Button>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: seo.pages.contacts.description,
 };
 
-export default function ContactsPage() {
+export const Contacts = () => {
   const p = contacts;
   return (
     <>
