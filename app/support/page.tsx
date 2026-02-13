@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lead } from "@ui/blocks/lead";
+import { Lead } from "@ui/atoms/lead";
 import { Split } from "@ui/blocks/split";
 import { Links } from "@ui/blocks/links";
 import { app, seo, support } from "@data";
