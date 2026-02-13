@@ -89,6 +89,8 @@ const config: Config = {
       backgroundImage: {
         'gradient-gray': 'var(--gradient-gray)',
         'gradient-blue': 'var(--gradient-blue)',
+        'gradient-telegram': 'var(--gradient-telegram)',
+        'gradient-green': 'var(--gradient-green)',
       },
       borderRadius: {
         lg: 'var(--radius)',

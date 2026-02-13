@@ -1,9 +1,14 @@
 "use client";
 
-import { Shield, BarChart3, Building2 } from "lucide-react";
+import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
 
-const iconMap = { Shield, BarChart3, Building2 };
+type Card = {
+  title: string;
+  description: string;
+  tags: string[];
+  image?: string;
+};
 
 type Props = {
   titleLine1: string;
@@ -11,59 +16,68 @@ type Props = {
   descLine1: string;
   descLine2: string;
   subtitle: string;
-  cards: {
-    icon: string;
-    title: string;
-    tags: string[];
-    description: string;
-  }[];
+  cards: Card[];
 };
 
 export const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
     <>
+      {/* Заголовок */}
       <Enter variant="fade-up" duration={600}>
-          <div className="text-center mb-4">
-            <p className="text-sm font-medium text-primary mb-2">{subtitle}</p>
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance leading-tight">
-              {titleLine1}
-              <br />
-              {titleLine2}
-            </h2>
-          </div>
-          <p className="text-center text-muted-foreground mb-10 text-balance">
-            {descLine1}
+        <div className="text-center mb-4">
+          <p className="text-sm font-medium text-primary underline mb-3">{subtitle}</p>
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance leading-tight">
+            {titleLine1}
             <br />
-            {descLine2}
-          </p>
-        </Enter>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card, i) => {
-            const Icon = iconMap[card.icon as keyof typeof iconMap];
-            return (
-              <Enter key={card.title
-              } variant="fade-up" delay={i * 120} duration={600} >
-                <div className="rounded-2xl border border-border p-6 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {card.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{card.title}</h3>
-                  <p className="text-sm text-muted-foreground">{card.description}</p>
-                </div>
-              </Enter>
-            );
-          })}
+            {titleLine2}
+          </h2>
         </div>
+        <p className="text-center text-muted-foreground mb-12 text-balance">
+          {descLine1}
+          <br />
+          {descLine2}
+        </p>
+      </Enter>
+
+      {/* Карточки */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {cards.map((card, i) => (
+          <Enter key={card.title} variant="fade-up" delay={i * 120} duration={600}>
+            <div className="rounded-2xl border border-border bg-white overflow-hidden flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              {/* Картинка с тегами */}
+              <div className="relative h-40 bg-muted">
+                {card.image && (
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                  />
+                )}
+                {/* Теги поверх картинки */}
+                <div className="absolute inset-0 p-4 flex flex-wrap gap-2 content-start">
+                  {card.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Текст */}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-base font-bold text-foreground mb-2 leading-snug">{card.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
+              </div>
+            </div>
+          </Enter>
+        ))}
+      </div>
     </>
   );
-}
+};
 
 export default Account;
