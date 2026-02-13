@@ -17,16 +17,18 @@ export default function SupportPage() {
       <section id="support" className="pt-from-header relative">
         <div className="gradlayer bg-gradient-lime" />
 
-        <div className="mx-auto my-4">
-          <Lead label={p.subtitle} title={p.title} titleFirst />
+        <div className="flex flex-col gap-12">
 
-          <div className="flex flex-col gap-12">
-            <div className="md:w-[60%] mx-auto">
-              <Contact topics={p.topics} />
-            </div>
-            <Types heading={p.responseHeading} types={p.responseTypes} />
+          <Lead label={p.subtitle} title={p.title} titleFirst />
+          <div className="md:w-[60%] mx-auto">
+            <Contact topics={p.topics} />
           </div>
         </div>
+
+      </section>
+
+      <section id="support-types" className="pb-16">
+        <Types heading={p.responseHeading} types={p.types} />
       </section>
 
       <section id="other-contact" className="pb-16">

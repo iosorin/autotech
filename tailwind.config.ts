@@ -5,6 +5,7 @@ const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './library/**/*.{js,ts,jsx,tsx,mdx}',
+    './data/**/*.{js,ts,jsx,tsx,mdx}',
     '*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
@@ -95,6 +96,7 @@ const config: Config = {
         'gradient-green': 'var(--gradient-green)',
         'gradient-lime': 'var(--gradient-lime)',
         'gradient-white': 'var(--gradient-white)',
+        'gradient-amber': 'var(--gradient-amber)',
       },
       borderRadius: {
         lg: 'var(--radius)',

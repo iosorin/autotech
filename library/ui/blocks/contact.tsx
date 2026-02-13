@@ -51,12 +51,12 @@ export const Contact = ({ topics }: Props) => {
 
         <div>
           <label htmlFor="contact-phone" className="block font-medium text-foreground mb-1.5">
-            {"Мобильный телефон"}
+            Мобильный телефон
           </label>
           <input
             id="contact-phone"
             type="tel"
-            placeholder="Маска телефона"
+            placeholder="+7 (999) 999-99-99"
             value={formData.phone}
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, phone: e.target.value }))
@@ -65,26 +65,29 @@ export const Contact = ({ topics }: Props) => {
           />
         </div>
 
-        <div>
-          <label htmlFor="contact-topic" className="sr-only">{"Тема обращения"}</label>
-          <select
-            id="contact-topic"
-            value={formData.topic}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, topic: e.target.value }))
-            }
-            className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background appearance-none"
-          >
-            <option value="" disabled>
-              {"Выберите тему обращения"}
-            </option>
-            {topics.map((topic) => (
-              <option key={topic} value={topic}>
-                {topic}
+
+        {topics?.length > 0 && (
+          <div>
+            <label htmlFor="contact-topic" className="sr-only">{"Тема обращения"}</label>
+            <select
+              id="contact-topic"
+              value={formData.topic}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, topic: e.target.value }))
+              }
+              className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background appearance-none"
+            >
+              <option value="" disabled>
+                {"Выберите тему обращения"}
               </option>
-            ))}
-          </select>
-        </div>
+              {topics.map((topic) => (
+                <option key={topic} value={topic}>
+                  {topic}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div>
           <label htmlFor="contact-message" className="block font-medium text-foreground mb-1.5">
