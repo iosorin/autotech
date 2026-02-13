@@ -37,7 +37,7 @@ export const Contact = () => {
 
       <div className="flex flex-col gap-4">
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-foreground mb-1.5">
+          <label htmlFor="contact-name" className="block font-medium text-foreground mb-1.5">
             {"Имя"}
           </label>
           <input
@@ -48,12 +48,12 @@ export const Contact = () => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, name: e.target.value }))
             }
-            className="w-full rounded-lg border border-input px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+            className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
           />
         </div>
 
         <div>
-          <label htmlFor="contact-phone" className="block text-sm font-medium text-foreground mb-1.5">
+          <label htmlFor="contact-phone" className="block font-medium text-foreground mb-1.5">
             {"Мобильный телефон"}
           </label>
           <input
@@ -64,7 +64,7 @@ export const Contact = () => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, phone: e.target.value }))
             }
-            className="w-full rounded-lg border border-input px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+            className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
           />
         </div>
 
@@ -76,7 +76,7 @@ export const Contact = () => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, topic: e.target.value }))
             }
-            className="w-full rounded-lg border border-input px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background appearance-none"
+            className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background appearance-none"
           >
             <option value="" disabled>
               {"Выберите тему обращения"}
@@ -90,7 +90,7 @@ export const Contact = () => {
         </div>
 
         <div>
-          <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-1.5">
+          <label htmlFor="contact-message" className="block font-medium text-foreground mb-1.5">
             {"Опишите вопрос или проблему"}
           </label>
           <textarea
@@ -101,7 +101,7 @@ export const Contact = () => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, message: e.target.value }))
             }
-            className="w-full rounded-lg border border-input px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"
+            className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"
           />
         </div>
 
@@ -122,7 +122,7 @@ export const Contact = () => {
 
         <button
           type="submit"
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity w-fit"
+          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground hover:opacity-90 transition-opacity w-fit"
         >
           {"Отправить"}
           <ArrowUpRight className="w-4 h-4" />
