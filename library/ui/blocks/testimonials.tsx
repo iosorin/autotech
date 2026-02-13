@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import Image from "next/image";
+import { Button } from "../atoms/button";
 
 type Testimonial = {
   name: string;
@@ -48,23 +49,23 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-balance">
             {heading}
           </h2>
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
+          <div className="flex items-center gap-4">
+            <Button
+              variant="outline"
+              size="icon"
               onClick={() => slide("prev")}
-              className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-white transition-colors bg-white active:scale-95 duration-150"
               aria-label={prevAria}
             >
               <ChevronLeft className="size-5" />
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
               onClick={() => slide("next")}
-              className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-white transition-colors bg-white active:scale-95 duration-150"
               aria-label={nextAria}
             >
               <ChevronRight className="size-5" />
-            </button>
+            </Button>
           </div>
         </div>
       </Enter>
@@ -73,14 +74,13 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
       <div className="flex gap-6 overflow-hidden">
         {/* Текущий отзыв */}
         <div
-          className={`flex-1 min-w-0 transition-all duration-300 ${
-            sliding ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"
-          }`}
+          className={`flex-1 min-w-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"
+            }`}
         >
-          <div className="rounded-2xl border border-border p-6 md:p-8 bg-white h-full">
+          <div className="rounded-2xl p-6 md:p-8 bg-white h-full shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
               {/* Аватар и имя */}
-              <div className="flex flex-col items-center md:items-start flex-shrink-0 w-32">
+              <div className="flex flex-col items-center md:items-start flex-shrink-0 w-1/5">
                 <div className="size-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-muted-foreground mb-3 overflow-hidden">
                   {item.avatar ? (
                     <Image src={item.avatar} alt={item.name} width={80} height={80} className="object-cover" />
@@ -115,13 +115,11 @@ export const Testimonials = ({ heading, prevAria, nextAria, list }: Props) => {
           </div>
         </div>
 
-        {/* Следующий отзыв (превью) */}
         <div
-          className={`hidden lg:block w-64 flex-shrink-0 transition-all duration-300 ${
-            sliding ? "opacity-0 translate-x-4" : "opacity-60 translate-x-0"
-          }`}
+          className={`hidden lg:block w-64 flex-shrink-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-60 translate-x-0"
+            }`}
         >
-          <div className="rounded-2xl border border-border p-6 bg-white h-full">
+          <div className="rounded-2xl p-6 bg-white h-full shadow-sm">
             <div className="flex items-start gap-4 mb-4">
               <div className="size-16 rounded-full bg-muted flex items-center justify-center text-lg font-bold text-muted-foreground flex-shrink-0 overflow-hidden">
                 {next.avatar ? (

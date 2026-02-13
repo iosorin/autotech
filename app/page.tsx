@@ -121,7 +121,8 @@ const Page = () => {
         />
       </section>
 
-      <section id="testimonials" className="py-12 md:py-20 bg-secondary/50">
+      <section id="testimonials" className="py-12 md:py-20 relative">
+        <div className="gradlayer bg-muted" />
         <Testimonials
           heading={home.testimonials.heading}
           prevAria={home.testimonials.prevAria}
