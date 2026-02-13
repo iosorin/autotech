@@ -2,8 +2,8 @@ import { Hero } from "@ui/blocks/hero";
 import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
 import { Account } from "@ui/blocks/account";
-import { ExtraFeatures } from "@ui/blocks/extra";
-import { DataMigration } from "@ui/blocks/migration";
+import { Extra } from "@ui/blocks/extra";
+import { Migration } from "@ui/blocks/migration";
 import { Clients } from "@ui/blocks/clients";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
@@ -65,23 +65,21 @@ const Page = () => {
       </section>
 
       <section id="extra" className="py-12 md:py-20">
-        <ExtraFeatures
+        <Extra
           title={home.extraFeatures.title}
           titleHighlight={home.extraFeatures.titleHighlight}
           titleSuffix={home.extraFeatures.titleSuffix}
           tire={home.extraFeatures.tire}
-          image={home.extraFeatures.image}
           integrations={home.extraFeatures.integrations}
           security={home.extraFeatures.security}
           support={home.extraFeatures.support}
           devices={home.extraFeatures.devices}
-          mechanicImageAlt={home.extraFeatures.mechanicImageAlt}
         />
       </section>
 
-      <section id="migration" className="max-w-3xl  py-16 md:py-24 relative text-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/60 to-background -z-10" />
-        <DataMigration
+      <section id="migration" className="max-w-[70%] mx-auto py-16 md:py-24 relative">
+        <div className="gradlayer bg-gradient-green" />
+        <Migration
           titleLine1={home.dataMigration.titleLine1}
           titleLine2={home.dataMigration.titleLine2}
           desc={home.dataMigration.desc}

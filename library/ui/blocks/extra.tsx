@@ -1,33 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Settings, CheckCircle2, Smartphone, Tablet, Laptop, Sliders } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
-
-const deviceIcons = {
-  phone: Smartphone,
-  tablet: Tablet,
-  laptop: Laptop,
-};
 
 type ExtraProps = {
   title: string;
   titleHighlight: string;
   titleSuffix: string;
-  tire: { heading: string; items: string[]; };
-  image: {
-    alt: string;
-    href: string;
-  }
-  integrations: { heading: string; desc: string; items: { name: string; label: string; logo?: string }[] };
-  security: { heading: string; items: string[] };
+  tire: { heading: string; items: string[]; image: { alt: string; href: string; } };
+  integrations: { heading: string; desc: string; image: { alt: string; href: string; } };
+  security: { heading: string; items: string[]; image: { alt: string; href: string; } };
   support: { heading: string; items: string[] };
-  devices: { heading: string; list: { label: string; icon?: string }[] };
-  mechanicImageAlt: string;
-  mechanicImage?: string;
+  devices: { heading: string; list: { label: string; icon?: React.ReactNode }[] };
 };
 
-export const ExtraFeatures = ({
+export const Extra = ({
   title,
   titleHighlight,
   titleSuffix,
@@ -36,15 +24,13 @@ export const ExtraFeatures = ({
   security,
   support,
   devices,
-  mechanicImageAlt,
-  mechanicImage,
-  image,
 }: ExtraProps) => {
+  const checkIcon = <CheckCircle2 className="size-6 text-primary flex-shrink-0 mt-0.5" />
   return (
-    <>
+    <div className="flex flex-col gap-20">
       {/* Заголовок */}
       <Enter variant="fade-up" duration={600}>
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-16 text-balance">
+        <h2 className="text-center">
           {title}
           <span className="text-primary">{titleHighlight}</span>
           {titleSuffix}
@@ -52,23 +38,23 @@ export const ExtraFeatures = ({
       </Enter>
 
       {/* Блок шин */}
-      <div className="flex gap-20 justify-between mb-20">
+      <div className="flex justify-between items-center gap-20">
         <Enter variant="fade-right" duration={600} className="flex-1">
-          <h2>{tire.heading}</h2>
-          <div className="flex flex-col gap-6 mt-6">
+          <h2 className="mb-6">{tire.heading}</h2>
+          <div className="flex flex-col gap-6">
             {tire.items.map((feature) => (
               <div key={feature} className="flex items-start gap-3">
-                <CheckCircle2 className="size-8 text-primary flex-shrink-0 mt-0.5" />
+                {checkIcon}
                 <p className="text-lg text-foreground">{feature}</p>
               </div>
             ))}
           </div>
         </Enter>
-        {image &&
+        {tire.image &&
           <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
             <Image
-              src={image.href}
-              alt={image.alt}
+              src={tire.image.href}
+              alt={tire.image.alt}
               width={500}
               height={350}
               className="rounded-2xl w-full h-auto"
@@ -78,98 +64,85 @@ export const ExtraFeatures = ({
       </div>
 
       {/* Интеграции */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-20">
-        <Enter variant="fade-right" duration={600}>
-          <h3 className="text-xl font-bold text-foreground mb-4">{integrations.heading}</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-md">{integrations.desc}</p>
+      <div className="flex gap-20 justify-between">
+        <Enter variant="fade-right" duration={600} className="flex-1">
+          <h2 className="mb-6">{integrations.heading}</h2>
+          <p className="text-lg leading-relaxed">{integrations.desc}</p>
         </Enter>
-        <Enter variant="fade-left" delay={150} duration={600}>
-          <div className="flex flex-wrap gap-3 justify-start lg:justify-end">
-            {integrations.items.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-xl border border-border px-5 py-3 flex items-center gap-2 bg-white"
-              >
-                {item.logo && (
-                  <Image src={item.logo} alt={item.label} width={24} height={24} className="size-6" />
-                )}
-                <span className="font-medium text-foreground text-sm">{item.label}</span>
-              </div>
-            ))}
+        {integrations.image &&
+          <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
+            <Image
+              src={integrations.image.href}
+              alt={integrations.image.alt}
+              width={500}
+              height={350}
+              className="rounded-2xl w-full h-auto"
+            />
+          </Enter>
+        }
+      </div>
+
+      {/* Картинка + Безопасность + Поддержка */}
+      <div className="flex justify-between items-center gap-20">
+        {security.image &&
+          <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
+            <Image
+              src={security.image.href}
+              alt={security.image.alt}
+              width={500}
+              height={350}
+              className="rounded-2xl w-full h-auto"
+            />
+          </Enter>
+        }
+        <Enter variant="fade-right" duration={600} className="flex-[0_0_55%] flex flex-col gap-10 h-full justify-between">
+          <div className="flex-1">
+            <h2 className="mb-6">{security.heading}</h2>
+            <div className="flex flex-col gap-6">
+              {security.items.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  {checkIcon}
+                  <p className="text-lg text-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-1">
+            <h2 className="mb-6">{support.heading}</h2>
+            <div className="flex flex-col gap-6">
+              {support.items.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  {checkIcon}
+                  <p className="text-lg text-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Enter>
       </div>
 
-      {/* Механик + Безопасность + Поддержка */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mb-20">
-        <Enter variant="fade-right" duration={700}>
-          <Image
-            src={mechanicImage ?? "/images/mechanic.jpg"}
-            alt={mechanicImageAlt}
-            width={460}
-            height={360}
-            className="rounded-2xl w-full h-auto object-cover"
-          />
-        </Enter>
-        <div className="flex flex-col gap-10">
-          {/* Безопасность */}
-          <Enter variant="fade-left" delay={150} duration={600}>
-            <div className="flex items-start gap-3 mb-4">
-              <CheckCircle2 className="size-6 text-primary flex-shrink-0 mt-0.5" />
-              <h3 className="text-xl font-bold text-foreground">{security.heading}</h3>
-            </div>
-            <div className="flex flex-col gap-3 pl-9">
-              {security.items.map((feature) => (
-                <div key={feature} className="flex items-start gap-3">
-                  <CheckCircle2 className="size-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">{feature}</p>
-                </div>
-              ))}
-            </div>
-          </Enter>
 
-          {/* Поддержка */}
-          <Enter variant="fade-left" delay={300} duration={600}>
-            <div className="flex items-start gap-3 mb-4">
-              <Sliders className="size-6 text-primary flex-shrink-0 mt-0.5" />
-              <h3 className="text-xl font-bold text-foreground">{support.heading}</h3>
-            </div>
-            <div className="flex flex-col gap-3 pl-9">
-              {support.items.map((feature) => (
-                <div key={feature} className="flex items-start gap-3">
-                  <CheckCircle2 className="size-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">{feature}</p>
-                </div>
-              ))}
-            </div>
-          </Enter>
-        </div>
-      </div>
-
-      {/* Устройства */}
       <Enter variant="fade-up" duration={600}>
         <div className="text-center">
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-8 text-balance">
-            {devices.heading}
-          </h3>
+          <h2 className="mb-6">{devices.heading}</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {devices.list.map((device) => {
-              const Icon = device.icon ? deviceIcons[device.icon as keyof typeof deviceIcons] : null;
               return (
                 <div
                   key={device.label}
                   className="inline-flex items-center gap-2.5 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background"
                 >
-                  {Icon && <Icon className="size-5" />}
-                  <span>{device.label}</span>
+                  {device.icon}
+                  <span className="text-lg">{device.label}</span>
                 </div>
               );
             })}
           </div>
         </div>
       </Enter>
-    </>
+    </div>
   );
 };
 
-export default ExtraFeatures;
+export default Extra;

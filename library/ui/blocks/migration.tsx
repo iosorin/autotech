@@ -10,25 +10,25 @@ type Props = {
   items: string[];
 };
 
-export const DataMigration = ({ titleLine1, titleLine2, desc, items }: Props) => {
+export const Migration = ({ titleLine1, titleLine2, desc, items }: Props) => {
   return (
-    <div className="text-center">
+    <div className="center flex-col gap-10 text-center">
       <Enter variant="scale-up" duration={600}>
-        <RefreshCw className="size-12 mx-auto mb-6 text-primary" strokeWidth={1.5} />
+        <RefreshCw className="size-20 mx-auto text-primary" />
       </Enter>
       <Enter variant="fade-up" delay={100} duration={600}>
-        <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+        <h2>
           {titleLine1}
           <br />
           {titleLine2}
         </h2>
-        <p className="text-muted-foreground mb-10 text-balance max-w-2xl mx-auto">{desc}</p>
+        <p className="text-balance mx-auto text-xl mt-6">{desc}</p>
       </Enter>
 
       <div className="flex flex-wrap justify-center gap-3">
         {items.map((item, i) => (
           <Enter key={item} variant="scale-up" delay={200 + i * 80} duration={500}>
-            <span className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">
+            <span className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-lg font-medium text-primary-foreground">
               {item}
             </span>
           </Enter>
@@ -38,4 +38,4 @@ export const DataMigration = ({ titleLine1, titleLine2, desc, items }: Props) =>
   );
 };
 
-export default DataMigration;
+export default Migration;
