@@ -93,6 +93,7 @@ const config: Config = {
         'gradient-blue': 'var(--gradient-blue)',
         'gradient-telegram': 'var(--gradient-telegram)',
         'gradient-green': 'var(--gradient-green)',
+        'gradient-white': 'var(--gradient-white)',
       },
       borderRadius: {
         lg: 'var(--radius)',

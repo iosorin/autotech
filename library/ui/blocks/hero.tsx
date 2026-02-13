@@ -146,7 +146,7 @@ export const Hero = ({
 
         {card && (
           <Enter variant="fade-left" delay={300} duration={600} className="flex-1" >
-            <div className="rounded-2xl bg-gradient-to-b from-white to-transparent p-6 center flex-col text-center gap-4">
+            <div className="rounded-2xl bg-gradient-white p-6 center flex-col text-center gap-4">
               {card.icon}
               <h3 className="font-bold text-foreground mb-1 md:max-w-[235px]">{card.title}</h3>
               <p className="text-lg text-muted-foreground md:max-w-[260px]">{card.desc}</p>
