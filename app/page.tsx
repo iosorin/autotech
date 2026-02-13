@@ -34,7 +34,7 @@ const Page = () => {
         <div className="fade-bottom h-10" />
       </section>
 
-      <section id="events" className="py-8 max-w-50% mx-auto">
+      <section id="event" className="py-8 max-w-[60%] mx-auto">
         <Event
           date={home.eventBanner.date}
           title={home.eventBanner.title}
@@ -42,6 +42,7 @@ const Page = () => {
           line2={home.eventBanner.line2}
           cta={home.eventBanner.cta}
           button={home.eventBanner.button}
+          className="bg-gradient-blue"
         />
       </section>
 
