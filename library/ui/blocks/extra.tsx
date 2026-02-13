@@ -52,23 +52,20 @@ export const ExtraFeatures = ({
       </Enter>
 
       {/* Блок шин */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-20">
-        <Enter variant="fade-right" duration={600}>
-          <div className="flex items-start gap-3 mb-5">
-            <Settings className="size-6 text-primary flex-shrink-0 mt-0.5" />
-            <h3 className="text-xl font-bold text-foreground leading-snug">{tire.heading}</h3>
-          </div>
-          <div className="flex flex-col gap-4 pl-9">
+      <div className="flex gap-20 justify-between mb-20">
+        <Enter variant="fade-right" duration={600} className="flex-1">
+          <h2>{tire.heading}</h2>
+          <div className="flex flex-col gap-6 mt-6">
             {tire.items.map((feature) => (
               <div key={feature} className="flex items-start gap-3">
-                <CheckCircle2 className="size-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-foreground leading-relaxed">{feature}</p>
+                <CheckCircle2 className="size-8 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-lg text-foreground">{feature}</p>
               </div>
             ))}
           </div>
         </Enter>
         {image &&
-          <Enter variant="fade-left" delay={200} duration={700}>
+          <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
             <Image
               src={image.href}
               alt={image.alt}

@@ -21,8 +21,8 @@ export const Event = ({ date, title, line1, line2, cta, button, href = "/events"
   return (
     <Enter variant="scale-up" duration={700}>
       <div className={cn("rounded-3xl px-8 py-10 text-center", className)}>
-        <p className="text-sm font-medium text-primary mb-3">{date}</p>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 text-balance">
+        <p className="font-medium text-primary mb-3">{date}</p>
+        <h2 className="mb-3 text-balance">
           {title}
         </h2>
         <p className="text-balance">{line1}</p>
