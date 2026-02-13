@@ -34,7 +34,7 @@ const Page = () => {
         <div className="fade-bottom" />
       </section>
 
-      <section id="event" className="py-8 max-w-[60%] mx-auto">
+      <section id="event" className="py-8 max-w-[65%] mx-auto">
         <Event
           date={home.eventBanner.date}
           title={home.eventBanner.title}
@@ -99,6 +99,7 @@ const Page = () => {
       </section>
 
       <section id="cta" className="py-16 relative">
+        <div className="gradlayer bg-gradient-blue" />
         <Cta
           title={home.cta.defaultTitle}
           start={app.cta.start}
