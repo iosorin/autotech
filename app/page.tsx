@@ -18,21 +18,20 @@ const Page = () => {
       <section id="hero" className="pt-from-header relative">
         <div className="gradlayer bg-gradient-gray" />
 
-        <div className="mx-auto">
+        <div className="mx-auto my-4">
           <Hero
             titleLine1={home.hero.titleLine1}
             titleLine2={home.hero.titleLine2}
             subtitle={home.hero.subtitle}
             features={home.hero.features}
             ctaTelegram={app.cta.telegram}
-            cardTitle1={home.hero.cardTitle1}
-            cardTitle2={home.hero.cardTitle2}
-            cardDesc={home.hero.cardDesc}
+            card={home.hero.card}
             image={home.hero.image}
             ctaStart={app.cta.start}
             ctaContact={app.cta.contact}
           />
         </div>
+        <div className="fade-bottom h-10" />
       </section>
 
       <section id="events" className="py-8 max-w-50% mx-auto">
