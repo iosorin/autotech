@@ -28,47 +28,40 @@ export const Table = ({ cols, rows, note, note2, className }: Props) => {
     <div className={cn("rounded-2xl p-6 md:p-8", className)}>
       <div className="flex justify-end mb-6">
         <div className="flex gap-2">
-          {cols.map((item) => (<Button key={item.id} variant="accent" size="lg" onClick={() => setActivePeriod(item.id)}>{item.label}</Button>
+          {cols.map((item) => (<Button key={item.id} variant="accent" size="lg" className="pointer-events-none" onClick={() => setActivePeriod(item.id)}>{item.label}</Button>
           ))}
         </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <div className="flex items-center justify-between py-3 px-4 text-muted-foreground text-sm font-medium border-b border-border">
-          <span className="w-[200px]">&nbsp;</span>
-          <div className="flex gap-8 md:gap-16">
-            {cols.map((item) => (
-              <span key={item.id} className="min-w-[60px] text-right">
-                {item.label}
-              </span>
-            ))}
-          </div>
-        </div>
-        {rows.map((item) => (
+        {rows.map((item, index) => (
           <div
             key={item.name}
-            className={cn("flex items-center justify-between py-4 px-4 rounded-xl", item.highlighted ? "bg-accent" : "")}
+            className={cn(
+              "flex items-center justify-between p-4 rounded-full",
+              item.highlighted && "bg-accent",
+              index % 2 !== 0 && "bg-accent/10"
+            )}
           >
             <div className="flex items-center gap-3">
-              <div className="flex gap-1">
+              <div className="flex gap-1 min-w-[120px]">
                 {item.icons.map((icon, i) => {
                   return (
-                    <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-1", i > 0 && "-ml-3")}>
+                    <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-2", i > 0 && "-ml-3")}>
                       {icon}
                     </div>
                   );
                 })}
               </div>
-              <span className="text-sm font-medium text-foreground">{item.name}</span>
+              <span className="text-lg font-medium text-foreground">{item.name}</span>
             </div>
-            <div className="flex gap-8 md:gap-16">
+            <div className="flex gap-8 md:gap-20">
               {cols.map((period) => (
                 <span
                   key={period.id}
-                  className={`text-sm font-semibold min-w-[60px] text-right ${activePeriod === period.id
-                    ? "text-foreground"
-                    : "text-muted-foreground"
-                    }`}
+                  className={cn("text-xl font-semibold text-right text-foreground",
+                    // activePeriod === period.id && "text-accent"
+                  )}
                 >
                   {item.values[period.id]}
                 </span>
