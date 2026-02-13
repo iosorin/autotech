@@ -1,19 +1,22 @@
+import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users } from "lucide-react"
+
 export const home = {
     hero: {
         subtitle: "Платформа Автотех",
         titleLine1: "Приложение для автомойки,",
         titleLine2: "детейлинга и шиномонтажа",
         features: [
-            { icon: "ScanLine", label: "Распознавание марок и номеров" },
-            { icon: "BarChart3", label: "Статистика и аналитика" },
-            { icon: "Calculator", label: "Гибкий расчет зарплат" },
-            { icon: "CalendarCheck", label: "Онлайн-запись" },
-            { icon: "Users", label: "CRM" },
+            { icon: <ScanLine className="size-5 text-primary" />, label: "Распознавание марок и номеров" },
+            { icon: <BarChart3 className="size-5 text-primary" />, label: "Статистика и аналитика" },
+            { icon: <Calculator className="size-5 text-primary" />, label: "Гибкий расчет зарплат" },
+            { icon: <CalendarCheck className="size-5 text-primary" />, label: "Онлайн-запись" },
+            { icon: <Users className="size-5 text-primary" />, label: "CRM" },
         ],
         telegramCta: "Подпишитесь на наш телеграм-канал",
         card: {
             title: "Легкий переход с других приложений",
             desc: "Автоматический перенос услуг и настроек",
+            icon: <RefreshCw className="size-10 text-primary" />,
         },
         image: {
             src: "/images/app-order.png",

@@ -13,17 +13,17 @@ import {
 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
-
-const iconMap = { ScanLine, BarChart3, Calculator, CalendarCheck, Users };
+import React from "react";
 
 type Props = {
   subtitle: string;
   titleLine1: string;
   titleLine2: string;
-  features: { icon: string; label: string }[];
+  features: { icon: React.ReactNode; label: string }[];
   card: {
     title: string;
     desc: string;
+    icon: React.ReactNode;
   },
   image: {
     src: string;
@@ -92,12 +92,16 @@ export const Hero = ({
       <div className="flex flex-col lg:flex-row gap-0 items-center">
         <div className="flex flex-wrap gap-3 flex-1">
           {features.map((item, i) => {
-            const Icon = iconMap[item.icon as keyof typeof iconMap];
             return (
               <Enter key={item.label
               } variant="fade-right" delay={i * 80} duration={500} >
                 <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm w-fit bg-white whitespace-nowrap">
-                  {Icon ? <Icon className="size-5 text-primary flex-shrink-0" /> : null}
+                  {item.icon &&
+                    <span className="flex-shrink-0">
+                      {item.icon}
+                    </span>
+                  }
+
                   <span className="text-lg">{item.label}</span>
                 </div>
               </Enter>
@@ -142,8 +146,8 @@ export const Hero = ({
 
         {card && (
           <Enter variant="fade-left" delay={300} duration={600} className="flex-1" >
-            <div className="rounded-2xl bg-gradient-to-b from-white to-transparent p-5 center flex-col text-center gap-4">
-              <RefreshCw className="w-8 h-8 mx-auto mb-3 text-primary" />
+            <div className="rounded-2xl bg-gradient-to-b from-white to-transparent p-6 center flex-col text-center gap-4">
+              {card.icon}
               <h3 className="font-bold text-foreground mb-1 md:max-w-[235px]">{card.title}</h3>
               <p className="text-lg text-muted-foreground md:max-w-[260px]">{card.desc}</p>
             </div>
