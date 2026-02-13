@@ -19,7 +19,7 @@ const config: Config = {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
-        '6xl': '75rem',
+        '6xl': '76rem',
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
