@@ -94,7 +94,7 @@ const Page = () => {
           subtitle={home.clients.subtitle}
           intro={home.clients.intro}
           items={home.clients.items}
-          imageAlt={home.clients.imageAlt}
+          image={home.clients.image}
         />
       </section>
 
