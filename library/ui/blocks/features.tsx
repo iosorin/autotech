@@ -29,6 +29,21 @@ export const Features = ({ tabs, content, image }: Props) => {
   const left = data.features.slice(0, half);
   const right = data.features.slice(half);
 
+  const renderFeatures = (features: Feature[], delay: number) => {
+    return features.map((item, i) => {
+      return (
+        <Enter key={item.text} variant="fade-up" delay={delay + i * 60} duration={500}>
+          <div className="flex items-start gap-4">
+            {item.icon && <span className="flex-shrink-0 mt-1.5">
+              {item.icon}
+            </span>}
+            <p className="text-lg text-foreground leading-relaxed">{item.text}</p>
+          </div>
+        </Enter>
+      );
+    })
+  }
+
   return (
     <>
       {/* Табы */}
@@ -54,7 +69,7 @@ export const Features = ({ tabs, content, image }: Props) => {
         </h2>
       </Enter>
 
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
         {image && (
           <Enter variant="fade-right" duration={700} className="flex-1 min-w-0">
             <div className="relative w-full">
@@ -70,35 +85,13 @@ export const Features = ({ tabs, content, image }: Props) => {
         )}
 
         {/* Левая колонка фич */}
-        <div className="flex flex-col gap-6 flex-1 pt-2">
-          {left.map((item, i) => {
-            return (
-              <Enter key={item.text} variant="fade-up" delay={i * 60} duration={500}>
-                <div className="flex items-start gap-3">
-                  {item.icon && <span className="flex-shrink-0 mt-0.5">
-                    {item.icon}
-                  </span>}
-                  <p className="text-sm text-foreground leading-relaxed">{item.text}</p>
-                </div>
-              </Enter>
-            );
-          })}
+        <div className="flex flex-col gap-6 flex-1">
+          {renderFeatures(left, 0)}
         </div>
 
         {/* Правая колонка фич */}
-        <div className="flex flex-col gap-6 flex-1 pt-2">
-          {right.map((item, i) => {
-            return (
-              <Enter key={item.text} variant="fade-up" delay={(half + i) * 60} duration={500}>
-                <div className="flex items-start gap-3">
-                  {item.icon && <span className="flex-shrink-0 mt-0.5">
-                    {item.icon}
-                  </span>}
-                  <p className="text-sm text-foreground leading-relaxed">{item.text}</p>
-                </div>
-              </Enter>
-            );
-          })}
+        <div className="flex flex-col gap-6 flex-1">
+          {renderFeatures(right, half)}
         </div>
       </div>
     </>
