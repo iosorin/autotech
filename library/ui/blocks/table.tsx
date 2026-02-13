@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Droplets, Scissors, Car } from "lucide-react";
+// import { Droplets, Scissors, Car } from "lucide-react";
 import { cn } from "@utils";
 import { Button } from "../atoms/button";
 
-const iconMap = { Droplets, Scissors, Car };
-
-type Col = { id: string; label: string };
+type Col = { id: string; label: string; };
 
 type Row = {
   name: string;
-  icons: string[];
+  icons: React.ReactNode[];
   values: Record<string, string>;
   highlighted?: boolean;
 };
@@ -49,21 +47,16 @@ export const Table = ({ cols, rows, note, note2, className }: Props) => {
         {rows.map((item) => (
           <div
             key={item.name}
-            className={`flex items-center justify-between py-4 px-4 rounded-xl ${item.highlighted ? "bg-accent" : ""
-              }`}
+            className={cn("flex items-center justify-between py-4 px-4 rounded-xl", item.highlighted ? "bg-accent" : "")}
           >
             <div className="flex items-center gap-3">
               <div className="flex gap-1">
-                {item.icons.map((iconName, i) => {
-                  const Icon = iconMap[iconName as keyof typeof iconMap];
-                  return Icon ? (
+                {item.icons.map((icon, i) => {
+                  return (
                     <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-1", i > 0 && "-ml-3")}>
-                      <Icon
-                        key={`${item.name}-icon-${i}`}
-                        className="size-5"
-                      />
+                      {icon}
                     </div>
-                  ) : null;
+                  );
                 })}
               </div>
               <span className="text-sm font-medium text-foreground">{item.name}</span>
