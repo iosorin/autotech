@@ -105,7 +105,7 @@ export const Contact = () => {
           />
         </div>
 
-        <div className="flex items-start gap-2">
+        <div className="flex items-center gap-2">
           <input
             id="contact-agree"
             type="checkbox"
@@ -113,10 +113,10 @@ export const Contact = () => {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, agree: e.target.checked }))
             }
-            className="mt-1 rounded border-input"
+            className="border-muted size-4"
           />
-          <label htmlFor="contact-agree" className="text-xs text-muted-foreground">
-            {"Я принимаю условия обработки персональных данных"}
+          <label htmlFor="contact-agree" className="text-muted-foreground" >
+            Я принимаю условия обработки персональных данных
           </label>
         </div>
 
