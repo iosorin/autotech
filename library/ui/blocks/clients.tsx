@@ -10,18 +10,21 @@ type Props = {
   titleLine2: string;
   intro: string;
   items: string[];
-  imageAlt: string;
-  image?: string;
+  image?: {
+    alt: string;
+    href: string;
+  };
 };
 
-export const Clients = ({ subtitle, titleLine1, titleLine2, intro, items, imageAlt, image }: Props) => {
+export const Clients = ({ subtitle, titleLine1, titleLine2, intro, items, image }: Props) => {
+  const checkIcon = <CheckCircle2 className="size-6 text-primary flex-shrink-0 mt-0.5" />
   return (
     <>
       {/* Заголовок */}
       <Enter variant="fade-up" duration={600}>
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-primary mb-3">{subtitle}</p>
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground text-balance">
+          <p className="text-lg text-primary mb-3">{subtitle}</p>
+          <h2>
             {titleLine1}
             <br />
             {titleLine2}
@@ -29,37 +32,29 @@ export const Clients = ({ subtitle, titleLine1, titleLine2, intro, items, imageA
         </div>
       </Enter>
 
-      {/* Контент */}
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-16 items-center">
-        {/* Телефон */}
-        <Enter variant="fade-right" duration={700} className="flex justify-center">
-          <div className="relative w-[240px]">
+      <div className="flex justify-between items-center gap-20">
+        {image &&
+          <Enter variant="fade-left" delay={200} duration={700} className="flex-[0_0_35%]">
             <Image
-              src={image ?? "/images/app-booking.png"}
-              alt={imageAlt}
-              width={240}
-              height={490}
-              className="w-full h-auto"
+              src={image.href}
+              alt={image.alt}
+              width={500}
+              height={350}
+              className="rounded-2xl w-full h-auto"
             />
-          </div>
-        </Enter>
-
-        {/* Текст */}
-        <div>
-          <Enter variant="fade-left" delay={100} duration={600}>
-            <p className="text-foreground mb-8 leading-relaxed font-medium">{intro}</p>
           </Enter>
-          <div className="flex flex-col gap-5">
-            {items.map((feature, i) => (
-              <Enter key={feature} variant="fade-left" delay={200 + i * 100} duration={500}>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="size-5 text-primary flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-foreground leading-relaxed">{feature}</p>
-                </div>
-              </Enter>
+        }
+        <Enter variant="fade-right" duration={600} className="flex-1">
+          <p className="text-lg mb-8">{intro}</p>
+          <div className="flex flex-col gap-6">
+            {items.map((feature) => (
+              <div key={feature} className="flex items-start gap-3">
+                {checkIcon}
+                <p className="text-lg text-foreground">{feature}</p>
+              </div>
             ))}
           </div>
-        </div>
+        </Enter>
       </div>
     </>
   );
