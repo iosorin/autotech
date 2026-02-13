@@ -13,19 +13,17 @@ export default function SupportPage() {
   const p = support;
   return (
     <>
-      <section id="support" className="py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          <Lead title={p.title} hint={p.subtitle} />
-        </div>
-      </section>
+      <section id="support" className="pt-from-header relative">
+        <div className="gradlayer bg-gradient-lime" />
 
-      <section id="response" className="py-8">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="mx-auto my-4">
+          <Lead label={p.subtitle} title={p.title} titleFirst />
           <Split
             responseHeading={p.responseHeading}
             responseTypes={p.responseTypes}
           />
         </div>
+        <div className="fade-bottom" />
       </section>
 
       <section id="other-contact" className="pb-16">
