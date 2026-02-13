@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Lead } from "@ui/blocks/lead";
+import { Lead } from "@ui/atoms/lead";
 import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
 import { Form } from "@ui/blocks/form";
