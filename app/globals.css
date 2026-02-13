@@ -47,7 +47,7 @@
     --header-height: 58px;
     --gradient-gray: linear-gradient(180deg, #EDEEF3 0%, #EDEEF3 50%, #FFFFFF 100%);
     --gradient-blue: linear-gradient(180deg, #DAF4FF 0%, #DAF4FF 65%, #FFFFFF 100%);
-    --gradient-green: linear-gradient(180deg, rgba(12, 193, 94, 0.15) 0%, rgba(12, 193, 94, 0.05) 50%, transparent 100%);
+    --gradient-green: linear-gradient(180deg, rgba(209, 255, 230, 1) 0%, rgba(209, 255, 230, 0.3) 100%);
     --gradient-telegram: linear-gradient(90deg, #25A0E8 0%, #5EC3FE 100%);
   }
 }

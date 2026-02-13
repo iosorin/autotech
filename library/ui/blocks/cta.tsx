@@ -20,8 +20,8 @@ type Props = {
 export const Cta = ({ title, start, contact }: Props) => {
   return (
     <Enter variant="fade-up" duration={600}>
-      <div className="text-center py-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-balance">
+      <div className="flex flex-col gap-8 text-center py-8">
+        <h2>
           {title}
         </h2>
         <div className="flex flex-wrap justify-center gap-3">
@@ -29,7 +29,7 @@ export const Cta = ({ title, start, contact }: Props) => {
             <Button asChild variant="default" size="lg">
               <Link href={start.href}>
                 {start.label}
-                <ArrowUpRight className="size-4" />
+                <ArrowUpRight />
               </Link>
             </Button>
           )}
