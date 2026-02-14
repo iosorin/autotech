@@ -31,7 +31,7 @@ export const home = {
             icon: <RefreshCw className="size-10 text-primary" />,
         },
         image: {
-            src: "/images/app-order.png",
+            src: "/images/app-preview.png",
             alt: "Интерфейс приложения Автотех",
         },
     },
@@ -505,7 +505,7 @@ export const fleet = {
             icon: <MapPlus className="size-10 text-primary" />,
         },
         image: {
-            src: "/images/app-order.png",
+            src: "/images/app-preview.png",
             alt: "Приложение Автотех для автопарков",
         },
         cta: {
@@ -580,7 +580,7 @@ export const fleet = {
         ],
         image: {
             alt: "Гибкое управление",
-            href: "/images/app-order.png",
+            href: "/images/app-preview.png",
         },
         cta: {
             label: "Связаться с нами",
@@ -638,7 +638,7 @@ export const fleet = {
         ],
         image: {
             alt: "Гарантия прозрачности",
-            href: "/images/app-order.png",
+            href: "/images/app-preview.png",
         },
     },
     hrd: {
@@ -651,7 +651,7 @@ export const fleet = {
         },
         image: {
             alt: "Специальное предложение для HRD",
-            href: "/images/app-order.png",
+            href: "/images/app-preview.png",
         },
     },
     faq: {
