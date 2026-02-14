@@ -30,10 +30,10 @@ export const Links = ({
             target="_blank"
             href={telegramSupport.href}
             title={telegramSupport.label}
-            className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
+            className="inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-accent"
           >
             {telegramSupport.label}
-            <ExternalLink className="size-4" />
+            <ExternalLink className="size-5" />
           </Link>
         }
       </div>
@@ -43,10 +43,10 @@ export const Links = ({
           title="Написать на email"
           target="_blank"
           href={`mailto:${email}`}
-          className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
+          className="inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-accent"
         >
           {email}
-          <ExternalLink className="size-4" />
+          <ExternalLink className="size-5" />
         </Link>
       </div>
       <div>
@@ -55,10 +55,10 @@ export const Links = ({
           title="Позвонить"
           target="_blank"
           href={`tel:${phoneRaw}`}
-          className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
+          className="inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-accent"
         >
           {phone}
-          <ExternalLink className="size-4" />
+          <ExternalLink className="size-5" />
         </Link>
       </div>
     </div>

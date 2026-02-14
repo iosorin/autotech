@@ -1,3 +1,6 @@
+import { Field } from "@/library/ui/blocks/form"
+import Link from "next/link";
+
 export const app = {
   name: "Автотех",
   tagline: "Платформа Автотех",
@@ -75,12 +78,20 @@ export const app = {
   },
   form: {
     heading: "Свяжитесь с нами",
-    topics: [
-      "Подключение",
-      "Техническая проблема",
-      "Пожелание по доработке",
-      "Вопрос по приложению",
-      "Другое",
-    ],
+    fields: [
+      { id: "name", type: "text", required: true, label: "Имя", placeholder: "Введите ваше имя" },
+      { id: "phone", type: "tel", required: true, label: "Мобильный телефон", placeholder: "+7 (999) 999-99-99" },
+      {
+        id: "topic", type: "select", label: "Тема обращения", placeholder: "Выберите тему обращения",
+        options: ["Подключение", "Техническая проблема", "Пожелание по доработке", "Вопрос по приложению", "Другое",] as const,
+      },
+      { id: "message", type: "textarea", label: "Опишите вопрос или проблему", placeholder: "Опишите вопрос или проблему" },
+    ] as Field[],
+    agree: (
+      <>
+        Я принимаю условия{" "}
+        <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
+      </>
+    ),
   },
 };
