@@ -1,4 +1,5 @@
 import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Wrench, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Car, Droplets, Clock, Zap, Layers, Settings, FolderSearch, MapPlus, ChartPie, MapPin, ChartLine, FileCheck, TrendingDown, CircleAlert, CheckCheck, Heart, CarFront } from "lucide-react"
+import { app } from "./app"
 
 export const home = {
     hero: {
@@ -519,7 +520,7 @@ export const fleet = {
         cta: {
             label: "Связаться с нами",
             href: "/contacts",
-            className: "border hover:bg-secondary hover:text-secondary-foreground rounded-full",
+            className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
         }
     },
     why: {
@@ -630,11 +631,11 @@ export const fleet = {
         cta: {
             cabinet: {
                 label: "Перейти в личный кабинет",
-                href: "/cabinet",
+                href: app.app,
             },
             more: {
                 label: "Узнать больше",
-                href: "/",
+                href: app.app,
             },
         },
     },

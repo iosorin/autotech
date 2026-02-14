@@ -33,6 +33,7 @@ export const Contacts = () => {
               </Link>
             </span>
           }
+          tag="h1"
         />
 
         <div className="pb-10">

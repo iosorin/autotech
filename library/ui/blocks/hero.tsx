@@ -9,9 +9,10 @@ import React from "react";
 import { cn } from "@/library/utils";
 
 type Props = {
-  subtitle: string;
-  titleLine1: string;
-  titleLine2?: string;
+  // subtitle: string;
+  // titleLine1: string;
+  // titleLine2?: string;
+  heading: React.ReactNode;
   features: { icon: React.ReactNode; label: string }[];
   card: { title: string; desc: string; icon: React.ReactNode; };
   image: { src: string; alt: string; };
@@ -21,9 +22,10 @@ type Props = {
 };
 
 export const Hero = ({
-  subtitle,
-  titleLine1,
-  titleLine2,
+  // subtitle,
+  // titleLine1,
+  // titleLine2,
+  heading,
   features,
   card,
   image,
@@ -34,20 +36,11 @@ export const Hero = ({
   return (
     <div className={cn("flex flex-col mx-auto", className)}>
       <div className="flex flex-col gap-6">
-        <Enter variant="fade-up" duration={700}>
-          <div className="text-center">
-            <p className="text-lg font-medium text-primary mb-3">{subtitle}</p>
-            <h1>
-              {titleLine1}
-              {titleLine2 && (
-                <>
-                  <br />
-                  {titleLine2}
-                </>
-              )}
-            </h1>
-          </div>
-        </Enter>
+        {heading && (
+          <Enter variant="fade-up" duration={700}>
+            {heading}
+          </Enter>
+        )}
 
         {links && links.length > 0 && (
           <Enter variant="fade-up" delay={200} duration={600}>

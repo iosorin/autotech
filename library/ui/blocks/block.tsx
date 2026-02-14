@@ -86,7 +86,7 @@ export const Block = ({
 
     return (
         <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className, reverse ? "lg:flex-row-reverse" : "")}>
-            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-6 lg:gap-8 order-2 lg:order-1 w-full">
+            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-4 lg:gap-6 order-2 lg:order-1 w-full">
                 {heading}
                 {renderDesc(desc)}
                 {renderItems(items)}

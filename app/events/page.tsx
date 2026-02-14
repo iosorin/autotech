@@ -16,7 +16,7 @@ export default function EventsPage() {
     <>
       <section id="event">
         <div className="gradlayer bg-gradient-blue" />
-        <Lead label={p.subtitle} title={p.title} titleFirst />
+        <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <Event
           date={home.eventBanner.date}
           title={home.eventBanner.title}

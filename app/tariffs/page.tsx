@@ -19,7 +19,7 @@ const Tariffs = () => {
       <section id="tariffs" className="pb-0">
         <div className="gradlayer bg-gradient-blue" />
 
-        <Lead label={p.platformLabel} title={p.title} />
+        <Lead label={p.platformLabel} title={p.title} tag="h1" titleFirst />
 
         <Table
           cols={p.periods}
@@ -37,7 +37,7 @@ const Tariffs = () => {
 
       <section id="included-2">
         <Block
-          heading={<Lead title={p.included.heading} className="text-left mb-0" />}
+          heading={<Lead title={p.included.heading} className="text-left" />}
           items={p.included.items}
           image={p.included.image}
           reverse
@@ -47,7 +47,8 @@ const Tariffs = () => {
 
       <section id="cta">
         <div className="gradlayer bg-gradient-green" />
-        <Cta title1={p.cta.title1} title2={p.cta.title2} start={p.cta.start} contact={p.cta.contact} />
+        <Lead title={p.cta.title1} title2={p.cta.title2} />
+        <Cta items={[p.cta.start, p.cta.contact]} />
       </section>
     </>
   );
