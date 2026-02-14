@@ -35,11 +35,11 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
 
   return (
     <header
-      className={cn('w-full center transition-all duration-300', scrolled
-        ? "bg-background/80 backdrop-blur-lg shadow-md"
-        : "bg-background", className)}
+      className={cn('w-full center transition-all duration-300 relative')}
     >
-      <div className="w-full flex items-center justify-between px-4">
+      <div className={cn('w-full flex items-center justify-between px-4 h-header z-60', scrolled
+        ? "bg-background/80 backdrop-blur-lg shadow-md"
+        : "bg-background", className)}>
         <Link href="/" className="flex items-center gap-2 group">
           {logo &&
             <Image src={logo} alt={title} width={27} height={27} />
@@ -94,8 +94,9 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
       </div>
 
       <div
-        className={`w-full md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
-          }`}
+        className={`fixed -top-12 mt-header left-0 right-0 w-full md:hidden bg-background shadow-md overflow-hidden transition-all duration-300 ease-in-out z-50 ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"}`}
+      // className={`absolute top-full left-0 right-0 w-full md:hidden border-t border-border bg-background overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
+      // }`}
       >
         <nav className="flex flex-col gap-3 px-4 py-3">
           {nav.map((link) => (

@@ -73,8 +73,13 @@
   }
 
   body {
-    overflow-x: hidden;
     @apply bg-background text-foreground;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   h1 {
@@ -102,8 +107,12 @@
   }
 
   section:first-child {
-    @apply pt-header pb-0;
+    @apply pt-header;
   }
+
+  /* section:last-child {
+    @apply pb-16;
+  } */
 }
 
 /* Scroll-triggered animation system */

@@ -45,7 +45,7 @@ export const Cards = ({
     const renderImage = (img: Props["image"]) => {
         if (!img) return null;
         return (
-            <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
+            <Enter variant="fade-left" delay={200} duration={700} className="w-full">
                 <Image
                     src={img.href}
                     alt={img.alt}
@@ -63,8 +63,8 @@ export const Cards = ({
             <div className="flex flex-col gap-6">
                 {list.map((item) => (
                     <div key={item} className="flex items-start gap-3">
-                        <CheckCircle2 className="size-7 text-primary flex-shrink-0 mt-0.5" />
-                        <p className="text-lg text-foreground">{item}</p>
+                        <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+                        <p className="text-base md:text-lg text-foreground">{item}</p>
                     </div>
                 ))}
             </div>
@@ -73,7 +73,7 @@ export const Cards = ({
 
     const renderDesc = (d: string | undefined) => {
         if (!d) return null;
-        return <p className="text-lg leading-relaxed">{d}</p>;
+        return <p className="text-base md:text-lg leading-relaxed">{d}</p>;
     };
 
     const renderGroup = (group: Group) => (
@@ -98,15 +98,17 @@ export const Cards = ({
     };
 
     return (
-        <div className={cn("flex justify-between items-center gap-20", className)}>
-            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-8">
+        <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className)}>
+            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-6 lg:gap-8 order-2 lg:order-1 w-full">
                 {heading}
                 {renderDesc(desc)}
                 {renderItems(items)}
                 {renderGroups()}
                 {renderCta(cta)}
             </Enter>
-            {renderImage(image)}
+            <div className="order-1 lg:order-2 w-full lg:w-auto flex-1">
+                {renderImage(image)}
+            </div>
         </div>
     );
 };

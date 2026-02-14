@@ -16,7 +16,7 @@ const Tariffs = () => {
   const p = tariffs;
   return (
     <>
-      <section id="tariffs">
+      <section id="tariffs" className="pb-0">
         <div className="gradlayer bg-gradient-blue" />
 
         <div className="mx-auto my-4">

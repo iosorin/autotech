@@ -20,7 +20,7 @@ export default function FleetPage() {
   const p = fleet;
   return (
     <>
-      <section id="fleet">
+      <section id="fleet" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
 
         <div className="mx-auto my-4">
