@@ -18,7 +18,7 @@ export default function SupportPage() {
     <>
       <section id="support">
         <div className="gradlayer bg-gradient-lime" />
-        <Lead label={p.subtitle} title={p.title} titleFirst />
+        <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
           <Contact heading={p.form.heading} topics={p.form.topics} onSubmit={contact} />
         </div>

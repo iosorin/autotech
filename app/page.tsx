@@ -20,12 +20,13 @@ const Page = () => {
       <section id="hero" className="pb-0">
         <div className="gradlayer bg-gradient-gray" />
 
+        <Lead title={p.hero.titleLine1} title2={p.hero.titleLine2} tag="h1" label={p.hero.subtitle} />
+        <Cta items={[app.cta.start, app.cta.contact]} />
+
         <Hero
-          titleLine1={p.hero.titleLine1}
-          titleLine2={p.hero.titleLine2}
-          subtitle={p.hero.subtitle}
+          heading={null}
           features={p.hero.features}
-          links={[app.cta.start, app.cta.contact]}
+          // links={[app.cta.start, app.cta.contact]}
           cta={p.hero.cta}
           card={p.hero.card}
           image={p.hero.image}
@@ -104,8 +105,7 @@ const Page = () => {
         <div className="gradlayer bg-gradient-blue" />
         <Cta
           title1={p.cta.defaultTitle}
-          start={app.cta.start}
-          contact={app.cta.contact}
+          items={[app.cta.start, app.cta.contact]}
         />
       </section>
 
@@ -139,8 +139,7 @@ const Page = () => {
         <Cta
           title1={p.join.titleLine1}
           title2={p.join.titleLine2}
-          start={app.cta.start}
-          contact={app.cta.contact}
+          items={[app.cta.start, app.cta.contact]}
         />
       </section>
     </>

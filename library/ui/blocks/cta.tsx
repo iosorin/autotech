@@ -1,53 +1,33 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Enter } from "@ui/atoms/enter";
+import { Lead } from "@ui/atoms/lead";
 import { Button } from "@ui/atoms/button";
+import { Enter } from "@ui/atoms/enter";
+import { cn } from "@utils";
 
 type Props = {
   title1?: string;
   title2?: string;
-  start: {
+  items?: {
     label: string;
     href: string;
-  };
-  contact: {
-    label: string;
-    href: string;
-  };
+  }[];
+  className?: string;
 };
 
-export const Cta = ({ title1, title2, start, contact }: Props) => {
+export const Cta = ({ title1, title2, items, className }: Props) => {
   return (
-    <Enter variant="fade-up" duration={600}>
-      <div className="flex flex-col gap-8 text-center py-8">
-        {title1 && (
-          <h2>
-            {title1}
-            {title2 && (
-              <>
-                <br />
-                {title2}
-              </>
-            )}
-          </h2>
-        )}
-        <div className="flex flex-wrap justify-center gap-3">
-          {start && (
-            <Button asChild variant="default" size="lg">
-              <Link href={start.href} title={start.label}>
-                {start.label}
-                <ArrowUpRight />
-              </Link>
-            </Button>
-          )}
-          {contact && (
-            <Button asChild variant="outline" size="lg">
-              <Link href={contact.href} title={contact.label}>{contact.label}</Link>
-            </Button>
-          )}
-        </div>
+    <Enter variant="fade-up" duration={600} className={cn("flex flex-col gap-8 text-center", className)}>
+      <Lead title={title1} title2={title2} />
+      <div className="flex flex-wrap justify-center gap-3">
+        {items?.map((item, i) => (
+          <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.href}>
+            <Link href={item.href} title={item.label}>
+              {item.label}
+              {i === 0 && <ArrowUpRight />}
+            </Link>
+          </Button>
+        ))}
       </div>
     </Enter>
   );

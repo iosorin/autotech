@@ -25,8 +25,7 @@ export default function FleetPage() {
         <div className="gradlayer bg-gradient-lime" />
 
         <Hero
-          subtitle={p.hero.subtitle}
-          titleLine1={p.hero.titleLine1}
+          heading={<Lead title={p.hero.titleLine1} tag="h1" label={p.hero.subtitle} />}
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
@@ -70,10 +69,7 @@ export default function FleetPage() {
           <Icons items={p.how.items} variant="stack" />
         </div>
 
-        <Cta
-          start={p.how.cta.cabinet}
-          contact={p.how.cta.more}
-        />
+        <Cta items={[p.how.cta.cabinet, p.how.cta.more]} />
       </section>
 
       <section id="transparency">
