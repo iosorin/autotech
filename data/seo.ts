@@ -6,7 +6,7 @@ export const seo = {
   siteName: app.name,
   ogImage: "/og.png",
   ogImageAlt: app.name,
-  templateTitle: "%s | Автотех",
+  templateTitle: "Автотех - %s",
   pages: {
     home: { title: app.title, description: app.description },
     contacts: {
@@ -20,7 +20,7 @@ export const seo = {
         "Закрытые мероприятия для собственников и управляющих автомойками, детейлинг-центрами и шиномонтажами. Присоединяйтесь к сообществу Автотех.",
     },
     fleet: {
-      title: "Автопаркам",
+      title: "Автопарки",
       description:
         "Оплачивайте услуги автомойки, шиномонтажа, сезонного хранения и мелкого ремонта через приложение Автотех. Консолидированная отчётность, безнал и НДС для автопарков.",
     },

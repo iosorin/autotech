@@ -22,7 +22,7 @@ export const Compare = ({ data, className }: Props) => {
 
   return (
     <div
-      className={cn("grid w-full rounded-2xl overflow-hidden", className)}
+      className={cn("grid w-full rounded-2xl overflow-x-auto", className)}
       style={{ gridTemplateColumns: `repeat(${data.length}, minmax(0, 1fr))` }}
     >
       {data.map((col, colIndex) => (
@@ -35,7 +35,7 @@ export const Compare = ({ data, className }: Props) => {
           )}
         >
           <span
-            className="text-lg text-white inline-block px-6 py-3 rounded-full font-medium"
+            className="lg:text-lg text-sm text-white inline-block px-6 py-3 rounded-full font-medium"
             style={{ backgroundColor: col.color }}
           >
             {col.label}
@@ -47,18 +47,18 @@ export const Compare = ({ data, className }: Props) => {
           <div
             key={`${colIndex}-${rowIndex}`}
             className={cn(
-              "flex items-start gap-3 p-4 bg-background",
+              "flex items-start gap-3 py-3 px-2 lg:p-4  bg-background",
               rowIndex !== 0 && "border-t border-border",
               colIndex === 0 && rowIndex === rowCount - 1 && "rounded-bl-2xl",
               colIndex === data.length - 1 && rowIndex === rowCount - 1 && "rounded-br-2xl",
             )}
             style={{ color: col.color }}
           >
-            <div className="shrink-0">
+            <div className="shrink-0 hidden lg:block">
               {col.icon}
             </div>
 
-            <span className="text-lg md:max-w-md" style={{ color: col.text || 'inherit' }}>{col.items[rowIndex] ?? ""}</span>
+            <span className="lg:text-lg text-sm md:max-w-md" style={{ color: col.text || 'inherit' }}>{col.items[rowIndex] ?? ""}</span>
           </div>
         ))
       )}
