@@ -18,7 +18,7 @@ export const Contacts = () => {
   const p = contacts;
   return (
     <>
-      <section id="contacts">
+      <section id="contacts" className="pb-0">
         <div className="gradlayer bg-gradient-gray" />
 
         <Lead
@@ -45,7 +45,7 @@ export const Contacts = () => {
         <Icons items={p.dev} left />
       </section>
 
-      <section id="mission">
+      <section id="mission" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
         <div className="max-w-[85%] mx-auto">
           <Lead title={p.mission.heading} />
@@ -53,7 +53,7 @@ export const Contacts = () => {
         </div>
       </section>
 
-      <section id="form">
+      <section id="form" className="pb-0">
         <Lead title={p.form.heading} />
         <div className="md:w-[60%] mx-auto">
           <Contact topics={p.form.topics} className="shadow-primary/25" />
