@@ -65,7 +65,7 @@ const Page = () => {
         />
       </section>
 
-      <section id="extra">
+      <section id="extra" className="pb-0">
         <Extra
           title={p.extra.title}
           tire={p.extra.tire}
