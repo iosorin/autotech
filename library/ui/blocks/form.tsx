@@ -25,7 +25,7 @@ type FieldOther = {
     placeholder: string;
 };
 
-type Field = FieldSelect | FieldOther;
+export type Field = FieldSelect | FieldOther;
 
 type Props = {
     heading?: string;
@@ -38,7 +38,7 @@ type Props = {
 
 const REQUIRED = "Заполните поле";
 
-export const Contact = ({
+export const Form = ({
     heading,
     fields,
     onSubmit,
@@ -95,7 +95,6 @@ export const Contact = ({
                     <div key={field.id} className="space-y-2">
                         <Label htmlFor={field.id} className="text-foreground">
                             {field.label}
-                            {field.required && <span className="text-destructive"> *</span>}
                         </Label>
                         {field.type === "textarea" ? (
                             <Textarea
@@ -144,7 +143,7 @@ export const Contact = ({
                     </div>
                 ))}
                 {agree !== undefined && (
-                    <div className="flex items-start gap-2">
+                    <div className="flex items-center gap-3">
                         <input
                             id="form-agree"
                             type="checkbox"
@@ -153,14 +152,11 @@ export const Contact = ({
                                 setAgreeChecked(e.target.checked);
                                 if (errors.agree) setErrors((prev) => ({ ...prev, agree: "" }));
                             }}
-                            className="h-4 w-4 mt-0.5 rounded border border-input flex-shrink-0"
+                            className="size-5 flex-shrink-0"
                             aria-required
                             aria-invalid={!!errors.agree}
                         />
-                        <Label
-                            htmlFor="form-agree"
-                            className="cursor-pointer text-muted-foreground font-normal"
-                        >
+                        <Label htmlFor="form-agree" className="cursor-pointer font-normal">
                             {agree}
                         </Label>
                     </div>
@@ -174,4 +170,4 @@ export const Contact = ({
     );
 };
 
-export default Contact;
+export default Form;

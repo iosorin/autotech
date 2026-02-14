@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
-// import { Form } from "@ui/blocks/form";
+import { Form } from "@ui/blocks/form";
 import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
-import { Contact } from "@ui/blocks/contact";
 import { seo, app, contacts } from "@data";
 import contact from "@api/contact";
 
@@ -59,7 +58,11 @@ export const Contacts = () => {
       <section id="form" className="pb-0">
         <Lead title={app.form.heading} />
         <div className="md:w-[60%] mx-auto">
-          <Contact topics={app.form.topics} className="shadow-primary/25" onSubmit={contact} />
+          <Form
+            heading={app.form.heading}
+            fields={app.form.fields}
+            agree={app.form.agree}
+            onSubmit={contact} />
         </div>
       </section>
 

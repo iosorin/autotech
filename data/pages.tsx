@@ -1,4 +1,6 @@
-import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Wrench, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Car, Droplets, Clock, Zap, Layers, Settings, FolderSearch, MapPlus, ChartPie, MapPin, ChartLine, FileCheck, TrendingDown, CircleAlert, CheckCheck, Heart, CarFront } from "lucide-react"
+import Link from "next/link"
+import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Wrench, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Droplets, Clock, Zap, Layers, Settings, FolderSearch, MapPlus, ChartPie, MapPin, FileCheck, TrendingDown, CircleAlert, Heart, CarFront } from "lucide-react"
+import { Field } from "@ui/blocks/form"
 import { app } from "./app"
 
 export const home = {
@@ -470,7 +472,7 @@ export const support = {
     title: "Техническая поддержка",
     subtitle: "Обрабатываем ваши заявки ежедневно с 08:00 до 23:00",
     headings: {
-        form: "Заполните форму обращения",
+        form: 'Заполните форму обращения',
         response: "Сроки обработки обращений",
         otherContact: "Другие способы связи",
     },
