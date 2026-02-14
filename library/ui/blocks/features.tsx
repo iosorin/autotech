@@ -24,7 +24,7 @@ export const Features = ({ tabs, content }: Props) => {
   const renderFeatures = (features: Feature[], delay: number) => {
     return features.map((item, i) => {
       return (
-        <Enter key={item.text} variant="fade-up" delay={delay + i * 60} duration={500}>
+        <Enter key={item.text} variant="fade-up" delay={delay + i * 60} duration={500} className="w-full">
           <div className="flex items-start gap-4">
             {item.icon && <span className="flex-shrink-0 mt-1.5">
               {item.icon}
@@ -39,19 +39,17 @@ export const Features = ({ tabs, content }: Props) => {
   const defaultTab = tabs[0]?.id ?? "orders";
 
   return (
-    <Tabs defaultValue={defaultTab} className="flex flex-col items-center w-full">
-      <Enter variant="fade-up" duration={500}>
-        <TabsList className="mb-12 mx-auto">
-          {tabs.map((tab) => (
-            <TabsTrigger
-              key={tab.id}
-              value={tab.id}
-            >
-              {tab.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </Enter>
+    <Tabs defaultValue={defaultTab} className="flex flex-col items-center w-full flex-wrap">
+      <TabsList className="mb-10 mx-auto max-w-full overflow-x-auto">
+        {tabs.map((tab) => (
+          <TabsTrigger
+            key={tab.id}
+            value={tab.id}
+          >
+            {tab.label}
+          </TabsTrigger>
+        ))}
+      </TabsList>
 
       {tabs.map((tab) => {
         const data = content[tab.id];
