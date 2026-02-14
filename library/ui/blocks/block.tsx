@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
@@ -7,20 +5,19 @@ import Link from "next/link";
 import { Button } from "../atoms/button";
 import { cn } from "@utils";
 
-type Item = {
-    heading: string;
-    desc?: string;
-    items?: string[];
-    image?: { alt: string; href: string; };
-    cta?: { label: string; href: string; };
+type Group = {
+    title: string;
+    tags: string[];
+    tagClassName?: string;
 };
 
 type Props = {
-    heading: string;
+    heading: React.ReactNode;
     desc?: string;
     items?: string[];
-    image?: { alt: string; href: string; };
-    cta?: { label: string; href: string; };
+    image?: { alt: string; href: string };
+    cta?: { label: string; href: string };
+    groups?: Group[];
     className?: string;
 };
 
@@ -30,26 +27,28 @@ export const Block = ({
     items,
     image,
     cta,
+    groups,
     className,
 }: Props) => {
-    const renderCta = (cta: Item['cta']) => {
-        if (!cta) return null;
+    const renderCta = (link: Props["cta"]) => {
+        if (!link) return null;
         return (
             <Button asChild variant="default" size="lg">
-                <Link href={cta.href}>
-                    {cta.label}
+                <Link href={link.href}>
+                    {link.label}
                     <ArrowUpRight />
                 </Link>
             </Button>
         );
     };
-    const renderImage = (image: Item['image']) => {
-        if (!image) return null;
+
+    const renderImage = (img: Props["image"]) => {
+        if (!img) return null;
         return (
-            <Enter variant="fade-left" delay={200} duration={700} className="flex-1">
+            <Enter variant="fade-left" delay={200} duration={700} className="w-full">
                 <Image
-                    src={image.href}
-                    alt={image.alt}
+                    src={img.href}
+                    alt={img.alt}
                     width={500}
                     height={350}
                     className="rounded-2xl w-full h-auto"
@@ -57,36 +56,59 @@ export const Block = ({
             </Enter>
         );
     };
-    const renderItems = (items: Item['items']) => {
-        if (!items) return null;
+
+    const renderItems = (list: string[] | undefined) => {
+        if (!list?.length) return null;
         return (
             <div className="flex flex-col gap-6">
-                {items.map((item) => (
+                {list.map((item) => (
                     <div key={item} className="flex items-start gap-3">
-                        <CheckCircle2 className="size-7 text-primary flex-shrink-0 mt-0.5" />
-                        <p className="text-lg text-foreground">{item}</p>
+                        <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+                        <p className="text-base md:text-lg text-foreground">{item}</p>
                     </div>
                 ))}
             </div>
         );
     };
 
-    const renderDesc = (desc: Item['desc']) => {
-        if (!desc) return null;
-        return (
-            <p className="text-lg leading-relaxed">{desc}</p>
-        );
+    const renderDesc = (d: string | undefined) => {
+        if (!d) return null;
+        return <p className="text-base md:text-lg leading-relaxed">{d}</p>;
+    };
+
+    const renderGroup = (group: Group) => (
+        <div key={group.title} className="pb-6 border-b border-border last:border-b-0">
+            <h5 className="mb-3 font-medium text-foreground">{group.title}</h5>
+            <div className="flex flex-wrap gap-2">
+                {group.tags.map((tag) => (
+                    <span
+                        key={tag}
+                        className={cn("rounded-full px-4 py-1.5 text-sm", group.tagClassName ?? "bg-muted")}
+                    >
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+
+    const renderGroups = () => {
+        if (!groups?.length) return null;
+        return <div className="flex flex-col gap-8">{groups.map(renderGroup)}</div>;
     };
 
     return (
-        <div className={cn("flex justify-between items-center gap-20", className)}>
-            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-8">
-                <h2>{heading}</h2>
+        <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className)}>
+            <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-6 lg:gap-8 order-2 lg:order-1 w-full">
+                {heading}
                 {renderDesc(desc)}
                 {renderItems(items)}
+                {renderGroups()}
                 {renderCta(cta)}
             </Enter>
-            {renderImage(image)}
+            <div className="order-1 lg:order-2 w-full lg:w-auto flex-1">
+                {renderImage(image)}
+            </div>
         </div>
     );
 };
