@@ -40,7 +40,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
       <div className={cn('w-full flex items-center justify-between px-4 h-header z-60', scrolled
         ? "bg-background/80 backdrop-blur-lg shadow-md"
         : "bg-background", className)}>
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group" title={title}>
           {logo &&
             <Image src={logo} alt={title} width={27} height={27} />
           }
@@ -57,6 +57,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
               <Link
                 key={link.href}
                 href={link.href}
+                title={link.label}
                 className={`text-sm font-medium transition-colors duration-200 hover:text-foreground relative ${pathname === link.href
                   ? "underline"
                   : "text-foreground"
@@ -71,7 +72,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           </nav>
 
           <Button asChild variant="secondary">
-            <Link href={featured.href}>
+            <Link href={featured.href} title={featured.label}>
               {featured.label}
               <ArrowRight className="size-4" />
             </Link>
@@ -112,8 +113,10 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
               {link.label}
             </Link>
           ))}
+
           <Link
             href={featured.href}
+            title={featured.label}
             className="inline-flex items-center gap-1 rounded-full border border-foreground px-4 py-2 text-sm font-medium text-foreground w-fit"
             onClick={() => setMobileOpen(false)}
           >

@@ -29,6 +29,7 @@ export const Links = ({
           <Link
             target="_blank"
             href={telegramSupport.href}
+            title={telegramSupport.label}
             className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
           >
             {telegramSupport.label}
@@ -39,6 +40,7 @@ export const Links = ({
       <div>
         <p className="text-lg font-medium text-accent">{labels.email}</p>
         <Link
+          title="Написать на email"
           target="_blank"
           href={`mailto:${email}`}
           className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
@@ -50,6 +52,7 @@ export const Links = ({
       <div>
         <p className="text-lg font-medium text-accent">{labels.phone}</p>
         <Link
+          title="Позвонить"
           target="_blank"
           href={`tel:${phoneRaw}`}
           className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
