@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Links } from "@ui/blocks/links";
-import { Contact } from "@ui/blocks/contact";
 import { Form } from "@ui/blocks/form";
 import { Types } from "@ui/blocks/types";
 import { app, seo, support } from "@data";
 import contact from "@api/contact";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: seo.pages.support.title,
