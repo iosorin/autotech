@@ -57,7 +57,8 @@ export default function FleetPage() {
           items={p.flexible.items}
           image={p.flexible.image}
           cta={p.flexible.cta}
-          className="flex-row-reverse"
+          // className="flex-row-reverse"
+          reverse
         />
       </section>
 
@@ -79,7 +80,8 @@ export default function FleetPage() {
           heading={<Lead title={p.transparency.heading} className="text-left mb-0" />}
           items={p.transparency.items}
           image={p.transparency.image}
-          className="flex-row-reverse"
+          // className="flex-row-reverse"
+          reverse
         />
       </section>
 

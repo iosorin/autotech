@@ -321,6 +321,7 @@ export const tariffs = {
         image: {
             alt: "Интерфейс приложения",
             href: "/images/app-box-3.png",
+            className: 'flex-[0_0_30%]'
         },
     },
     cta: {
