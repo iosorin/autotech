@@ -84,14 +84,14 @@ export const Hero = ({
             return (
               <Enter key={item.label
               } variant="fade-right" delay={i * 80} duration={500} >
-                <div className="inline-flex items-center gap-2.5 rounded-full px-4 py-2.5 text-sm w-fit bg-white whitespace-nowrap">
+                <div className="inline-flex items-center gap-2 rounded-full px-3 py-2 md:px-4 md:py-2.5 text-sm w-fit bg-white whitespace-nowrap max-w-full">
                   {item.icon &&
                     <span className="flex-shrink-0">
                       {item.icon}
                     </span>
                   }
 
-                  <span className="text-lg">{item.label}</span>
+                  <span className="text-base md:text-lg truncate">{item.label}</span>
                 </div>
               </Enter>
             );
@@ -131,10 +131,10 @@ export const Hero = ({
 
         {card && (
           <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3" >
-            <div className="rounded-2xl bg-gradient-white p-6 center flex-col text-center gap-4">
+            <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
               {card.icon}
-              <h3 className="font-bold text-foreground mb-1 md:max-w-[235px]">{card.title}</h3>
-              <p className="text-lg text-muted-foreground md:max-w-[260px]">{card.desc}</p>
+              <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
+              <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
             </div>
           </Enter >
         )}

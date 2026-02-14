@@ -63,9 +63,9 @@ export const Extra = ({
     return (
       <div className="flex flex-col gap-6">
         {items.map((item) => (
-          <div key={item} className="flex items-start gap-3">
-            <CheckCircle2 className="size-7 text-primary flex-shrink-0 mt-0.5" />
-            <p className="text-lg text-foreground">{item}</p>
+            <div key={item} className="flex items-start gap-3">
+            <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+            <p className="text-base md:text-lg text-foreground">{item}</p>
           </div>
         ))}
       </div>
@@ -74,12 +74,12 @@ export const Extra = ({
   const renderDesc = (desc: Item['desc']) => {
     if (!desc) return null;
     return (
-      <p className="text-lg leading-relaxed">{desc}</p>
+      <p className="text-base md:text-lg leading-relaxed">{desc}</p>
     );
   };
 
   return (
-    <div className="flex flex-col gap-20">
+    <div className="flex flex-col gap-12 md:gap-20">
       {/* Заголовок */}
       {title && (
         <Enter variant="fade-up" duration={600}>

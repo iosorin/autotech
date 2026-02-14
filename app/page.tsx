@@ -10,7 +10,6 @@ import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
-import { Cards } from "@ui/blocks/cards";
 import { Lead } from "@ui/atoms/lead";
 import { app, home } from "@data";
 
@@ -18,7 +17,7 @@ const Page = () => {
   const p = home;
   return (
     <>
-      <section id="hero">
+      <section id="hero" className="pb-0">
         <div className="gradlayer bg-gradient-gray" />
 
         <div className="mx-auto my-4">
