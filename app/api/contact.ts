@@ -28,7 +28,7 @@ const contact = async (formData: FormData) => {
 📞 <b>Телефон:</b> ${phone}
 📝 <b>Сообщение:</b> ${message}
 🔑 <b>Тема:</b> ${topic}
-⏱ <b>Время:</b> ${new Date().toLocaleString('ru-RU')}
+⏱ <b>Время:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'UTC' })} UTC
     `;
 
         const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
