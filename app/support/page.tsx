@@ -4,10 +4,12 @@ import { Links } from "@ui/blocks/links";
 import { app, seo, support } from "@data";
 import { Contact } from "@ui/blocks/contact";
 import { Types } from "@ui/blocks/types";
+import contact from "@api/contact";
 
 export const metadata: Metadata = {
   title: seo.pages.support.title,
   description: seo.pages.support.description,
+  alternates: { canonical: "/support" },
 };
 
 export default function SupportPage() {
@@ -18,7 +20,7 @@ export default function SupportPage() {
         <div className="gradlayer bg-gradient-lime" />
         <Lead label={p.subtitle} title={p.title} titleFirst />
         <div className="md:w-[60%] mx-auto">
-          <Contact heading={p.form.heading} topics={p.form.topics} />
+          <Contact heading={p.form.heading} topics={p.form.topics} onSubmit={contact} />
         </div>
       </section>
 

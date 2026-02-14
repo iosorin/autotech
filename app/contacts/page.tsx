@@ -13,6 +13,7 @@ import contact from "@api/contact";
 export const metadata: Metadata = {
   title: seo.pages.contacts.title,
   description: seo.pages.contacts.description,
+  alternates: { canonical: "/contacts" },
 };
 
 export const Contacts = () => {

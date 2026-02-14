@@ -9,6 +9,7 @@ import { seo, tariffs } from "@data";
 export const metadata: Metadata = {
   title: seo.pages.tariffs.title,
   description: seo.pages.tariffs.description,
+  alternates: { canonical: "/tariffs" },
 };
 
 const Tariffs = () => {

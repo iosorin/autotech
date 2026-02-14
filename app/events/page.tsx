@@ -7,6 +7,7 @@ import { seo, events, home } from "@data";
 export const metadata: Metadata = {
   title: seo.pages.events.title,
   description: seo.pages.events.description,
+  alternates: { canonical: "/events" },
 };
 
 export default function EventsPage() {

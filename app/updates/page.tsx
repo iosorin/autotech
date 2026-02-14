@@ -6,6 +6,7 @@ import { seo, updates } from "@data";
 export const metadata: Metadata = {
   title: seo.pages.updates.title,
   description: seo.pages.updates.description,
+  alternates: { canonical: "/updates" },
 };
 
 export default function UpdatesPage() {

@@ -14,6 +14,7 @@ import { fleet, seo } from "@data";
 export const metadata: Metadata = {
   title: seo.pages.fleet.title,
   description: seo.pages.fleet.description,
+  alternates: { canonical: "/fleet" },
 };
 
 export default function FleetPage() {

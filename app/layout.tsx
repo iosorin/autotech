@@ -11,6 +11,7 @@ const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" }
 
 export const metadata: Metadata = {
   metadataBase: new URL(app.siteurl),
+  alternates: { canonical: "/", },
   title: { default: seo.defaultTitle, template: seo.templateTitle, },
   description: seo.defaultDescription,
   keywords: seo.keywords,
