@@ -23,17 +23,14 @@ export default function FleetPage() {
       <section id="fleet" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
 
-        <div className="mx-auto my-4">
-          <Hero
-            subtitle={p.hero.subtitle}
-            titleLine1={p.hero.titleLine1}
-            features={p.hero.features}
-            card={p.hero.card}
-            image={p.hero.image}
-            cta={p.hero.cta}
-          />
-        </div>
-        <div className="fade-bottom" />
+        <Hero
+          subtitle={p.hero.subtitle}
+          titleLine1={p.hero.titleLine1}
+          features={p.hero.features}
+          card={p.hero.card}
+          image={p.hero.image}
+          cta={p.hero.cta}
+        />
       </section>
 
       <section id="why">
