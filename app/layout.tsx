@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
+import { Sonner } from "@ui/atoms/sonner";
 import { app, seo } from "@data";
 import "./style.css";
 
@@ -96,6 +97,8 @@ export default function RootLayout({
           copyright={app.copyright}
           className="max-w-6xl"
         />
+
+        <Sonner />
       </body>
     </html>
   );
