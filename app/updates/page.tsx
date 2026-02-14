@@ -15,10 +15,8 @@ export default function UpdatesPage() {
     <section id="updates">
       <div className="gradlayer bg-gradient-blue" />
 
-      <div className="mx-auto my-4">
-        <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
-        <Changelog updates={p.list} />
-      </div>
+      <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
+      <Changelog updates={p.list} />
     </section>
   );
 }
