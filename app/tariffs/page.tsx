@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { MapPin } from "lucide-react";
 import { Cta } from "@ui/blocks/cta";
 import { Lead } from "@ui/atoms/lead";
 import { Table } from "@ui/blocks/table";
 import { Rates } from "@ui/blocks/rates";
-import { Checklist } from "@ui/blocks/checklist";
-import { app, seo, tariffs } from "@data";
+import { Block } from "@ui/blocks/block";
+import { seo, tariffs } from "@data";
 
 export const metadata: Metadata = {
   title: seo.pages.tariffs.title,
@@ -35,9 +34,12 @@ const Tariffs = () => {
         <Rates discounts={p.discounts.items} icon={p.discounts.icon} />
       </section>
 
-      <section id="included">
-        <Lead title={p.includedHeading} />
-        <Checklist items={p.included} image={p.image}
+      <section id="included-2">
+        <Block
+          heading={<Lead title={p.included.heading} className="text-left mb-0" />}
+          items={p.included.items}
+          image={p.included.image}
+          className="lg:flex-row-reverse"
         />
       </section>
 
