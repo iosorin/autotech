@@ -8,10 +8,7 @@ import { cn } from "@utils";
 type Props = {
   title1?: string;
   title2?: string;
-  items?: {
-    label: string;
-    href: string;
-  }[];
+  items?: { label: string; href: string; }[];
   className?: string;
 };
 
@@ -21,7 +18,7 @@ export const Cta = ({ title1, title2, items, className }: Props) => {
       <Lead title={title1} title2={title2} />
       <div className="flex flex-wrap justify-center gap-3">
         {items?.map((item, i) => (
-          <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.href}>
+          <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.label}>
             <Link href={item.href} title={item.label}>
               {item.label}
               {i === 0 && <ArrowUpRight />}

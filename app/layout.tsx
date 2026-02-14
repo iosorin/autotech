@@ -79,7 +79,7 @@ export default function RootLayout({
           logo={app.logo}
           nav={app.nav}
           featured={app.featured}
-          className="fixed top-8 z-50 center-x rounded-full max-w-6xl h-header"
+          className="fixed top-8 z-50 center-x max-w-6xl h-header"
         />
 
         <main className="max-w-6xl px-4 mx-auto">
