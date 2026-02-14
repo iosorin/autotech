@@ -19,22 +19,20 @@ const Tariffs = () => {
       <section id="tariffs" className="pb-0">
         <div className="gradlayer bg-gradient-blue" />
 
-        <div className="mx-auto my-4">
-          <Lead label={p.platformLabel} title={p.title} />
-          <Table
-            cols={p.periods}
-            rows={p.plans}
-            note={p.priceNote}
-            note2={p.priceNote2}
-            className="bg-gradient-white"
-          />
-        </div>
-        <div className="fade-bottom" />
+        <Lead label={p.platformLabel} title={p.title} />
+
+        <Table
+          cols={p.periods}
+          rows={p.plans}
+          note={p.priceNote}
+          note2={p.priceNote2}
+          className="bg-gradient-white"
+        />
       </section>
 
       <section id="discounts">
-        <Lead title={p.discountsHeading} />
-        <Rates discounts={p.discounts} icon={<MapPin className="size-5 text-accent" />} />
+        <Lead title={p.discounts.heading} />
+        <Rates discounts={p.discounts.items} icon={p.discounts.icon} />
       </section>
 
       <section id="included">

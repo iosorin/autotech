@@ -299,13 +299,17 @@ export const tariffs = {
     priceNote: "Цены указаны без учета налогов.",
     priceNote2: "Уточните полную стоимость у менеджера",
     discountsHeading: "Скидки",
-    discounts: [
-        { range: "2 - 5 точки", percent: "10%" },
-        { range: "6 - 10 точки", percent: "15%" },
-        { range: "11 - 20 точки", percent: "20%" },
-        { range: "21 - 30 точки", percent: "25%" },
-        { range: "от 31 точки", percent: "30%" },
-    ],
+    discounts: {
+        heading: 'Скидки',
+        items: [
+            { range: "2 - 5 точки", percent: "10%" },
+            { range: "6 - 10 точки", percent: "15%" },
+            { range: "11 - 20 точки", percent: "20%" },
+            { range: "21 - 30 точки", percent: "25%" },
+            { range: "от 31 точки", percent: "30%" },
+        ],
+        icon: <MapPin className="size-5 text-accent" />
+    },
     includedHeading: "Что включено в тариф",
     included: [
         "Любое количество дополнительных личных кабинетов. Мы не ограничиваем доступ для ваших исполнителей, менеджеров и кассиров",
