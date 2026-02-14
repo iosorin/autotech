@@ -23,42 +23,54 @@ type Props = {
 
 export const Table = ({ cols, rows, note, note2, className }: Props) => {
   const [activePeriod, setActivePeriod] = useState(cols[0]?.id ?? "1m");
+
   return (
-    <div className={cn("rounded-2xl p-4 md:p-8", className)}>
-      <div className="flex justify-end mb-4 md:mb-6">
+    <div className={cn("rounded-2xl p-4 lg:p-8", className)}>
+      <div className="flex justify-end mb-4 lg:mb-6">
         <div className="flex flex-wrap gap-2 justify-end">
           {cols.map((item) => (
-            <Button key={item.id} variant="accent" size="lg" className="pointer-events-none" onClick={() => setActivePeriod(item.id)}>{item.label}</Button>
+            <Button
+              key={item.id}
+              variant="accent"
+              size="lg"
+              className="lg:pointer-events-none"
+              onClick={() => setActivePeriod(item.id)}
+            >
+              {item.label}
+            </Button>
           ))}
         </div>
       </div>
 
       <div className="overflow-x-auto -mx-2 px-2">
-        <div className="flex flex-col gap-1 min-w-[280px]">
+        <div className="flex flex-col gap-1">
           {rows.map((item, index) => (
             <div
               key={item.name}
               className={cn(
-                "flex items-center justify-between gap-2 p-3 md:p-4 rounded-full",
+                "flex items-center justify-between gap-2 p-3 lg:p-4 rounded-full",
                 item.highlighted && "bg-accent",
                 index % 2 !== 0 && "bg-accent/10"
               )}
             >
-              <div className="flex items-center gap-2 md:gap-3 min-w-0 flex-shrink">
-                <div className="flex gap-1 min-w-0 flex-shrink-0">
+              <div className="flex items-center gap-2 lg:gap-3 min-w-0 flex-shrink">
+                <div className="flex gap-1 min-w-0 flex-shrink-0 lg:min-w-[130px]">
                   {item.icons.map((icon, i) => (
-                    <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-1.5 md:p-2", i > 0 && "-ml-2 md:-ml-3")}>
+                    <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-1 lg:p-2", i > 0 && "-ml-2 lg:-ml-3")}>
                       {icon}
                     </div>
                   ))}
                 </div>
-                <span className="text-base md:text-lg font-medium text-foreground truncate">{item.name}</span>
+                <span className="text-base lg:text-lg font-medium text-foreground truncate">{item.name}</span>
               </div>
-              <div className="flex gap-4 md:gap-20 flex-shrink-0">
+              <div className="flex gap-4 lg:gap-20 flex-shrink-0">
                 {cols.map((period) => (
                   <span
                     key={period.id}
-                    className="text-base md:text-xl font-semibold text-right text-foreground tabular-nums min-w-[3ch]"
+                    className={cn(
+                      "text-base lg:text-xl font-semibold text-right text-foreground tabular-nums min-w-[3ch]",
+                      period.id !== activePeriod && "hidden lg:inline"
+                    )}
                   >
                     {item.values[period.id]}
                   </span>
