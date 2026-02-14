@@ -36,7 +36,7 @@ export const Cta = ({ title1, title2, start, contact }: Props) => {
         <div className="flex flex-wrap justify-center gap-3">
           {start && (
             <Button asChild variant="default" size="lg">
-              <Link href={start.href}>
+              <Link href={start.href} title={start.label}>
                 {start.label}
                 <ArrowUpRight />
               </Link>
@@ -44,7 +44,7 @@ export const Cta = ({ title1, title2, start, contact }: Props) => {
           )}
           {contact && (
             <Button asChild variant="outline" size="lg">
-              <Link href={contact.href}>{contact.label}</Link>
+              <Link href={contact.href} title={contact.label}>{contact.label}</Link>
             </Button>
           )}
         </div>

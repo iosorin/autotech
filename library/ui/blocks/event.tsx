@@ -29,7 +29,7 @@ export const Event = ({ date, title, line1, line2, cta, button, href = "/events"
         <p className="mb-5 text-balance">{line2}</p>
         <p className="text-sm text-muted-foreground mb-5">{cta}</p>
         <Button asChild variant="default" size="lg">
-          <Link href={href}>
+          <Link href={href} title={button}>
             {button}
             <ArrowUpRight />
           </Link>

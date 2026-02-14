@@ -36,7 +36,7 @@ export const Block = ({
         if (!link) return null;
         return (
             <Button asChild variant="default" size="lg">
-                <Link href={link.href}>
+                <Link href={link.href} title={link.label}>
                     {link.label}
                     <ArrowUpRight />
                 </Link>

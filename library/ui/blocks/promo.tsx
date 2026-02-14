@@ -40,14 +40,14 @@ export const Promo = ({
 
       <div className="flex flex-wrap gap-4 justify-center">
         <Button asChild variant="default" size="lg">
-          <Link href={cta.primary.href}>
+          <Link href={cta.primary.href} title={cta.primary.label}>
             {cta.primary.label}
             <ArrowUpRight />
           </Link>
         </Button>
         {cta.secondary && cta.secondary.href ? (
           <Button asChild variant="outline" size="lg">
-            <Link href={cta.secondary.href}>
+            <Link href={cta.secondary.href} title={cta.secondary.label}>
               {cta.secondary.label}
             </Link>
           </Button>

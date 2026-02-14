@@ -43,7 +43,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
       <div className={cn("mx-auto px-4 py-10", className)}>
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 justify-between">
           <div className="flex flex-col gap-2">
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group" title={title}>
               {logo &&
                 <Image src={logo} alt={title} width={27} height={27} />
               }
@@ -63,6 +63,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
               <Link
                 href={`tel:${phone}`}
                 className="underline hover:no-underline"
+                title="Позвонить"
               >
                 {phone}
               </Link>
@@ -71,6 +72,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
               <Link
                 href={`mailto:${email}`}
                 className="underline hover:no-underline"
+                title="Написать на email"
               >
                 {email}
               </Link>
@@ -81,7 +83,9 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
             <Link
               href={telegram.href}
               target="_blank"
-              className="underline hover:no-underline flex items-start gap-2">
+              className="underline hover:no-underline flex items-start gap-2"
+              title="Написать в Telegram"
+            >
               <svg
                 viewBox="0 0 24 24"
                 className="w-5 h-5 text-[#2AABEE] fill-current flex-shrink-0 mt-0.5"
@@ -100,6 +104,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
                   key={link.href}
                   href={link.href}
                   className="hover:underline"
+                  title={link.label}
                 >
                   {link.label}
                 </Link>
@@ -110,7 +115,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
 
           {featured &&
             <Button asChild variant="secondary">
-              <Link href={featured.href}>
+              <Link href={featured.href} title={featured.label}>
                 {featured.label}
                 <ArrowRight className="size-4" />
               </Link>
@@ -143,6 +148,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
                 <Link
                   key={link.href}
                   href={link.href}
+                  title={link.label}
                   className="underline hover:text-foreground"
                 >
                   {link.label}

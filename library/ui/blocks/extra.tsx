@@ -37,7 +37,7 @@ export const Extra = ({
     if (!cta) return null;
     return (
       <Button asChild variant="default" size="lg">
-        <Link href={cta.href}>
+        <Link href={cta.href} title={cta.label}>
           {cta.label}
           <ArrowUpRight />
         </Link>
@@ -63,7 +63,7 @@ export const Extra = ({
     return (
       <div className="flex flex-col gap-6">
         {items.map((item) => (
-            <div key={item} className="flex items-start gap-3">
+          <div key={item} className="flex items-start gap-3">
             <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
             <p className="text-base md:text-lg text-foreground">{item}</p>
           </div>

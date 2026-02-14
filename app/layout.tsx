@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     description: seo.defaultDescription,
     images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
   },
+  publisher: app.company.name,
   manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon/favicon.ico",
