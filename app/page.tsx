@@ -20,19 +20,16 @@ const Page = () => {
       <section id="hero" className="pb-0">
         <div className="gradlayer bg-gradient-gray" />
 
-        <div className="mx-auto my-4">
-          <Hero
-            titleLine1={p.hero.titleLine1}
-            titleLine2={p.hero.titleLine2}
-            subtitle={p.hero.subtitle}
-            features={p.hero.features}
-            links={[app.cta.start, app.cta.contact]}
-            cta={p.hero.cta}
-            card={p.hero.card}
-            image={p.hero.image}
-          />
-        </div>
-        <div className="fade-bottom" />
+        <Hero
+          titleLine1={p.hero.titleLine1}
+          titleLine2={p.hero.titleLine2}
+          subtitle={p.hero.subtitle}
+          features={p.hero.features}
+          links={[app.cta.start, app.cta.contact]}
+          cta={p.hero.cta}
+          card={p.hero.card}
+          image={p.hero.image}
+        />
       </section>
 
       <section id="event">
