@@ -183,6 +183,7 @@
   z-index: -1;
 }
 
+/* 
 .fade-bottom {
   pointer-events: none;
   position: absolute;
@@ -197,7 +198,7 @@
       rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0.2) 75%,
       transparent 100%);
-}
+} */
 
 .line {
   display: flex;

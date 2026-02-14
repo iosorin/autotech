@@ -54,7 +54,7 @@ export const home = {
         content: {
             orders: {
                 title: "Удобная работа с заказом",
-                image: { src: "/images/app-box-3.png", alt: "Интерфейс приложения" },
+                image: { src: "/images/app-box.png", alt: "Интерфейс приложения" },
                 features: [
                     { icon: <ScanLine className="size-6 text-primary" />, text: "Распознавание номера, марки автомобиля и категории с использованием ИИ" },
                     { icon: <Users className="size-6 text-primary" />, text: "Выбор исполнителей и скидки на весь заказ или на каждую услугу" },
@@ -70,7 +70,7 @@ export const home = {
             },
             stats: {
                 title: "Статистика и аналитика",
-                image: { src: "/images/app-box-3.png", alt: "Интерфейс приложения" },
+                image: { src: "/images/app-box.png", alt: "Интерфейс приложения" },
                 features: [
                     { icon: <BarChart3 className="size-6 text-primary" />, text: "Анализ выручки по типам услуг, по исполнителям, анализ скидок" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Просмотр статистики по каждой точке или агрегированной статистики по всем точкам" },
@@ -80,7 +80,7 @@ export const home = {
             },
             salary: {
                 title: "Гибкий расчет зарплат",
-                image: { src: "/images/app-box-3.png", alt: "Интерфейс приложения" },
+                image: { src: "/images/app-box.png", alt: "Интерфейс приложения" },
                 features: [
                     { icon: <Calculator className="size-6 text-primary" />, text: "Индивидуальный расчет вознаграждения для каждого сотрудника" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Настройка процентов от выручки по разным услугам" },
@@ -90,7 +90,7 @@ export const home = {
             },
             booking: {
                 title: "Онлайн-запись",
-                image: { src: "/images/app-box-3.png", alt: "Интерфейс приложения" },
+                image: { src: "/images/app-box.png", alt: "Интерфейс приложения" },
                 features: [
                     { icon: <CalendarCheck className="size-6 text-primary" />, text: "Удобный календарь для записи клиентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматические напоминания клиентам о записи" },
@@ -100,7 +100,7 @@ export const home = {
             },
             crm: {
                 title: "CRM система",
-                image: { src: "/images/app-box-3.png", alt: "Интерфейс приложения" },
+                image: { src: "/images/app-box.png", alt: "Интерфейс приложения" },
                 features: [
                     { icon: <Users className="size-6 text-primary" />, text: "Полная база клиентов физических лиц и контрагентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматическое создание карточки клиента при первом визите" },
@@ -320,8 +320,8 @@ export const tariffs = {
         ],
         image: {
             alt: "Интерфейс приложения",
-            href: "/images/app-box-3.png",
-            className: 'flex-[0_0_30%]'
+            href: "/images/app-box.png",
+            className: 'flex-[0_0_40%] '
         },
     },
     cta: {
@@ -604,7 +604,7 @@ export const fleet = {
         ],
         image: {
             alt: "Возможности личного кабинета для юридических лиц",
-            href: "/images/app-box-3.png",
+            href: "/images/app-box.png",
         },
         choice: {
             title: "Выбирать конкретные автомойки для конкретных автомобилей",
