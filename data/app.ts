@@ -5,7 +5,8 @@ export const app = {
   description:
     "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
-  // manifest: "/favicon/site.webmanifest",
+  app: "https://work.moykazdes.ru/",
+  copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",
   phone: "+7 909 904 1111",
   phoneRaw: "+79099041111",
@@ -41,12 +42,6 @@ export const app = {
       corr: "30101810845250000999 в ГУ БАНКА РОССИИ ПО ЦФО",
     },
   },
-  legal: {
-    offer: "Договор оферты",
-    privacy: "Политика обработки",
-    privacySuffix: "персональных данных",
-  },
-  copyright: "© " + new Date().getFullYear(),
   nav: [
     { label: "Тарифы", href: "/tariffs" },
     { label: "Обновления", href: "/updates" },
@@ -55,13 +50,11 @@ export const app = {
     { label: "Контакты", href: "/contacts" },
   ],
   links: [
+    { label: "Агентский договор", href: "/contract" },
     { label: "Пользовательское соглашение", href: "/license" },
     { label: "Политика обработки персональных данных", href: "/privacy" },
   ],
-  featured: {
-    label: "Автопаркам",
-    href: "/fleet",
-  },
+  featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
     start: {
       label: "Начать работать",
