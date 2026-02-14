@@ -57,9 +57,9 @@ export const Contacts = () => {
       </section>
 
       <section id="form" className="pb-0">
-        <Lead title={p.form.heading} />
+        <Lead title={app.form.heading} />
         <div className="md:w-[60%] mx-auto">
-          <Contact topics={p.form.topics} className="shadow-primary/25" onSubmit={contact} />
+          <Contact topics={app.form.topics} className="shadow-primary/25" onSubmit={contact} />
         </div>
       </section>
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Links } from "@ui/blocks/links";
-import { app, seo, support } from "@data";
 import { Contact } from "@ui/blocks/contact";
 import { Types } from "@ui/blocks/types";
+import { app, seo, support } from "@data";
 import contact from "@api/contact";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function SupportPage() {
         <div className="gradlayer bg-gradient-lime" />
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
-          <Contact heading={p.form.heading} topics={p.form.topics} onSubmit={contact} />
+          <Contact heading={p.headings.form} topics={app.form.topics} onSubmit={contact} />
         </div>
       </section>
 
@@ -28,12 +28,12 @@ export default function SupportPage() {
         <div className="gradlayer bg-gradient-gray-light" />
 
         <section id="support-types">
-          <Lead title={p.responseHeading} />
+          <Lead title={p.headings.response} />
           <Types types={p.types} />
         </section>
 
         <section id="other-contact">
-          <Lead title={p.otherContactHeading} />
+          <Lead title={p.headings.otherContact} />
           <Links
             labels={p.contactLabels}
             telegramSupport={app.telegramSupport}
