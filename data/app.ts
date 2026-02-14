@@ -55,7 +55,7 @@ export const app = {
     { label: "Контакты", href: "/contacts" },
   ],
   links: [
-    { label: "Договор оферты", href: "/offer" },
+    { label: "Пользовательское соглашение", href: "/license" },
     { label: "Политика обработки персональных данных", href: "/privacy" },
   ],
   featured: {

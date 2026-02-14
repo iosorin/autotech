@@ -9,7 +9,6 @@ export const metadata: Metadata = {
     alternates: { canonical: "/privacy" },
 };
 
-
 export const Privacy = () => {
     return <section id="privacy" className="pt-header">
         <Article
