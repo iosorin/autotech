@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Icons } from "@ui/blocks/icons";
-import { Columns } from "@ui/blocks/columns";
 import { Promo } from "@ui/blocks/promo";
 import { Compare } from "@ui/blocks/compare";
 import { Hero } from "@ui/blocks/hero";
+import { Cabinet } from "@ui/blocks/cabinet";
 import { Extra } from "@ui/blocks/extra";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
@@ -88,7 +88,7 @@ export default function FleetPage() {
 
       <section id="cabinet">
         <Lead title={p.cabinet.heading} />
-        <Columns
+        <Cabinet
           list={p.cabinet.list}
           choice={p.cabinet.choice}
           filter={p.cabinet.filter}
