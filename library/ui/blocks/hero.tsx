@@ -2,9 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
 import React from "react";
@@ -15,20 +13,9 @@ type Props = {
   titleLine1: string;
   titleLine2?: string;
   features: { icon: React.ReactNode; label: string }[];
-  card: {
-    title: string;
-    desc: string;
-    icon: React.ReactNode;
-  };
-  image: {
-    src: string;
-    alt: string;
-  };
-  links?: {
-    label: string;
-    href: string;
-    props?: React.ComponentProps<typeof Button>;
-  }[];
+  card: { title: string; desc: string; icon: React.ReactNode; };
+  image: { src: string; alt: string; };
+  links?: { label: string; href: string; props?: React.ComponentProps<typeof Button>; }[];
   cta?: { label: string; } & React.ComponentProps<typeof Link>;
   className?: string;
 };
@@ -84,7 +71,7 @@ export const Hero = ({
             return (
               <Enter key={item.label
               } variant="fade-right" delay={i * 80} duration={500} >
-                <div className="inline-flex items-center gap-2 rounded-full px-3 py-2 md:px-4 md:py-2.5 text-sm w-fit bg-white whitespace-nowrap max-w-full">
+                <div className="inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-2.5 text-sm w-fit bg-white whitespace-nowrap max-w-full">
                   {item.icon &&
                     <span className="flex-shrink-0">
                       {item.icon}
@@ -103,7 +90,7 @@ export const Hero = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 {...cta}
-                className={cn("inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", cta.className)}
+                className={cn(" shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", cta.className)}
               >
                 {cta.children}
                 {cta.label && (
