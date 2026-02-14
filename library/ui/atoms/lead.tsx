@@ -17,7 +17,7 @@ export const Lead = ({ title, title2, label, hint, titleFirst, className }: Prop
       {title2 && <> <br /> {title2}</>}
     </h2>;
   };
-  const renderLabel = () => label ? <p className="font-medium">{label}</p> : null;
+  const renderLabel = () => label ? <p className="text-lg font-medium">{label}</p> : null;
   const renderHint = () => hint ? <p className="mx-auto mt-2">{hint}</p> : null;
 
   return (
