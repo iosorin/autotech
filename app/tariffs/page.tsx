@@ -39,7 +39,8 @@ const Tariffs = () => {
           heading={<Lead title={p.included.heading} className="text-left mb-0" />}
           items={p.included.items}
           image={p.included.image}
-          className="lg:flex-row-reverse"
+          reverse
+        // className="flex-row-reverse"
         />
       </section>
 

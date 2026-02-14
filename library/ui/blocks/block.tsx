@@ -15,10 +15,11 @@ type Props = {
     heading: React.ReactNode;
     desc?: string;
     items?: string[];
-    image?: { alt: string; href: string };
+    image?: { alt: string; href: string, className?: string };
     cta?: { label: string; href: string };
     groups?: Group[];
     className?: string;
+    reverse?: boolean;
 };
 
 export const Block = ({
@@ -29,6 +30,7 @@ export const Block = ({
     cta,
     groups,
     className,
+    reverse,
 }: Props) => {
     const renderCta = (link: Props["cta"]) => {
         if (!link) return null;
@@ -39,21 +41,6 @@ export const Block = ({
                     <ArrowUpRight />
                 </Link>
             </Button>
-        );
-    };
-
-    const renderImage = (img: Props["image"]) => {
-        if (!img) return null;
-        return (
-            <Enter variant="fade-left" delay={200} duration={700} className="w-full">
-                <Image
-                    src={img.href}
-                    alt={img.alt}
-                    width={500}
-                    height={350}
-                    className="rounded-2xl w-full h-auto"
-                />
-            </Enter>
         );
     };
 
@@ -98,7 +85,7 @@ export const Block = ({
     };
 
     return (
-        <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className)}>
+        <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className, reverse ? "lg:flex-row-reverse" : "")}>
             <Enter variant="fade-right" duration={600} className="flex-1 flex flex-col items-start gap-6 lg:gap-8 order-2 lg:order-1 w-full">
                 {heading}
                 {renderDesc(desc)}
@@ -106,9 +93,18 @@ export const Block = ({
                 {renderGroups()}
                 {renderCta(cta)}
             </Enter>
-            <div className="order-1 lg:order-2 w-full lg:w-auto flex-1">
-                {renderImage(image)}
-            </div>
+
+            {image &&
+                <Enter variant="fade-left" delay={200} duration={700} className={cn("order-2 w-full w-auto flex-1", image.className)}>
+                    <Image
+                        src={image.href}
+                        alt={image.alt}
+                        width={500}
+                        height={350}
+                        className="rounded-2xl w-full h-auto"
+                    />
+                </Enter>
+            }
         </div>
     );
 };
