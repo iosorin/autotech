@@ -6,16 +6,20 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { cn } from "@utils";
+import { toast } from "sonner";
+import { Button } from "../atoms/button";
 
 
 type Props = {
   heading?: string;
   topics: string[];
   className?: string;
+  onSubmit: (formData: FormData) => Promise<unknown>;
 }
 
-export const Contact = ({ heading, topics, className }: Props) => {
-  const [formData, setFormData] = useState({
+export const Contact = ({ heading, topics, className, onSubmit }: Props) => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({
     name: "",
     phone: "",
     topic: "",
@@ -25,6 +29,13 @@ export const Contact = ({ heading, topics, className }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    setLoading(true);
+
+    onSubmit(new FormData(e.target as HTMLFormElement))
+      .then(() => toast.success("Сообщение отправлено"))
+      .catch(() => toast.error("Ошибка при отправке сообщения"))
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -47,9 +58,9 @@ export const Contact = ({ heading, topics, className }: Props) => {
             id="contact-name"
             type="text"
             placeholder="Введите ваше имя"
-            value={formData.name}
+            value={data.name}
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, name: e.target.value }))
+              setData((prev) => ({ ...prev, name: e.target.value }))
             }
             className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
           />
@@ -63,9 +74,9 @@ export const Contact = ({ heading, topics, className }: Props) => {
             id="contact-phone"
             type="tel"
             placeholder="+7 (999) 999-99-99"
-            value={formData.phone}
+            value={data.phone}
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, phone: e.target.value }))
+              setData((prev) => ({ ...prev, phone: e.target.value }))
             }
             className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background"
           />
@@ -77,9 +88,9 @@ export const Contact = ({ heading, topics, className }: Props) => {
             <label htmlFor="contact-topic" className="sr-only">{"Тема обращения"}</label>
             <select
               id="contact-topic"
-              value={formData.topic}
+              value={data.topic}
               onChange={(e) =>
-                setFormData((prev) => ({ ...prev, topic: e.target.value }))
+                setData((prev) => ({ ...prev, topic: e.target.value }))
               }
               className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background appearance-none"
             >
@@ -103,9 +114,9 @@ export const Contact = ({ heading, topics, className }: Props) => {
             id="contact-message"
             placeholder="Опишите вопрос или проблему"
             rows={4}
-            value={formData.message}
+            value={data.message}
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, message: e.target.value }))
+              setData((prev) => ({ ...prev, message: e.target.value }))
             }
             className="w-full rounded-lg border border-input px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"
           />
@@ -115,9 +126,9 @@ export const Contact = ({ heading, topics, className }: Props) => {
           <input
             id="contact-agree"
             type="checkbox"
-            checked={formData.agree}
+            checked={data.agree}
             onChange={(e) =>
-              setFormData((prev) => ({ ...prev, agree: e.target.checked }))
+              setData((prev) => ({ ...prev, agree: e.target.checked }))
             }
             className="border-muted size-4"
           />
@@ -126,16 +137,18 @@ export const Contact = ({ heading, topics, className }: Props) => {
           </label>
         </div>
 
-        <button
+        <Button
           type="submit"
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground hover:opacity-90 transition-opacity w-fit"
+          size="xl"
+          className="self-start"
+          disabled={loading}
         >
-          {"Отправить"}
+          Отправить
           <ArrowUpRight className="w-4 h-4" />
-        </button>
+        </Button>
       </div>
     </form>
   );
-}
+};
 
 export default Contact;

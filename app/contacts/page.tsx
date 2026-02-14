@@ -8,6 +8,7 @@ import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
 import { Contact } from "@ui/blocks/contact";
 import { seo, app, contacts } from "@data";
+import contact from "@api/contact";
 
 export const metadata: Metadata = {
   title: seo.pages.contacts.title,
@@ -56,7 +57,7 @@ export const Contacts = () => {
       <section id="form" className="pb-0">
         <Lead title={p.form.heading} />
         <div className="md:w-[60%] mx-auto">
-          <Contact topics={p.form.topics} className="shadow-primary/25" />
+          <Contact topics={p.form.topics} className="shadow-primary/25" onSubmit={contact} />
         </div>
       </section>
 
