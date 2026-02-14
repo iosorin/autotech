@@ -10,6 +10,9 @@ const sitemap = (): MetadataRoute.Sitemap => {
     "/support",
     "/contacts",
     "/fleet",
+    "/privacy",
+    "/license",
+    "/contract",
   ];
   return routes.map((path) => ({
     url: `${app.siteurl}${path}`,

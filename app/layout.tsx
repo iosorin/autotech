@@ -26,14 +26,12 @@ export const metadata: Metadata = {
   },
   publisher: app.company.name,
   manifest: "/site.webmanifest",
-  icons: {
-    icon: "/favicon/favicon.ico",
-    apple: "/favicon/apple-touch-icon.png",
-  },
+  icons: { icon: "/favicon/favicon.ico", apple: "/favicon/apple-touch-icon.png" },
   twitter: {
     card: "summary_large_image",
     title: seo.defaultTitle,
     description: seo.defaultDescription,
+    images: [seo.ogImage],
   },
   verification: {
     google: "BOArqqCtqsRqa5JhqbSN7ZSxkLVlpPNtPoGupnwPHiY",
