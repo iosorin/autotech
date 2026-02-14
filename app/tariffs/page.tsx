@@ -37,9 +37,7 @@ const Tariffs = () => {
 
       <section id="included">
         <Lead title={p.includedHeading} />
-        <Checklist
-          items={p.included}
-          image={p.image}
+        <Checklist items={p.included} image={p.image}
         />
       </section>
 

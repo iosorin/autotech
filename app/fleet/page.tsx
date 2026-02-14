@@ -7,7 +7,7 @@ import { Cabinet } from "@ui/blocks/cabinet";
 import { Extra } from "@ui/blocks/extra";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
-import { Cards } from "@ui/blocks/cards";
+import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
 import { fleet, seo } from "@data";
 
@@ -52,7 +52,7 @@ export default function FleetPage() {
       </section>
 
       <section id="flexible">
-        <Cards
+        <Block
           heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
           items={p.flexible.items}
           image={p.flexible.image}
@@ -75,7 +75,7 @@ export default function FleetPage() {
       </section>
 
       <section id="transparency">
-        <Cards
+        <Block
           heading={<Lead title={p.transparency.heading} className="text-left mb-0" />}
           items={p.transparency.items}
           image={p.transparency.image}
@@ -109,7 +109,6 @@ export default function FleetPage() {
         <Lead title={p.faq.heading} />
         <Faq items={p.faq.items} />
       </section>
-
     </>
   );
 }
