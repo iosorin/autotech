@@ -43,14 +43,13 @@ const contact = async (formData: FormData) => {
 
         const result = await response.json();
 
-        if (result.ok) return { success: true };
         console.log('--------------------------------');
-        console.error('TELEGRAM ERROR:', result);
+        console.log('TELEGRAM RESPONSE:', result);
         console.log('--------------------------------');
-        return { error: 'Ошибка при отправке обращения' };
+        if (!result.ok) throw new Error('Ошибка при отправке обращения');
     } catch (error) {
         console.error('Server error:', error);
-        return { error: 'Внутренняя ошибка сервера' };
+        throw new Error('Внутренняя ошибка сервера');
     }
 }
 
