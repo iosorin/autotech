@@ -11,11 +11,9 @@ const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" }
 
 export const metadata: Metadata = {
   metadataBase: new URL(app.siteurl),
-  title: {
-    default: seo.defaultTitle,
-    template: seo.templateTitle,
-  },
+  title: { default: seo.defaultTitle, template: seo.templateTitle, },
   description: seo.defaultDescription,
+  keywords: seo.keywords,
   openGraph: {
     type: "website",
     locale: "ru_RU",
