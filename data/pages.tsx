@@ -206,7 +206,7 @@ export const home = {
         ],
         image: {
             alt: "Онлайн-запись в приложении",
-            href: "/images/app-shedule-3.png",
+            href: "/images/app-shedule.png",
             className: "flex-[0_0_35%]"
         },
     },
