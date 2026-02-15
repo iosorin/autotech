@@ -4,6 +4,7 @@ type Props = {
   title: React.ReactNode;
   label?: React.ReactNode;
   desc?: React.ReactNode;
+  minor?: React.ReactNode;
   titleFirst?: boolean;
   className?: string;
   left?: boolean;
@@ -11,15 +12,15 @@ type Props = {
   primary?: boolean;
 };
 
-export const Lead = ({ title, label, desc, titleFirst, className, left, tag = "h2", primary }: Props) => {
+export const Lead = ({ title, label, desc, minor, titleFirst, className, left, tag = "h2", primary }: Props) => {
   const renderTitle = () => {
     const Tag = tag;
     if (!title) return null;
     return <Tag>{title}</Tag>;
   };
   const renderLabel = () => label ? <p className={cn("text-xl font-medium", primary ? "text-primary" : "")}>{label}</p> : null;
-  const renderDesc = () => desc ? <p className="mx-auto">{desc}</p> : null;
-
+  const renderDesc = () => desc ? <p className="text-lg mx-auto">{desc}</p> : null;
+  const renderMinor = () => minor ? <p className="text-lg text-muted-foreground">{minor}</p> : null;
   if (!title && !label) return null;
 
   return (
@@ -27,6 +28,7 @@ export const Lead = ({ title, label, desc, titleFirst, className, left, tag = "h
       {titleFirst ? renderTitle() : renderLabel()}
       {titleFirst ? renderLabel() : renderTitle()}
       {renderDesc()}
+      {renderMinor()}
     </div>
   );
 };

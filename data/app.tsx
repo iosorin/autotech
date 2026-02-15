@@ -150,4 +150,17 @@ export const app = {
       </>
     ),
   },
+  eventBanner: {
+    date: "12 февраля 2026 | 18:00 – 22:00",
+    title: "Закрытое мероприятие",
+    desc: "для собственников и управляющих автомойками,\n детейлинг-центрами и шиномонтажами",
+    minor: "Регистрация обязательна!",
+    className: "rounded-3xl px-6 py-8 bg-gradient-blue md:max-w-[70%] mx-auto",
+    cta: [{
+      id: "details" as const,
+      label: "Узнать детали",
+      href: "/events",
+      // props: { variant: "outline" as const, className: "rounded-full" },
+    }]
+  },
 };
