@@ -11,7 +11,7 @@ import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
-import { app, home } from "@data";
+import { home } from "@data";
 import { cn } from "@utils";
 import Icons from "@/library/ui/blocks/icons";
 import Form from "@/library/ui/blocks/form";
@@ -26,7 +26,7 @@ const Page = () => {
 
         <Cta items={p.hero.cta.items}>
           <Cta.Slot id={p.hero.cta.slotId}>
-            <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
+            <Form heading={p.hero.cta.slot.heading} fields={p.hero.cta.slot.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
 

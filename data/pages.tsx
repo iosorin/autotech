@@ -8,7 +8,7 @@ export const home = {
         cta: {
             items: [app.cta.start, app.cta.contact],
             slotId: app.cta.contact.id,
-            form: app.call,
+            slot: app.call,
         },
 
         telegram: app.cta.telegram,
