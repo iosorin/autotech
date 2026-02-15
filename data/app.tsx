@@ -76,7 +76,7 @@ export const app = {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
       className: "text-primary-foreground bg-gradient-telegram",
-      icon: "/images/telegram.svg",
+      // icon: "/images/icons/telegram.svg",
     },
     // details: "Узнать детали",
     // more: "Узнать больше",
