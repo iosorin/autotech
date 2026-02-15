@@ -1,5 +1,3 @@
-"use client";
-
 type Company = {
   short: string;
   addressFull: string;

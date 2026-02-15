@@ -1,5 +1,3 @@
-"use client";
-
 import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
 

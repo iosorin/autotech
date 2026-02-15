@@ -1,5 +1,3 @@
-"use client";
-
 type Discount = { range: string; percent: string };
 
 type Props = {
