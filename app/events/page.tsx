@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Lead from "@ui/atoms/lead";
 import { Event } from "@ui/blocks/event";
 import { List } from "@ui/blocks/list";
-import { seo, events, home } from "@data";
+import { seo, events, } from "@data";
+import { Cta } from "@ui/blocks/cta";
 
 export const metadata: Metadata = {
   title: seo.pages.events.title,
@@ -16,21 +17,20 @@ export default function EventsPage() {
     <>
       <section id="event">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
-        <Event
-          date={home.eventBanner.date}
-          title={home.eventBanner.title}
-          line1={home.eventBanner.line1}
-          line2={home.eventBanner.line2}
-          cta={home.eventBanner.cta}
-          button={home.eventBanner.button}
-          className="bg-white shadow-lg"
-        />
+        <div className={p.eventBanner.className}>
+          <Lead
+            title={p.eventBanner.title}
+            desc={p.eventBanner.desc}
+            minor={p.eventBanner.date}
+            label={p.eventBanner.date} />
+          <Cta items={p.eventBanner.cta} />
+        </div>
         <div className="gradlayer bg-gradient-blue" />
       </section>
 
       <section id="past-events">
-        <Lead title={p.pastHeading} />
-        <List events={p.past} className="my-12" />
+        <Lead title={p.past.heading} />
+        <List events={p.past.items} className="my-12" />
       </section>
     </>
 

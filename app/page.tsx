@@ -46,15 +46,10 @@ const Page = () => {
       </section>
 
       <section id="event">
-        <Event
-          date={p.eventBanner.date}
-          title={p.eventBanner.title}
-          line1={p.eventBanner.line1}
-          line2={p.eventBanner.line2}
-          cta={p.eventBanner.cta}
-          button={p.eventBanner.button}
-          className="bg-gradient-blue"
-        />
+        <div className={p.eventBanner.className}>
+          <Lead title={p.eventBanner.title} desc={p.eventBanner.desc} minor={p.eventBanner.date} label={p.eventBanner.date} />
+          <Cta items={p.eventBanner.cta} />
+        </div>
       </section>
 
       <section id="features">
