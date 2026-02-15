@@ -4,7 +4,7 @@ import { Lead } from "@ui/atoms/lead";
 import { Table } from "@ui/blocks/table";
 import { Rates } from "@ui/blocks/rates";
 import { Block } from "@ui/blocks/block";
-import { seo, tariffs } from "@data";
+import { app, seo, tariffs } from "@data";
 
 export const metadata: Metadata = {
   title: seo.pages.tariffs.title,
@@ -47,8 +47,8 @@ const Tariffs = () => {
 
       <section id="cta">
         <div className="gradlayer bg-gradient-green" />
-        <Lead title={p.cta.title1} title2={p.cta.title2} />
-        <Cta items={p.cta.items} />
+        <Lead title={app.cta.tariffs.title1} title2={app.cta.tariffs.title2} />
+        <Cta items={app.cta.tariffs.items} />
       </section>
     </>
   );

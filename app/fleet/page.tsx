@@ -10,7 +10,7 @@ import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
 import { Form } from "@ui/blocks/form";
-import { fleet, seo } from "@data";
+import { app, fleet, seo } from "@data";
 import contact from "@api/contact";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function FleetPage() {
           image={p.hero.image}
           cta={<Cta items={[p.hero.cta]}>
             <Cta.Slot id={p.hero.cta.id}>
-              <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
+              <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
             </Cta.Slot>
           </Cta>}
         />
@@ -64,7 +64,7 @@ export default function FleetPage() {
           cta={
             <Cta items={[p.flexible.cta]}>
               <Cta.Slot id={p.flexible.cta.id}>
-                <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
+                <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
               </Cta.Slot>
             </Cta>
           }
@@ -82,7 +82,7 @@ export default function FleetPage() {
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
           <Cta.Slot id={p.how.cta.more.id}>
-            <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
+            <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
       </section>
