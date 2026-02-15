@@ -24,7 +24,7 @@ export const Contacts = () => {
 
         <Lead
           title={p.title}
-          hint={
+          desc={
             <span className="text-lg inline-flex gap-1 justify-center">
               {p.supportHint}
               <Link href="/support" className="text-primary underline hover:text-primary/80" title={p.supportLinkLabel}>

@@ -19,7 +19,7 @@ const Tariffs = () => {
       <section id="tariffs" className="pb-0">
         <div className="gradlayer bg-gradient-blue" />
 
-        <Lead label={p.platformLabel} title={p.title} tag="h1" titleFirst />
+        <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
 
         <Table
           cols={p.periods}
@@ -47,7 +47,7 @@ const Tariffs = () => {
 
       <section id="cta">
         <div className="gradlayer bg-gradient-green" />
-        <Lead title={p.cta.title1} />
+        <Lead title={p.cta.title} />
         <Cta items={p.cta.items} />
       </section>
     </>
