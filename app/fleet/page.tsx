@@ -9,7 +9,9 @@ import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
+import { Form } from "@ui/blocks/form";
 import { fleet, seo } from "@data";
+import contact from "@api/contact";
 
 export const metadata: Metadata = {
   title: seo.pages.fleet.title,
@@ -23,6 +25,13 @@ export default function FleetPage() {
     <>
       <section id="fleet" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
+
+        <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
+          <Cta.Slot slot={p.how.cta.more.dialog}>
+            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
+
 
         <Hero
           heading={<Lead title={p.hero.titleLine1} tag="h1" label={p.hero.subtitle} />}
@@ -69,7 +78,11 @@ export default function FleetPage() {
           <Icons items={p.how.items} variant="stack" />
         </div>
 
-        <Cta items={[p.how.cta.cabinet, p.how.cta.more]} />
+        <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
+          <Cta.Slot slot="call">
+            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} className="!shadow-none" />
+          </Cta.Slot>
+        </Cta>
       </section>
 
       <section id="transparency">

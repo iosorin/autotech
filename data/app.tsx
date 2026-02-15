@@ -1,4 +1,4 @@
-import { Field } from "@/library/ui/blocks/form"
+import { IField } from "@/library/ui/blocks/form"
 import Link from "next/link";
 
 export const app = {
@@ -76,6 +76,20 @@ export const app = {
     more: "Узнать больше",
     cabinet: "Перейти в личный кабинет",
   },
+  call: {
+    heading: "Запросить обратный звонок",
+    fields: [
+      { id: "name", type: "text", required: true, label: "Имя", placeholder: "Введите ваше имя" },
+      { id: "phone", type: "tel", required: true, label: "Мобильный телефон", placeholder: "+7 (999) 999-99-99" },
+      { id: "organization", type: "text", label: "Организация", placeholder: "Введите название организации" },
+      {
+        id: "agree", type: "checkbox", required: true, label: <>
+          Я принимаю условия{" "}
+          <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
+        </>
+      },
+    ] as IField[],
+  },
   form: {
     heading: "Свяжитесь с нами",
     fields: [
@@ -86,7 +100,7 @@ export const app = {
         options: ["Подключение", "Техническая проблема", "Пожелание по доработке", "Вопрос по приложению", "Другое",] as const,
       },
       { id: "message", type: "textarea", label: "Опишите вопрос или проблему", placeholder: "Опишите вопрос или проблему" },
-    ] as Field[],
+    ] as IField[],
     agree: (
       <>
         Я принимаю условия{" "}

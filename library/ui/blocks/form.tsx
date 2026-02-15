@@ -8,35 +8,36 @@ import { Input } from "@ui/atoms/input";
 import { Button } from "@ui/atoms/button";
 import { Textarea } from "@ui/atoms/textarea";
 
-type FieldSelect = {
+type ISelect = {
     id: string;
     type: "select";
     required?: boolean;
-    label: string;
+    label: React.ReactNode;
     placeholder: string;
     options: string[];
 };
 
-type FieldOther = {
+type IInput = {
     id: string;
-    type: "text" | "tel" | "email" | "textarea";
+    type: "text" | "tel" | "email" | "textarea" | "checkbox";
     required?: boolean;
-    label: string;
+    label: React.ReactNode;
     placeholder: string;
 };
 
-export type Field = FieldSelect | FieldOther;
 
-type Props = {
+export type IField = ISelect | IInput;
+
+export type IForm = {
     heading?: string;
-    fields: Field[];
-    onSubmit: (formData: FormData) => Promise<unknown>;
+    fields: IField[];
     className?: string;
     submitLabel?: string;
-    agree?: React.ReactNode;
+    onSubmit: (formData: FormData) => Promise<unknown>;
 };
 
 const REQUIRED = "Заполните поле";
+const CHECKED = "true";
 
 export const Form = ({
     heading,
@@ -44,126 +45,153 @@ export const Form = ({
     onSubmit,
     className,
     submitLabel = "Отправить",
-    agree,
-}: Props) => {
+}: IForm) => {
     const initial = fields.reduce<Record<string, string>>((acc, f) => {
         acc[f.id] = "";
         return acc;
     }, {});
     const [data, setData] = useState(initial);
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false)
     const [errors, setErrors] = useState<Record<string, string>>({});
-    const [agreeChecked, setAgreeChecked] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const nextErrors: Record<string, string> = {};
-        fields.forEach((f) => {
-            if (f.required && !data[f.id]?.trim()) nextErrors[f.id] = REQUIRED;
-        });
-        if (agree !== undefined && !agreeChecked) nextErrors.agree = REQUIRED;
+
+        const nextErrors = fields.reduce<Record<string, string>>((acc, f) => {
+            if (f.required && !data[f.id]?.trim()) acc[f.id] = REQUIRED;
+            return acc;
+        }, {});
+
         setErrors(nextErrors);
+
         if (Object.keys(nextErrors).length > 0) return;
 
         setLoading(true);
-        const fd = new FormData();
-        fields.forEach((f) => fd.set(f.id, data[f.id].trim()));
-        if (agreeChecked) fd.set("agree", "1");
 
-        onSubmit(fd)
-            .then(() => toast.success("Сообщение отправлено"))
-            .catch(() => toast.error("Ошибка при отправке"))
+        const formData = fields.reduce<FormData>((acc, f) => (acc.set(f.id, data[f.id].trim()), acc), new FormData());
+
+        onSubmit(formData)
+            .then(() => {
+                toast.success("Сообщение успешно отправлено")
+                setSuccess(true)
+            })
+            .catch(() => toast.error("Ошибка при отправке сообщения"))
             .finally(() => setLoading(false));
     };
 
-    const update = (id: string, value: string) => {
+    const onChange = (id: string, value: string) => {
+        setSuccess(false);
         setData((prev) => ({ ...prev, [id]: value }));
         if (errors[id]) setErrors((prev) => ({ ...prev, [id]: "" }));
     };
 
+    const renderField = (field: IField) => {
+        const label = (
+            <Label htmlFor={field.id} className="text-foreground">
+                {field.label}
+            </Label>
+        );
+
+        const error = errors[field.id] && <p className="text-sm text-destructive">{errors[field.id]}</p>;
+
+        if (field.type === "textarea") {
+            return (
+                <div key={field.id} className="space-y-2">
+                    {label}
+                    <Textarea
+                        id={field.id}
+                        placeholder={field.placeholder}
+                        value={data[field.id]}
+                        onChange={(e) => onChange(field.id, e.target.value)}
+                        className={cn(errors[field.id] && "border-destructive", "resize-none")}
+                        aria-invalid={!!errors[field.id]}
+                        rows={4}
+                    />
+                    {error}
+                </div>
+            );
+        }
+        if (field.type === "select") {
+            return (
+                <div key={field.id} className="space-y-2">
+                    {label}
+                    <select
+                        id={field.id}
+                        value={data[field.id]}
+                        onChange={(e) => onChange(field.id, e.target.value)}
+                        className={cn(
+                            "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm",
+                            errors[field.id] && "border-destructive"
+                        )}
+                        aria-invalid={!!errors[field.id]}
+                    >
+                        <option value="" disabled>
+                            {field.placeholder}
+                        </option>
+                        {field.options.map((opt) => (
+                            <option key={opt} value={opt}>
+                                {opt}
+                            </option>
+                        ))}
+                    </select>
+                    {error}
+                </div>
+            );
+        }
+        if (field.type === "checkbox") {
+            return (
+                <div key={field.id} className="space-y-2">
+                    <div className="flex items-center gap-3">
+                        <input
+                            id={field.id}
+                            type="checkbox"
+                            checked={data[field.id] === CHECKED}
+                            onChange={(e) => onChange(field.id, e.target.checked ? CHECKED : "")}
+                            className="size-4 rounded border border-input bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                            aria-invalid={!!errors[field.id]}
+                        />
+                        {label}
+                    </div>
+                    {error}
+                </div>
+            );
+        }
+
+        return (
+            <div key={field.id} className="space-y-2">
+                {label}
+                <Input
+                    id={field.id}
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    value={data[field.id]}
+                    onChange={(e) => onChange(field.id, e.target.value)}
+                    className={errors[field.id] ? "border-destructive" : ""}
+                    aria-invalid={!!errors[field.id]}
+                />
+                {error}
+            </div>
+        );
+    };
+
     return (
         <form
-            onSubmit={handleSubmit}
             className={cn(
                 "rounded-2xl p-6 md:p-8 bg-background w-full shadow-lg",
                 className
             )}
+            onSubmit={handleSubmit}
         >
             {heading && <h3 className="mb-6">{heading}</h3>}
-            <div className="flex flex-col gap-4">
-                {fields.map((field) => (
-                    <div key={field.id} className="space-y-2">
-                        <Label htmlFor={field.id} className="text-foreground">
-                            {field.label}
-                        </Label>
-                        {field.type === "textarea" ? (
-                            <Textarea
-                                id={field.id}
-                                placeholder={field.placeholder}
-                                value={data[field.id]}
-                                onChange={(e) => update(field.id, e.target.value)}
-                                className={cn(errors[field.id] && "border-destructive", "resize-none")}
-                                aria-invalid={!!errors[field.id]}
-                                rows={4}
-                            />
-                        ) : field.type === "select" ? (
-                            <select
-                                id={field.id}
-                                value={data[field.id]}
-                                onChange={(e) => update(field.id, e.target.value)}
-                                className={cn(
-                                    "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:text-sm",
-                                    errors[field.id] && "border-destructive"
-                                )}
-                                aria-invalid={!!errors[field.id]}
-                            >
-                                <option value="" disabled>
-                                    {field.placeholder}
-                                </option>
-                                {field.options.map((opt) => (
-                                    <option key={opt} value={opt}>
-                                        {opt}
-                                    </option>
-                                ))}
-                            </select>
-                        ) : (
-                            <Input
-                                id={field.id}
-                                type={field.type}
-                                placeholder={field.placeholder}
-                                value={data[field.id]}
-                                onChange={(e) => update(field.id, e.target.value)}
-                                className={errors[field.id] ? "border-destructive" : ""}
-                                aria-invalid={!!errors[field.id]}
-                            />
-                        )}
-                        {errors[field.id] && (
-                            <p className="text-sm text-destructive">{errors[field.id]}</p>
-                        )}
-                    </div>
-                ))}
-                {agree !== undefined && (
-                    <div className="flex items-center gap-3">
-                        <input
-                            id="form-agree"
-                            type="checkbox"
-                            checked={agreeChecked}
-                            onChange={(e) => {
-                                setAgreeChecked(e.target.checked);
-                                if (errors.agree) setErrors((prev) => ({ ...prev, agree: "" }));
-                            }}
-                            className="size-5 flex-shrink-0"
-                            aria-required
-                            aria-invalid={!!errors.agree}
-                        />
-                        <Label htmlFor="form-agree" className="cursor-pointer font-normal">
-                            {agree}
-                        </Label>
-                    </div>
-                )}
-                {errors.agree && <p className="text-sm text-destructive">{errors.agree}</p>}
-                <Button type="submit" size="xl" className="self-start" disabled={loading}>
-                    {submitLabel}
+
+            <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4">
+                    {fields.map(renderField)}
+                </div>
+
+                <Button type="submit" size="xl" className="self-start" disabled={loading || success}>
+                    {success ? "Сообщение отправлено" : submitLabel}
                 </Button>
             </div>
         </form>
