@@ -30,7 +30,11 @@ export default function FleetPage() {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={p.hero.cta}
+          cta={<Cta items={[p.hero.cta]}>
+            <Cta.Slot id={p.hero.cta.id}>
+              <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
+            </Cta.Slot>
+          </Cta>}
         />
       </section>
 
@@ -57,12 +61,13 @@ export default function FleetPage() {
           heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
           items={p.flexible.items}
           image={p.flexible.image}
-          // cta={p.flexible.cta}
-          cta={<Cta items={[p.flexible.cta]}>
-            <Cta.Slot id={p.flexible.cta.id}>
-              <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
-            </Cta.Slot>
-          </Cta>}
+          cta={
+            <Cta items={[p.flexible.cta]}>
+              <Cta.Slot id={p.flexible.cta.id}>
+                <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
+              </Cta.Slot>
+            </Cta>
+          }
           // className="flex-row-reverse"
           reverse
         />
@@ -77,7 +82,7 @@ export default function FleetPage() {
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
           <Cta.Slot id={p.how.cta.more.id}>
-            <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
+            <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
       </section>

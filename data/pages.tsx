@@ -499,6 +499,7 @@ export const fleet = {
             alt: "Приложение Автотех для автопарков",
         },
         cta: {
+            id: "contact-01",
             label: "Связаться с нами",
             href: "/contacts",
             className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
@@ -573,7 +574,7 @@ export const fleet = {
             href: "/images/app-preview.png",
         },
         cta: {
-            id: "contact",
+            id: "contact-02",
             label: "Связаться с нами",
             slot: "call",
         },
