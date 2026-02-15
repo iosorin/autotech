@@ -28,7 +28,7 @@ export default function FleetPage() {
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
           <Cta.Slot slot={p.how.cta.more.slot}>
-            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} />
+            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} className="shadow-none !p-0" />
           </Cta.Slot>
         </Cta>
 
