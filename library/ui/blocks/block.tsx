@@ -16,7 +16,7 @@ type Props = {
     desc?: string;
     items?: string[];
     image?: { alt: string; href: string, className?: string };
-    cta?: { label: string; href: string };
+    cta?: React.ReactNode;
     groups?: Group[];
     className?: string;
     reverse?: boolean;
@@ -32,17 +32,7 @@ export const Block = ({
     className,
     reverse,
 }: Props) => {
-    const renderCta = (link: Props["cta"]) => {
-        if (!link) return null;
-        return (
-            <Button asChild variant="default" size="lg">
-                <Link href={link.href} title={link.label}>
-                    {link.label}
-                    <ArrowUpRight />
-                </Link>
-            </Button>
-        );
-    };
+
 
     const renderItems = (list: string[] | undefined) => {
         if (!list?.length) return null;
@@ -91,7 +81,7 @@ export const Block = ({
                 {renderDesc(desc)}
                 {renderItems(items)}
                 {renderGroups()}
-                {renderCta(cta)}
+                {cta}
             </Enter>
 
             {image &&

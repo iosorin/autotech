@@ -25,14 +25,6 @@ export default function FleetPage() {
     <>
       <section id="fleet" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
-
-        <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
-          <Cta.Slot slot={p.how.cta.more.slot}>
-            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} className="shadow-none !p-0" />
-          </Cta.Slot>
-        </Cta>
-
-
         <Hero
           heading={<Lead title={p.hero.titleLine1} tag="h1" label={p.hero.subtitle} />}
           features={p.hero.features}
@@ -65,7 +57,12 @@ export default function FleetPage() {
           heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
           items={p.flexible.items}
           image={p.flexible.image}
-          cta={p.flexible.cta}
+          // cta={p.flexible.cta}
+          cta={<Cta items={[p.flexible.cta]}>
+            <Cta.Slot slot={p.flexible.cta.slot}>
+              <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
+            </Cta.Slot>
+          </Cta>}
           // className="flex-row-reverse"
           reverse
         />
@@ -79,8 +76,8 @@ export default function FleetPage() {
         </div>
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
-          <Cta.Slot slot="call">
-            <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} className="!shadow-none" />
+          <Cta.Slot slot={p.how.cta.more.slot}>
+            <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
           </Cta.Slot>
         </Cta>
       </section>
