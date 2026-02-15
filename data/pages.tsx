@@ -615,7 +615,7 @@ export const fleet = {
         ],
         cta: {
             cabinet: { label: "Перейти в личный кабинет", href: app.app, },
-            more: { label: "Узнать больше", dialog: "call" },
+            more: { label: "Узнать больше", slot: "call" },
             call: app.call
         },
     },

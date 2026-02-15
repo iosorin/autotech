@@ -27,7 +27,7 @@ export default function FleetPage() {
         <div className="gradlayer bg-gradient-lime" />
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
-          <Cta.Slot slot={p.how.cta.more.dialog}>
+          <Cta.Slot slot={p.how.cta.more.slot}>
             <Form heading={p.how.cta.call.heading} fields={p.how.cta.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>

@@ -19,7 +19,7 @@ const contact = async (formData: FormData) => {
             message: "Сообщение",
             topic: "Тема",
             organization: "Организация",
-            agree: "Согласие",
+            privacy: "Согласие",
         };
 
         // Собираем текст сообщения динамически

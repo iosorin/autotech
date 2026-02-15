@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Lead } from "@ui/atoms/lead";
 import { Button } from "@ui/atoms/button";
 import { Enter } from "@ui/atoms/enter";
-import { Dialog, DialogContent, DialogTrigger } from "@ui/atoms/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@ui/atoms/dialog";
 import { cn } from "@utils";
 
 const SLOT_TYPE = Symbol("Cta.Slot");
@@ -34,7 +34,7 @@ const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
 type Props = {
   title1?: string;
   title2?: string;
-  items?: { label: string; href?: string; dialog?: string }[];
+  items?: { label: string; href?: string; slot?: string }[];
   className?: string;
   children?: React.ReactNode;
 };
@@ -47,9 +47,9 @@ export const Cta = ({ title1, title2, items, className, children }: Props) => {
       <Lead title={title1} title2={title2} />
       <div className="flex flex-wrap justify-center gap-3">
         {items?.map((item, i) => {
-          const slotContent = item.dialog ? slots[item.dialog] : undefined;
+          const content = item.slot ? slots[item.slot] : undefined;
 
-          if (item.dialog) {
+          if (item.slot) {
             return (
               <Dialog key={item.label}>
                 <DialogTrigger asChild>
@@ -59,7 +59,8 @@ export const Cta = ({ title1, title2, items, className, children }: Props) => {
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
-                  {slotContent}
+                  <DialogTitle className="sr-only">{item.label}</DialogTitle>
+                  {content}
                 </DialogContent>
               </Dialog>
             );
