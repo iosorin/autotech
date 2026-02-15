@@ -10,7 +10,7 @@ import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
 import { Form } from "@ui/blocks/form";
-import { app, fleet, seo } from "@data";
+import { fleet, seo } from "@data";
 import contact from "@api/contact";
 
 export const metadata: Metadata = {
@@ -30,9 +30,9 @@ export default function FleetPage() {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={<Cta items={[app.cta.start, app.cta.contact]}>
-            <Cta.Slot id={app.cta.start.id}>
-              <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
+          cta={<Cta items={p.hero.cta.items}>
+            <Cta.Slot id={p.hero.cta.slotId}>
+              <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
             </Cta.Slot>
           </Cta>}
         />
@@ -62,9 +62,9 @@ export default function FleetPage() {
           items={p.flexible.items}
           image={p.flexible.image}
           cta={
-            <Cta items={[app.cta.start, app.cta.contact]}>
-              <Cta.Slot id={app.cta.start.id}>
-                <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
+            <Cta items={p.flexible.cta.items}>
+              <Cta.Slot id={p.flexible.cta.slotId}>
+                <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
               </Cta.Slot>
             </Cta>
           }
@@ -80,9 +80,9 @@ export default function FleetPage() {
           <Icons items={p.how.items} variant="stack" />
         </div>
 
-        <Cta items={[app.cta.cabinet, app.cta.more]}>
-          <Cta.Slot id={app.cta.more.id}>
-            <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
+        <Cta items={p.how.cta.items}>
+          <Cta.Slot id={p.how.cta.slotId}>
+            <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
       </section>
@@ -112,7 +112,7 @@ export default function FleetPage() {
           title={p.hrd.heading}
           desc={p.hrd.desc}
           icon={p.hrd.icon}
-          cta={<Cta items={[app.cta.start, app.cta.contact]}></Cta>}
+          cta={<Cta items={p.hrd.cta.items} />}
           className="bg-gradient-blue"
         />
       </section>
