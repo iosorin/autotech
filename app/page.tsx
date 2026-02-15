@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Hero } from "@ui/blocks/hero";
 import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
@@ -12,6 +13,7 @@ import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
 import { app, home } from "@data";
+import { cn } from "@utils";
 
 const Page = () => {
   const p = home;
@@ -26,8 +28,16 @@ const Page = () => {
         <Hero
           heading={null}
           features={p.hero.features}
-          // links={[app.cta.start, app.cta.contact]}
-          cta={p.hero.cta}
+          cta={
+            <Link
+              href={p.hero.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn("shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.cta.className)}
+            >
+              {p.hero.cta.children}
+              <span className="text-lg max-w-[220px]">{p.hero.cta.label}</span>
+            </Link>}
           card={p.hero.card}
           image={p.hero.image}
         />

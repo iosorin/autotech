@@ -11,19 +11,21 @@ import { cn } from "@utils";
 
 type SlotProps = {
   id: string;
-  children: React.ReactNode;
+  children: React.ReactElement<{ className?: string }>;
+  className?: string;
 };
 
-const Slot = ({ id, children }: SlotProps) => null;
+const Slot = ({ id, children, className }: SlotProps) => null;
 Slot.displayName = "Cta.Slot";
 
 const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> => {
   const slots: Record<string, React.ReactNode> = {};
   React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child) && "id" in (child.props as SlotProps)) {
-      const { id, children: content } = child.props as SlotProps;
-      slots[id] = content;
-    }
+    if (!React.isValidElement(child)) return;
+    const p = child.props as SlotProps;
+    const el = p.children;
+    if (!p.id || !React.isValidElement(el)) return;
+    slots[p.id] = React.cloneElement(el, { className: cn(el.props.className, p.className ?? 'shadow-none !p-0') });
   });
   return slots;
 };
