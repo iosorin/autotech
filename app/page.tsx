@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Hero } from "@ui/blocks/hero";
 import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
@@ -34,10 +33,13 @@ const Page = () => {
               href={p.hero.telegram.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.telegram.className)}
+              className={cn("text-white shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.telegram.className)}
             >
-              <Image src={p.hero.telegram.icon} alt="Telegram" width={20} height={20} />
-              <span className="text-lg max-w-[220px]">{p.hero.telegram.label}</span>
+              <svg viewBox="0 0 24 24" fill="white" className="size-11">
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
+              </svg>
+              <span className="text-lg max-w-[220px] leading-tight">{p.hero.telegram.label}</span>
             </Link>}
           card={p.hero.card}
           image={p.hero.image}
