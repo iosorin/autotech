@@ -141,7 +141,7 @@ export const Form = ({
         }
         if (field.type === "checkbox") {
             return (
-                <div key={field.id} className="space-y-2">
+                <div key={field.id} className="space-y-2 mt-1">
                     <div className="flex items-center gap-3">
                         <input
                             id={field.id}
