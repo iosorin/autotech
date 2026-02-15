@@ -1,4 +1,4 @@
-const contact = async (formData: FormData) => {
+const contact = async (formData: FormData, heading?: string) => {
     'use server';
 
 
@@ -24,9 +24,9 @@ const contact = async (formData: FormData) => {
 
         // Собираем текст сообщения динамически
         const lines = [
-            "<b>📬 Новая заявка с сайта</b>",
+            `<b>📬 ${heading || 'Новая заявка с сайта'}</b>`,
             "",
-            "⏱ <b>Время:</b> " + new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }),
+            "⏱ <b>Время:</b> " + new Date().toLocaleString("ru-RU", { timeZone: "Europe/Moscow" }) + " мск",
             "",
         ];
 

@@ -28,11 +28,13 @@ export default function FleetPage() {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={<Cta items={p.hero.cta.items}>
-            <Cta.Slot id={p.hero.cta.slotId}>
-              <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
-            </Cta.Slot>
-          </Cta>}
+          cta={
+            <Cta items={p.hero.cta.items}>
+              <Cta.Slot id={p.hero.cta.slotId}>
+                <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
+              </Cta.Slot>
+            </Cta>
+          }
         />
         <div className="gradlayer bg-gradient-lime" />
       </section>
