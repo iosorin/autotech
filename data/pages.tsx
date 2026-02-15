@@ -30,8 +30,8 @@ export const home = {
         title: "Закрытое мероприятие",
         line1: "для собственников и управляющих автомойками,",
         line2: "детейлинг-центрами и шиномонтажами",
-        cta: app.cta.eventBannerCta,
-        button: app.cta.details,
+        cta: "Регистрация обязательна!",
+        button: "Узнать детали",
     },
     features: {
         tabs: [
@@ -307,7 +307,11 @@ export const tariffs = {
             className: 'flex-[0_0_40%] '
         },
     },
-    cta: app.cta.tariffs,
+    cta: {
+        title1: app.cta.connect,
+        // title2: app.cta.join,
+        items: [app.cta.start, app.cta.contact],
+    },
 }
 
 export const updates = {
@@ -470,7 +474,7 @@ export const fleet = {
             src: "/images/app-preview.png",
             alt: "Приложение Автотех для автопарков",
         },
-        cta: app.cta.fleetHero,
+        cta: { items: [app.cta.start, app.cta.contact] },
     },
     why: {
         heading: "Почему это удобно",
@@ -540,7 +544,7 @@ export const fleet = {
             alt: "Гибкое управление",
             href: "/images/app-preview.png",
         },
-        cta: app.cta.fleetFlexible,
+        cta: { items: [app.cta.start, app.cta.contact] },
     },
     cabinet: {
         heading: "Возможности личного кабинета для юридических лиц",
@@ -572,7 +576,7 @@ export const fleet = {
             { title: "Водитель выбирает удобную автомойку или шиномонтаж на карте и приезжает туда", desc: "(можно по предварительной записи из приложения). На автомойке сканируется и распознается гос.номер автомобиля и происходит оказание услуги", badge: 'Шаг 3' },
             { title: "Раз в месяц мы формируем отчетные документы", desc: "и направляем вам вместе с полной статистикой по автомойкам", badge: 'Шаг 4' },
         ],
-        cta: app.cta.fleetHow,
+        cta: { items: [app.cta.start, app.cta.contact] },
     },
     transparency: {
         heading: "Гарантия прозрачности оказания услуг",
@@ -589,7 +593,7 @@ export const fleet = {
         heading: "Специальное предложение для HRD",
         desc: "Добавляйте автомойки для ключевых сотрудников в соц.пакет. Это повышает лояльность сотрудников",
         icon: <Heart className="size-14 text-accent" />,
-        cta: app.cta.fleetHrd,
+        cta: { items: [app.cta.start, app.cta.contact] },
         image: {
             alt: "Специальное предложение для HRD",
             href: "/images/app-preview.png",
