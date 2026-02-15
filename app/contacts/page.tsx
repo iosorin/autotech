@@ -61,7 +61,7 @@ export const Contacts = () => {
           <Form
             heading={app.form.heading}
             fields={app.form.fields}
-            agree={app.form.agree}
+            // agree={app.form.agree}
             onSubmit={contact} />
         </div>
       </section>

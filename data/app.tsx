@@ -1,22 +1,8 @@
 import { IField } from "@/library/ui/blocks/form"
 import Link from "next/link";
-import React from "react";
 
 const appUrl = "https://work.moykazdes.ru/";
 
-const ctaStart = { id: "start" as const, label: "Начать работать", href: appUrl, blank: true };
-const ctaContact = {
-  id: "contact" as const,
-  label: "Связаться с нами",
-  href: "/contacts",
-  props: { variant: "outline" as const, className: "rounded-full" },
-};
-
-const telegramIcon = (
-  <svg viewBox="0 0 24 24" className="size-10 fill-current flex-shrink-0" aria-hidden>
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
-  </svg>
-);
 
 export const app = {
   name: "Автотех",
@@ -76,47 +62,61 @@ export const app = {
   ],
   featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
-    start: ctaStart,
-    contact: ctaContact,
+    connect: "Подключайтесь и получите \n 2 недели бесплатно",
+    join: "Присоединяйтесь к нашим \n довольным клиентам",
+    try: "Готовы попробовать?",
+    start: { id: "start" as const, label: "Начать работать", href: appUrl, blank: true },
+    contact: {
+      id: "contact" as const,
+      label: "Связаться с нами",
+      href: "/contacts",
+      props: { variant: "outline" as const, className: "rounded-full" },
+    },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
       className: "text-primary-foreground bg-gradient-telegram",
-      children: telegramIcon,
+      icon: "/images/telegram.svg",
     },
-    details: "Узнать детали",
-    more: "Узнать больше",
-    cabinet: "Перейти в личный кабинет",
-    defaultTitle: "Готовы попробовать?",
-    tariffs: {
-      title1: "Подключайтесь и получите",
-      title2: "2 недели бесплатно",
-      items: [ctaStart, ctaContact],
-    },
-    join: {
-      titleLine1: "Присоединяйтесь к нашим",
-      titleLine2: "довольным клиентам",
-    },
-    eventBannerCta: "Регистрация обязательна!",
-    fleetHero: {
-      id: "contact-01",
+    // details: "Узнать детали",
+    // more: "Узнать больше",
+    // cabinet: "Перейти в личный кабинет",
+    // defaultTitle: "Готовы попробовать?",
+    // tariffs: {
+    //   title1: "Подключайтесь и получите",
+    //   title2: "2 недели бесплатно",
+    //   items: [ctaStart, ctaContact],
+    // },
+    // join: {
+    //   titleLine1: "Присоединяйтесь к нашим",
+    //   titleLine2: "довольным клиентам",
+    // },
+    // eventBannerCta: "Регистрация обязательна!",
+    contact2: {
+      id: "contact2" as const,
       label: "Связаться с нами",
       href: "/contacts",
       className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
     },
-    fleetFlexible: {
-      id: "contact-02",
-      label: "Связаться с нами",
-      slot: "call" as const,
-    },
-    fleetHow: {
-      cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
-      more: { id: "more" as const, label: "Узнать больше", slot: "call" as const },
-    },
-    fleetHrd: {
-      primary: { id: "primary" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
-      secondary: { id: "secondary" as const, label: "Узнать больше", href: appUrl, blank: true },
-    },
+    // fleetHero: {
+    //   id: "contact-01",
+    //   label: "Связаться с нами",
+    //   href: "/contacts",
+    //   className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
+    // },
+    // fleetFlexible: {
+    //   id: "contact-02",
+    //   label: "Связаться с нами",
+    //   slot: "call" as const,
+    // },
+    cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
+    more: { id: "more" as const, label: "Узнать больше", slot: "call" as const },
+    // fleetHow: {
+    // },
+    // fleetHrd: {
+    //   primary: { id: "primary" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
+    //   secondary: { id: "secondary" as const, label: "Узнать больше", href: appUrl, blank: true },
+    // },
   },
   call: {
     heading: "Запросить обратный звонок",

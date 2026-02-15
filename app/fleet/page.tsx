@@ -30,8 +30,8 @@ export default function FleetPage() {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={<Cta items={[p.hero.cta]}>
-            <Cta.Slot id={p.hero.cta.id}>
+          cta={<Cta items={[app.cta.start, app.cta.contact]}>
+            <Cta.Slot id={app.cta.start.id}>
               <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
             </Cta.Slot>
           </Cta>}
@@ -62,8 +62,8 @@ export default function FleetPage() {
           items={p.flexible.items}
           image={p.flexible.image}
           cta={
-            <Cta items={[p.flexible.cta]}>
-              <Cta.Slot id={p.flexible.cta.id}>
+            <Cta items={[app.cta.start, app.cta.contact]}>
+              <Cta.Slot id={app.cta.start.id}>
                 <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
               </Cta.Slot>
             </Cta>
@@ -80,8 +80,8 @@ export default function FleetPage() {
           <Icons items={p.how.items} variant="stack" />
         </div>
 
-        <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
-          <Cta.Slot id={p.how.cta.more.id}>
+        <Cta items={[app.cta.cabinet, app.cta.more]}>
+          <Cta.Slot id={app.cta.more.id}>
             <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
@@ -112,7 +112,7 @@ export default function FleetPage() {
           title={p.hrd.heading}
           desc={p.hrd.desc}
           icon={p.hrd.icon}
-          cta={<Cta items={[p.hrd.cta.primary, p.hrd.cta.secondary]}></Cta>}
+          cta={<Cta items={[app.cta.start, app.cta.contact]}></Cta>}
           className="bg-gradient-blue"
         />
       </section>
