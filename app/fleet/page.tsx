@@ -112,7 +112,7 @@ export default function FleetPage() {
           title={p.hrd.heading}
           desc={p.hrd.desc}
           icon={p.hrd.icon}
-          cta={p.hrd.cta}
+          cta={<Cta items={[p.hrd.cta.primary, p.hrd.cta.secondary]}></Cta>}
           className="bg-gradient-blue"
         />
       </section>
