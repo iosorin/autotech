@@ -83,7 +83,7 @@ export const Contacts = () => {
       </section>
 
       <section id="requisites">
-        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="gradlayer bg-gradient-gray-white" />
         <div className="max-w-[85%] mx-auto">
 
           <Lead title={p.requisitesHeading} />

@@ -116,7 +116,7 @@ export default function FleetPage() {
       </section>
 
       <section id="faq">
-        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="gradlayer bg-gradient-gray-white" />
 
         <Lead title={p.faq.heading} />
         <Faq items={p.faq.items} />
