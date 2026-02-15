@@ -495,7 +495,7 @@ export const fleet = {
             src: "/images/app-preview.png",
             alt: "Приложение Автотех для автопарков",
         },
-        cta: { items: [app.cta.start, app.cta.contact], slotId: app.cta.start.id },
+        cta: { items: [app.cta.contact], slotId: app.cta.start.id },
     },
     callForm: app.call,
     why: {
@@ -550,9 +550,21 @@ export const fleet = {
     approaches: {
         heading: "Вы можете выбрать подход по каким тарифам будете обслуживать ваши автомобили",
         items: [
-            { badge: "Подход 1", title: "Задать собственные цены", desc: "Вы сможете обслуживаться в тех точках, которые примут ваш прайс", className: 'bg-gradient-gray-white' },
-            { badge: "Подход 2", title: "Обслуживать по текущим прайсам шиномонтажей и автомоек", desc: "", className: 'bg-gradient-gray-white' },
-            { badge: "Подход 3", title: "Можете выбрать микс двух подходов", desc: "Например, для автомобилей топ-менеджмента выбрать Подход 2, а для массовых автомобилей (например, доставка или такси) выбрать Подход 1", className: 'bg-gradient-gray-white' },
+            {
+                badge: "Подход 1",
+                title: "Свои тарифы",
+                desc: "Обслуживание в точках, которые принимают ваши цены",
+            },
+            {
+                badge: "Подход 2",
+                title: "Прайс точки",
+                desc: "Оплата по действующим ценам выбранной автомойки или шиномонтажа",
+            },
+            {
+                badge: "Подход 3",
+                title: "Микс подходов",
+                desc: "Например, для топ-менеджмента — прайс точки, для доставки или такси — свои тарифы",
+            },
         ],
     },
     flexible: {
