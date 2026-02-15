@@ -83,7 +83,7 @@ export const app = {
       { id: "phone", type: "tel", required: true, label: "Мобильный телефон", placeholder: "+7 (999) 999-99-99" },
       { id: "organization", type: "text", label: "Организация", placeholder: "Введите название организации" },
       {
-        id: "agree", type: "checkbox", required: true, label: <>
+        id: "privacy", type: "checkbox", required: true, label: <>
           Я принимаю условия{" "}
           <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
         </>
