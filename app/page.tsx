@@ -4,7 +4,6 @@ import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
 import { Block } from "@ui/blocks/block";
 import { Enter } from "@ui/atoms/enter";
-import { CheckCircle2 } from "lucide-react";
 import { Badges } from "@ui/blocks/badges";
 import { Migration } from "@ui/blocks/migration";
 import { Clients } from "@ui/blocks/clients";
@@ -86,15 +85,13 @@ const Page = () => {
           )}
           {p.extra.tire && (
             <Block
-              heading={<Lead title={p.extra.tire.heading} left />}
-              items={p.extra.tire.items}
+              list={[{ title: p.extra.tire.heading, items: p.extra.tire.items }]}
               image={p.extra.tire.image}
             />
           )}
           {p.extra.integrations && (
             <Block
-              heading={<Lead title={p.extra.integrations.heading} left />}
-              desc={p.extra.integrations.desc}
+              list={[{ title: p.extra.integrations.heading, desc: p.extra.integrations.desc }]}
               image={p.extra.integrations.image}
             />
           )}
@@ -102,32 +99,10 @@ const Page = () => {
             <Block
               reverse
               image={p.extra.security.image}
-              heading={
-                <div className="flex flex-col gap-10">
-                  <div className="flex flex-col gap-6">
-                    <Lead title={p.extra.security.heading} left />
-                    <div className="flex flex-col gap-6">
-                      {p.extra.security.items?.map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
-                          <p className="text-base md:text-lg text-foreground">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-6">
-                    <h2>{p.extra.support.heading}</h2>
-                    <div className="flex flex-col gap-6">
-                      {p.extra.support.items?.map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
-                          <p className="text-base md:text-lg text-foreground">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              }
+              list={[
+                { title: p.extra.security.heading, items: p.extra.security.items },
+                { title: p.extra.support.heading, items: p.extra.support.items },
+              ]}
             />
           )}
         </div>
