@@ -578,8 +578,8 @@ export const fleet = {
         },
         cta: {
             label: "Связаться с нами",
-            href: "/contacts",
-        }
+            slot: "call",
+        },
     },
     cabinet: {
         heading: "Возможности личного кабинета для юридических лиц",
@@ -603,8 +603,6 @@ export const fleet = {
             tagClassName: 'bg-accent/15',
         },
     },
-
-
     how: {
         heading: "Как это работает",
         items: [
@@ -616,7 +614,6 @@ export const fleet = {
         cta: {
             cabinet: { label: "Перейти в личный кабинет", href: app.app, },
             more: { label: "Узнать больше", slot: "call" },
-            call: app.call
         },
     },
     transparency: {
@@ -652,4 +649,5 @@ export const fleet = {
             { q: "Это онлайн-сервис или можно поставить решение в информационный периметр нашей компании?", a: "Автотех работает как облачный сервис, доступный через браузер и мобильные приложения. Интеграция в вашу инфраструктуру обсуждается индивидуально." },
         ],
     },
+    slots: { call: app.call },
 }
