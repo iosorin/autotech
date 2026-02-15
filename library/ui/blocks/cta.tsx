@@ -33,7 +33,7 @@ const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
 type Props = {
   title1?: string;
   title2?: string;
-  items?: { id: string; label: string; href?: string }[];
+  items?: { id: string; label: string; href?: string, blank?: boolean }[];
   className?: string;
   children?: React.ReactNode;
 };
@@ -68,7 +68,7 @@ export const Cta = ({ title1, title2, items, className, children }: Props) => {
           if (item.href) {
             return (
               <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id}>
-                <Link href={item.href} title={item.label}>
+                <Link href={item.href} title={item.label} target={item.blank ? "_blank" : undefined} rel={item.blank ? "noopener noreferrer" : undefined}>
                   {item.label}
                   {i === 0 && <ArrowUpRight />}
                 </Link>
