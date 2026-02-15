@@ -48,7 +48,7 @@ const Tariffs = () => {
       <section id="cta">
         <div className="gradlayer bg-gradient-green" />
         <Lead title={p.cta.title1} title2={p.cta.title2} />
-        <Cta items={[p.cta.start, p.cta.contact]} />
+        <Cta items={p.cta.items} />
       </section>
     </>
   );
