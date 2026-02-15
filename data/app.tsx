@@ -1,6 +1,7 @@
 import { IField } from "@/library/ui/blocks/form"
 import Link from "next/link";
 
+const appUrl = "https://work.moykazdes.ru/";
 export const app = {
   name: "Автотех",
   tagline: "Платформа Автотех",
@@ -8,7 +9,7 @@ export const app = {
   description:
     "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
-  app: "https://work.moykazdes.ru/",
+  app: appUrl,
   copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",
   phone: "+7 909 904 1111",
@@ -59,7 +60,7 @@ export const app = {
   ],
   featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
-    start: { id: "start", label: "Начать работать", href: "/", },
+    start: { id: "start", label: "Начать работать", href: appUrl, blank: true },
     contact: {
       id: "contact",
       label: "Связаться с нами",
