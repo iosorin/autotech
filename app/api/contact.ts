@@ -31,9 +31,8 @@ const contact = async (formData: FormData) => {
         ];
 
         for (const [id, value] of Object.entries(data)) {
-            // if (id === "agree" || !value?.trim()) continue;
             const label = labels[id] ?? id;
-            lines.push(`🔹 <b>${label}:</b> ${String(value).trim()}`);
+            lines.push(`🔹 <b>${label}:</b> ${String(value).trim() || "—"}`);
         }
 
         const telegramMessage = lines.join("\n");
