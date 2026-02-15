@@ -1,6 +1,4 @@
-import Link from "next/link"
 import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Wrench, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Droplets, Clock, Zap, Layers, Settings, FolderSearch, MapPlus, ChartPie, MapPin, FileCheck, TrendingDown, CircleAlert, Heart, CarFront } from "lucide-react"
-import { IField } from "@ui/blocks/form"
 import { app } from "./app"
 
 export const home = {
@@ -8,6 +6,8 @@ export const home = {
         subtitle: "Платформа Автотех",
         titleLine1: "Приложение для автомойки,",
         titleLine2: "детейлинга и шиномонтажа",
+        cta: { items: [app.cta.start, app.cta.contact] },
+        telegram: app.cta.telegram,
         features: [
             { icon: <ScanLine className="size-5 text-primary" />, label: "Распознавание марок и номеров" },
             { icon: <BarChart3 className="size-5 text-primary" />, label: "Статистика и аналитика" },
@@ -262,6 +262,8 @@ export const home = {
             },
         ],
     },
+    ctaSection: { title1: app.cta.try, items: [app.cta.start, app.cta.contact] },
+    joinSection: { title1: app.cta.join, items: [app.cta.start, app.cta.contact] },
 }
 
 export const tariffs = {
@@ -309,7 +311,6 @@ export const tariffs = {
     },
     cta: {
         title1: app.cta.connect,
-        // title2: app.cta.join,
         items: [app.cta.start, app.cta.contact],
     },
 }
@@ -474,8 +475,9 @@ export const fleet = {
             src: "/images/app-preview.png",
             alt: "Приложение Автотех для автопарков",
         },
-        cta: { items: [app.cta.start, app.cta.contact] },
+        cta: { items: [app.cta.start, app.cta.contact], slotId: app.cta.start.id },
     },
+    callForm: app.call,
     why: {
         heading: "Почему это удобно",
         items: [
@@ -544,7 +546,7 @@ export const fleet = {
             alt: "Гибкое управление",
             href: "/images/app-preview.png",
         },
-        cta: { items: [app.cta.start, app.cta.contact] },
+        cta: { items: [app.cta.start, app.cta.contact], slotId: app.cta.start.id },
     },
     cabinet: {
         heading: "Возможности личного кабинета для юридических лиц",
@@ -576,7 +578,7 @@ export const fleet = {
             { title: "Водитель выбирает удобную автомойку или шиномонтаж на карте и приезжает туда", desc: "(можно по предварительной записи из приложения). На автомойке сканируется и распознается гос.номер автомобиля и происходит оказание услуги", badge: 'Шаг 3' },
             { title: "Раз в месяц мы формируем отчетные документы", desc: "и направляем вам вместе с полной статистикой по автомойкам", badge: 'Шаг 4' },
         ],
-        cta: { items: [app.cta.start, app.cta.contact] },
+        cta: { items: [app.cta.cabinet, app.cta.more], slotId: app.cta.more.id },
     },
     transparency: {
         heading: "Гарантия прозрачности оказания услуг",

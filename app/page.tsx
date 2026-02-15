@@ -13,7 +13,8 @@ import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
-import { app, home } from "@data";
+import { home } from "@data";
+import { cn } from "@utils";
 
 const Page = () => {
   const p = home;
@@ -23,20 +24,20 @@ const Page = () => {
         <div className="gradlayer bg-gradient-gray" />
 
         <Lead title={p.hero.titleLine1} title2={p.hero.titleLine2} tag="h1" label={p.hero.subtitle} />
-        <Cta items={[app.cta.start, app.cta.contact]} />
+        <Cta items={p.hero.cta.items} />
 
         <Hero
           heading={null}
           features={p.hero.features}
           cta={
             <Link
-              href={app.cta.telegram.href}
+              href={p.hero.telegram.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity text-primary-foreground bg-gradient-telegram"
+              className={cn("shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.telegram.className)}
             >
-              <Image src={app.cta.telegram.icon} alt="Telegram" width={20} height={20} />
-              <span className="text-lg max-w-[220px]">{app.cta.telegram.label}</span>
+              <Image src={p.hero.telegram.icon} alt="Telegram" width={20} height={20} />
+              <span className="text-lg max-w-[220px]">{p.hero.telegram.label}</span>
             </Link>}
           card={p.hero.card}
           image={p.hero.image}
@@ -114,8 +115,8 @@ const Page = () => {
       <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
         <Cta
-          title1={app.cta.try}
-          items={[app.cta.start, app.cta.contact]}
+          title1={p.ctaSection.title1}
+          items={p.ctaSection.items}
         />
       </section>
 
@@ -147,9 +148,8 @@ const Page = () => {
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
         <Cta
-          title1={app.cta.join}
-          // title2={app.cta.join}
-          items={[app.cta.start, app.cta.contact]}
+          title1={p.joinSection.title1}
+          items={p.joinSection.items}
         />
       </section>
     </>
