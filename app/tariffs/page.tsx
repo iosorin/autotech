@@ -17,8 +17,6 @@ const Tariffs = () => {
   return (
     <>
       <section id="tariffs" className="pb-0">
-        <div className="gradlayer bg-gradient-blue" />
-
         <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
 
         <Table
@@ -28,6 +26,8 @@ const Tariffs = () => {
           note2={p.priceNote2}
           className="bg-gradient-white"
         />
+
+        <div className="gradlayer bg-gradient-blue" />
       </section>
 
       <section id="discounts">
@@ -44,9 +44,9 @@ const Tariffs = () => {
       </section>
 
       <section id="cta">
-        <div className="gradlayer bg-gradient-green" />
         <Lead title={p.cta.title} />
         <Cta items={p.cta.items} />
+        <div className="gradlayer bg-gradient-green" />
       </section>
     </>
   );

@@ -20,9 +20,8 @@ export const Contacts = () => {
   return (
     <>
       <section id="contacts" className="pb-0">
-        <div className="gradlayer bg-gradient-gray" />
-
         <Lead
+          tag="h1"
           title={p.title}
           desc={
             <span className="text-lg inline-flex gap-1 justify-center">
@@ -32,7 +31,6 @@ export const Contacts = () => {
               </Link>
             </span>
           }
-          tag="h1"
         />
 
         <div className="pb-10">
@@ -40,12 +38,8 @@ export const Contacts = () => {
           <Icons items={p.designed.items} itemClassName={p.designed.itemClassName} cols={2} />
         </div>
 
-        {/* <div className="pb-10">
-          <Lead title={p.designed.heading} />
-          <Grid blocks={p.designed.items} />
-        </div> */}
+        <div className="gradlayer bg-gradient-gray" />
       </section>
-
 
       <section id="dev">
         <Lead title={p.dev.heading} />
@@ -53,11 +47,11 @@ export const Contacts = () => {
       </section>
 
       <section id="mission" className="pb-0">
-        <div className="gradlayer bg-gradient-lime" />
         <div className="max-w-[85%] mx-auto">
           <Lead title={p.mission.heading} />
           <Icons items={p.mission.items} variant="stack" />
         </div>
+        <div className="gradlayer bg-gradient-lime" />
       </section>
 
       <section id="form" className="pb-0">
@@ -83,25 +77,23 @@ export const Contacts = () => {
       </section>
 
       <section id="requisites">
+        <Lead title={p.requisitesHeading} />
+        <Requisites
+          className="max-w-[85%] mx-auto"
+          bankHeading={p.bankHeading}
+          accountLabel={p.accountLabel}
+          company={{
+            short: app.company.short,
+            addressFull: app.company.addressFull,
+            inn: app.company.inn,
+            kpp: app.company.kpp,
+            ogrn: app.company.ogrn,
+            okpo: app.company.okpo,
+          }}
+          bank={app.company.bank}
+        />
+
         <div className="gradlayer bg-gradient-gray-white" />
-        <div className="max-w-[85%] mx-auto">
-
-          <Lead title={p.requisitesHeading} />
-          <Requisites
-            bankHeading={p.bankHeading}
-            accountLabel={p.accountLabel}
-            company={{
-              short: app.company.short,
-              addressFull: app.company.addressFull,
-              inn: app.company.inn,
-              kpp: app.company.kpp,
-              ogrn: app.company.ogrn,
-              okpo: app.company.okpo,
-            }}
-            bank={app.company.bank}
-          />
-        </div>
-
       </section>
     </>
   );

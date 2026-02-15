@@ -18,40 +18,34 @@ export const Support = () => {
     <>
       <section id="support">
         <section id="support-form">
-
-          <div className="gradlayer bg-gradient-lime" />
           <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
-
-          <div className="md:w-[60%] mx-auto">
-            <Form
-              heading={p.headings.form}
-              fields={app.form.fields}
-              // agree={app.form.agree}
-              onSubmit={contact}
-            />
-          </div>
+          <Form
+            className="md:w-[60%] mx-auto"
+            heading={p.headings.form}
+            fields={app.form.fields}
+            onSubmit={contact}
+          />
         </section>
-
 
         <section id="support-types">
           <Lead title={p.headings.response} />
           <Icons items={p.types} cols={2} />
         </section>
-        <section>
-          <div className="gradlayer bg-gradient-white-gray" />
 
+        <div className="gradlayer bg-gradient-lime" />
+      </section>
 
-          <section id="other-contact">
-            <Lead title={p.headings.otherContact} />
-            <Links
-              labels={p.contactLabels}
-              telegramSupport={app.telegramSupport}
-              email={app.supportEmail}
-              phone={app.phone}
-              phoneRaw={app.phoneRaw}
-            />
-          </section>
-        </section>
+      <section id="support-contacts">
+        <Lead title={p.headings.otherContact} />
+        <Links
+          labels={p.contactLabels}
+          telegramSupport={app.telegramSupport}
+          email={app.supportEmail}
+          phone={app.phone}
+          phoneRaw={app.phoneRaw}
+        />
+
+        <div className="gradlayer bg-gradient-white-gray" />
       </section>
 
     </>

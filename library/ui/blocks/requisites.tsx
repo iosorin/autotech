@@ -1,3 +1,4 @@
+import { cn } from "@utils";
 type Company = {
   short: string;
   addressFull: string;
@@ -22,11 +23,12 @@ type Props = {
   accountLabel: string;
   company: Company;
   bank: Bank;
+  className?: string;
 };
 
-export const Requisites = ({ bankHeading, accountLabel, company, bank }: Props) => {
+export const Requisites = ({ bankHeading, accountLabel, company, bank, className }: Props) => {
   return (
-    <div className="grid gap-10 md:grid-cols-2">
+    <div className={cn("grid gap-10 md:grid-cols-2", className)}>
       <div className="space-y-3">
         <p className="text-lg font-semibold mb-3">{company.short}</p>
         <p>Юридический и фактический адрес: {company.addressFull}</p>
