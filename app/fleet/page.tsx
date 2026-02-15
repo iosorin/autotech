@@ -58,8 +58,7 @@ export default function FleetPage() {
 
       <section id="flexible">
         <Block
-          heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
-          items={p.flexible.items}
+          list={[{ title: p.flexible.heading, items: p.flexible.items }]}
           image={p.flexible.image}
           cta={
             <Cta items={p.flexible.cta.items}>
@@ -68,7 +67,6 @@ export default function FleetPage() {
               </Cta.Slot>
             </Cta>
           }
-          // className="flex-row-reverse"
           reverse
         />
       </section>
@@ -89,10 +87,8 @@ export default function FleetPage() {
 
       <section id="transparency">
         <Block
-          heading={<Lead title={p.transparency.heading} className="text-left mb-0" />}
-          items={p.transparency.items}
+          list={[{ title: p.transparency.heading, items: p.transparency.items }]}
           image={p.transparency.image}
-          // className="flex-row-reverse"
           reverse
         />
       </section>

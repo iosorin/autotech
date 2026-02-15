@@ -37,11 +37,9 @@ const Tariffs = () => {
 
       <section id="included-2">
         <Block
-          heading={<Lead title={p.included.heading} className="text-left" />}
-          items={p.included.items}
+          list={[{ title: p.included.heading, items: p.included.items }]}
           image={p.included.image}
           reverse
-        // className="flex-row-reverse"
         />
       </section>
 
