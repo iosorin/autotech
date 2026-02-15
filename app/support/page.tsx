@@ -17,38 +17,43 @@ export const Support = () => {
   return (
     <>
       <section id="support">
-        <div className="gradlayer bg-gradient-lime" />
-        <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
+        <section id="support-form">
 
-        <div className="md:w-[60%] mx-auto">
-          <Form
-            heading={p.headings.form}
-            fields={app.form.fields}
-            // agree={app.form.agree}
-            onSubmit={contact}
-          />
-        </div>
-      </section>
+          <div className="gradlayer bg-gradient-lime" />
+          <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
 
-      <section>
-        <div className="gradlayer bg-gradient-gray-light" />
+          <div className="md:w-[60%] mx-auto">
+            <Form
+              heading={p.headings.form}
+              fields={app.form.fields}
+              // agree={app.form.agree}
+              onSubmit={contact}
+            />
+          </div>
+        </section>
+
 
         <section id="support-types">
           <Lead title={p.headings.response} />
           <Icons items={p.types} cols={2} />
         </section>
+        <section>
+          <div className="gradlayer bg-gradient-white-gray" />
 
-        <section id="other-contact">
-          <Lead title={p.headings.otherContact} />
-          <Links
-            labels={p.contactLabels}
-            telegramSupport={app.telegramSupport}
-            email={app.supportEmail}
-            phone={app.phone}
-            phoneRaw={app.phoneRaw}
-          />
+
+          <section id="other-contact">
+            <Lead title={p.headings.otherContact} />
+            <Links
+              labels={p.contactLabels}
+              telegramSupport={app.telegramSupport}
+              email={app.supportEmail}
+              phone={app.phone}
+              phoneRaw={app.phoneRaw}
+            />
+          </section>
         </section>
       </section>
+
     </>
   );
 }
