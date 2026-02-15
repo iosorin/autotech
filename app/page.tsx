@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Hero } from "@ui/blocks/hero";
 import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
-import { Account } from "@ui/blocks/account";
-import { Extra } from "@ui/blocks/extra";
+import { Block } from "@ui/blocks/block";
+import { Enter } from "@ui/atoms/enter";
+import { CheckCircle2 } from "lucide-react";
 import { Badges } from "@ui/blocks/badges";
 import { Migration } from "@ui/blocks/migration";
 import { Clients } from "@ui/blocks/clients";
@@ -23,7 +24,8 @@ const Page = () => {
       <section id="hero" className="pb-0">
         <div className="gradlayer bg-gradient-gray" />
 
-        <Lead title={p.hero.titleLine1} title2={p.hero.titleLine2} tag="h1" label={p.hero.subtitle} />
+        <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
+
         <Cta items={p.hero.cta.items} />
 
         <Hero
@@ -69,24 +71,66 @@ const Page = () => {
       <section id="account">
         <Lead label={p.account.label} title={p.account.title} desc={p.account.desc} />
         <Icons items={p.account.cards} variant="cards" left />
-        {/* <Account
-          // titleLine1={p.account.titleLine1}
-          // titleLine2={p.account.titleLine2}
-          // descLine1={p.account.descLine1}
-          // descLine2={p.account.descLine2}
-          // subtitle={p.account.subtitle}
-          cards={p.account.cards}
-        /> */}
       </section>
 
       <section id="extra" className="pb-0">
-        <Extra
-          title={p.extra.title}
-          tire={p.extra.tire}
-          integrations={p.extra.integrations}
-          security={p.extra.security}
-          support={p.extra.support}
-        />
+        <div className="flex flex-col gap-12 md:gap-20">
+          {p.extra.title && (
+            <Enter variant="fade-up" duration={600}>
+              <h2 className="text-center">
+                {p.extra.title.text}
+                {p.extra.title.highlight && <span className="text-primary">{p.extra.title.highlight}</span>}
+                {p.extra.title.suffix}
+              </h2>
+            </Enter>
+          )}
+          {p.extra.tire && (
+            <Block
+              heading={<Lead title={p.extra.tire.heading} left />}
+              items={p.extra.tire.items}
+              image={p.extra.tire.image}
+            />
+          )}
+          {p.extra.integrations && (
+            <Block
+              heading={<Lead title={p.extra.integrations.heading} left />}
+              desc={p.extra.integrations.desc}
+              image={p.extra.integrations.image}
+            />
+          )}
+          {p.extra.security && p.extra.support && (
+            <Block
+              reverse
+              image={p.extra.security.image}
+              heading={
+                <div className="flex flex-col gap-10">
+                  <div className="flex flex-col gap-6">
+                    <Lead title={p.extra.security.heading} left />
+                    <div className="flex flex-col gap-6">
+                      {p.extra.security.items?.map((item) => (
+                        <div key={item} className="flex items-start gap-3">
+                          <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+                          <p className="text-base md:text-lg text-foreground">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-6">
+                    <h2>{p.extra.support.heading}</h2>
+                    <div className="flex flex-col gap-6">
+                      {p.extra.support.items?.map((item) => (
+                        <div key={item} className="flex items-start gap-3">
+                          <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+                          <p className="text-base md:text-lg text-foreground">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              }
+            />
+          )}
+        </div>
       </section>
 
       <section id="devices">
@@ -107,8 +151,7 @@ const Page = () => {
       <section id="clients">
         <Lead
           label={p.clients.subtitle}
-          title={p.clients.titleLine1}
-          title2={p.clients.titleLine2}
+          title={p.clients.title}
         />
         <Clients
           intro={p.clients.intro}
@@ -120,7 +163,7 @@ const Page = () => {
       <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
         <Cta
-          title1={p.ctaSection.title1}
+          title={p.ctaSection.title}
           items={p.ctaSection.items}
         />
       </section>
@@ -153,7 +196,7 @@ const Page = () => {
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
         <Cta
-          title1={p.joinSection.title1}
+          title={p.joinSection.title}
           items={p.joinSection.items}
         />
       </section>

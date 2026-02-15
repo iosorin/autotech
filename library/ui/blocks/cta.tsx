@@ -31,19 +31,18 @@ const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
 };
 
 type Props = {
-  title1?: string;
-  title2?: string;
+  title?: string;
   items?: { id: string; label: string; href?: string, blank?: boolean }[];
   className?: string;
   children?: React.ReactNode;
 };
 
-export const Cta = ({ title1, title2, items, className, children }: Props) => {
+export const Cta = ({ title, items, className, children }: Props) => {
   const slots = React.useMemo(() => getSlots(children), [children]);
 
   return (
     <Enter variant="fade-up" duration={600} className={cn("flex flex-col gap-8 text-center", className)}>
-      <Lead title={title1} title2={title2} />
+      <Lead title={title} />
       <div className="flex flex-wrap justify-center gap-3">
         {items?.map((item, i) => {
           const content = !item.href ? slots[item.id] : undefined;

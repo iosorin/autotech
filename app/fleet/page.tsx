@@ -26,7 +26,7 @@ export default function FleetPage() {
       <section id="fleet" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
         <Hero
-          heading={<Lead title={p.hero.titleLine1} tag="h1" label={p.hero.subtitle} />}
+          heading={<Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />}
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}

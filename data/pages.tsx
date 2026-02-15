@@ -3,9 +3,8 @@ import { app } from "./app"
 
 export const home = {
     hero: {
+        title: "Приложение для автомойки,\nдетейлинга и шиномонтажа",
         subtitle: "Платформа Автотех",
-        titleLine1: "Приложение для автомойки,",
-        titleLine2: "детейлинга и шиномонтажа",
         cta: { items: [app.cta.start, app.cta.contact] },
         telegram: app.cta.telegram,
         features: [
@@ -102,7 +101,7 @@ export const home = {
     },
     account: {
         label: "У вас сеть автомоек или шиномонтажей?",
-        title: "Теперь у вас будет \n единый аккаунт для всех точек    ",
+        title: "Теперь у вас будет \n единый аккаунт для всех точек",
         desc: "с возможностью просмотра статистики по каждой точке \n или агрегированной статистики по всем точкам",
         cards: [
             {
@@ -198,8 +197,7 @@ export const home = {
     },
     clients: {
         subtitle: "Самое главное:",
-        titleLine1: "Мы будем приводить к вам",
-        titleLine2: "новых клиентов!",
+        title: "Мы будем приводить к вам\nновых клиентов!",
         intro: "Мы не только разрабатываем приложение, но еще сами заключаем прямые договора с корпоративными клиентами, которые выбирают вашу автомойку или шиномонтаж для получения услуг",
         items: [
             "Корпоративные клиенты могут находить вашу автомойку или шиномонтаж на карте в приложении, записываться или просто приезжать",
@@ -260,13 +258,13 @@ export const home = {
             },
         ],
     },
-    ctaSection: { title1: app.cta.try, items: [app.cta.start, app.cta.contact] },
-    joinSection: { title1: app.cta.join, items: [app.cta.start, app.cta.contact] },
+    ctaSection: { title: app.cta.try, items: [app.cta.start, app.cta.contact] },
+    joinSection: { title: app.cta.join, items: [app.cta.start, app.cta.contact] },
 }
 
 export const tariffs = {
-    platformLabel: "Платформа Автотех",
     title: "Тарифы",
+    subtitle: "Платформа Автотех",
     periods: [
         { id: "1m", label: "1 месяц" },
         { id: "3m", label: "3 месяца" },
@@ -308,14 +306,14 @@ export const tariffs = {
         },
     },
     cta: {
-        title1: app.cta.connect,
+        title: app.cta.connect,
         items: [app.cta.start, app.cta.contact],
     },
 }
 
 export const updates = {
-    subtitle: "Описание доработок и обновлений",
     title: "Что нового?",
+    subtitle: "Описание доработок и обновлений",
     list: [
         {
             date: "21 декабря 2025",
@@ -459,7 +457,7 @@ export const support = {
 export const fleet = {
     hero: {
         subtitle: "Автопаркам",
-        titleLine1: "Оплачивайте услуги автомойки, шиномонтажа, сезонного хранения и мелкого ремонта через приложение Автотех",
+        title: "Оплачивайте услуги автомойки, шиномонтажа, сезонного хранения и мелкого ремонта через приложение Автотех",
         features: [
             { icon: <ChartPie className="size-5 text-primary" />, label: "Консолидированная отчетность" },
             { icon: <FileCheck className="size-5 text-primary" />, label: "По безналу и с НДС" },
