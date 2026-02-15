@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/support" },
 };
 
-export default function SupportPage() {
+export const Support = () => {
   const p = support;
   return (
     <>
@@ -24,7 +24,7 @@ export default function SupportPage() {
           <Form
             heading={p.headings.form}
             fields={app.form.fields}
-            agree={app.form.agree}
+            // agree={app.form.agree}
             onSubmit={contact}
           />
         </div>
@@ -52,3 +52,5 @@ export default function SupportPage() {
     </>
   );
 }
+
+export default Support;

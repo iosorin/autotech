@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
 import { CheckCircle2 } from "lucide-react";

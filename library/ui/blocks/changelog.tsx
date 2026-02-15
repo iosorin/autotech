@@ -1,5 +1,3 @@
-"use client";
-
 type Update = { date: string; items: string[] };
 
 type Props = {

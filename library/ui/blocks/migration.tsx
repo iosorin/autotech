@@ -1,5 +1,3 @@
-"use client";
-
 import { RefreshCw } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 

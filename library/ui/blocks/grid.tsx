@@ -1,5 +1,3 @@
-"use client";
-
 type Block = { num: string; title: string; desc: string };
 
 type Props = {
