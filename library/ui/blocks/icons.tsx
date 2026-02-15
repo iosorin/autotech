@@ -1,6 +1,5 @@
 import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
-import Image from "next/image";
 
 type Item = {
   title: string;
@@ -13,12 +12,13 @@ type Item = {
 
 type Props = {
   items: Item[];
+  itemClassName?: string;
   cols?: 2 | 3 | 4;
   variant?: "cards" | "stack";
   left?: boolean;
 };
 
-export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Props) => {
+export const Icons = ({ items, itemClassName, cols = 3, variant = "cards", left = false }: Props) => {
   const renderIcon = (item: Item) => {
     if (!item.icon) return null;
     if (typeof item.icon === 'string') {
@@ -41,7 +41,7 @@ export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Prop
           className={
             cn(`flex flex-col gap-4 p-8 overflow-hidden`,
               stack ? (item.line ? '' : 'border-b') : 'rounded-2xl bg-gradient-gray-light',
-              left ? 'items-start text-left' : 'items-center text-center', item.className)
+              left ? 'items-start text-left' : 'items-center text-center', itemClassName, item.className)
           }>
           {item.badge && (
             <span className="inline-block text-lg bg-foreground text-background rounded-full px-4 py-1.5 w-fit">
@@ -50,7 +50,7 @@ export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Prop
           )}
           {renderIcon(item)}
           <h3>{item.title}</h3>
-          <p>{item.desc}</p>
+          <p className="text-lg">{item.desc}</p>
         </Enter>
       );
     });

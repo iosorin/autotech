@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
-import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
 import { Form } from "@ui/blocks/form";
 import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
 import { seo, app, contacts } from "@data";
 import contact from "@api/contact";
+import Grid from "@/library/ui/blocks/grid";
 
 export const metadata: Metadata = {
   title: seo.pages.contacts.title,
@@ -36,15 +36,20 @@ export const Contacts = () => {
         />
 
         <div className="pb-10">
-          <Lead title={p.designedForHeading} />
-          <Grid blocks={p.designedFor} />
+          <Lead title={p.designed.heading} />
+          <Icons items={p.designed.items} itemClassName={p.designed.itemClassName} cols={2} />
         </div>
+
+        {/* <div className="pb-10">
+          <Lead title={p.designed.heading} />
+          <Grid blocks={p.designed.items} />
+        </div> */}
       </section>
 
 
       <section id="dev">
-        <Lead title={p.devHeading} />
-        <Icons items={p.dev} left />
+        <Lead title={p.dev.heading} />
+        <Icons items={p.dev.items} left />
       </section>
 
       <section id="mission" className="pb-0">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Links } from "@ui/blocks/links";
 import { Form } from "@ui/blocks/form";
-import { Types } from "@ui/blocks/types";
+import { Icons } from "@ui/blocks/icons";
 import { app, seo, support } from "@data";
 import contact from "@api/contact";
 
@@ -35,7 +35,7 @@ export const Support = () => {
 
         <section id="support-types">
           <Lead title={p.headings.response} />
-          <Types types={p.types} />
+          <Icons items={p.types} cols={2} />
         </section>
 
         <section id="other-contact">
