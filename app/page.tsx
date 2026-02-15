@@ -6,7 +6,6 @@ import { Block } from "@ui/blocks/block";
 import { Enter } from "@ui/atoms/enter";
 import { Badges } from "@ui/blocks/badges";
 import { Migration } from "@ui/blocks/migration";
-import { Clients } from "@ui/blocks/clients";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
@@ -117,16 +116,16 @@ const Page = () => {
         />
       </section>
 
-      <section id="clients">
+      <section id="clients" className="pb-0">
         <Lead
           label={p.clients.subtitle}
           title={p.clients.title}
           primary
         />
-        <Clients
-          intro={p.clients.intro}
-          items={p.clients.items}
+        <Block
+          reverse
           image={p.clients.image}
+          list={[{ desc: p.clients.intro, items: p.clients.items }]}
         />
       </section>
 
