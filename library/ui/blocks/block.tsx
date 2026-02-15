@@ -4,7 +4,7 @@ import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
 
 type ListEntry = {
-    title: string;
+    title?: string;
     desc?: string;
     items?: string[];
 };
@@ -76,7 +76,7 @@ export const Block = ({
         <div className="flex flex-col gap-8">
             {list.map((entry, index) => (
                 <div key={index} className="flex flex-col gap-6">
-                    <h2 className="md:whitespace-pre-line">{entry.title}</h2>
+                    {entry.title ? <h2 className="md:whitespace-pre-line">{entry.title}</h2> : null}
                     {renderDesc(entry.desc)}
                     {renderChecklist(entry.items)}
                 </div>
