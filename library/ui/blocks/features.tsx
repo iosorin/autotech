@@ -58,7 +58,7 @@ export const Features = ({ tabs, content }: Props) => {
         const right = data.features.slice(half);
 
         return (
-          <TabsContent key={tab.id} value={tab.id} className="mt-0">
+          <TabsContent key={tab.id} value={tab.id} className="flex flex-col gap-8 mt-0">
             <Enter variant="fade" duration={500}>
               <Lead title={data.title} />
             </Enter>

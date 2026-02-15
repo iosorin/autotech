@@ -33,7 +33,7 @@ export type IForm = {
     fields: IField[];
     className?: string;
     submitLabel?: string;
-    onSubmit: (formData: FormData) => Promise<unknown>;
+    onSubmit: (formData: FormData, heading?: string) => Promise<unknown>;
 };
 
 const REQUIRED = "Заполните поле";
@@ -71,7 +71,7 @@ export const Form = ({
 
         const formData = fields.reduce<FormData>((acc, f) => (acc.set(f.id, data[f.id].trim()), acc), new FormData());
 
-        onSubmit(formData)
+        onSubmit(formData, heading)
             .then(() => {
                 toast.success("Сообщение успешно отправлено")
                 setSuccess(true)
