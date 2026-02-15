@@ -4,7 +4,6 @@ import { Promo } from "@ui/blocks/promo";
 import { Compare } from "@ui/blocks/compare";
 import { Hero } from "@ui/blocks/hero";
 import { Cabinet } from "@ui/blocks/cabinet";
-import { Extra } from "@ui/blocks/extra";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
@@ -48,7 +47,10 @@ export default function FleetPage() {
       </section>
 
       <section id="seasonal">
-        <Extra tire={p.seasonal} />
+        <Block
+          list={[{ title: p.seasonal.heading, items: p.seasonal.items }]}
+          image={p.seasonal.image}
+        />
       </section>
 
       <section id="approaches">

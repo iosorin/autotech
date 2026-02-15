@@ -15,10 +15,10 @@ export const Lead = ({ title, label, desc, titleFirst, className, left, tag = "h
   const renderTitle = () => {
     const Tag = tag;
     if (!title) return null;
-    return <Tag className="md:whitespace-pre-line">{title}</Tag>;
+    return <Tag>{title}</Tag>;
   };
   const renderLabel = () => label ? <p className={cn("text-xl font-medium", primary ? "text-primary" : "")}>{label}</p> : null;
-  const renderDesc = () => desc ? <p className="mx-auto md:whitespace-pre-line">{desc}</p> : null;
+  const renderDesc = () => desc ? <p className="mx-auto">{desc}</p> : null;
 
   if (!title && !label) return null;
 
