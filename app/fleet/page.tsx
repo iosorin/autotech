@@ -59,7 +59,7 @@ export default function FleetPage() {
           image={p.flexible.image}
           // cta={p.flexible.cta}
           cta={<Cta items={[p.flexible.cta]}>
-            <Cta.Slot slot={p.flexible.cta.slot}>
+            <Cta.Slot id={p.flexible.cta.id}>
               <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
             </Cta.Slot>
           </Cta>}
@@ -76,7 +76,7 @@ export default function FleetPage() {
         </div>
 
         <Cta items={[p.how.cta.cabinet, p.how.cta.more]}>
-          <Cta.Slot slot={p.how.cta.more.slot}>
+          <Cta.Slot id={p.how.cta.more.id}>
             <Form heading={p.slots.call.heading} fields={p.slots.call.fields} onSubmit={contact} className="shadow-none !p-0" />
           </Cta.Slot>
         </Cta>

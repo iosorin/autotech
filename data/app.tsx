@@ -59,8 +59,9 @@ export const app = {
   ],
   featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
-    start: { label: "Начать работать", href: "/", },
+    start: { id: "start", label: "Начать работать", href: "/", },
     contact: {
+      id: "contact",
       label: "Связаться с нами",
       href: "/contacts",
       props: {

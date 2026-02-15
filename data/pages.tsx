@@ -330,14 +330,10 @@ export const tariffs = {
     cta: {
         title1: "Подключайтесь и получите",
         title2: "2 недели бесплатно",
-        start: {
-            label: "Начать работать",
-            href: "/",
-        },
-        contact: {
-            label: "Связаться с нами",
-            href: "/contacts",
-        },
+        items: [
+            { id: "start", label: "Начать работать", href: "/" },
+            { id: "contact", label: "Связаться с нами", href: "/contacts" },
+        ],
     },
 
 }
@@ -577,6 +573,7 @@ export const fleet = {
             href: "/images/app-preview.png",
         },
         cta: {
+            id: "contact",
             label: "Связаться с нами",
             slot: "call",
         },
@@ -612,8 +609,8 @@ export const fleet = {
             { title: "Раз в месяц мы формируем отчетные документы", desc: "и направляем вам вместе с полной статистикой по автомойкам", badge: 'Шаг 4' },
         ],
         cta: {
-            cabinet: { label: "Перейти в личный кабинет", href: app.app, },
-            more: { label: "Узнать больше", slot: "call" },
+            cabinet: { id: "cabinet", label: "Перейти в личный кабинет", href: app.app, },
+            more: { id: "more", label: "Узнать больше", slot: "call" },
         },
     },
     transparency: {

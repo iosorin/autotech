@@ -9,23 +9,20 @@ import { Enter } from "@ui/atoms/enter";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@ui/atoms/dialog";
 import { cn } from "@utils";
 
-const SLOT_TYPE = Symbol("Cta.Slot");
-
 type SlotProps = {
-  slot: string;
+  id: string;
   children: React.ReactNode;
 };
 
-const Slot = ({ slot, children }: SlotProps) => null;
+const Slot = ({ id, children }: SlotProps) => null;
 Slot.displayName = "Cta.Slot";
-(Object.assign(Slot, { [SLOT_TYPE]: true }) as React.FC<SlotProps> & { [SLOT_TYPE]: boolean });
 
 const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> => {
   const slots: Record<string, React.ReactNode> = {};
   React.Children.forEach(children, (child) => {
-    if (React.isValidElement(child) && "slot" in (child.props as SlotProps) && (child.props as SlotProps).slot != null) {
-      const { slot, children: slotContent } = child.props as SlotProps;
-      slots[slot] = slotContent;
+    if (React.isValidElement(child) && "id" in (child.props as SlotProps)) {
+      const { id, children: content } = child.props as SlotProps;
+      slots[id] = content;
     }
   });
   return slots;
@@ -34,7 +31,7 @@ const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
 type Props = {
   title1?: string;
   title2?: string;
-  items?: { label: string; href?: string; slot?: string }[];
+  items?: { id: string; label: string; href?: string }[];
   className?: string;
   children?: React.ReactNode;
 };
@@ -47,11 +44,11 @@ export const Cta = ({ title1, title2, items, className, children }: Props) => {
       <Lead title={title1} title2={title2} />
       <div className="flex flex-wrap justify-center gap-3">
         {items?.map((item, i) => {
-          const content = item.slot ? slots[item.slot] : undefined;
+          const content = !item.href ? slots[item.id] : undefined;
 
-          if (item.slot) {
+          if (content) {
             return (
-              <Dialog key={item.label}>
+              <Dialog key={item.id}>
                 <DialogTrigger asChild>
                   <Button variant={i === 0 ? "default" : "outline"} size="lg" title={item.label}>
                     {item.label}
@@ -68,7 +65,7 @@ export const Cta = ({ title1, title2, items, className, children }: Props) => {
 
           if (item.href) {
             return (
-              <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.label}>
+              <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id}>
                 <Link href={item.href} title={item.label}>
                   {item.label}
                   {i === 0 && <ArrowUpRight />}
