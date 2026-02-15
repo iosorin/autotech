@@ -7,19 +7,18 @@ type Card = {
 };
 
 type Props = {
-  titleLine1: string;
-  titleLine2: string;
-  descLine1: string;
-  descLine2: string;
-  subtitle: string;
+  titleLine1?: string;
+  titleLine2?: string;
+  descLine1?: string;
+  descLine2?: string;
+  subtitle?: string;
   cards: Card[];
 };
 
 export const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
   return (
     <div className="flex flex-col items-center gap-12">
-      {/* Заголовок */}
-      <Enter variant="fade-up" duration={700}>
+      {/* <Enter variant="fade-up" duration={700}>
         <div className="text-center">
           <p className="text-lg font-medium text-primary">{subtitle}</p>
           <h1 className="my-3">
@@ -33,7 +32,7 @@ export const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle
             {descLine2}
           </p>
         </div>
-      </Enter>
+      </Enter> */}
 
       {/* Карточки */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

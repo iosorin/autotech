@@ -3,8 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
-import { Button } from "../atoms/button";
-import { cn } from "@utils";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "../atoms/tabs";
 
 type Tab = { id: string; label: string };
@@ -61,7 +59,7 @@ export const Features = ({ tabs, content }: Props) => {
         return (
           <TabsContent key={tab.id} value={tab.id} className="mt-0">
             <Enter variant="fade" duration={500}>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-12 text-balance">
+              <h2 className="text-center">
                 {data.title}
               </h2>
             </Enter>

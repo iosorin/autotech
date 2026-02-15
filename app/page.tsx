@@ -14,6 +14,7 @@ import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
 import { home } from "@data";
 import { cn } from "@utils";
+import Icons from "@/library/ui/blocks/icons";
 
 const Page = () => {
   const p = home;
@@ -66,14 +67,16 @@ const Page = () => {
       </section>
 
       <section id="account">
-        <Account
-          titleLine1={p.account.titleLine1}
-          titleLine2={p.account.titleLine2}
-          descLine1={p.account.descLine1}
-          descLine2={p.account.descLine2}
-          subtitle={p.account.subtitle}
+        <Lead label={p.account.label} title={p.account.title} desc={p.account.desc} />
+        <Icons items={p.account.cards} variant="cards" left />
+        {/* <Account
+          // titleLine1={p.account.titleLine1}
+          // titleLine2={p.account.titleLine2}
+          // descLine1={p.account.descLine1}
+          // descLine2={p.account.descLine2}
+          // subtitle={p.account.subtitle}
           cards={p.account.cards}
-        />
+        /> */}
       </section>
 
       <section id="extra" className="pb-0">

@@ -20,7 +20,7 @@ export const Event = ({ date, title, line1, line2, cta, button, href = "/events"
     <Enter variant="scale-up" duration={700}>
       <div className={cn("rounded-3xl px-8 py-10 text-center", className)}>
         <p className="font-medium text-primary mb-3">{date}</p>
-        <h2 className="mb-3 text-balance">
+        <h2 className="text-center">
           {title}
         </h2>
         <p className="text-balance">{line1}</p>
