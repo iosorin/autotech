@@ -83,28 +83,22 @@ const Page = () => {
               </h2>
             </Enter>
           )}
-          {p.extra.tire && (
-            <Block
-              list={[{ title: p.extra.tire.heading, items: p.extra.tire.items }]}
-              image={p.extra.tire.image}
-            />
-          )}
-          {p.extra.integrations && (
-            <Block
-              list={[{ title: p.extra.integrations.heading, desc: p.extra.integrations.desc }]}
-              image={p.extra.integrations.image}
-            />
-          )}
-          {p.extra.security && p.extra.support && (
-            <Block
-              reverse
-              image={p.extra.security.image}
-              list={[
-                { title: p.extra.security.heading, items: p.extra.security.items },
-                { title: p.extra.support.heading, items: p.extra.support.items },
-              ]}
-            />
-          )}
+          <Block
+            list={[{ title: p.extra.tire.heading, items: p.extra.tire.items }]}
+            image={p.extra.tire.image}
+          />
+          <Block
+            list={[{ title: p.extra.integrations.heading, desc: p.extra.integrations.desc }]}
+            image={p.extra.integrations.image}
+          />
+          <Block
+            reverse
+            image={p.extra.security.image}
+            list={[
+              { title: p.extra.security.heading, items: p.extra.security.items },
+              { title: p.extra.support.heading, items: p.extra.support.items },
+            ]}
+          />
         </div>
       </section>
 
@@ -127,6 +121,7 @@ const Page = () => {
         <Lead
           label={p.clients.subtitle}
           title={p.clients.title}
+          primary
         />
         <Clients
           intro={p.clients.intro}
