@@ -30,13 +30,13 @@ const Page = () => {
           features={p.hero.features}
           cta={
             <Link
-              href={p.hero.cta.href}
+              href={app.cta.telegram.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.cta.className)}
+              className={cn("shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", app.cta.telegram.className)}
             >
-              {p.hero.cta.children}
-              <span className="text-lg max-w-[220px]">{p.hero.cta.label}</span>
+              {app.cta.telegram.children}
+              <span className="text-lg max-w-[220px]">{app.cta.telegram.label}</span>
             </Link>}
           card={p.hero.card}
           image={p.hero.image}
@@ -114,7 +114,7 @@ const Page = () => {
       <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
         <Cta
-          title1={p.cta.defaultTitle}
+          title1={app.cta.defaultTitle}
           items={[app.cta.start, app.cta.contact]}
         />
       </section>
@@ -147,8 +147,8 @@ const Page = () => {
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
         <Cta
-          title1={p.join.titleLine1}
-          title2={p.join.titleLine2}
+          title1={app.cta.join.titleLine1}
+          title2={app.cta.join.titleLine2}
           items={[app.cta.start, app.cta.contact]}
         />
       </section>

@@ -15,19 +15,6 @@ export const home = {
             { icon: <CalendarCheck className="size-5 text-primary" />, label: "Онлайн-запись" },
             { icon: <Users className="size-5 text-primary" />, label: "CRM" },
         ],
-        cta: {
-            label: "Подпишитесь на наш телеграм-канал",
-            href: "https://t.me/moykazdes",
-            className: "text-primary-foreground bg-gradient-telegram",
-            children: <svg
-                viewBox="0 0 24 24"
-                className="size-10 fill-current flex-shrink-0"
-                aria-hidden="true"
-            >
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
-            </svg>,
-        },
-        // telegramCta: "Подпишитесь на наш телеграм-канал",
         card: {
             title: "Легкий переход с других приложений",
             desc: "Автоматический перенос услуг и настроек",
@@ -43,8 +30,8 @@ export const home = {
         title: "Закрытое мероприятие",
         line1: "для собственников и управляющих автомойками,",
         line2: "детейлинг-центрами и шиномонтажами",
-        cta: "Регистрация обязательна!",
-        button: "Узнать детали",
+        cta: app.cta.eventBannerCta,
+        button: app.cta.details,
     },
     features: {
         tabs: [
@@ -226,9 +213,6 @@ export const home = {
             href: "/images/app-shedule.png",
         },
     },
-    cta: {
-        defaultTitle: "Готовы попробовать?",
-    },
     faq: {
         heading: "Часто задаваемые вопросы",
         items: [
@@ -278,10 +262,6 @@ export const home = {
             },
         ],
     },
-    join: {
-        titleLine1: "Присоединяйтесь к нашим",
-        titleLine2: "довольным клиентам",
-    },
 }
 
 export const tariffs = {
@@ -327,15 +307,7 @@ export const tariffs = {
             className: 'flex-[0_0_40%] '
         },
     },
-    cta: {
-        title1: "Подключайтесь и получите",
-        title2: "2 недели бесплатно",
-        items: [
-            { id: "start", label: "Начать работать", href: "/" },
-            { id: "contact", label: "Связаться с нами", href: "/contacts" },
-        ],
-    },
-
+    cta: app.cta.tariffs,
 }
 
 export const updates = {
@@ -498,12 +470,7 @@ export const fleet = {
             src: "/images/app-preview.png",
             alt: "Приложение Автотех для автопарков",
         },
-        cta: {
-            id: "contact-01",
-            label: "Связаться с нами",
-            href: "/contacts",
-            className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
-        }
+        cta: app.cta.fleetHero,
     },
     why: {
         heading: "Почему это удобно",
@@ -573,11 +540,7 @@ export const fleet = {
             alt: "Гибкое управление",
             href: "/images/app-preview.png",
         },
-        cta: {
-            id: "contact-02",
-            label: "Связаться с нами",
-            slot: "call",
-        },
+        cta: app.cta.fleetFlexible,
     },
     cabinet: {
         heading: "Возможности личного кабинета для юридических лиц",
@@ -609,10 +572,7 @@ export const fleet = {
             { title: "Водитель выбирает удобную автомойку или шиномонтаж на карте и приезжает туда", desc: "(можно по предварительной записи из приложения). На автомойке сканируется и распознается гос.номер автомобиля и происходит оказание услуги", badge: 'Шаг 3' },
             { title: "Раз в месяц мы формируем отчетные документы", desc: "и направляем вам вместе с полной статистикой по автомойкам", badge: 'Шаг 4' },
         ],
-        cta: {
-            cabinet: { id: "cabinet", label: "Перейти в личный кабинет", href: app.app, blank: true },
-            more: { id: "more", label: "Узнать больше", slot: "call" },
-        },
+        cta: app.cta.fleetHow,
     },
     transparency: {
         heading: "Гарантия прозрачности оказания услуг",
@@ -629,10 +589,7 @@ export const fleet = {
         heading: "Специальное предложение для HRD",
         desc: "Добавляйте автомойки для ключевых сотрудников в соц.пакет. Это повышает лояльность сотрудников",
         icon: <Heart className="size-14 text-accent" />,
-        cta: {
-            primary: { id: "primary", label: "Перейти в личный кабинет", href: app.app, blank: true },
-            secondary: { id: "secondary", label: "Узнать больше", href: app.app, blank: true },
-        },
+        cta: app.cta.fleetHrd,
         image: {
             alt: "Специальное предложение для HRD",
             href: "/images/app-preview.png",
@@ -647,5 +604,4 @@ export const fleet = {
             { q: "Это онлайн-сервис или можно поставить решение в информационный периметр нашей компании?", a: "Автотех работает как облачный сервис, доступный через браузер и мобильные приложения. Интеграция в вашу инфраструктуру обсуждается индивидуально." },
         ],
     },
-    slots: { call: app.call },
 }
