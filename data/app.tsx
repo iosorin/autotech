@@ -1,7 +1,7 @@
 import { IField } from "@/library/ui/blocks/form"
 import Link from "next/link";
 
-const appUrl = "https://work.moykazdes.ru/";
+const appurl = "https://work.moykazdes.ru/";
 
 
 export const app = {
@@ -11,7 +11,7 @@ export const app = {
   description:
     "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
-  app: appUrl,
+  app: appurl,
   copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",
   phone: "+7 909 904 1111",
@@ -25,28 +25,6 @@ export const app = {
   telegramSupport: {
     label: "@avtotech_support",
     href: "https://t.me/avtotech_support",
-  },
-  company: {
-    name: "ООО ГТМ Лабс",
-    short: "ООО «ГТМ Лабс»",
-    inn: "9709051668",
-    kpp: "770901001",
-    ogrn: "1197746443036",
-    okpo: "40652356",
-    address: "Нижний Сусальный пер., 5с17, 4 этаж",
-    addressLine1: "Нижний Сусальный пер.,",
-    addressLine2: "5с17, 4 этаж",
-    addressFull:
-      "105064, Москва, Нижний Сусальный переулок, дом 5, строение 17, помещение I, комната 6",
-    bank: {
-      account: "40702810001500047419",
-      name: "ТОЧКА ПАО БАНКА «ФК ОТКРЫТИЕ»",
-      inn: "7706092528",
-      kpp: "770543002",
-      bik: "044525999",
-      city: "Москва",
-      corr: "30101810845250000999 в ГУ БАНКА РОССИИ ПО ЦФО",
-    },
   },
   nav: [
     { label: "Тарифы", href: "/tariffs" },
@@ -65,12 +43,13 @@ export const app = {
     connect: "Подключайтесь и получите \n 2 недели бесплатно",
     join: "Присоединяйтесь к нашим \n довольным клиентам",
     try: "Готовы попробовать?",
-    start: { id: "start" as const, label: "Начать работать", href: appUrl, blank: true },
+    start: { id: "start" as const, label: "Начать работать", href: appurl, blank: true },
     contact: {
       id: "contact" as const,
       label: "Связаться с нами",
-      href: "/contacts",
-      props: { variant: "outline" as const, className: "rounded-full" },
+      slot: "call" as const,
+      // href: "/contacts",
+      // props: { variant: "outline" as const, className: "rounded-full" },
     },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
@@ -78,45 +57,16 @@ export const app = {
       className: "text-primary-foreground bg-gradient-telegram",
       // icon: "/images/icons/telegram.svg",
     },
-    // details: "Узнать детали",
-    // more: "Узнать больше",
-    // cabinet: "Перейти в личный кабинет",
-    // defaultTitle: "Готовы попробовать?",
-    // tariffs: {
-    //   title1: "Подключайтесь и получите",
-    //   title2: "2 недели бесплатно",
-    //   items: [ctaStart, ctaContact],
-    // },
-    // join: {
-    //   titleLine1: "Присоединяйтесь к нашим",
-    //   titleLine2: "довольным клиентам",
-    // },
-    // eventBannerCta: "Регистрация обязательна!",
+
     contact2: {
       id: "contact2" as const,
       label: "Связаться с нами",
       href: "/contacts",
       className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
     },
-    // fleetHero: {
-    //   id: "contact-01",
-    //   label: "Связаться с нами",
-    //   href: "/contacts",
-    //   className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
-    // },
-    // fleetFlexible: {
-    //   id: "contact-02",
-    //   label: "Связаться с нами",
-    //   slot: "call" as const,
-    // },
-    cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
+
+    cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appurl, blank: true },
     more: { id: "more" as const, label: "Узнать больше", slot: "call" as const },
-    // fleetHow: {
-    // },
-    // fleetHrd: {
-    //   primary: { id: "primary" as const, label: "Перейти в личный кабинет", href: appUrl, blank: true },
-    //   secondary: { id: "secondary" as const, label: "Узнать больше", href: appUrl, blank: true },
-    // },
   },
   call: {
     heading: "Запросить обратный звонок",
@@ -150,7 +100,7 @@ export const app = {
       </>
     ),
   },
-  eventBanner: {
+  event: {
     date: "12 февраля 2026 | 18:00 – 22:00",
     title: "Закрытое мероприятие",
     desc: "для собственников и управляющих автомойками,\n детейлинг-центрами и шиномонтажами",
@@ -162,5 +112,27 @@ export const app = {
       href: "/events",
       // props: { variant: "outline" as const, className: "rounded-full" },
     }]
+  },
+  company: {
+    name: "ООО ГТМ Лабс",
+    short: "ООО «ГТМ Лабс»",
+    inn: "9709051668",
+    kpp: "770901001",
+    ogrn: "1197746443036",
+    okpo: "40652356",
+    address: "Нижний Сусальный пер., 5с17, 4 этаж",
+    addressLine1: "Нижний Сусальный пер.,",
+    addressLine2: "5с17, 4 этаж",
+    addressFull:
+      "105064, Москва, Нижний Сусальный переулок, дом 5, строение 17, помещение I, комната 6",
+    bank: {
+      account: "40702810001500047419",
+      name: "ТОЧКА ПАО БАНКА «ФК ОТКРЫТИЕ»",
+      inn: "7706092528",
+      kpp: "770543002",
+      bik: "044525999",
+      city: "Москва",
+      corr: "30101810845250000999 в ГУ БАНКА РОССИИ ПО ЦФО",
+    },
   },
 };

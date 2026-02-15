@@ -11,9 +11,11 @@ import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
-import { home } from "@data";
+import { app, home } from "@data";
 import { cn } from "@utils";
 import Icons from "@/library/ui/blocks/icons";
+import Form from "@/library/ui/blocks/form";
+import contact from "./api/contact";
 
 const Page = () => {
   const p = home;
@@ -21,7 +23,13 @@ const Page = () => {
     <>
       <section id="hero" className="pb-0">
         <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
-        <Cta items={p.hero.cta.items} />
+
+        <Cta items={p.hero.cta.items}>
+          <Cta.Slot id={p.hero.cta.slotId}>
+            <Form heading={app.call.heading} fields={app.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
+
         <Hero
           heading={null}
           features={p.hero.features}
@@ -46,9 +54,9 @@ const Page = () => {
       </section>
 
       <section id="event">
-        <div className={p.eventBanner.className}>
-          <Lead title={p.eventBanner.title} desc={p.eventBanner.desc} minor={p.eventBanner.date} label={p.eventBanner.date} />
-          <Cta items={p.eventBanner.cta} />
+        <div className={p.event.className}>
+          <Lead title={p.event.title} desc={p.event.desc} minor={p.event.date} label={p.event.date} />
+          <Cta items={p.event.cta} />
         </div>
       </section>
 
@@ -101,19 +109,19 @@ const Page = () => {
 
       <section id="migration">
         <Migration
-          titleLine1={p.dataMigration.titleLine1}
-          titleLine2={p.dataMigration.titleLine2}
-          desc={p.dataMigration.desc}
-          items={p.dataMigration.items}
+          titleLine1={p.migration.titleLine1}
+          titleLine2={p.migration.titleLine2}
+          desc={p.migration.desc}
+          items={p.migration.items}
         />
         <div className="gradlayer bg-gradient-green" />
       </section>
 
       <section id="clients" className="pb-0">
         <Lead
+          primary
           label={p.clients.subtitle}
           title={p.clients.title}
-          primary
         />
         <Block
           reverse
@@ -123,10 +131,7 @@ const Page = () => {
       </section>
 
       <section id="cta">
-        <Cta
-          title={p.ctaSection.title}
-          items={p.ctaSection.items}
-        />
+        <Cta title={p.try.title} items={p.try.items} />
         <div className="gradlayer bg-gradient-blue" />
       </section>
 
@@ -156,10 +161,7 @@ const Page = () => {
       </section>
 
       <section id="cta-join">
-        <Cta
-          title={p.joinSection.title}
-          items={p.joinSection.items}
-        />
+        <Cta title={p.join.title} items={p.join.items} />
         <div className="gradlayer bg-muted" />
       </section>
     </>

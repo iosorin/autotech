@@ -5,7 +5,12 @@ export const home = {
     hero: {
         title: "Приложение для автомойки,\nдетейлинга и шиномонтажа",
         subtitle: "Платформа Автотех",
-        cta: { items: [app.cta.start, app.cta.contact] },
+        cta: {
+            items: [app.cta.start, app.cta.contact],
+            slotId: app.cta.contact.id,
+            form: app.call,
+        },
+
         telegram: app.cta.telegram,
         features: [
             { icon: <ScanLine className="size-5 text-primary" />, label: "Распознавание марок и номеров" },
@@ -24,7 +29,7 @@ export const home = {
             alt: "Интерфейс приложения Автотех",
         },
     },
-    eventBanner: app.eventBanner,
+    event: app.event,
     features: {
         tabs: [
             { id: "orders", label: "Работа с заказом" },
@@ -177,7 +182,7 @@ export const home = {
         },
         mechanicImageAlt: "Автосервис",
     },
-    dataMigration: {
+    migration: {
         titleLine1: "Легкий перенос данных",
         titleLine2: "из других приложений",
         desc: "Переносим все данные из других наиболее популярных приложений за минуту, включая базы клиентов физ.лиц и контрагентов, остатки бонусов, средние чеки и количество визитов",
@@ -252,8 +257,8 @@ export const home = {
             },
         ],
     },
-    ctaSection: { title: app.cta.try, items: [app.cta.start, app.cta.contact] },
-    joinSection: { title: app.cta.join, items: [app.cta.start, app.cta.contact] },
+    try: { title: app.cta.try, items: [app.cta.start, app.cta.contact] },
+    join: { title: app.cta.join, items: [app.cta.start, app.cta.contact] },
 }
 
 export const tariffs = {
@@ -423,7 +428,7 @@ export const contacts = {
 export const events = {
     title: "Мероприятия",
     subtitle: "Закрытые мероприятия для собственников и управляющих",
-    eventBanner: app.eventBanner,
+    event: app.event,
     past: {
         heading: "Прошедшие мероприятия",
         items: [
