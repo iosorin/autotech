@@ -23,7 +23,6 @@ export default function FleetPage() {
   return (
     <>
       <section id="fleet" className="pb-0">
-        <div className="gradlayer bg-gradient-lime" />
         <Hero
           heading={<Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />}
           features={p.hero.features}
@@ -35,6 +34,7 @@ export default function FleetPage() {
             </Cta.Slot>
           </Cta>}
         />
+        <div className="gradlayer bg-gradient-lime" />
       </section>
 
       <section id="why">
@@ -74,7 +74,6 @@ export default function FleetPage() {
       </section>
 
       <section id="how-it-works">
-        <div className="gradlayer bg-gradient-lime" />
         <div className="max-w-[85%] mx-auto mb-16">
           <Lead title={p.how.heading} />
           <Icons items={p.how.items} variant="stack" />
@@ -85,6 +84,8 @@ export default function FleetPage() {
             <Form heading={p.callForm.heading} fields={p.callForm.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
+
+        <div className="gradlayer bg-gradient-lime" />
       </section>
 
       <section id="transparency">
@@ -116,10 +117,9 @@ export default function FleetPage() {
       </section>
 
       <section id="faq">
-        <div className="gradlayer bg-gradient-gray-white" />
-
         <Lead title={p.faq.heading} />
         <Faq items={p.faq.items} />
+        <div className="gradlayer bg-gradient-gray-white" />
       </section>
     </>
   );

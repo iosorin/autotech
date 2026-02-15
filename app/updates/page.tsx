@@ -13,10 +13,9 @@ export default function UpdatesPage() {
   const p = updates;
   return (
     <section id="updates">
-      <div className="gradlayer bg-gradient-blue" />
-
       <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
       <Changelog updates={p.list} />
+      <div className="gradlayer bg-gradient-blue" />
     </section>
   );
 }

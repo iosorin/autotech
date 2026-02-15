@@ -20,12 +20,8 @@ const Page = () => {
   return (
     <>
       <section id="hero" className="pb-0">
-        <div className="gradlayer bg-gradient-gray" />
-
         <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
-
         <Cta items={p.hero.cta.items} />
-
         <Hero
           heading={null}
           features={p.hero.features}
@@ -45,6 +41,8 @@ const Page = () => {
           card={p.hero.card}
           image={p.hero.image}
         />
+
+        <div className="gradlayer bg-gradient-gray" />
       </section>
 
       <section id="event">
@@ -107,13 +105,13 @@ const Page = () => {
       </section>
 
       <section id="migration">
-        <div className="gradlayer bg-gradient-green" />
         <Migration
           titleLine1={p.dataMigration.titleLine1}
           titleLine2={p.dataMigration.titleLine2}
           desc={p.dataMigration.desc}
           items={p.dataMigration.items}
         />
+        <div className="gradlayer bg-gradient-green" />
       </section>
 
       <section id="clients" className="pb-0">
@@ -130,11 +128,11 @@ const Page = () => {
       </section>
 
       <section id="cta">
-        <div className="gradlayer bg-gradient-blue" />
         <Cta
           title={p.ctaSection.title}
           items={p.ctaSection.items}
         />
+        <div className="gradlayer bg-gradient-blue" />
       </section>
 
       <section id="faq">
@@ -153,21 +151,21 @@ const Page = () => {
       </section>
 
       <section id="testimonials">
-        <div className="gradlayer bg-muted" />
         <Lead title={p.testimonials.heading} />
         <Testimonials
           prevAria={p.testimonials.prevAria}
           nextAria={p.testimonials.nextAria}
           list={p.testimonials.list}
         />
+        <div className="gradlayer bg-muted" />
       </section>
 
       <section id="cta-join">
-        <div className="gradlayer bg-muted" />
         <Cta
           title={p.joinSection.title}
           items={p.joinSection.items}
         />
+        <div className="gradlayer bg-muted" />
       </section>
     </>
   );

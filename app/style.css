@@ -122,6 +122,10 @@
     @apply relative py-10 md:py-16;
   }
 
+  section>section:first-child {
+    @apply !pt-0 !m-0;
+  }
+
   section:first-child {
     @apply pt-header;
   }
