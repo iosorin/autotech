@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { RefreshCw, ScanLine, BarChart3, Calculator, CalendarCheck, Users, CreditCard, Phone, Wrench, CheckCircle2, Palette, Smartphone, Laptop, Laptop2, Droplets, Clock, Zap, Layers, Settings, FolderSearch, MapPlus, ChartPie, MapPin, FileCheck, TrendingDown, CircleAlert, Heart, CarFront } from "lucide-react"
-import { Field } from "@ui/blocks/form"
+import { IField } from "@ui/blocks/form"
 import { app } from "./app"
 
 export const home = {
@@ -615,7 +615,8 @@ export const fleet = {
         ],
         cta: {
             cabinet: { label: "Перейти в личный кабинет", href: app.app, },
-            more: { label: "Узнать больше", href: app.app, },
+            more: { label: "Узнать больше", dialog: "call" },
+            call: app.call
         },
     },
     transparency: {
