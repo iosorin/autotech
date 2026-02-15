@@ -610,7 +610,7 @@ export const fleet = {
             { title: "Раз в месяц мы формируем отчетные документы", desc: "и направляем вам вместе с полной статистикой по автомойкам", badge: 'Шаг 4' },
         ],
         cta: {
-            cabinet: { id: "cabinet", label: "Перейти в личный кабинет", href: app.app, },
+            cabinet: { id: "cabinet", label: "Перейти в личный кабинет", href: app.app, blank: true },
             more: { id: "more", label: "Узнать больше", slot: "call" },
         },
     },
@@ -630,8 +630,8 @@ export const fleet = {
         desc: "Добавляйте автомойки для ключевых сотрудников в соц.пакет. Это повышает лояльность сотрудников",
         icon: <Heart className="size-14 text-accent" />,
         cta: {
-            primary: { label: "Перейти в личный кабинет", href: app.app },
-            secondary: { label: "Узнать больше", href: app.app },
+            primary: { id: "primary", label: "Перейти в личный кабинет", href: app.app, blank: true },
+            secondary: { id: "secondary", label: "Узнать больше", href: app.app, blank: true },
         },
         image: {
             alt: "Специальное предложение для HRD",
