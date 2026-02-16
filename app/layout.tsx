@@ -10,7 +10,7 @@ import "./style.css";
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(app.siteurl),
+  metadataBase: new URL(app.url),
   alternates: { canonical: "/", },
   title: { default: seo.defaultTitle, template: seo.templateTitle, },
   description: seo.defaultDescription,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: app.siteurl,
+    url: app.url,
     siteName: seo.sitename,
     title: seo.defaultTitle,
     description: seo.defaultDescription,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 // export const metadata: Metadata = {
-//   metadataBase: new URL(app.siteurl),
+//   metadataBase: new URL(app.url),
 //   manifest: "/favicon/site.webmanifest",
 //   // ... остальное
 // };
@@ -49,8 +49,8 @@ const jsonld = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: app.name,
-  url: app.siteurl,
-  logo: `${app.siteurl}/logo.svg`,
+  url: app.url,
+  logo: `${app.url}/logo.svg`,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: app.phone.replace(/\s/g, "-"),
@@ -62,11 +62,11 @@ const jsonld = {
   sameAs: [app.telegram.href],
 };
 
-export default function RootLayout({
+const Layout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="ru">
       <body className={`${inter.variable} font-sans antialiased`}>
@@ -105,3 +105,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default Layout;

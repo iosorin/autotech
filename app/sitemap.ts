@@ -3,7 +3,7 @@ import { app, seo } from "@data";
 
 const sitemap = (): MetadataRoute.Sitemap => {
   return Object.values(seo.pages).map((r) => ({
-    url: `${app.siteurl}${r.path}`,
+    url: `${app.url}${r.path}`,
     lastModified: new Date(),
     changeFrequency: r.path === "/" ? "weekly" : "monthly",
     priority: r.path === "/" ? 1 : 0.8,

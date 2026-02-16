@@ -1,17 +1,14 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Menu, X, } from "lucide-react";
-import { cn } from "@utils";
 import { Button } from "@ui/atoms/button";
+import { cn } from "@utils";
 
-type NavItem = {
-  label: string;
-  href: string;
-}
+type NavItem = { title: string; path: string; }
 
 type Props = {
   title: string;
@@ -19,19 +16,20 @@ type Props = {
   nav: NavItem[];
   featured: NavItem;
   className?: string;
+  current?: string;
 }
 
-export const Header = ({ title, logo, nav, featured, className }: Props) => {
+export const Header = ({ title, logo, nav, featured, className, current }: Props) => {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
   const background = scrolled ? "bg-background/80 backdrop-blur-lg shadow-md" : "bg-background";
 
-  useEffect(() => {
+  React.useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -42,18 +40,18 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
       <>
         {items.map((item) => (
           <Link
-            key={item.label}
-            href={item.href}
-            title={item.label}
-            className={cn("font-medium transition-colors duration-200 relative", item.label === featured.label ? "text-primary" : "text-foreground", pathname === item.href ? "underline" : "text-foreground")}
+            key={item.title}
+            href={item.path}
+            title={item.title}
+            className={cn("font-medium transition-colors duration-200 relative", item.title === featured.title ? "text-primary" : "text-foreground", pathname === item.path ? "underline" : "text-foreground")}
           >
-            {item.label}
+            {item.title}
           </Link>
         ))}
         <Button asChild variant="secondary">
-          <Link href={featured.href} title={featured.label}>
-            {featured.label}
-            <ArrowRight className="size-4" />
+          <Link href={featured.path} title={featured.title}>
+            {featured.title}
+            <ArrowRight />
           </Link>
         </Button>
       </>

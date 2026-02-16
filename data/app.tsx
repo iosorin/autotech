@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { IField } from "@ui/blocks/form"
+import { IField } from "@ui/blocks/form";
+import { routes } from "./routes";
 
 const appurl = "https://work.moykazdes.ru/";
 
 export const app = {
   name: "Автотех",
   tagline: "Платформа Автотех",
-  title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
-  description:
-    "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
-  siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
+  title: routes.home.title,
+  description: routes.home.description,
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
   app: appurl,
   copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",
@@ -19,19 +19,9 @@ export const app = {
   supportEmail: "support@avtotech.com",
   telegram: { label: "@moykazdes", href: "https://t.me/moykazdes", },
   support: { label: "@avtotech_support", href: "https://t.me/avtotech_support", },
-  featured: { label: "Автопаркам", href: "/fleet" },
-  nav: [
-    { label: "Тарифы", href: "/tariffs" },
-    { label: "Обновления", href: "/updates" },
-    { label: "Мероприятия", href: "/events" },
-    { label: "Поддержка", href: "/support" },
-    { label: "Контакты", href: "/contacts" },
-  ],
-  links: [
-    { label: "Агентский договор", href: "/contract" },
-    { label: "Пользовательское соглашение", href: "/license" },
-    { label: "Политика обработки персональных данных", href: "/privacy" },
-  ],
+  nav: [routes.tariffs, routes.updates, routes.events, routes.support, routes.contacts],
+  links: [routes.contract, routes.license, routes.privacy],
+  featured: routes.fleet,
   cta: {
     start: {
       id: "start" as const,
@@ -70,7 +60,7 @@ export const app = {
       {
         id: "privacy", type: "checkbox", required: true, label: <>
           Я принимаю условия{" "}
-          <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
+          <Link target="_blank" href={routes.privacy.path} className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
         </>
       },
     ] as IField[],
@@ -89,7 +79,7 @@ export const app = {
       {
         id: "privacy", type: "checkbox", required: true, label: <>
           Я принимаю условия{" "}
-          <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
+          <Link target="_blank" href={routes.privacy.path} className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
         </>
       },
     ] as IField[],
@@ -125,7 +115,7 @@ export const app = {
     cta: [{
       id: "details" as const,
       label: "Узнать детали",
-      href: "/events",
+      href: routes.events.path,
       // props: { variant: "outline" as const, className: "rounded-full" },
     }]
   },
