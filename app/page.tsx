@@ -51,12 +51,13 @@ const Page = () => {
         <div className="gradlayer bg-gradient-gray" />
       </section>
 
+      {/* 
       <section id="event">
         <div className={p.event.className}>
           <Lead title={p.event.title} desc={p.event.desc} minor={p.event.date} label={p.event.date} />
           <Cta items={p.event.cta} />
         </div>
-      </section>
+      </section> */}
 
       <section id="features">
         <Features list={p.features.list} />
