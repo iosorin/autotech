@@ -1,7 +1,8 @@
+import { routes } from "../routes";
+
 export const contacts = {
   title: "Контакты",
-  supportHint: "Обращение в техническую поддержку: перейдите на страницу ",
-  supportLinkLabel: "Поддержка",
+  label: `Обращение в техническую поддержку: перейдите на страницу [${routes.support.title}](${routes.support.path})`,
   designed: {
     heading: "Приложение Автотех разработано для",
     items: [
