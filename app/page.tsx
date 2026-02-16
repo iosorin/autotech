@@ -18,10 +18,10 @@ const Page = () => {
   const p = home;
   return (
     <>
-      <section id="hero" className="pb-0">
+      <section id="hero" className="layered">
         <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
 
-        <Cta items={p.hero.cta.items}>
+        <Cta items={p.hero.cta.items} className="mt-2">
           <Cta.Slot id={p.hero.cta.slotId}>
             <Form heading={p.hero.cta.slot.heading} fields={p.hero.cta.slot.fields} onSubmit={contact} />
           </Cta.Slot>
@@ -48,7 +48,7 @@ const Page = () => {
           }
         />
 
-        <div className="gradlayer bg-gradient-gray" />
+        <div className="layer bg-gradient-gray" />
       </section>
 
       {/* 
@@ -68,7 +68,7 @@ const Page = () => {
         <Icons items={p.account.cards} variant="cards" left />
       </section>
 
-      <section id="extra" className="pb-0">
+      <section id="extra" >
         <div className="flex flex-col gap-12 md:gap-20">
           {p.extra.title && (
             <Enter variant="fade-up" duration={600}>
@@ -111,7 +111,7 @@ const Page = () => {
         </div>
       </section>
 
-      <section id="migration">
+      <section id="migration" className="layered">
         <Lead title={p.migration.heading} desc={p.migration.desc} icon={p.migration.icon} />
 
         <div className="flex flex-wrap justify-center gap-3 text-center">
@@ -121,10 +121,10 @@ const Page = () => {
             </Enter>
           ))}
         </div>
-        <div className="gradlayer bg-gradient-green" />
+        <div className="layer bg-gradient-green" />
       </section>
 
-      <section id="clients" className="pb-0">
+      <section id="clients" >
         <Lead
           primary
           label={p.clients.subtitle}
@@ -137,9 +137,9 @@ const Page = () => {
         />
       </section>
 
-      <section id="cta">
+      <section id="cta" className="layered">
         <Cta title={p.try.title} items={p.try.items} />
-        <div className="gradlayer bg-gradient-blue" />
+        <div className="layer bg-gradient-blue" />
       </section>
 
       <section id="faq">
@@ -157,19 +157,19 @@ const Page = () => {
         />
       </section>
 
-      <section id="testimonials">
+      <section id="testimonials" className="layered">
         <Lead title={p.testimonials.heading} />
         <Slider
           prevLabel={p.testimonials.prevLabel}
           nextLabel={p.testimonials.nextLabel}
           items={p.testimonials.items}
         />
-        <div className="gradlayer bg-muted" />
+        <div className="layer bg-muted" />
       </section>
 
-      <section id="cta-join">
+      <section id="cta-join" className="layered">
         <Cta title={p.join.title} items={p.join.items} />
-        <div className="gradlayer bg-muted" />
+        <div className="layer bg-muted" />
       </section>
     </>
   );

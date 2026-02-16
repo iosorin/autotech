@@ -12,7 +12,7 @@ const Support = () => {
   const p = support;
   return (
     <>
-      <section id="support">
+      <section id="support" className="layered">
         <section id="support-form">
           <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
           <Form
@@ -28,10 +28,10 @@ const Support = () => {
           <Icons items={p.types} cols={2} />
         </section>
 
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
-      <section id="support-contacts">
+      <section id="support-contacts" className="layered">
         <Lead title={p.headings.otherContact} />
         <Links
           labels={p.contactLabels}
@@ -41,7 +41,7 @@ const Support = () => {
           phoneRaw={app.phoneRaw}
         />
 
-        <div className="gradlayer bg-gradient-white-gray" />
+        <div className="layer bg-gradient-white-gray" />
       </section>
 
     </>

@@ -16,7 +16,7 @@ const Fleet = () => {
   const p = fleet;
   return (
     <>
-      <section id="fleet" className="pb-0">
+      <section id="fleet" className="layered">
         <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
         <Block
           list={[]}
@@ -32,7 +32,7 @@ const Fleet = () => {
             </Cta>
           }
         />
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section id="why">
@@ -71,7 +71,7 @@ const Fleet = () => {
         />
       </section>
 
-      <section id="how-it-works">
+      <section id="how-it-works" className="layered">
         <div className="max-w-[85%] mx-auto mb-16">
           <Lead title={p.how.heading} />
           <Icons items={p.how.items} variant="stack" />
@@ -83,7 +83,7 @@ const Fleet = () => {
           </Cta.Slot>
         </Cta>
 
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section id="transparency">
@@ -114,10 +114,10 @@ const Fleet = () => {
         />
       </section>
 
-      <section id="faq">
+      <section id="faq" className="layered">
         <Lead title={p.faq.heading} />
         <Faq items={p.faq.items} />
-        <div className="gradlayer bg-gradient-gray-white" />
+        <div className="layer bg-gradient-gray-white" />
       </section>
     </>
   );

@@ -10,7 +10,7 @@ const Events = () => {
   const p = events;
   return (
     <>
-      <section id="event" className="pb-0">
+      <section id="event" className="layered">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" className="mb-12" />
 
         <div className={p.event.className}>
@@ -21,7 +21,7 @@ const Events = () => {
             label={p.event.date} />
           <Cta items={p.event.cta} />
         </div>
-        <div className="gradlayer bg-gradient-gray" />
+        <div className="layer bg-gradient-gray" />
       </section>
 
       <section id="past-events">
