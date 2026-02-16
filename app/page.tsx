@@ -61,10 +61,7 @@ const Page = () => {
       </section>
 
       <section id="features">
-        <Features
-          tabs={p.features.tabs}
-          content={p.features.content}
-        />
+        <Features list={p.features.list} />
       </section>
 
       <section id="account">

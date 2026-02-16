@@ -3,6 +3,12 @@ import Link from "next/link";
 
 const appurl = "https://work.moykazdes.ru/";
 
+const ctaStart = { id: "start" as const, label: "Начать работать", href: appurl, blank: true };
+const ctaContact = {
+  id: "contact" as const,
+  label: "Связаться с нами",
+  slot: "call" as const,
+};
 
 export const app = {
   name: "Автотех",
@@ -18,6 +24,14 @@ export const app = {
   phoneRaw: "+79099041111",
   email: "info@moykazdes.ru",
   supportEmail: "support@avtotech.com",
+  images: {
+    appBox: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+    preview: { src: "/images/app-preview.png", alt: "Интерфейс приложения Автотех" },
+    work1: { src: "/images/work-1.png", alt: "Хранение шин" },
+    work2: { src: "/images/work-2.png", alt: "Безопасность" },
+    integrations: { src: "/images/integrations.svg", alt: "Интеграции" },
+    schedule: { src: "/images/app-shedule.png", alt: "Онлайн-запись в приложении" },
+  },
   telegram: {
     label: "@moykazdes",
     href: "https://t.me/moykazdes",
@@ -38,33 +52,25 @@ export const app = {
     { label: "Пользовательское соглашение", href: "/license" },
     { label: "Политика обработки персональных данных", href: "/privacy" },
   ],
-  featured: { label: "Автопаркам", href: "/fleet", },
+  featured: { label: "Автопаркам", href: "/fleet" },
   cta: {
     connect: "Подключайтесь и получите \n 2 недели бесплатно",
     join: "Присоединяйтесь к нашим \n довольным клиентам",
     try: "Готовы попробовать?",
-    start: { id: "start" as const, label: "Начать работать", href: appurl, blank: true },
-    contact: {
-      id: "contact" as const,
-      label: "Связаться с нами",
-      slot: "call" as const,
-      // href: "/contacts",
-      // props: { variant: "outline" as const, className: "rounded-full" },
-    },
+    start: ctaStart,
+    contact: ctaContact,
+    primary: [ctaStart, ctaContact],
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
       className: "text-primary-foreground bg-gradient-telegram",
-      // icon: "/images/icons/telegram.svg",
     },
-
     contact2: {
       id: "contact2" as const,
       label: "Связаться с нами",
       href: "/contacts",
       className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
     },
-
     cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appurl, blank: true },
     more: { id: "more" as const, label: "Узнать больше", slot: "call" as const },
   },

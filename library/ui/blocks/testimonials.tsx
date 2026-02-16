@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import Image from "next/image";
-import { Button } from "../atoms/button";
+import { Button } from "@ui/atoms/button";
 
 type Testimonial = {
   name: string;

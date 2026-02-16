@@ -3,15 +3,16 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
-import React from "react";
 import { cn } from "@/library/utils";
+import Icon from "@ui/atoms/icon";
 
+type Feature = { icon?: React.ComponentProps<typeof Icon>; label: string };
 type Props = {
   heading: React.ReactNode;
-  features: { icon: React.ReactNode; label: string }[];
-  card: { title: string; desc: string; icon: React.ReactNode; };
-  image: { src: string; alt: string; };
-  links?: { label: string; href: string; props?: React.ComponentProps<typeof Button>; }[];
+  features: Feature[];
+  card: { title: string; desc: string; icon?: React.ComponentProps<typeof Icon> };
+  image: { src: string; alt: string };
+  links?: { label: string; href: string; props?: React.ComponentProps<typeof Button> }[];
   cta?: React.ReactNode;
   className?: string;
 };
@@ -54,15 +55,9 @@ export const Hero = ({
         <div className="flex flex-wrap gap-3 flex-1 justify-center lg:justify-start order-2 lg:order-1">
           {features.map((item, i) => {
             return (
-              <Enter key={item.label
-              } variant="fade-right" delay={i * 80} duration={500} >
+              <Enter key={item.label} variant="fade-right" delay={i * 80} duration={500}>
                 <div className="inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-2.5 text-sm w-fit bg-white whitespace-nowrap max-w-full">
-                  {item.icon &&
-                    <span className="flex-shrink-0">
-                      {item.icon}
-                    </span>
-                  }
-
+                  <Icon {...item.icon} className={cn("flex-shrink-0", item.icon?.className)} />
                   <span className="text-base md:text-lg truncate">{item.label}</span>
                 </div>
               </Enter>
@@ -92,9 +87,9 @@ export const Hero = ({
         </Enter >
 
         {card && (
-          <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3" >
+          <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3">
             <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
-              {card.icon}
+              <Icon {...card.icon} className={cn("size-10 text-primary", card.icon?.className)} />
               <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
               <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
             </div>

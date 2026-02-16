@@ -1,13 +1,16 @@
 import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
+import Icon from "@ui/atoms/icon";
 
 type Item = {
   title: string;
-  desc: string,
-  badge?: string,
-  icon?: React.ReactNode | string;
+  desc: string;
+  badge?: string;
+  icon?: React.ComponentProps<typeof Icon>;
+  image?: React.ReactNode | string;
+  // iconClassName?: string;
   line?: boolean;
-  className?: string,
+  className?: string;
 };
 
 type Props = {
@@ -18,22 +21,27 @@ type Props = {
   left?: boolean;
 };
 
-export const Icons = ({ items, itemClassName, cols = 3, variant = "cards", left = false }: Props) => {
-  const renderIcon = (item: Item) => {
-    if (!item.icon) return null;
-    if (typeof item.icon === 'string') {
-      return <div
-        className="w-full h-44 bg-no-repeat bg-left"
-        style={{ backgroundImage: `url(${item.icon})`, backgroundSize: 'contain', }}
-      />
-      // return <div className="relative w-full h-auto min-h-[120px]">
-      //   <Image src={item.icon} alt={item.title} fill className="object-contain" />
-      // </div>
-      // return <Image src={item.icon} alt={item.title} width={400} height={200} />
-    }
+const isImageUrl = (s: Item["image"]) => {
+  if (typeof s !== "string") return false;
+  return s?.startsWith("/") || s?.startsWith("http");
+};
 
-    return <div className={cn("flex-shrink-0", item.line ? 'line' : '')}>{item.icon}</div>;
-  }
+export const Icons = ({ items, itemClassName, cols = 3, variant = "cards", left = false }: Props) => {
+  const renderAssets = (item: Item) =>
+    <>
+      {item.image && isImageUrl(item.image) ? (
+        <div className="w-full h-44 bg-no-repeat bg-left"
+          style={{ backgroundImage: `url(${item.image})`, backgroundSize: "contain" }}
+        />
+      ) : (
+        <div className={cn("flex-shrink-0", item.line ? "line" : "")}>{item.image}</div>
+      )}
+
+      {item.icon && (
+        <Icon {...item.icon} className={cn("size-10 text-accent", item.icon.className)} />
+      )}
+    </>
+
   const renderItems = (list: Item[], stack?: boolean) => {
     return list.map((item, i) => {
       return (
@@ -48,7 +56,7 @@ export const Icons = ({ items, itemClassName, cols = 3, variant = "cards", left 
               {item.badge}
             </span>
           )}
-          {renderIcon(item)}
+          {renderAssets(item)}
           <h3>{item.title}</h3>
           <p className="text-lg">{item.desc}</p>
         </Enter>

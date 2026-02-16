@@ -2,38 +2,47 @@
 
 import React from "react";
 import Image from "next/image";
+import { Tabs, TabsTrigger, TabsList, TabsContent } from "@ui/atoms/tabs";
 import { Enter } from "@ui/atoms/enter";
-import { Tabs, TabsTrigger, TabsList, TabsContent } from "../atoms/tabs";
-import Lead from "../atoms/lead";
+import { Lead } from "@ui/atoms/lead";
+import { Icon } from "@ui/atoms/icon";
+import { cn } from "@utils";
 
-type Tab = { id: string; label: string };
-type Feature = { icon: React.ReactNode; text: string };
+type Feature = { icon?: React.ComponentProps<typeof Icon>; text: string };
 type TabContent = {
+  id: string;
+  label: string;
   title: string;
   features: Feature[];
   image?: { src: string; alt: string };
 };
 
-type Props = {
-  tabs: Tab[];
-  content: Record<string, TabContent>;
-};
+type Props =
+  | { list: TabContent[] }
+  | { tabs: { id: string; label: string }[]; content: Record<string, Omit<TabContent, "id" | "label">> };
 
-export const Features = ({ tabs, content }: Props) => {
-  const renderFeatures = (features: Feature[], delay: number) => {
-    return features.map((item, i) => {
-      return (
-        <Enter key={item.text} variant="fade-up" delay={delay + i * 60} duration={500} className="w-full">
-          <div className="flex items-start gap-4">
-            {item.icon && <span className="flex-shrink-0 mt-1.5">
-              {item.icon}
-            </span>}
-            <p className="text-lg text-foreground leading-relaxed">{item.text}</p>
-          </div>
-        </Enter>
-      );
-    })
-  }
+export const Features = (props: Props) => {
+  const tabs = "list" in props
+    ? props.list.map((x) => ({ id: x.id, label: x.label }))
+    : props.tabs;
+  const content = "list" in props
+    ? Object.fromEntries(props.list.map((x) => [x.id, x]))
+    : props.content;
+  const list: TabContent[] = "list" in props
+    ? props.list
+    : props.tabs
+      .filter((tab) => content[tab.id])
+      .map((tab) => ({ ...content[tab.id]!, id: tab.id, label: tab.label }));
+
+  const renderFeatures = (features: Feature[], delay: number) =>
+    features.map((item, i) => (
+      <Enter key={item.text} variant="fade-up" delay={delay + i * 60} duration={500} className="w-full">
+        <div className="flex items-start gap-4">
+          <Icon {...item.icon} className={cn("size-6 text-primary mt-1.5", item.icon?.className)} />
+          <p className="text-lg text-foreground leading-relaxed">{item.text}</p>
+        </div>
+      </Enter>
+    ));
 
   const defaultTab = tabs[0]?.id ?? "orders";
 
@@ -41,24 +50,20 @@ export const Features = ({ tabs, content }: Props) => {
     <Tabs defaultValue={defaultTab} className="flex flex-col items-center w-full flex-wrap">
       <TabsList className="mb-10 mx-auto max-w-full overflow-x-auto">
         {tabs.map((tab) => (
-          <TabsTrigger
-            key={tab.id}
-            value={tab.id}
-          >
+          <TabsTrigger key={tab.id} value={tab.id}>
             {tab.label}
           </TabsTrigger>
         ))}
       </TabsList>
 
-      {tabs.map((tab) => {
-        const data = content[tab.id];
+      {list.map((data) => {
         if (!data) return null;
         const half = Math.ceil(data.features.length / 2);
         const left = data.features.slice(0, half);
         const right = data.features.slice(half);
 
         return (
-          <TabsContent key={tab.id} value={tab.id} className="flex flex-col gap-8 mt-0">
+          <TabsContent key={data.id} value={data.id} className="flex flex-col gap-8 mt-0">
             <Enter variant="fade" duration={500}>
               <Lead title={data.title} />
             </Enter>
@@ -79,7 +84,6 @@ export const Features = ({ tabs, content }: Props) => {
               <div className="flex flex-col gap-6 flex-1">
                 {renderFeatures(left, 0)}
               </div>
-
               <div className="flex flex-col gap-6 flex-1">
                 {renderFeatures(right, half)}
               </div>
