@@ -63,7 +63,7 @@ export const Block = ({
             return (
                 <span
                     key={tag.label}
-                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-3 text-sm w-fit bg-white md:whitespace-pre-line max-w-full", tagClassName ?? "bg-muted")}
+                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-5 md:py-3 text-sm w-fit bg-white md:whitespace-pre-line max-w-full", tagClassName ?? "bg-muted")}
                 >
                     {tag.icon && <Icon {...tag.icon} className="flex-shrink-0" />}
                     <span className="text-base md:text-lg truncate">{tag.label}</span>
@@ -144,7 +144,7 @@ export const Block = ({
                 {!hero && cta}
             </div>
 
-            <div className="flex flex-wrap flex-col gap-1 content-start max-w-full" style={{ gridArea: "pills" }}>
+            <div className="flex flex-wrap flex-col max-w-full" style={{ gridArea: "pills" }}>
                 {tags &&
                     <div className={cn("flex flex-col gap-8 max-w-full", hero && "gap-3")}>{tags.map((t, i) =>
                         <div
@@ -174,7 +174,7 @@ export const Block = ({
             <div className="flex justify-center items-center" style={{ gridArea: "card" }}>
                 {card &&
                     <Enter variant="fade-left" delay={300} duration={600} className="w-full">
-                        <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
+                        <div className="rounded-2xl bg-gradient-white p-4 md:py-8 center flex-col text-center gap-3 md:gap-4">
                             {card.icon && <Icon {...card.icon} className={cn("size-10 text-primary", card.icon.className)} />}
                             <h3 className="mb-1">{card.title}</h3>
                             <p className="text-muted-foreground">{card.desc}</p>
