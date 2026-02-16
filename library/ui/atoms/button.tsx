@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
-
 import { cn } from '@utils'
+import { Icon } from '@ui/atoms/icon'
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4.5 [&_svg]:shrink-0 transition duration-200',
@@ -28,6 +28,10 @@ const buttonVariants = cva(
         xl: 'h-14 rounded-full px-8 text-lg [&_svg]:size-6',
         icon: 'h-10 w-10',
       },
+      readonly: {
+        true: "pointer-events-none user-select-none",
+        false: "",
+      },
     },
     defaultVariants: {
       variant: 'default',
@@ -40,21 +44,29 @@ export interface ButtonProps
   extends
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
+  label?: string;
+  icon?: React.ComponentProps<typeof Icon>;
+  readonly?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button'
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
+  ({ className, variant, size, asChild = false, label, icon, children, readonly = false, ...props }, ref) => {
+    const commonProps = {
+      className: cn(buttonVariants({ variant, size, readonly, className })),
+      ref,
+      ...props,
+    }
+    if (asChild) return <Slot {...commonProps}>{children}</Slot>;
+
+    return <button {...commonProps}>
+      <Icon {...icon} />
+      {label}
+      {children}
+    </button>;
   },
-)
+);
+
 Button.displayName = 'Button'
 
 export { Button, buttonVariants }

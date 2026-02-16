@@ -157,7 +157,7 @@ export const home = {
     },
     devices: {
       heading: "Доступно на любом типе устройств",
-      list: [
+      items: [
         { label: "Мобильный телефон", icon: { name: "Smartphone" } },
         { label: "Планшет", icon: { name: "Laptop2" } },
         { label: "Ноутбук", icon: { name: "Laptop" } },
@@ -166,14 +166,14 @@ export const home = {
     mechanicImageAlt: "Автосервис",
   },
   migration: {
-    titleLine1: "Легкий перенос данных",
-    titleLine2: "из других приложений",
+    icon: { name: "RefreshCw", className: "size-20 mx-auto text-primary" },
+    heading: "Легкий перенос данных \n из других приложений",
     desc: "Переносим все данные из других наиболее популярных приложений за минуту, включая базы клиентов физ.лиц и контрагентов, остатки бонусов, средние чеки и количество визитов",
     items: [
-      "Базы клиентов физ.лиц и контрагентов",
-      "Средние чеки",
-      "Остатки бонусов",
-      "Количество визитов",
+      { label: "Базы клиентов физ.лиц и контрагентов", icon: { name: "Users" } },
+      { label: "Средние чеки", icon: { name: "Calculator" } },
+      { label: "Остатки бонусов", icon: { name: "CreditCard" } },
+      { label: "Количество визитов", icon: { name: "CalendarCheck" } },
     ],
   },
   clients: {
