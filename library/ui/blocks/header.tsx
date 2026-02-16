@@ -43,7 +43,7 @@ export const Header = ({ title, logo, nav, featured, className, current }: Props
             key={item.title}
             href={item.path}
             title={item.title}
-            className={cn("font-medium transition-colors duration-200 relative", item.title === featured.title ? "text-primary" : "text-foreground", pathname === item.path ? "underline" : "text-foreground")}
+            className={cn("font-medium text-sm transition-colors duration-200 relative", item.title === featured.title ? "text-primary" : "text-foreground", pathname === item.path ? "underline" : "text-foreground")}
           >
             {item.title}
           </Link>
