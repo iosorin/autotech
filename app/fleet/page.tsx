@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Icons } from "@ui/blocks/icons";
 import { Promo } from "@ui/blocks/promo";
 import { Compare } from "@ui/blocks/compare";
-import { Hero } from "@ui/blocks/hero";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
@@ -18,11 +17,13 @@ const Fleet = () => {
   return (
     <>
       <section id="fleet" className="pb-0">
-        <Hero
-          heading={<Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />}
-          features={p.hero.features}
-          card={p.hero.card}
+        <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
+        <Block
+          list={[]}
+          layout="hero"
+          pills={[{ tags: p.hero.features }]}
           image={p.hero.image}
+          card={p.hero.card}
           cta={
             <Cta items={p.hero.cta.items}>
               <Cta.Slot id={p.hero.cta.slotId}>
@@ -97,7 +98,7 @@ const Fleet = () => {
         <Lead title={p.cabinet.heading} />
         <Block
           list={p.cabinet.items?.length ? [{ items: p.cabinet.items }] : []}
-          groups={p.cabinet.groups}
+          pills={p.cabinet.pills}
           image={p.cabinet.image}
           layout="center-image"
         />
