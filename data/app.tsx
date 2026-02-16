@@ -120,7 +120,7 @@ export const app = {
     }]
   },
   images: {
-    appBox: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+    appBox: { src: "/images/app-box-2.png", alt: "Интерфейс приложения Автотех" },
     preview: { src: "/images/app-preview.png", alt: "Интерфейс приложения Автотех" },
     work1: { src: "/images/work-1.png", alt: "Хранение шин" },
     work2: { src: "/images/work-2.png", alt: "Безопасность" },
