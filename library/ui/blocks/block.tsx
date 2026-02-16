@@ -63,7 +63,7 @@ export const Block = ({
             return (
                 <span
                     key={tag.label}
-                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-2.5 text-sm w-fit bg-white whitespace-nowrap max-w-full", tagClassName ?? "bg-muted")}
+                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-3 text-sm w-fit bg-white whitespace-nowrap max-w-full", tagClassName ?? "bg-muted")}
                 >
                     {tag.icon && <Icon {...tag.icon} className="flex-shrink-0" />}
                     <span className="text-base md:text-lg truncate">{tag.label}</span>
@@ -145,7 +145,7 @@ export const Block = ({
                 {!hero && cta}
             </div>
 
-            <div className="flex flex-wrap gap-3 flex-col content-start" style={{ gridArea: "pills" }}>
+            <div className="flex flex-wrap flex-col gap-1 content-start" style={{ gridArea: "pills" }}>
                 {tags &&
                     <div className={cn("flex flex-col gap-8", hero && "gap-3")}>{tags.map((t, i) => <div
                         key={t.title ?? i}
@@ -154,14 +154,14 @@ export const Block = ({
                         {t.title && (
                             <h5 className={cn("mb-3 text-foreground", layout === "default" && "font-medium")}>{t.title}</h5>
                         )}
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-3.5">
                             {t.items.map((item) => renderTag(item, t.tagClassName))}
                         </div>
                     </div>)}</div>
                 }
 
                 {hero && cta && (
-                    <Enter variant="fade-right" delay={500} duration={500} className="mt-2 w-full">
+                    <Enter variant="fade-right" delay={500} duration={500} className="w-full">
                         {cta}
                     </Enter>
                 )}
@@ -176,7 +176,7 @@ export const Block = ({
                     <Enter variant="fade-left" delay={300} duration={600} className="w-full">
                         <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
                             {card.icon && <Icon {...card.icon} className={cn("size-10 text-primary", card.icon.className)} />}
-                            <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
+                            <h3 className="font-bold text-foreground mb-1">{card.title}</h3>
                             <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
                         </div>
                     </Enter>
