@@ -39,7 +39,7 @@ export const Hero = ({
           <Enter variant="fade-up" delay={200} duration={600}>
             <div className="flex flex-wrap justify-center gap-3">
               {links.map((link, i) => (
-                <Button asChild variant="default" size="xl" key={link.href} {...link.props}>
+                <Button asChild variant="default" size="xl" key={link.label} {...link.props}>
                   <Link href={link.href} title={link.label} className="rounded-full">
                     {link.label}
                     {i === 0 && <ArrowUpRight />}

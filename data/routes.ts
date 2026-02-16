@@ -1,10 +1,9 @@
-import { app } from "./app";
-
 export const routes = {
   home: {
     path: "/",
-    title: app.title,
-    description: app.description,
+    title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
+    description:
+      "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
     alternates: { canonical: "/" },
   },
   contacts: {

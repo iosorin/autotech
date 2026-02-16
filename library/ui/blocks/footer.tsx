@@ -1,28 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { cn } from "@utils";
 import { Button } from "@ui/atoms/button";
-// import { app } from "@data";
+import { cn } from "@utils";
 
+type NavItem = { title: string; path: string; }
 type Props = {
   title: string;
   logo: string;
   copyright: string;
   phone: string;
   email: string;
-  telegram: {
-    label: string;
-    href: string;
-  }
-  nav: {
-    label: string;
-    href: string;
-  }[];
-  featured: {
-    label: string;
-    href: string;
-  };
+  telegram: { label: string; href: string; }
+  nav: NavItem[];
+  links: NavItem[];
+  featured: NavItem;
   company: {
     name: string;
     inn: string;
@@ -30,10 +22,6 @@ type Props = {
     addressLine1: string;
     addressLine2: string;
   };
-  links: {
-    label: string;
-    href: string;
-  }[];
   className?: string;
 }
 
@@ -101,12 +89,12 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
             <div className="grid grid-cols-2 gap-x-8 gap-y-1 text-sm">
               {nav.map((link) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={link.title}
+                  href={link.path}
                   className="hover:underline"
-                  title={link.label}
+                  title={link.title}
                 >
-                  {link.label}
+                  {link.title}
                 </Link>
               ))}
             </div>
@@ -115,9 +103,9 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
 
           {featured &&
             <Button asChild variant="secondary">
-              <Link href={featured.href} title={featured.label}>
-                {featured.label}
-                <ArrowRight className="size-4" />
+              <Link href={featured.path} title={featured.title}>
+                {featured.title}
+                <ArrowRight />
               </Link>
             </Button>
           }
@@ -146,12 +134,12 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
             <div className="flex flex-col gap-1">
               {links.map((link) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  title={link.label}
+                  key={link.path}
+                  href={link.path}
+                  title={link.title}
                   className="underline hover:no-underline"
                 >
-                  {link.label}
+                  {link.title}
                 </Link>
               ))}
             </div>
