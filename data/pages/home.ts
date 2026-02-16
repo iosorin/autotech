@@ -236,6 +236,12 @@ export const home = {
       },
     ],
   },
-  try: { title: app.cta.try, items: app.cta.primary },
-  join: { title: app.cta.join, items: app.cta.primary },
+  try: {
+    title: 'Готовы попробовать?',
+    items: [app.cta.start, app.cta.contact]
+  },
+  join: {
+    title: 'Присоединяйтесь к нашим \n довольным клиентам',
+    items: [app.cta.start, app.cta.contact]
+  },
 };

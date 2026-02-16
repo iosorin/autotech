@@ -45,7 +45,7 @@ export const Cta = ({ title, items, className, children }: Props) => {
       <Lead title={title} />
       <div className="flex flex-wrap justify-center gap-3">
         {items?.map((item, i) => {
-          const content = !item.href ? slots[item.id] : undefined;
+          const content = slots[item.id];
 
           if (content) {
             return (

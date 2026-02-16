@@ -60,7 +60,7 @@ export const tariffs = {
     image: { ...app.images.appBox, className: "flex-[0_0_40%]" },
   },
   cta: {
-    title: app.cta.connect,
-    items: app.cta.primary,
+    title: 'Подключайтесь и получите \n 2 недели бесплатно',
+    items: [app.cta.start, app.cta.contact],
   },
 };

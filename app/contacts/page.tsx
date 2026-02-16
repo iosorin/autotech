@@ -68,7 +68,7 @@ export const Contacts = () => {
         <Lead title={p.otherContactHeading} />
         <Links
           labels={p.contactLabels}
-          telegramSupport={app.telegram}
+          support={app.telegram}
           email={app.supportEmail}
           phone={app.phone}
           phoneRaw={app.phoneRaw}

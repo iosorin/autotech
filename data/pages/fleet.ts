@@ -13,7 +13,7 @@ export const fleet = {
       desc: "для вашего автопарка",
       icon: { name: "MapPlus" },
     },
-    image: { ...app.images.preview, alt: "Приложение Автотех для автопарков" },
+    image: app.images.preview,
     cta: { items: [app.cta.contact], slotId: app.cta.start.id },
   },
   callForm: app.call,
@@ -101,7 +101,7 @@ export const fleet = {
       "Отслеживайте статистику оказания услуг в любом разрезе, в режиме реального времени",
     ],
     image: app.images.preview,
-    cta: { items: app.cta.primary, slotId: app.cta.start.id },
+    cta: { items: [app.cta.start, app.cta.contact], slotId: app.cta.start.id },
   },
   cabinet: {
     heading: "Возможности личного кабинета для юридических лиц",
@@ -160,8 +160,8 @@ export const fleet = {
     heading: "Специальное предложение для HRD",
     desc: "Добавляйте автомойки для ключевых сотрудников в соц.пакет. Это повышает лояльность сотрудников",
     icon: { name: "Heart", className: "size-14 text-accent" },
-    cta: { items: app.cta.primary },
-    image: { ...app.images.preview, alt: "Специальное предложение для HRD" },
+    cta: { items: [app.cta.start, app.cta.contact] },
+    // image: { ...app.images.preview, alt: "Специальное предложение для HRD" },
   },
   faq: {
     heading: "Часто задаваемые вопросы",

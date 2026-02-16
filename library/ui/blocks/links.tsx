@@ -3,10 +3,7 @@ import { ExternalLink } from "lucide-react";
 
 type Props = {
   labels: { telegram: string; email: string; phone: string };
-  telegramSupport: {
-    label: string;
-    href: string;
-  }
+  support: { label: string; href: string; }
   email: string;
   phone: string;
   phoneRaw: string;
@@ -14,7 +11,7 @@ type Props = {
 
 export const Links = ({
   labels,
-  telegramSupport,
+  support,
   email,
   phone,
   phoneRaw,
@@ -23,14 +20,14 @@ export const Links = ({
     <div className="max-w-md mx-auto space-y-8 text-center">
       <div>
         <p className="text-lg font-medium text-accent">{labels.telegram}</p>
-        {telegramSupport &&
+        {support &&
           <Link
             target="_blank"
-            href={telegramSupport.href}
-            title={telegramSupport.label}
+            href={support.href}
+            title={support.label}
             className="inline-flex items-center gap-2 text-lg font-semibold text-foreground hover:text-accent"
           >
-            {telegramSupport.label}
+            {support.label}
             <ExternalLink className="size-5" />
           </Link>
         }

@@ -1,5 +1,5 @@
-import { IField } from "@ui/blocks/form"
 import Link from "next/link";
+import { IField } from "@ui/blocks/form"
 
 const appurl = "https://work.moykazdes.ru/";
 
@@ -17,22 +17,9 @@ export const app = {
   phoneRaw: "+79099041111",
   email: "info@moykazdes.ru",
   supportEmail: "support@avtotech.com",
-  images: {
-    appBox: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
-    preview: { src: "/images/app-preview.png", alt: "Интерфейс приложения Автотех" },
-    work1: { src: "/images/work-1.png", alt: "Хранение шин" },
-    work2: { src: "/images/work-2.png", alt: "Безопасность" },
-    integrations: { src: "/images/integrations.svg", alt: "Интеграции" },
-    schedule: { src: "/images/app-shedule.png", alt: "Онлайн-запись в приложении" },
-  },
-  telegram: {
-    label: "@moykazdes",
-    href: "https://t.me/moykazdes",
-  },
-  telegramSupport: {
-    label: "@avtotech_support",
-    href: "https://t.me/avtotech_support",
-  },
+  telegram: { label: "@moykazdes", href: "https://t.me/moykazdes", },
+  support: { label: "@avtotech_support", href: "https://t.me/avtotech_support", },
+  featured: { label: "Автопаркам", href: "/fleet" },
   nav: [
     { label: "Тарифы", href: "/tariffs" },
     { label: "Обновления", href: "/updates" },
@@ -45,11 +32,7 @@ export const app = {
     { label: "Пользовательское соглашение", href: "/license" },
     { label: "Политика обработки персональных данных", href: "/privacy" },
   ],
-  featured: { label: "Автопаркам", href: "/fleet" },
   cta: {
-    connect: "Подключайтесь и получите \n 2 недели бесплатно",
-    join: "Присоединяйтесь к нашим \n довольным клиентам",
-    try: "Готовы попробовать?",
     start: {
       id: "start" as const,
       label: "Начать работать",
@@ -61,19 +44,22 @@ export const app = {
       label: "Связаться с нами",
       slot: "call" as const,
     },
+    more: {
+      id: "more" as const,
+      label: "Узнать больше",
+      slot: "call" as const,
+    },
+    cabinet: {
+      id: "cabinet" as const,
+      label: "Перейти в личный кабинет",
+      href: appurl,
+      blank: true
+    },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
       className: "text-primary-foreground bg-gradient-telegram",
     },
-    contact2: {
-      id: "contact2" as const,
-      label: "Связаться с нами",
-      href: "/contacts",
-      className: "border border-secondary hover:bg-secondary hover:text-secondary-foreground rounded-full",
-    },
-    cabinet: { id: "cabinet" as const, label: "Перейти в личный кабинет", href: appurl, blank: true },
-    more: { id: "more" as const, label: "Узнать больше", slot: "call" as const },
   },
   call: {
     heading: "Запросить обратный звонок",
@@ -99,26 +85,13 @@ export const app = {
         options: ["Подключение", "Техническая проблема", "Пожелание по доработке", "Вопрос по приложению", "Другое",] as const,
       },
       { id: "message", type: "textarea", label: "Опишите вопрос или проблему", placeholder: "Опишите вопрос или проблему" },
+      {
+        id: "privacy", type: "checkbox", required: true, label: <>
+          Я принимаю условия{" "}
+          <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
+        </>
+      },
     ] as IField[],
-    agree: (
-      <>
-        Я принимаю условия{" "}
-        <Link target="_blank" href="/privacy" className="text-primary underline hover:text-primary/80" title="Политика обработки персональных данных" > обработки персональных данных </Link>
-      </>
-    ),
-  },
-  event: {
-    date: "12 февраля 2026 | 18:00 – 22:00",
-    title: "Закрытое мероприятие",
-    desc: "для собственников и управляющих автомойками,\n детейлинг-центрами и шиномонтажами",
-    minor: "Регистрация обязательна!",
-    className: "rounded-3xl px-6 py-8 bg-gradient-blue md:max-w-[70%] mx-auto",
-    cta: [{
-      id: "details" as const,
-      label: "Узнать детали",
-      href: "/events",
-      // props: { variant: "outline" as const, className: "rounded-full" },
-    }]
   },
   company: {
     name: "ООО ГТМ Лабс",
@@ -141,5 +114,26 @@ export const app = {
       city: "Москва",
       corr: "30101810845250000999 в ГУ БАНКА РОССИИ ПО ЦФО",
     },
+  },
+  event: {
+    date: "12 февраля 2026 | 18:00 – 22:00",
+    title: "Закрытое мероприятие",
+    desc: "для собственников и управляющих автомойками,\n детейлинг-центрами и шиномонтажами",
+    minor: "Регистрация обязательна!",
+    className: "rounded-3xl px-6 py-8 bg-gradient-blue md:max-w-[70%] mx-auto",
+    cta: [{
+      id: "details" as const,
+      label: "Узнать детали",
+      href: "/events",
+      // props: { variant: "outline" as const, className: "rounded-full" },
+    }]
+  },
+  images: {
+    appBox: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+    preview: { src: "/images/app-preview.png", alt: "Интерфейс приложения Автотех" },
+    work1: { src: "/images/work-1.png", alt: "Хранение шин" },
+    work2: { src: "/images/work-2.png", alt: "Безопасность" },
+    integrations: { src: "/images/integrations.svg", alt: "Интеграции" },
+    schedule: { src: "/images/app-shedule.png", alt: "Онлайн-запись в приложении" },
   },
 };
