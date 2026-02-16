@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { cn } from "@utils";
+import React from "react";
 import { Button } from "@ui/atoms/button";
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
+import { cn } from "@utils";
 
 type Col = { id: string; label: string };
 
@@ -23,7 +23,7 @@ type Props = {
 };
 
 export const Table = ({ cols, rows, note, note2, className }: Props) => {
-  const [activePeriod, setActivePeriod] = useState(cols[0]?.id ?? "1m");
+  const [activePeriod, setActivePeriod] = React.useState(cols[0]?.id ?? "1m");
 
   return (
     <div className={cn("rounded-2xl p-4 lg:p-8", className)}>

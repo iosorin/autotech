@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
 import { cn } from "@/library/utils";
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
 
 type Feature = { icon?: React.ComponentProps<typeof Icon>; label: string };
 type Props = {

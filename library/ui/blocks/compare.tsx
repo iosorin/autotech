@@ -1,5 +1,5 @@
 import { cn } from "@utils";
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
 
 type Col = {
   label: string;

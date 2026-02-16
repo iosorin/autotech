@@ -1,5 +1,5 @@
 import Enter from "@ui/atoms/enter";
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
 
 type Props = {
   list: { label: string; icon?: React.ComponentProps<typeof Icon> }[];
