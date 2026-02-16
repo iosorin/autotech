@@ -37,7 +37,7 @@ const Page = () => {
               href={p.hero.telegram.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-white shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.telegram.className)}
+              className={cn("text-white shadow-sm inline-flex items-center gap-3 rounded-2xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", p.hero.telegram.className)}
             >
               <svg viewBox="0 0 24 24" fill="white" className="size-11">
                 <path

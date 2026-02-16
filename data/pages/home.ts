@@ -5,19 +5,20 @@ export const home = {
     title: "Приложение для автомойки,\nдетейлинга и шиномонтажа",
     subtitle: "Платформа Автотех",
     cta: {
-      items: [app.cta.start],
+      items: [app.cta.start, app.cta.contact],
       slotId: app.cta.contact.id,
       slot: app.call,
     },
     telegram: app.cta.telegram,
     tags: [{
       items: [
-        { icon: { name: "ScanLine" }, label: "Распознавание марок и номеров" },
-        { icon: { name: "BarChart3" }, label: "Статистика и аналитика" },
-        { icon: { name: "Calculator" }, label: "Гибкий расчет зарплат" },
-        { icon: { name: "CalendarCheck" }, label: "Онлайн-запись" },
-        { icon: { name: "Users" }, label: "CRM" },
-      ]
+        { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
+        { icon: { name: "chart-pie" }, label: "Статистика и аналитика" },
+        { icon: { name: "calculator" }, label: "Гибкий расчет зарплат" },
+        { icon: { name: "calendar-check" }, label: "Онлайн-запись" },
+        { icon: { name: "users" }, label: "CRM" },
+      ],
+      tagClassName: "bg-white [&_svg]:text-primary",
     }],
     card: {
       title: "Легкий переход с других приложений",

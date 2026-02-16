@@ -9,8 +9,8 @@ import { DynamicIcon } from "lucide-react/dynamic";
 export type IIcon = Omit<React.ComponentProps<typeof DynamicIcon>, "size" | "name"> & { name?: string; size?: number };
 
 const cache = new Map<string, React.ComponentType<IIcon>>();
-const pascalToKebab = (name: string) =>
-    name.replace(/([A-Z])/g, "-$1").toLowerCase().replace(/^-/, "");
+
+const kebab = (s?: string) => s?.replace(/([A-Z])/g, "-$1").toLowerCase().replace(/^-/, "");
 
 const Loading = (props: IIcon) => (
     <span
@@ -19,8 +19,8 @@ const Loading = (props: IIcon) => (
     />
 );
 
-const getIcon = (props: IIcon) => {
-    const key = pascalToKebab(props.name ?? "");
+const getIcon = (key?: string, props?: IIcon) => {
+    // const key = pascalToKebab(props.name ?? "");
     if (!key) return null;
     if (!cache.has(key)) {
         const loader = key in dynamicIconImports ? dynamicIconImports[key as keyof typeof dynamicIconImports] : null;
@@ -38,7 +38,7 @@ const getIcon = (props: IIcon) => {
 
 
 export const Icon = memo((props: IIcon) => {
-    const Component = getIcon(props);
+    const Component = getIcon(props.name, props) || getIcon(kebab(props.name), props);
     if (!Component) return null;
 
     return <Component {...props} />;

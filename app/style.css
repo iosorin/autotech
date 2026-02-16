@@ -91,7 +91,7 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl font-bold text-foreground text-balance;
+    @apply text-3xl md:text-5xl font-bold text-foreground text-balance tracking-[-1px];
   }
 
   h2 {
