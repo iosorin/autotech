@@ -66,9 +66,7 @@ export const contacts = {
   },
   otherContactHeading: "Другие способы связи",
   contactLabels: {
-    telegram: "Telegram",
-    email: "Электронная почта",
-    phone: "Телефон",
+    telegram: "Telegram", email: "Электронная почта", phone: "Телефон",
   },
   requisitesHeading: "Реквизиты",
   bankHeading: "Банковские реквизиты",

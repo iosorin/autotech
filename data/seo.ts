@@ -1,18 +1,22 @@
 import { app } from "./app";
 import { routes } from "./routes";
 
-const pages = Object.fromEntries(
-  routes.map((r) => [r.key, { title: r.title, description: r.description }])
-);
+const sitemap = Object.values(routes).map((r) => ({
+  url: `${app.siteurl}${r.path}`,
+  lastModified: new Date(),
+  changeFrequency: r.path === "/" ? "weekly" : ("monthly" as const),
+  priority: r.path === "/" ? 1 : 0.8,
+}))
 
 export const seo = {
   defaultTitle: app.title,
   defaultDescription: app.description,
-  siteName: app.name,
+  sitename: app.name,
   ogImage: "/og.png",
   ogImageAlt: app.name,
   templateTitle: "Автотех - %s",
-  pages,
+  sitemap,
+  pages: routes,
   keywords: [
     "автотех",
     "автотех приложение",

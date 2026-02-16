@@ -1,14 +1,7 @@
-import { IField } from "@/library/ui/blocks/form"
+import { IField } from "@ui/blocks/form"
 import Link from "next/link";
 
 const appurl = "https://work.moykazdes.ru/";
-
-const ctaStart = { id: "start" as const, label: "Начать работать", href: appurl, blank: true };
-const ctaContact = {
-  id: "contact" as const,
-  label: "Связаться с нами",
-  slot: "call" as const,
-};
 
 export const app = {
   name: "Автотех",
@@ -57,9 +50,17 @@ export const app = {
     connect: "Подключайтесь и получите \n 2 недели бесплатно",
     join: "Присоединяйтесь к нашим \n довольным клиентам",
     try: "Готовы попробовать?",
-    start: ctaStart,
-    contact: ctaContact,
-    primary: [ctaStart, ctaContact],
+    start: {
+      id: "start" as const,
+      label: "Начать работать",
+      href: appurl,
+      blank: true
+    },
+    contact: {
+      id: "contact" as const,
+      label: "Связаться с нами",
+      slot: "call" as const,
+    },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",

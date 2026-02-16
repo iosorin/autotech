@@ -1,7 +1,10 @@
-export { home } from "./home";
-export { tariffs } from "./tariffs";
-export { updates } from "./updates";
-export { contacts } from "./contacts";
-export { events } from "./events";
-export { support } from "./support";
-export { fleet } from "./fleet";
+export * from "./home";
+export * from "./tariffs";
+export * from "./updates";
+export * from "./contacts";
+export * from "./events";
+export * from "./support";
+export * from "./fleet";
+export * from "./contract";
+export * from "./privacy";
+export * from "./license";
