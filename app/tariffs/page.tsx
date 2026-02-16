@@ -35,7 +35,7 @@ const Tariffs = () => {
         <Block
           list={[{ title: p.included.heading, items: p.included.items }]}
           image={p.included.image}
-          reverse
+          layout="reverse"
         />
       </section>
 

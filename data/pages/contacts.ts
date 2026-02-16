@@ -69,7 +69,9 @@ export const contacts = {
   contactLabels: {
     telegram: "Telegram", email: "Электронная почта", phone: "Телефон",
   },
-  requisitesHeading: "Реквизиты",
-  bankHeading: "Банковские реквизиты",
-  accountLabel: "Счёт №:",
+  requisites: {
+    heading: "Реквизиты",
+    bank: "Банковские реквизиты",
+    account: "Счёт №:",
+  }
 };
