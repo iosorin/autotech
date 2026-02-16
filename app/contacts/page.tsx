@@ -14,7 +14,7 @@ const Contacts = () => {
   const p = contacts;
   return (
     <>
-      <section id="contacts" className="pb-0">
+      <section id="contacts" className="layered">
         <Lead
           tag="h1"
           title={p.title}
@@ -26,7 +26,7 @@ const Contacts = () => {
           <Icons items={p.designed.items} itemClassName={p.designed.itemClassName} cols={2} />
         </div>
 
-        <div className="gradlayer bg-gradient-gray" />
+        <div className="layer bg-gradient-gray" />
       </section>
 
       <section id="dev">
@@ -34,15 +34,15 @@ const Contacts = () => {
         <Icons items={p.dev.items} left />
       </section>
 
-      <section id="mission" className="pb-0">
+      <section id="mission" className="layered">
         <div className="max-w-[85%] mx-auto">
           <Lead title={p.mission.heading} />
           <Icons items={p.mission.items} variant="stack" />
         </div>
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
-      <section id="form" className="pb-0">
+      <section id="form" >
         <Lead title={app.form.heading} />
         <Form
           className={app.form.className}
@@ -63,7 +63,7 @@ const Contacts = () => {
         />
       </section>
 
-      <section id="requisites">
+      <section id="requisites" className="layered">
         <Lead title={p.requisites.heading} />
         <Requisites
           className="max-w-[85%] mx-auto"
@@ -73,7 +73,7 @@ const Contacts = () => {
           bank={app.company.bank}
         />
 
-        <div className="gradlayer bg-gradient-gray-white" />
+        <div className="layer bg-gradient-gray-white" />
       </section>
     </>
   );

@@ -69,7 +69,7 @@ export const Cta = ({ title, items, className, children }: Props) => {
               <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id} className="w-full md:w-auto">
                 <Link href={item.href} title={item.label} target={item.blank ? "_blank" : undefined} rel={item.blank ? "noopener noreferrer" : undefined}>
                   {item.label}
-                  {i === 0 && <ArrowUpRight />}
+                  {i === 0 && <ArrowUpRight className="size-7" />}
                 </Link>
               </Button>
             );
