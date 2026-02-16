@@ -1,4 +1,5 @@
 import { cn } from "@utils";
+import { Inline } from "@ui/atoms/inline";
 
 type Props = {
   title: React.ReactNode;
@@ -18,9 +19,10 @@ export const Lead = ({ title, label, desc, minor, titleFirst, className, left, t
     if (!title) return null;
     return <Tag>{title}</Tag>;
   };
-  const renderLabel = () => label ? <p className={cn("text-xl font-medium", primary ? "text-primary" : "")}>{label}</p> : null;
-  const renderDesc = () => desc ? <p className="text-lg mx-auto">{desc}</p> : null;
-  const renderMinor = () => minor ? <p className="text-lg text-muted-foreground">{minor}</p> : null;
+  const renderLabel = () => label ? <p className={cn("text-xl font-medium", primary ? "text-primary" : "")}><Inline text={label} /></p> : null;
+  const renderDesc = () => desc ? <p className="text-lg mx-auto"><Inline text={desc} /></p> : null;
+  const renderMinor = () => minor ? <p className="text-lg text-muted-foreground"><Inline text={minor} /></p> : null;
+
   if (!title && !label) return null;
 
   return (

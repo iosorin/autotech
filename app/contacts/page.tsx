@@ -22,14 +22,7 @@ export const Contacts = () => {
         <Lead
           tag="h1"
           title={p.title}
-          desc={
-            <span className="text-lg inline-flex gap-1 justify-center">
-              {p.supportHint}
-              <Link href="/support" className="text-primary underline hover:text-primary/80" title={p.supportLinkLabel}>
-                «{p.supportLinkLabel}»
-              </Link>
-            </span>
-          }
+          desc={p.label}
         />
 
         <div className="pb-10">
@@ -55,13 +48,12 @@ export const Contacts = () => {
 
       <section id="form" className="pb-0">
         <Lead title={app.form.heading} />
-        <div className="md:w-[60%] mx-auto">
-          <Form
-            heading={app.form.heading}
-            fields={app.form.fields}
-            // agree={app.form.agree}
-            onSubmit={contact} />
-        </div>
+        <Form
+          className={app.form.className}
+          heading={app.form.heading}
+          fields={app.form.fields}
+          onSubmit={contact}
+        />
       </section>
 
       <section id="other-contact">

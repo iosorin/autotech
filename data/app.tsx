@@ -77,6 +77,7 @@ export const app = {
   },
   form: {
     heading: "Свяжитесь с нами",
+    className: "md:w-[60%] mx-auto",
     fields: [
       { id: "name", type: "text", required: true, label: "Имя", placeholder: "Введите ваше имя" },
       { id: "phone", type: "tel", required: true, label: "Мобильный телефон", placeholder: "+7 (999) 999-99-99" },
