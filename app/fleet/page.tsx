@@ -98,7 +98,7 @@ const Fleet = () => {
         <Lead title={p.cabinet.heading} />
         <Block
           list={p.cabinet.items?.length ? [{ items: p.cabinet.items }] : []}
-          pills={p.cabinet.pills}
+          tags={p.cabinet.tags}
           image={p.cabinet.image}
           layout="center-image"
         />
