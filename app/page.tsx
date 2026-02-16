@@ -29,7 +29,7 @@ const Page = () => {
 
         <Block
           list={[]}
-          layout="hero"
+          layout="center-image"
           pills={[{ tags: p.hero.features }]}
           image={p.hero.image}
           card={p.hero.card}
