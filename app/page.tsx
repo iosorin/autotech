@@ -11,11 +11,11 @@ import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
+import { Icons } from "@ui/blocks/icons";
+import { Form } from "@ui/blocks/form";
 import { home } from "@data";
 import { cn } from "@utils";
-import Icons from "@/library/ui/blocks/icons";
-import Form from "@/library/ui/blocks/form";
-import contact from "./api/contact";
+import contact from "@api/contact";
 
 const Page = () => {
   const p = home;

@@ -4,7 +4,6 @@ export const events = {
   title: "Мероприятия",
   subtitle: "Закрытые мероприятия для собственников и управляющих",
   event: app.event,
-  eventBanner: app.event,
   past: {
     heading: "Прошедшие мероприятия",
     items: [

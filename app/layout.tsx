@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     url: app.siteurl,
-    siteName: seo.siteName,
+    siteName: seo.sitename,
     title: seo.defaultTitle,
     description: seo.defaultDescription,
     images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
@@ -43,6 +43,7 @@ export const metadata: Metadata = {
 //   manifest: "/favicon/site.webmanifest",
 //   // ... остальное
 // };
+
 
 const jsonld = {
   "@context": "https://schema.org",
