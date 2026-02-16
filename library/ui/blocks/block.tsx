@@ -4,14 +4,15 @@ import { Enter } from "@ui/atoms/enter";
 import { Icon } from "@ui/atoms/icon";
 import { cn } from "@utils";
 
-type LayoutKind = "default" | "center-image" | "hero";
+type LayoutKind = "default" | "image" | "hero" | "reverse";
+type LayoutGrid = { areas: string; cols: string; rows?: string }
 
-const LAYOUT_GRID: Record<LayoutKind, { areas: string; cols: string; rows?: string }> = {
+const LAYOUT_GRID: Record<LayoutKind, LayoutGrid> = {
     default: { areas: '"list image" "pills image" "card image"', cols: "1fr auto", rows: "auto auto auto" },
-    "center-image": { areas: '"list image pills" "card card card"', cols: "1fr auto 1fr", rows: "auto auto" },
+    reverse: { areas: '"image list" "image pills" "image card"', cols: "1fr auto", rows: "auto auto auto" },
+    image: { areas: '"list image pills" "card card card"', cols: "1fr auto 1fr", rows: "auto auto" },
     hero: { areas: '"list pills image card"', cols: "minmax(0,auto) 1fr auto 1fr" },
 };
-
 
 type Card = {
     title: string;
@@ -26,37 +27,17 @@ type Tags = {
 };
 
 type Props = {
-    list: { title?: string; desc?: string; items?: string[]; }[];
+    list?: { title?: string; desc?: string; items?: string[]; }[];
     image?: { src?: string; href?: string; alt: string; className?: string };
     cta?: React.ReactNode;
     tags?: Tags[];
     card?: Card;
     className?: string;
-    reverse?: boolean;
+    // reverse?: boolean;
     layout?: LayoutKind;
+    grid?: LayoutGrid
 };
 
-const renderItems = (items: string[] | undefined, compact = false) => {
-    if (!items?.length) return null;
-    const gap = compact ? "gap-6" : "gap-8";
-    const iconSize = compact ? "size-6 md:size-7" : "size-7";
-    const textClass = compact ? "text-base md:text-lg" : "text-lg";
-    return (
-        <div className={cn("flex flex-col", gap)}>
-            {items.map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className={cn(iconSize, "text-primary mt-0.5")} />
-                    <p className={cn(textClass, "text-foreground")}>{item}</p>
-                </div>
-            ))}
-        </div>
-    );
-};
-
-const renderDesc = (d: string | undefined) => {
-    if (!d) return null;
-    return <p className="text-base md:text-lg leading-relaxed">{d}</p>;
-};
 
 export const Block = ({
     list,
@@ -66,10 +47,16 @@ export const Block = ({
     card,
     className,
     layout = "default",
+    grid: gridProp
 }: Props) => {
-    const hero = layout === "hero";
-    const centerImage = layout === "center-image";
-    const grid = LAYOUT_GRID[layout];
+    const hero = !gridProp && layout === "hero";
+    const centerImage = !gridProp && layout === "image";
+    const grid = gridProp ?? LAYOUT_GRID[layout];
+
+    const renderDesc = (d: string | undefined) => {
+        if (!d) return null;
+        return <p className="text-base md:text-lg leading-relaxed">{d}</p>;
+    };
 
     const renderTag = (tag: Tags['items'][number], tagClassName?: string) => {
         if (typeof tag === 'object') {
@@ -90,7 +77,7 @@ export const Block = ({
         );
     };
 
-    const renderImageContent = (heroStyle = false) => {
+    const renderImage = (heroStyle = false) => {
         const imageSrc = image && (image.src ?? image.href);
         if (!imageSrc) return null;
         const imgClass = heroStyle ? "rounded-3xl w-full h-auto max-w-xs lg:max-w-md" : "rounded-2xl w-full h-auto";
@@ -108,70 +95,22 @@ export const Block = ({
         );
     };
 
-    const listSlot = (
-        <div className="flex flex-col gap-8" style={{ gridArea: "list" }}>
-            {centerImage && list.length > 0 ? (
-                <Enter variant="fade-right" duration={600}>
-                    {renderItems(list.flatMap((e) => e.items ?? []), false)}
-                </Enter>
-            ) : (
-                <div className="flex flex-col gap-8">
-                    {list.map((entry, index) => (
-                        <div key={index} className="flex flex-col gap-6">
-                            {entry.title ? <h2>{entry.title}</h2> : null}
-                            {renderDesc(entry.desc)}
-                            {renderItems(entry.items, true)}
-                        </div>
-                    ))}
-                </div>
-            )}
-            {!hero && cta}
-        </div>
-    );
-
-    const pillsSlot = (
-        <div className="flex flex-wrap gap-3 flex-col content-start" style={{ gridArea: "pills" }}>
-            {tags &&
-                <div className={cn("flex flex-col gap-8", hero && "gap-3")}>{tags.map((t, i) => <div
-                    key={t.title ?? i}
-                    className={cn("pb-6 border-b last:border-b-0", layout === "default" && "border-border")}
-                >
-                    {t.title && (
-                        <h5 className={cn("mb-3 text-foreground", layout === "default" && "font-medium")}>{t.title}</h5>
-                    )}
-                    <div className="flex flex-wrap gap-2">
-                        {t.items.map((item) => renderTag(item, t.tagClassName))}
+    const renderItems = (items: string[] | undefined, compact = false) => {
+        if (!items?.length) return null;
+        const gap = compact ? "gap-6" : "gap-8";
+        const iconSize = compact ? "size-6 md:size-7" : "size-7";
+        const textClass = compact ? "text-base md:text-lg" : "text-lg";
+        return (
+            <div className={cn("flex flex-col", gap)}>
+                {items.map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                        <CheckCircle2 className={cn(iconSize, "text-primary mt-0.5")} />
+                        <p className={cn(textClass, "text-foreground")}>{item}</p>
                     </div>
-                </div>)}</div>
-            }
-
-            {hero && cta && (
-                <Enter variant="fade-right" delay={500} duration={500} className="mt-2 w-full">
-                    {cta}
-                </Enter>
-            )}
-        </div>
-    );
-
-    const imageSlot = (
-        <div className="flex justify-center items-center" style={{ gridArea: "image" }}>
-            {renderImageContent(hero)}
-        </div>
-    );
-
-    const cardSlot = (
-        <div className="flex justify-center items-center" style={{ gridArea: "card" }}>
-            {card &&
-                <Enter variant="fade-left" delay={300} duration={600} className="w-full">
-                    <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
-                        {card.icon && <Icon {...card.icon} className={cn("size-10 text-primary", card.icon.className)} />}
-                        <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
-                        <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
-                    </div>
-                </Enter>
-            }
-        </div>
-    );
+                ))}
+            </div>
+        );
+    };
 
     return (
         <div
@@ -182,11 +121,68 @@ export const Block = ({
                 gridTemplateRows: grid.rows,
             }}
         >
-            {listSlot}
-            {pillsSlot}
-            {imageSlot}
-            {cardSlot}
-        </div>
+            <div className="flex flex-col gap-8" style={{ gridArea: "list" }}>
+                {list && list.length > 0 &&
+                    <>
+                        {centerImage ? (
+                            <Enter variant="fade-right" duration={600}>
+                                {renderItems(list.flatMap((e) => e.items ?? []), false)}
+                            </Enter>
+                        ) : (
+                            <div className="flex flex-col gap-8">
+                                {list.map((entry, index) => (
+                                    <div key={index} className="flex flex-col gap-6">
+                                        {entry.title ? <h2>{entry.title}</h2> : null}
+                                        {renderDesc(entry.desc)}
+                                        {renderItems(entry.items, true)}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </>
+                }
+
+                {!hero && cta}
+            </div>
+
+            <div className="flex flex-wrap gap-3 flex-col content-start" style={{ gridArea: "pills" }}>
+                {tags &&
+                    <div className={cn("flex flex-col gap-8", hero && "gap-3")}>{tags.map((t, i) => <div
+                        key={t.title ?? i}
+                        className={cn("pb-6 border-b last:border-b-0", layout === "default" && "border-border")}
+                    >
+                        {t.title && (
+                            <h5 className={cn("mb-3 text-foreground", layout === "default" && "font-medium")}>{t.title}</h5>
+                        )}
+                        <div className="flex flex-wrap gap-2">
+                            {t.items.map((item) => renderTag(item, t.tagClassName))}
+                        </div>
+                    </div>)}</div>
+                }
+
+                {hero && cta && (
+                    <Enter variant="fade-right" delay={500} duration={500} className="mt-2 w-full">
+                        {cta}
+                    </Enter>
+                )}
+            </div>
+
+            <div className="flex justify-center items-center" style={{ gridArea: "image" }}>
+                {renderImage(hero)}
+            </div>
+
+            <div className="flex justify-center items-center" style={{ gridArea: "card" }}>
+                {card &&
+                    <Enter variant="fade-left" delay={300} duration={600} className="w-full">
+                        <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
+                            {card.icon && <Icon {...card.icon} className={cn("size-10 text-primary", card.icon.className)} />}
+                            <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
+                            <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
+                        </div>
+                    </Enter>
+                }
+            </div>
+        </div >
     );
 };
 

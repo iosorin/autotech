@@ -28,9 +28,8 @@ const Page = () => {
         </Cta>
 
         <Block
-          list={[]}
           layout="hero"
-          tags={[{ items: p.hero.features }]}
+          tags={p.hero.tags}
           image={p.hero.image}
           card={p.hero.card}
           cta={
@@ -88,7 +87,8 @@ const Page = () => {
             image={p.integrations.image}
           />
           <Block
-            reverse
+            // reverse
+            layout="reverse"
             image={p.security.image}
             list={[
               { title: p.security.heading, items: p.security.items },
@@ -130,7 +130,7 @@ const Page = () => {
           title={p.clients.title}
         />
         <Block
-          reverse
+          layout="reverse"
           image={p.clients.image}
           list={[{ desc: p.clients.intro, items: p.clients.items }]}
         />

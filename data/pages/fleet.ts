@@ -4,10 +4,12 @@ export const fleet = {
   hero: {
     subtitle: "Автопаркам",
     title: "Оплачивайте услуги автомойки, шиномонтажа, сезонного хранения и мелкого ремонта через приложение Автотех",
-    features: [
-      { icon: { name: "ChartPie" }, label: "Консолидированная отчетность" },
-      { icon: { name: "FileCheck" }, label: "По безналу и с НДС" },
-    ],
+    tags: [{
+      items: [
+        { icon: { name: "ChartPie" }, label: "Консолидированная отчетность" },
+        { icon: { name: "FileCheck" }, label: "По безналу и с НДС" },
+      ]
+    }],
     card: {
       title: "Сотни автомоек и шиномонтажей",
       desc: "для вашего автопарка",

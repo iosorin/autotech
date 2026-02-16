@@ -64,19 +64,12 @@ const Contacts = () => {
       </section>
 
       <section id="requisites">
-        <Lead title={p.requisitesHeading} />
+        <Lead title={p.requisites.heading} />
         <Requisites
           className="max-w-[85%] mx-auto"
-          bankHeading={p.bankHeading}
-          accountLabel={p.accountLabel}
-          company={{
-            short: app.company.short,
-            addressFull: app.company.addressFull,
-            inn: app.company.inn,
-            kpp: app.company.kpp,
-            ogrn: app.company.ogrn,
-            okpo: app.company.okpo,
-          }}
+          bankHeading={p.requisites.bank}
+          accountLabel={p.requisites.account}
+          company={app.company}
           bank={app.company.bank}
         />
 

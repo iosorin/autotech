@@ -10,13 +10,15 @@ export const home = {
       slot: app.call,
     },
     telegram: app.cta.telegram,
-    features: [
-      { icon: { name: "ScanLine" }, label: "Распознавание марок и номеров" },
-      { icon: { name: "BarChart3" }, label: "Статистика и аналитика" },
-      { icon: { name: "Calculator" }, label: "Гибкий расчет зарплат" },
-      { icon: { name: "CalendarCheck" }, label: "Онлайн-запись" },
-      { icon: { name: "Users" }, label: "CRM" },
-    ],
+    tags: [{
+      items: [
+        { icon: { name: "ScanLine" }, label: "Распознавание марок и номеров" },
+        { icon: { name: "BarChart3" }, label: "Статистика и аналитика" },
+        { icon: { name: "Calculator" }, label: "Гибкий расчет зарплат" },
+        { icon: { name: "CalendarCheck" }, label: "Онлайн-запись" },
+        { icon: { name: "Users" }, label: "CRM" },
+      ]
+    }],
     card: {
       title: "Легкий переход с других приложений",
       desc: "Автоматический перенос услуг и настроек",

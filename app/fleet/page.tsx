@@ -21,7 +21,7 @@ const Fleet = () => {
         <Block
           list={[]}
           layout="hero"
-          pills={[{ tags: p.hero.features }]}
+          tags={p.hero.tags}
           image={p.hero.image}
           card={p.hero.card}
           cta={
@@ -67,7 +67,7 @@ const Fleet = () => {
               </Cta.Slot>
             </Cta>
           }
-          reverse
+          layout="reverse"
         />
       </section>
 
@@ -90,7 +90,7 @@ const Fleet = () => {
         <Block
           list={[{ title: p.transparency.heading, items: p.transparency.items }]}
           image={p.transparency.image}
-          reverse
+          layout="reverse"
         />
       </section>
 
@@ -100,7 +100,7 @@ const Fleet = () => {
           list={p.cabinet.items?.length ? [{ items: p.cabinet.items }] : []}
           tags={p.cabinet.tags}
           image={p.cabinet.image}
-          layout="center-image"
+          layout="image"
         />
       </section>
 
