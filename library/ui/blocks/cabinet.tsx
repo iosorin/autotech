@@ -10,21 +10,15 @@ type Group = {
 };
 
 type Props = {
-  list: string[];
-  choice: Group;
-  filter: Group;
+  items: string[];
+  groups: Group[];
   image: { alt: string; src?: string; href?: string };
 };
 
-export const Cabinet = ({
-  list,
-  choice,
-  filter,
-  image,
-}: Props) => {
+export const Cabinet = ({ items, groups, image, }: Props) => {
   const renderGroup = (group: Group) => {
     return (
-      <div className="pb-6 border-b last:border-b-0">
+      <div key={group.title} className="pb-6 border-b last:border-b-0">
         <h5 className="mb-3">{group.title}</h5>
         <div className="flex flex-wrap gap-2">
           {group.tags.map((tag) => (
@@ -41,10 +35,10 @@ export const Cabinet = ({
   };
   return (
     <div className="flex flex-col lg:flex-row items-center gap-10">
-      {list && (
+      {items && (
         <Enter variant="fade-right" duration={600} className="lg:w-1/3">
           <div className="flex flex-col gap-8">
-            {list.map((item) => (
+            {items.map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <CheckCircle2 className="size-7 text-primary mt-0.5" />
                 <p className="text-lg text-foreground">{item}</p>
@@ -68,8 +62,7 @@ export const Cabinet = ({
 
       <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/3" >
         <div className="flex flex-col gap-8">
-          {renderGroup(choice)}
-          {renderGroup(filter)}
+          {groups.map(renderGroup)}
         </div>
       </Enter >
     </div >

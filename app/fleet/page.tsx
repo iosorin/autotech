@@ -101,9 +101,8 @@ export default function FleetPage() {
       <section id="cabinet">
         <Lead title={p.cabinet.heading} />
         <Cabinet
-          list={p.cabinet.list}
-          choice={p.cabinet.choice}
-          filter={p.cabinet.filter}
+          items={p.cabinet.items}
+          groups={p.cabinet.groups}
           image={p.cabinet.image}
         />
       </section>
