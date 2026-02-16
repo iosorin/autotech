@@ -1,48 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
-import Image from "next/image";
 import { Button } from "@ui/atoms/button";
 
-type Testimonial = {
-  name: string;
-  role: string;
-  company: string;
+type Item = {
+  title: string;
+  subtitle: string;
+  source: string;
   text: string;
-  avatar?: string;
-  logo?: string;
+  image?: string;
+  badge?: string;
 };
 
 type Props = {
-  prevAria: string;
-  nextAria: string;
-  list: Testimonial[];
+  prevLabel: string;
+  nextLabel: string;
+  items: Item[];
 };
 
-export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
-  const [current, setCurrent] = useState(0);
-  const [sliding, setSliding] = useState(false);
+export const Slider = ({ prevLabel, nextLabel, items }: Props) => {
+  const [current, setCurrent] = React.useState(0);
+  const [sliding, setSliding] = React.useState(false);
 
   const slide = (direction: "prev" | "next") => {
     setSliding(true);
     setTimeout(() => {
       if (direction === "prev") {
-        setCurrent((c) => (c === 0 ? list.length - 1 : c - 1));
+        setCurrent((c) => (c === 0 ? items.length - 1 : c - 1));
       } else {
-        setCurrent((c) => (c === list.length - 1 ? 0 : c + 1));
+        setCurrent((c) => (c === items.length - 1 ? 0 : c + 1));
       }
       setSliding(false);
     }, 250);
   };
 
-  const item = list[current];
-  const next = list[(current + 1) % list.length];
+  const item = items[current];
+  const next = items[(current + 1) % items.length];
 
   return (
     <>
-      {/* Навигация */}
       <Enter variant="fade-up" duration={600}>
         <div className="flex items-center justify-end mb-10">
           <div className="flex items-center gap-4">
@@ -50,7 +49,7 @@ export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
               variant="outline"
               size="icon"
               onClick={() => slide("prev")}
-              aria-label={prevAria}
+              aria-label={prevLabel}
             >
               <ChevronLeft className="size-5" />
             </Button>
@@ -58,7 +57,7 @@ export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
               variant="outline"
               size="icon"
               onClick={() => slide("next")}
-              aria-label={nextAria}
+              aria-label={nextLabel}
             >
               <ChevronRight className="size-5" />
             </Button>
@@ -66,42 +65,37 @@ export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
         </div>
       </Enter>
 
-      {/* Карусель */}
       <div className="flex gap-6 overflow-hidden">
-        {/* Текущий отзыв */}
         <div
-          className={`flex-1 min-w-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"
-            }`}
+          className={`flex-1 min-w-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-100 translate-x-0"}`}
         >
           <div className="rounded-2xl p-6 md:p-8 bg-white h-full shadow-sm">
             <div className="flex flex-col md:flex-row gap-6">
-              {/* Аватар и имя */}
               <div className="flex flex-col items-center md:items-start flex-shrink-0 w-full md:w-1/5">
                 <div className="size-20 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-muted-foreground mb-3 overflow-hidden">
-                  {item.avatar ? (
-                    <Image src={item.avatar} alt={item.name} width={80} height={80} className="object-cover" />
+                  {item.image ? (
+                    <Image src={item.image} alt={item.title} width={80} height={80} className="object-cover" />
                   ) : (
-                    item.name.charAt(0)
+                    item.title.charAt(0)
                   )}
                 </div>
                 <h4 className="font-bold text-foreground text-sm text-center md:text-left leading-snug">
-                  {item.name}
+                  {item.title}
                 </h4>
                 <p className="text-xs text-muted-foreground text-center md:text-left mt-1">
-                  {item.role}
+                  {item.subtitle}
                 </p>
               </div>
 
-              {/* Текст */}
               <div className="flex-1">
-                {item.logo ? (
+                {item.badge ? (
                   <div className="mb-4">
-                    <Image src={item.logo} alt={item.company} width={80} height={32} className="h-8 w-auto" />
+                    <Image src={item.badge} alt={item.source} width={80} height={32} className="h-8 w-auto" />
                   </div>
                 ) : (
                   <div className="mb-4">
                     <span className="rounded-md px-3 py-1.5 text-xs font-medium bg-muted text-foreground">
-                      {item.company}
+                      {item.source}
                     </span>
                   </div>
                 )}
@@ -112,21 +106,20 @@ export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
         </div>
 
         <div
-          className={`hidden lg:block w-64 flex-shrink-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-60 translate-x-0"
-            }`}
+          className={`hidden lg:block w-64 flex-shrink-0 transition-all duration-300 ${sliding ? "opacity-0 translate-x-4" : "opacity-60 translate-x-0"}`}
         >
           <div className="rounded-2xl p-6 bg-white h-full shadow-sm">
             <div className="flex items-start gap-4 mb-4">
               <div className="size-16 rounded-full bg-muted flex items-center justify-center text-lg font-bold text-muted-foreground flex-shrink-0 overflow-hidden">
-                {next.avatar ? (
-                  <Image src={next.avatar} alt={next.name} width={64} height={64} className="object-cover" />
+                {next.image ? (
+                  <Image src={next.image} alt={next.title} width={64} height={64} className="object-cover" />
                 ) : (
-                  next.name.charAt(0)
+                  next.title.charAt(0)
                 )}
               </div>
               <div>
-                <h4 className="font-bold text-foreground text-sm leading-snug">{next.name}</h4>
-                <p className="text-xs text-muted-foreground mt-1">{next.role}</p>
+                <h4 className="font-bold text-foreground text-sm leading-snug">{next.title}</h4>
+                <p className="text-xs text-muted-foreground mt-1">{next.subtitle}</p>
               </div>
             </div>
             <p className="text-xs text-muted-foreground line-clamp-5 leading-relaxed">{next.text}</p>
@@ -137,4 +130,4 @@ export const Testimonials = ({ prevAria, nextAria, list }: Props) => {
   );
 };
 
-export default Testimonials;
+export default Slider;

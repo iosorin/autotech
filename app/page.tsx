@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Hero } from "@ui/blocks/hero";
-import { Event } from "@ui/blocks/event";
 import { Features } from "@ui/blocks/features";
 import { Block } from "@ui/blocks/block";
 import { Enter } from "@ui/atoms/enter";
@@ -9,7 +8,7 @@ import { Migration } from "@ui/blocks/migration";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
-import { Testimonials } from "@ui/blocks/testimonials";
+import { Slider } from "@ui/blocks/slider";
 import { Lead } from "@ui/atoms/lead";
 import { Icons } from "@ui/blocks/icons";
 import { Form } from "@ui/blocks/form";
@@ -149,10 +148,10 @@ const Page = () => {
 
       <section id="testimonials">
         <Lead title={p.testimonials.heading} />
-        <Testimonials
-          prevAria={p.testimonials.prevAria}
-          nextAria={p.testimonials.nextAria}
-          list={p.testimonials.list}
+        <Slider
+          prevLabel={p.testimonials.prevLabel}
+          nextLabel={p.testimonials.nextLabel}
+          items={p.testimonials.items}
         />
         <div className="gradlayer bg-muted" />
       </section>

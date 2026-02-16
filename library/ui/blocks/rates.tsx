@@ -1,4 +1,4 @@
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
 
 type Discount = { range: string; percent: string };
 

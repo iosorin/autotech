@@ -1,6 +1,6 @@
 import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
-import Icon from "@ui/atoms/icon";
+import { Icon } from "@ui/atoms/icon";
 
 type Item = {
   title: string;

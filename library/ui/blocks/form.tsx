@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { cn } from "@utils";
+import React from "react";
 import { toast } from "sonner";
 import { Label } from "@ui/atoms/label";
 import { Input } from "@ui/atoms/input";
 import { Button } from "@ui/atoms/button";
 import { Textarea } from "@ui/atoms/textarea";
+import { cn } from "@utils";
 
 type ISelect = {
     id: string;
@@ -50,10 +50,10 @@ export const Form = ({
         acc[f.id] = "";
         return acc;
     }, {});
-    const [data, setData] = useState(initial);
-    const [loading, setLoading] = useState(false);
-    const [success, setSuccess] = useState(false)
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [data, setData] = React.useState(initial);
+    const [loading, setLoading] = React.useState(false);
+    const [success, setSuccess] = React.useState(false)
+    const [errors, setErrors] = React.useState<Record<string, string>>({});
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
