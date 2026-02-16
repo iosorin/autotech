@@ -17,7 +17,7 @@ type Group = {
 
 type Props = {
     list: ListEntry[];
-    image?: { alt: string; href: string; className?: string };
+    image?: { src?: string; href?: string; alt: string; className?: string };
     cta?: React.ReactNode;
     groups?: Group[];
     className?: string;
@@ -30,7 +30,7 @@ const renderChecklist = (items: string[] | undefined) => {
         <div className="flex flex-col gap-6">
             {items.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-6 md:size-7 text-primary flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="size-6 md:size-7 text-primary mt-0.5" />
                     <p className="text-base md:text-lg text-foreground">{item}</p>
                 </div>
             ))}
@@ -92,10 +92,10 @@ export const Block = ({
                 {cta}
             </Enter>
 
-            {image && (
+            {image && (image.src ?? image.href) && (
                 <Enter variant="fade-left" delay={200} duration={700} className={cn("order-2 w-full w-auto flex-1", image.className)}>
                     <Image
-                        src={image.href}
+                        src={image.src ?? image.href ?? ""}
                         alt={image.alt}
                         width={500}
                         height={350}

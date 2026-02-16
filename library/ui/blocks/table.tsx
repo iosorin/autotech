@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import { cn } from "@utils";
-import { Button } from "../atoms/button";
+import { Button } from "@ui/atoms/button";
+import Icon from "@ui/atoms/icon";
 
-type Col = { id: string; label: string; };
+type Col = { id: string; label: string };
 
 type Row = {
   name: string;
-  icons: React.ReactNode[];
+  icons: React.ComponentProps<typeof Icon>[];
   values: Record<string, string>;
   highlighted?: boolean;
 };
@@ -57,7 +58,7 @@ export const Table = ({ cols, rows, note, note2, className }: Props) => {
                 <div className="flex gap-1 min-w-0 flex-shrink-0 lg:min-w-[130px]">
                   {item.icons.map((icon, i) => (
                     <div key={`${item.name}-icon-${i}`} className={cn("rounded-full shadow-md bg-white p-1 lg:p-2", i > 0 && "-ml-2 lg:-ml-3")}>
-                      {icon}
+                      <Icon {...icon} className={cn("size-7", icon.className)} />
                     </div>
                   ))}
                 </div>

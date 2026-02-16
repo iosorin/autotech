@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@utils";
-import { Button } from "../atoms/button";
+import { Button } from "@ui/atoms/button";
 // import { app } from "@data";
 
 type Props = {
@@ -123,7 +123,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
           }
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row gap-4 justify-between text-sm text-muted-foreground">
+        <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row gap-4 justify-between text-sm">
           {company &&
             <div className="flex flex-col gap-1">
               <p>{company.name}</p>
@@ -149,7 +149,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
                   key={link.href}
                   href={link.href}
                   title={link.label}
-                  className="underline hover:text-foreground"
+                  className="underline hover:no-underline"
                 >
                   {link.label}
                 </Link>

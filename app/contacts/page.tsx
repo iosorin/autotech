@@ -7,7 +7,6 @@ import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
 import { seo, app, contacts } from "@data";
 import contact from "@api/contact";
-import Grid from "@/library/ui/blocks/grid";
 
 export const metadata: Metadata = {
   title: seo.pages.contacts.title,

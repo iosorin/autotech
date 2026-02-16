@@ -1,9 +1,10 @@
 import { cn } from "@utils";
+import Icon from "@ui/atoms/icon";
 
 type Col = {
   label: string;
   items: string[];
-  icon?: React.ReactNode;
+  icon?: React.ComponentProps<typeof Icon>;
   color?: string;
   text?: string;
 };
@@ -52,9 +53,7 @@ export const Compare = ({ data, className }: Props) => {
             )}
             style={{ color: col.color }}
           >
-            <div className="shrink-0 hidden lg:block">
-              {col.icon}
-            </div>
+            {col.icon && <Icon {...col.icon} className={cn("hidden lg:block", col.icon.className)} />}
 
             <span className="lg:text-lg text-sm md:max-w-md" style={{ color: col.text || 'inherit' }}>{col.items[rowIndex] ?? ""}</span>
           </div>

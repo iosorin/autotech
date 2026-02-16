@@ -1,8 +1,10 @@
+import Icon from "@ui/atoms/icon";
+
 type Discount = { range: string; percent: string };
 
 type Props = {
   discounts: Discount[];
-  icon?: React.ReactNode;
+  icon?: React.ComponentProps<typeof Icon>;
 };
 
 export const Rates = ({ discounts, icon }: Props) => {
@@ -11,7 +13,7 @@ export const Rates = ({ discounts, icon }: Props) => {
       {discounts.map((d) => (
         <div key={d.range} className="text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
-            {icon}
+            <Icon {...icon} />
             <p className="text-lg font-medium text-accent">{d.range}</p>
           </div>
           <p className="text-4xl md:text-5xl font-bold text-foreground">{d.percent}</p>
