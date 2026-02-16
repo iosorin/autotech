@@ -1,10 +1,9 @@
 import Link from "next/link";
+import { Button } from "@ui/atoms/button";
 import { Hero } from "@ui/blocks/hero";
 import { Features } from "@ui/blocks/features";
 import { Block } from "@ui/blocks/block";
 import { Enter } from "@ui/atoms/enter";
-import { Badges } from "@ui/blocks/badges";
-import { Migration } from "@ui/blocks/migration";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
@@ -100,16 +99,26 @@ const Page = () => {
 
       <section id="devices">
         <Lead title={p.extra.devices.heading} />
-        <Badges list={p.extra.devices.list} />
+
+        <div className="flex flex-wrap justify-center gap-3 text-center">
+          {p.extra.devices.items.map((item, i) => (
+            <Enter key={item.label} delay={i * 80} variant="fade-up" duration={600} >
+              <Button size="lg" {...item} readonly />
+            </Enter>
+          ))}
+        </div>
       </section>
 
       <section id="migration">
-        <Migration
-          titleLine1={p.migration.titleLine1}
-          titleLine2={p.migration.titleLine2}
-          desc={p.migration.desc}
-          items={p.migration.items}
-        />
+        <Lead title={p.migration.heading} desc={p.migration.desc} icon={p.migration.icon} />
+
+        <div className="flex flex-wrap justify-center gap-3 text-center">
+          {p.migration.items.map((item, i) => (
+            <Enter key={item.label} delay={i * 80} variant="fade-up" duration={600} >
+              <Button size="lg" {...item} readonly />
+            </Enter>
+          ))}
+        </div>
         <div className="gradlayer bg-gradient-green" />
       </section>
 
