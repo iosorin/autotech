@@ -79,29 +79,29 @@ const Page = () => {
             </Enter>
           )}
           <Block
-            list={[{ title: p.extra.tire.heading, items: p.extra.tire.items }]}
-            image={p.extra.tire.image}
+            list={[{ title: p.tire.heading, items: p.tire.items }]}
+            image={p.tire.image}
           />
           <Block
-            list={[{ title: p.extra.integrations.heading, desc: p.extra.integrations.desc }]}
-            image={p.extra.integrations.image}
+            list={[{ title: p.integrations.heading, desc: p.integrations.desc }]}
+            image={p.integrations.image}
           />
           <Block
             reverse
-            image={p.extra.security.image}
+            image={p.security.image}
             list={[
-              { title: p.extra.security.heading, items: p.extra.security.items },
-              { title: p.extra.support.heading, items: p.extra.support.items },
+              { title: p.security.heading, items: p.security.items },
+              { title: p.support.heading, items: p.support.items },
             ]}
           />
         </div>
       </section>
 
       <section id="devices">
-        <Lead title={p.extra.devices.heading} />
+        <Lead title={p.devices.heading} />
 
         <div className="flex flex-wrap justify-center gap-3 text-center">
-          {p.extra.devices.items.map((item, i) => (
+          {p.devices.items.map((item, i) => (
             <Enter key={item.label} delay={i * 80} variant="fade-up" duration={600} >
               <Button size="lg" {...item} readonly />
             </Enter>
