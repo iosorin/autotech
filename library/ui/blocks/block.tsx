@@ -4,15 +4,18 @@ import { Enter } from "@ui/atoms/enter";
 import { Icon } from "@ui/atoms/icon";
 import { cn } from "@utils";
 
-type LayoutKind = "default" | "image" | "hero" | "reverse";
-type LayoutGrid = { areas: string; cols: string; rows?: string }
+type LayoutKind = "default" | "image" | "hero" | "reverse" | 'custom';
 
-const LAYOUT_GRID: Record<LayoutKind, LayoutGrid> = {
-    default: { areas: '"list image" "pills image" "card image"', cols: "1fr auto", rows: "auto auto auto" },
-    reverse: { areas: '"image list" "image pills" "image card"', cols: "1fr auto", rows: "auto auto auto" },
-    image: { areas: '"list image pills" "card card card"', cols: "1fr auto 1fr", rows: "auto auto" },
-    hero: { areas: '"list pills image card"', cols: "minmax(0,auto) 1fr auto 1fr" },
+const DESKTOP_GRID: Record<LayoutKind, string> = {
+    custom: '',
+    default: "md:[grid-template-areas:'list_image'_'pills_image'_'card_image'] md:grid-cols-[1fr_auto] md:grid-rows-auto",
+    reverse: "md:[grid-template-areas:'image_list'_'image_pills'_'image_card'] md:grid-cols-[1fr_auto] md:grid-rows-auto",
+    image: "md:[grid-template-areas:'list_image_pills'_'card_card_card'] md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto]",
+    hero: "md:[grid-template-areas:'list_pills_image_card'] md:grid-cols-[minmax(0,auto)_1fr_auto_1fr]",
 };
+
+const MOBILE_GRID =
+    "[grid-template-areas:'list'_'image'_'pills'_'card'] grid-cols-1 grid-rows-[auto_auto_auto_auto]";
 
 type Card = {
     title: string;
@@ -33,9 +36,7 @@ type Props = {
     tags?: Tags[];
     card?: Card;
     className?: string;
-    // reverse?: boolean;
     layout?: LayoutKind;
-    grid?: LayoutGrid
 };
 
 
@@ -47,11 +48,10 @@ export const Block = ({
     card,
     className,
     layout = "default",
-    grid: gridProp
 }: Props) => {
-    const hero = !gridProp && layout === "hero";
-    const centerImage = !gridProp && layout === "image";
-    const grid = gridProp ?? LAYOUT_GRID[layout];
+    const hero = layout === "hero";
+    const centerImage = layout === "image";
+    const custom = layout === "custom";
 
     const renderDesc = (d: string | undefined) => {
         if (!d) return null;
@@ -63,7 +63,7 @@ export const Block = ({
             return (
                 <span
                     key={tag.label}
-                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-3 text-sm w-fit bg-white whitespace-nowrap max-w-full", tagClassName ?? "bg-muted")}
+                    className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-3 text-sm w-fit bg-white md:whitespace-pre-line max-w-full", tagClassName ?? "bg-muted")}
                 >
                     {tag.icon && <Icon {...tag.icon} className="flex-shrink-0" />}
                     <span className="text-base md:text-lg truncate">{tag.label}</span>
@@ -80,7 +80,7 @@ export const Block = ({
     const renderImage = (heroStyle = false) => {
         const imageSrc = image && (image.src ?? image.href);
         if (!imageSrc) return null;
-        const imgClass = heroStyle ? "rounded-3xl w-full h-auto max-w-xs lg:max-w-md" : "rounded-2xl w-full h-auto";
+        // const imgClass = heroStyle ? "rounded-3xl w-full h-auto max-w-xs lg:max-w-md" : "rounded-2xl w-full h-auto";
         return (
             <Enter variant="scale-up" delay={heroStyle ? 150 : 200} duration={heroStyle ? 800 : 700} className={cn("w-full", image.className)}>
                 <Image
@@ -88,7 +88,7 @@ export const Block = ({
                     alt={image.alt}
                     width={500}
                     height={heroStyle ? 600 : 350}
-                    className={imgClass}
+                    className="rounded-2xl w-full h-auto max-md:max-h-[45vh] max-md:w-auto mx-auto"
                     priority={heroStyle}
                 />
             </Enter>
@@ -113,14 +113,13 @@ export const Block = ({
     };
 
     return (
-        <div
-            className={cn("grid gap-6 lg:gap-8 lg:gap-20 items-center", layout === "hero" && "lg:gap-0", className)}
-            style={{
-                gridTemplateAreas: grid.areas,
-                gridTemplateColumns: grid.cols,
-                gridTemplateRows: grid.rows,
-            }}
-        >
+        <div className={cn(
+            "block-grid grid gap-6 lg:gap-8 lg:gap-20 items-center",
+            layout === "hero" && "lg:gap-0",
+            !custom && MOBILE_GRID,
+            DESKTOP_GRID[layout],
+            className
+        )}>
             <div className="flex flex-col gap-8" style={{ gridArea: "list" }}>
                 {list && list.length > 0 &&
                     <>
@@ -145,19 +144,20 @@ export const Block = ({
                 {!hero && cta}
             </div>
 
-            <div className="flex flex-wrap flex-col gap-1 content-start" style={{ gridArea: "pills" }}>
+            <div className="flex flex-wrap flex-col gap-1 content-start max-w-full" style={{ gridArea: "pills" }}>
                 {tags &&
-                    <div className={cn("flex flex-col gap-8", hero && "gap-3")}>{tags.map((t, i) => <div
-                        key={t.title ?? i}
-                        className={cn("pb-6 border-b last:border-b-0", layout === "default" && "border-border")}
-                    >
-                        {t.title && (
-                            <h5 className={cn("mb-3 text-foreground", layout === "default" && "font-medium")}>{t.title}</h5>
-                        )}
-                        <div className="flex flex-wrap gap-3.5">
-                            {t.items.map((item) => renderTag(item, t.tagClassName))}
-                        </div>
-                    </div>)}</div>
+                    <div className={cn("flex flex-col gap-8 max-w-full", hero && "gap-3")}>{tags.map((t, i) =>
+                        <div
+                            key={t.title ?? i}
+                            className={cn("max-w-full border-b last:border-b-0 pb-6", layout === "default" && "border-border")}
+                        >
+                            {t.title && (
+                                <h5 className={cn("mb-3 text-foreground", layout === "default" && "font-medium")}>{t.title}</h5>
+                            )}
+                            <div className="flex flex-wrap gap-3.5 max-w-full">
+                                {t.items.map((item) => renderTag(item, t.tagClassName))}
+                            </div>
+                        </div>)}</div>
                 }
 
                 {hero && cta && (
@@ -176,13 +176,13 @@ export const Block = ({
                     <Enter variant="fade-left" delay={300} duration={600} className="w-full">
                         <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
                             {card.icon && <Icon {...card.icon} className={cn("size-10 text-primary", card.icon.className)} />}
-                            <h3 className="font-bold text-foreground mb-1">{card.title}</h3>
-                            <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
+                            <h3 className="mb-1">{card.title}</h3>
+                            <p className="text-muted-foreground">{card.desc}</p>
                         </div>
                     </Enter>
                 }
             </div>
-        </div >
+        </div>
     );
 };
 

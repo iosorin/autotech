@@ -22,7 +22,7 @@ export const home = {
     }],
     card: {
       title: "Легкий переход с других приложений",
-      desc: "Автоматический перенос услуг и настроек",
+      desc: "Автоматический перенос \n услуг и настроек",
       icon: { name: "RefreshCw" },
     },
     image: app.images.preview,
