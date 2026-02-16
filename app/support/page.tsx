@@ -39,7 +39,7 @@ export const Support = () => {
         <Lead title={p.headings.otherContact} />
         <Links
           labels={p.contactLabels}
-          telegramSupport={app.telegramSupport}
+          support={app.support}
           email={app.supportEmail}
           phone={app.phone}
           phoneRaw={app.phoneRaw}
