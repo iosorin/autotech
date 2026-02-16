@@ -6,13 +6,9 @@ import { Icons } from "@ui/blocks/icons";
 import { app, seo, support } from "@data";
 import contact from "@api/contact";
 
-export const metadata: Metadata = {
-  title: seo.pages.support.title,
-  description: seo.pages.support.description,
-  alternates: { canonical: "/support" },
-};
+export const metadata: Metadata = seo.pages.support;
 
-export const Support = () => {
+const Support = () => {
   const p = support;
   return (
     <>

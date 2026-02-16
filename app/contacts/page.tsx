@@ -8,13 +8,9 @@ import { Requisites } from "@ui/blocks/requisites";
 import { seo, app, contacts } from "@data";
 import contact from "@api/contact";
 
-export const metadata: Metadata = {
-  title: seo.pages.contacts.title,
-  description: seo.pages.contacts.description,
-  alternates: { canonical: "/contacts" },
-};
+export const metadata: Metadata = seo.pages.contacts;
 
-export const Contacts = () => {
+const Contacts = () => {
   const p = contacts;
   return (
     <>

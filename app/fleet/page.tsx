@@ -3,7 +3,6 @@ import { Icons } from "@ui/blocks/icons";
 import { Promo } from "@ui/blocks/promo";
 import { Compare } from "@ui/blocks/compare";
 import { Hero } from "@ui/blocks/hero";
-import { Cabinet } from "@ui/blocks/cabinet";
 import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
@@ -12,13 +11,9 @@ import { Form } from "@ui/blocks/form";
 import { fleet, seo } from "@data";
 import contact from "@api/contact";
 
-export const metadata: Metadata = {
-  title: seo.pages.fleet.title,
-  description: seo.pages.fleet.description,
-  alternates: { canonical: "/fleet" },
-};
+export const metadata: Metadata = seo.pages.fleet;
 
-export default function FleetPage() {
+const Fleet = () => {
   const p = fleet;
   return (
     <>
@@ -100,10 +95,11 @@ export default function FleetPage() {
 
       <section id="cabinet">
         <Lead title={p.cabinet.heading} />
-        <Cabinet
-          items={p.cabinet.items}
+        <Block
+          list={p.cabinet.items?.length ? [{ items: p.cabinet.items }] : []}
           groups={p.cabinet.groups}
           image={p.cabinet.image}
+          layout="center-image"
         />
       </section>
 
@@ -125,3 +121,5 @@ export default function FleetPage() {
     </>
   );
 }
+
+export default Fleet;

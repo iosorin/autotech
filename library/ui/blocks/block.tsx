@@ -22,16 +22,20 @@ type Props = {
     groups?: Group[];
     className?: string;
     reverse?: boolean;
+    layout?: "default" | "center-image";
 };
 
-const renderChecklist = (items: string[] | undefined) => {
+const renderChecklist = (items: string[] | undefined, compact = false) => {
     if (!items?.length) return null;
+    const gap = compact ? "gap-6" : "gap-8";
+    const iconSize = compact ? "size-6 md:size-7" : "size-7";
+    const textClass = compact ? "text-base md:text-lg" : "text-lg";
     return (
-        <div className="flex flex-col gap-6">
+        <div className={cn("flex flex-col", gap)}>
             {items.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="size-6 md:size-7 text-primary mt-0.5" />
-                    <p className="text-base md:text-lg text-foreground">{item}</p>
+                    <CheckCircle2 className={cn(iconSize, "text-primary mt-0.5")} />
+                    <p className={cn(textClass, "text-foreground")}>{item}</p>
                 </div>
             ))}
         </div>
@@ -50,15 +54,20 @@ export const Block = ({
     groups,
     className,
     reverse,
+    layout = "default",
 }: Props) => {
+    const centerImage = layout === "center-image";
     const renderGroup = (group: Group) => (
-        <div key={group.title} className="pb-6 border-b border-border last:border-b-0">
-            <h5 className="mb-3 font-medium text-foreground">{group.title}</h5>
+        <div
+            key={group.title}
+            className={cn("pb-6 border-b last:border-b-0", !centerImage && "border-border")}
+        >
+            <h5 className={cn("mb-3 text-foreground", !centerImage && "font-medium")}>{group.title}</h5>
             <div className="flex flex-wrap gap-2">
                 {group.tags.map((tag) => (
                     <span
                         key={tag}
-                        className={cn("rounded-full px-4 py-1.5 text-sm", group.tagClassName ?? "bg-muted")}
+                        className={cn("rounded-full px-4 py-1.5", group.tagClassName ?? "bg-muted", !centerImage && "text-sm")}
                     >
                         {tag}
                     </span>
@@ -69,7 +78,7 @@ export const Block = ({
 
     const renderGroups = () => {
         if (!groups?.length) return null;
-        return <div className="flex flex-col gap-8">{groups.map(renderGroup)}</div>;
+        return <div className="flex flex-col gap-8">{groups.map((g) => renderGroup(g))}</div>;
     };
 
     const renderList = () => (
@@ -78,11 +87,52 @@ export const Block = ({
                 <div key={index} className="flex flex-col gap-6">
                     {entry.title ? <h2 className="md:whitespace-pre-line">{entry.title}</h2> : null}
                     {renderDesc(entry.desc)}
-                    {renderChecklist(entry.items)}
+                    {renderChecklist(entry.items, true)}
                 </div>
             ))}
         </div>
     );
+
+    const renderImage = () => {
+        const imageSrc = image && (image.src ?? image.href);
+
+        if (!imageSrc) return null;
+
+        return (
+            <Enter variant="scale-up" delay={200} duration={700} className={cn("w-full w-auto flex-1", image.className)}>
+                <Image
+                    src={imageSrc}
+                    alt={image.alt}
+                    width={500}
+                    height={350}
+                    className="rounded-2xl w-full h-auto"
+                />
+            </Enter>
+        );
+    };
+
+
+    if (centerImage) {
+        const allItems = list.flatMap((e) => e.items ?? []);
+        return (
+            <div className={cn("flex flex-col lg:flex-row items-center gap-10", className)}>
+                {allItems.length > 0 && (
+                    <Enter variant="fade-right" duration={600} className="lg:w-1/3">
+                        <div className="flex flex-col gap-8">
+                            {renderChecklist(allItems, false)}
+                            {cta}
+                        </div>
+                    </Enter>
+                )}
+                {renderImage()}
+                {groups && groups.length > 0 && (
+                    <Enter variant="fade-left" delay={200} duration={600} className="lg:w-1/3">
+                        <div className="flex flex-col gap-8">{renderGroups()}</div>
+                    </Enter>
+                )}
+            </div>
+        );
+    }
 
     return (
         <div className={cn("flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20", className, reverse ? "lg:flex-row-reverse" : "")}>
@@ -92,17 +142,7 @@ export const Block = ({
                 {cta}
             </Enter>
 
-            {image && (image.src ?? image.href) && (
-                <Enter variant="fade-left" delay={200} duration={700} className={cn("order-2 w-full w-auto flex-1", image.className)}>
-                    <Image
-                        src={image.src ?? image.href ?? ""}
-                        alt={image.alt}
-                        width={500}
-                        height={350}
-                        className="rounded-2xl w-full h-auto"
-                    />
-                </Enter>
-            )}
+            {renderImage()}
         </div>
     );
 };

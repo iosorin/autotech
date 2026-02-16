@@ -6,11 +6,7 @@ import { Rates } from "@ui/blocks/rates";
 import { Block } from "@ui/blocks/block";
 import { seo, tariffs } from "@data";
 
-export const metadata: Metadata = {
-  title: seo.pages.tariffs.title,
-  description: seo.pages.tariffs.description,
-  alternates: { canonical: "/tariffs" },
-};
+export const metadata: Metadata = seo.pages.tariffs;
 
 const Tariffs = () => {
   const p = tariffs;

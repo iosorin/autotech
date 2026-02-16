@@ -3,13 +3,9 @@ import { Changelog } from "@ui/blocks/changelog";
 import { Lead } from "@ui/atoms/lead";
 import { seo, updates } from "@data";
 
-export const metadata: Metadata = {
-  title: seo.pages.updates.title,
-  description: seo.pages.updates.description,
-  alternates: { canonical: "/updates" },
-};
+export const metadata: Metadata = seo.pages.updates;
 
-export default function UpdatesPage() {
+const Updates = () => {
   const p = updates;
   return (
     <section id="updates">
@@ -19,3 +15,5 @@ export default function UpdatesPage() {
     </section>
   );
 }
+
+export default Updates;

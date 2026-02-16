@@ -4,13 +4,9 @@ import { List } from "@ui/blocks/list";
 import { seo, events, } from "@data";
 import { Cta } from "@ui/blocks/cta";
 
-export const metadata: Metadata = {
-  title: seo.pages.events.title,
-  description: seo.pages.events.description,
-  alternates: { canonical: "/events" },
-};
+export const metadata: Metadata = seo.pages.events;
 
-export default function EventsPage() {
+const Events = () => {
   const p = events;
   return (
     <>
@@ -36,3 +32,5 @@ export default function EventsPage() {
 
   );
 }
+
+export default Events;

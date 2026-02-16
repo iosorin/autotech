@@ -3,13 +3,9 @@ import { Article } from "@ui/blocks/article";
 import { Lead } from "@ui/atoms/lead";
 import { license, seo } from "@data";
 
-export const metadata: Metadata = {
-    title: seo.pages.license.title,
-    description: seo.pages.license.description,
-    alternates: { canonical: "/license" },
-};
+export const metadata: Metadata = seo.pages.license;
 
-export default function LicensePage() {
+const License = () => {
     return (
         <section id="license" className="pt-header">
             <Article
@@ -19,3 +15,5 @@ export default function LicensePage() {
         </section>
     );
 }
+
+export default License;
