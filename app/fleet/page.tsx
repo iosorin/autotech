@@ -9,7 +9,9 @@ import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
-import { fleet, seo } from "@data";
+import { Form } from "@ui/blocks/form";
+import contact from "@api/contact";
+import { app, fleet, forms, seo } from "@data";
 
 export const metadata: Metadata = {
   title: seo.pages.fleet.title,
@@ -19,6 +21,18 @@ export const metadata: Metadata = {
 
 export default function FleetPage() {
   const p = fleet;
+
+  const ctaCabinet = <Cta items={[app.cta.cabinet, app.cta.more]}>
+    <Cta.Slot id={app.cta.more.id}>
+      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+    </Cta.Slot>
+  </Cta>
+  const ctaContact = <Cta items={[app.cta.contact]}>
+    <Cta.Slot id={app.cta.contact.id}>
+      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+    </Cta.Slot>
+  </Cta>
+
   return (
     <>
       <section id="fleet" className="pb-0">
@@ -29,7 +43,7 @@ export default function FleetPage() {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={p.hero.cta}
+          cta={ctaContact}
         />
       </section>
 
@@ -56,7 +70,7 @@ export default function FleetPage() {
           heading={<Lead title={p.flexible.heading} className="text-left mb-0" />}
           items={p.flexible.items}
           image={p.flexible.image}
-          cta={p.flexible.cta}
+          cta={ctaContact}
           // className="flex-row-reverse"
           reverse
         />
@@ -68,8 +82,7 @@ export default function FleetPage() {
           <Lead title={p.how.heading} />
           <Icons items={p.how.items} variant="stack" />
         </div>
-
-        <Cta items={[p.how.cta.cabinet, p.how.cta.more]} />
+        {ctaCabinet}
       </section>
 
       <section id="transparency">
@@ -97,7 +110,7 @@ export default function FleetPage() {
           title={p.hrd.heading}
           desc={p.hrd.desc}
           icon={p.hrd.icon}
-          cta={p.hrd.cta}
+          cta={ctaCabinet}
           className="bg-gradient-blue"
         />
       </section>

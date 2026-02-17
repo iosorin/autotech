@@ -630,10 +630,12 @@ export const fleet = {
         ],
         cta: {
             cabinet: {
+                id: "cabinet",
                 label: "Перейти в личный кабинет",
                 href: app.app,
             },
             more: {
+                id: "more",
                 label: "Узнать больше",
                 href: app.app,
             },

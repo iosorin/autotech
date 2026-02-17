@@ -59,13 +59,13 @@ export const app = {
   featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
     start: {
-      id: "start",
+      id: "cta-start",
       label: "Начать работать",
       href: lkurl,
       blank: true,
     },
     contact: {
-      id: "contact",
+      id: "cta-contact",
       label: "Связаться с нами",
       href: "/contacts",
       props: {
@@ -73,12 +73,24 @@ export const app = {
         className: "rounded-full",
       },
     },
+    cabinet: {
+      id: "cta-cabinet",
+      label: "Перейти в личный кабинет",
+      href: lkurl,
+      blank: true,
+    },
+    more: {
+      id: "cta-more",
+      label: "Узнать больше",
+      href: lkurl,
+      blank: true,
+    },
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
     },
     details: "Узнать детали",
-    more: "Узнать больше",
-    cabinet: "Перейти в личный кабинет",
+    // more: "Узнать больше",
+    // cabinet: "Перейти в личный кабинет",
   },
 };

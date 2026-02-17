@@ -17,7 +17,7 @@ type Props = {
   card: { title: string; desc: string; icon: React.ReactNode; };
   image: { src: string; alt: string; };
   links?: { label: string; href: string; props?: React.ComponentProps<typeof Button>; }[];
-  cta?: { label: string; } & React.ComponentProps<typeof Link>;
+  cta?: React.ReactNode;
   className?: string;
 };
 
@@ -79,17 +79,7 @@ export const Hero = ({
 
           {cta && (
             <Enter variant="fade-right" delay={500} duration={500} className="mt-1">
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                {...cta}
-                className={cn(" shadow-sm inline-flex items-center gap-3 rounded-3xl px-6 py-4 text-sm font-medium mt-2 w-fit hover:opacity-90 transition-opacity", cta.className)}
-              >
-                {cta.children}
-                {cta.label && (
-                  <span className="text-lg max-w-[220px]">{cta.label}</span>
-                )}
-              </Link>
+              {cta}
             </Enter>
           )}
         </div>
