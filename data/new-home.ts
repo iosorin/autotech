@@ -15,7 +15,7 @@ export const newHome = {
           desc: app.cta.telegram.label,
           link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank", },
           icon: { name: "telegram" },
-          className: "bg-gradient-telegram hover-opacity",
+          className: "bg-gradient-telegram hover-opacity md:max-w-[340px]",
           variant: "row",
           white: true,
         },
@@ -60,7 +60,7 @@ export const newHome = {
       "telegram",
     ],
     className: "items-center",
-    gap: "1rem 1.5rem"
+    gap: "md"
   } satisfies IGrid,
 
 
