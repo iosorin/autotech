@@ -4,10 +4,16 @@ import { app, forms } from '@/data';
 import { Dialog } from '@ui/atoms/dialog';
 import Form, { type IForm } from '@ui/blocks/form';
 import { Sonner } from "@ui/atoms/sonner";
+import { useObserve } from '@hooks/use-observe';
 import contact from '@api/contact';
 
 export const Use = ({ children }: { children?: React.ReactNode }) => {
     const [dialog, setDialog] = React.useState<{ id: string; form: IForm } | null>(null);
+
+    useObserve({
+        selector: '.animate:not(.animate-visible)',
+        activeClass: 'animate-visible'
+    });
 
     React.useEffect(() => {
         const handler = (e: MouseEvent) => {
@@ -23,7 +29,7 @@ export const Use = ({ children }: { children?: React.ReactNode }) => {
     }, []);
 
 
-    const onAction = (id: string | null) => {
+    const onAction = React.useCallback((id: string | null) => {
         if (!id) return;
 
         switch (id) {
@@ -31,7 +37,7 @@ export const Use = ({ children }: { children?: React.ReactNode }) => {
                 setDialog({ id: forms.contact.id, form: forms.contact });
                 break;
         }
-    }
+    }, []);
 
     return <>
         {children}
