@@ -19,9 +19,10 @@ export const newHome = {
           variant: "row",
           white: true,
         },
+        className: "self-start",
       },
       {
-        name: "tags", type: "Tags", props: {
+        name: "tags", type: "Tags", className: "self-end", props: {
           tags: [{
             items: [
               { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
@@ -59,7 +60,9 @@ export const newHome = {
       "telegram",
     ],
     className: "items-center",
+    gap: "1rem 1.5rem"
   } satisfies IGrid,
+
 
   features: home.features.list.map((block) => {
     const half = Math.ceil(block.items.length / 2);
