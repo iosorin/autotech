@@ -156,7 +156,7 @@ export const Grid = React.memo(({
                         : {};
 
                     return (
-                        <div key={name} style={{ gridArea: name }} className={(item.className)}>
+                        <div key={name} style={{ gridArea: name }} className={item.className}>
                             <Component {...resolvedProps} />
                         </div>
                     );
