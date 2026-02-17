@@ -136,9 +136,10 @@ const Page = () => {
 
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
+        <Lead title={p.join.titleLine1} title2={p.join.titleLine2} />
         <Cta
-          title1={p.join.titleLine1}
-          title2={p.join.titleLine2}
+          // title1={p.join.titleLine1}
+          // title2={p.join.titleLine2}
           items={[app.cta.start, app.cta.contact]}
         />
       </section>

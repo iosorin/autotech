@@ -655,8 +655,8 @@ export const fleet = {
         desc: "Добавляйте автомойки для ключевых сотрудников в соц.пакет. Это повышает лояльность сотрудников",
         icon: <Heart className="size-14 text-accent" />,
         cta: {
-            primary: { label: "Перейти в личный кабинет", href: "/cabinet" },
-            secondary: { label: "Узнать больше", href: "/" },
+            primary: { label: "Перейти в личный кабинет", href: app.app },
+            secondary: { label: "Узнать больше", href: app.app },
         },
         image: {
             alt: "Специальное предложение для HRD",
