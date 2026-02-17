@@ -4,3 +4,4 @@ export * from "./pages";
 export * from "./privacy";
 export * from "./license";
 export * from "./contract";
+export * from "./forms";

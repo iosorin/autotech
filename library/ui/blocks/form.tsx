@@ -13,7 +13,7 @@ type ISelect = {
     type: "select";
     required?: boolean;
     label: React.ReactNode;
-    placeholder: string;
+    placeholder?: string;
     options: string[];
 };
 
@@ -22,7 +22,7 @@ type IInput = {
     type: "text" | "tel" | "email" | "textarea" | "checkbox";
     required?: boolean;
     label: React.ReactNode;
-    placeholder: string;
+    placeholder?: string;
 };
 
 

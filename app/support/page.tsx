@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Links } from "@ui/blocks/links";
-import { app, seo, support } from "@data";
-import { Contact } from "@ui/blocks/contact";
+import { app, seo, support, forms } from "@data";
 import { Types } from "@ui/blocks/types";
 import contact from "@api/contact";
+import Form from "@/library/ui/blocks/form";
 
 export const metadata: Metadata = {
   title: seo.pages.support.title,
@@ -20,7 +20,7 @@ export default function SupportPage() {
         <div className="gradlayer bg-gradient-lime" />
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
-          <Contact heading={p.form.heading} topics={p.form.topics} onSubmit={contact} />
+          <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />
         </div>
       </section>
 
