@@ -1,3 +1,5 @@
+const lkurl = "https://work.moykazdes.ru/";
+
 export const app = {
   name: "Автотех",
   tagline: "Платформа Автотех",
@@ -5,7 +7,7 @@ export const app = {
   description:
     "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
   siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
-  app: "https://work.moykazdes.ru/",
+  app: lkurl,
   copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",
   phone: "+7 909 904 1111",
@@ -45,7 +47,7 @@ export const app = {
   nav: [
     { label: "Тарифы", href: "/tariffs" },
     { label: "Обновления", href: "/updates" },
-    { label: "Мероприятия", href: "/events" },
+    // { label: "Мероприятия", href: "/events" },
     { label: "Поддержка", href: "/support" },
     { label: "Контакты", href: "/contacts" },
   ],
@@ -57,10 +59,13 @@ export const app = {
   featured: { label: "Автопаркам", href: "/fleet", },
   cta: {
     start: {
+      id: "start",
       label: "Начать работать",
-      href: "/",
+      href: lkurl,
+      blank: true,
     },
     contact: {
+      id: "contact",
       label: "Связаться с нами",
       href: "/contacts",
       props: {

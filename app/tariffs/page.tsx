@@ -4,7 +4,9 @@ import { Lead } from "@ui/atoms/lead";
 import { Table } from "@ui/blocks/table";
 import { Rates } from "@ui/blocks/rates";
 import { Block } from "@ui/blocks/block";
-import { seo, tariffs } from "@data";
+import { app, forms, seo, tariffs } from "@data";
+import Form from "@/library/ui/blocks/form";
+import contact from "@api/contact";
 
 export const metadata: Metadata = {
   title: seo.pages.tariffs.title,
@@ -48,7 +50,12 @@ const Tariffs = () => {
       <section id="cta">
         <div className="gradlayer bg-gradient-green" />
         <Lead title={p.cta.title1} title2={p.cta.title2} />
-        <Cta items={[p.cta.start, p.cta.contact]} />
+
+        <Cta items={[app.cta.start, app.cta.contact]}>
+          <Cta.Slot id={app.cta.contact.id}>
+            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
       </section>
     </>
   );

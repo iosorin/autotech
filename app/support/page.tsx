@@ -4,7 +4,7 @@ import { Links } from "@ui/blocks/links";
 import { app, seo, support, forms } from "@data";
 import { Types } from "@ui/blocks/types";
 import contact from "@api/contact";
-import Form from "@/library/ui/blocks/form";
+import Form from "@ui/blocks/form";
 
 export const metadata: Metadata = {
   title: seo.pages.support.title,

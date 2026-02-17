@@ -11,7 +11,9 @@ import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
-import { app, home } from "@data";
+import { app, forms, home } from "@data";
+import Form from "@ui/blocks/form";
+import contact from "@api/contact";
 
 const Page = () => {
   const p = home;
@@ -21,7 +23,12 @@ const Page = () => {
         <div className="gradlayer bg-gradient-gray" />
 
         <Lead title={p.hero.titleLine1} title2={p.hero.titleLine2} tag="h1" label={p.hero.subtitle} />
-        <Cta items={[app.cta.start, app.cta.contact]} />
+
+        <Cta items={[app.cta.start, app.cta.contact]}>
+          <Cta.Slot id={app.cta.contact.id}>
+            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
 
         <Hero
           heading={null}
@@ -33,6 +40,7 @@ const Page = () => {
         />
       </section>
 
+      {/* 
       <section id="event">
         <Event
           date={p.eventBanner.date}
@@ -43,7 +51,7 @@ const Page = () => {
           button={p.eventBanner.button}
           className="bg-gradient-blue"
         />
-      </section>
+      </section> */}
 
       <section id="features">
         <Features
@@ -103,10 +111,12 @@ const Page = () => {
 
       <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
-        <Cta
-          title1={p.cta.defaultTitle}
-          items={[app.cta.start, app.cta.contact]}
-        />
+        <Cta title={p.cta.defaultTitle} items={[app.cta.start, app.cta.contact]}>
+          <Cta.Slot id={app.cta.contact.id}>
+            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
+
       </section>
 
       <section id="faq">
@@ -137,11 +147,12 @@ const Page = () => {
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
         <Lead title={p.join.titleLine1} title2={p.join.titleLine2} />
-        <Cta
-          // title1={p.join.titleLine1}
-          // title2={p.join.titleLine2}
-          items={[app.cta.start, app.cta.contact]}
-        />
+
+        <Cta items={[app.cta.start, app.cta.contact]}>
+          <Cta.Slot id={app.cta.contact.id}>
+            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
+          </Cta.Slot>
+        </Cta>
       </section>
     </>
   );

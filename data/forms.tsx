@@ -1,4 +1,4 @@
-import { IField } from "@/library/ui/blocks/form";
+import { IField } from "@ui/blocks/form";
 import Link from "next/link";
 
 export const forms = {
