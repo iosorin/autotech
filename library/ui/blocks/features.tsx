@@ -61,14 +61,14 @@ export const Features = ({ tabs, content }: Props) => {
         return (
           <TabsContent key={tab.id} value={tab.id} className="mt-0">
             <Enter variant="fade" duration={500}>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center mb-12 text-balance">
+              <h2 className="text-2xl md:text-4xl font-bold text-foreground text-center md:mb-12 mb-6 text-balance">
                 {data.title}
               </h2>
             </Enter>
 
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
               {data.image && (
-                <div className="relative w-full lg:flex-1 min-w-0 order-first">
+                <div className="max-md:hidden relative w-full lg:flex-1 min-w-0 order-first">
                   <Image
                     src={data.image.src}
                     alt={data.image.alt}

@@ -33,7 +33,7 @@ export const Table = ({ cols, rows, note, note2, className }: Props) => {
               key={item.id}
               variant="accent"
               size="lg"
-              className="lg:pointer-events-none"
+              className={cn("lg:pointer-events-none", activePeriod !== item.id && "max-md:opacity-50")}
               onClick={() => setActivePeriod(item.id)}
             >
               {item.label}
