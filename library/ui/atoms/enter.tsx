@@ -6,7 +6,7 @@ import { cn } from "@utils";
 type AnimationVariant = "fade-up" | "fade-down" | "fade-left" | "fade-right" | "fade" | "scale-up" | "blur-in";
 
 type Props = {
-  children: ReactNode;
+  children: any;
   variant?: AnimationVariant;
   delay?: number;
   duration?: number;
@@ -62,7 +62,7 @@ export const Enter = ({
 }
 
 interface StaggerChildrenProps {
-  children: ReactNode;
+  children: any;
   staggerDelay?: number;
   variant?: AnimationVariant;
   duration?: number;
@@ -71,7 +71,7 @@ interface StaggerChildrenProps {
   threshold?: number;
 }
 
-export function StaggerChildren({
+export const StaggerChildren = ({
   children,
   staggerDelay = 100,
   variant = "fade-up",
@@ -79,7 +79,7 @@ export function StaggerChildren({
   className,
   childClassName,
   threshold = 0.1,
-}: StaggerChildrenProps) {
+}: StaggerChildrenProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
