@@ -12,11 +12,13 @@ type IGridItem = {
     name: string;
     type: 'div';
     props?: React.HTMLAttributes<HTMLDivElement>;
+    className?: string;
 } | {
     [K in keyof typeof ATOMS]: {
         name: string;
         type: K;
         props?: AtomProps<K>;
+        className?: string;
     }
 }[keyof typeof ATOMS];
 
@@ -154,7 +156,7 @@ export const Grid = React.memo(({
                         : {};
 
                     return (
-                        <div key={name} style={{ gridArea: name }}>
+                        <div key={name} style={{ gridArea: name }} className={(item.className)}>
                             <Component {...resolvedProps} />
                         </div>
                     );
