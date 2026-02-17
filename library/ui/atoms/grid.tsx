@@ -43,7 +43,7 @@ const DEFAULT_BREAKPOINT_PX = 768;
 const GAP_MAP: Record<IGridGap, string> = {
     none: '0',
     sm: '0.5rem',
-    md: '1.5rem',
+    md: '1rem',
     lg: '2rem',
 };
 

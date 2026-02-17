@@ -6,16 +6,26 @@ import { home } from "./pages/home";
 export const newHome = {
   hero: {
     items: [
-      { name: "lead", type: "Lead", props: { tag: "h1", title: "Приложение для автомойки,\nдетейлинга и шиномонтажа", label: "Платформа Автотех" } },
-      { name: "cta", type: "Cta", props: { items: [app.cta.start, app.cta.contact], } },
+      {
+        name: "lead",
+        type: "Lead",
+        props: { tag: "h1", title: "Приложение для автомойки,\nдетейлинга и шиномонтажа", label: "Платформа Автотех", className: "mb-2" },
+        // className: "mb-2",
+      },
+      {
+        name: "cta",
+        type: "Cta",
+        props: { items: [app.cta.start, app.cta.contact], },
+        // className: "md:-mt-2",
+      },
       {
         name: "telegram",
         type: "Card",
         props: {
           desc: app.cta.telegram.label,
           link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank", },
-          icon: { name: "telegram" },
-          className: "bg-gradient-telegram hover-opacity md:max-w-[340px]",
+          icon: { name: "telegram", className: "size-12" },
+          className: "bg-gradient-telegram md:p-4 hover-opacity md:max-w-[340px]",
           variant: "row",
           white: true,
         },
