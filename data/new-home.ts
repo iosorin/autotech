@@ -8,50 +8,104 @@ export const newHome = {
     items: [
       {
         name: "lead",
-        type: "Lead",
-        props: { tag: "h1", title: "Приложение для автомойки,\nдетейлинга и шиномонтажа", label: "Платформа Автотех", className: "mb-2" },
-        // className: "mb-2",
+        type: "Enter",
+        props: {
+          variant: "fade-up",
+          duration: 600,
+          children: {
+            type: "Lead",
+            props: { tag: "h1", title: "Приложение для автомойки,\nдетейлинга и шиномонтажа", label: "Платформа Автотех", className: "mb-2" },
+          }
+        },
       },
       {
         name: "cta",
-        type: "Cta",
-        props: { items: [app.cta.start, app.cta.contact], },
-        // className: "md:-mt-2",
+        type: "Enter",
+        props: {
+          variant: "fade-up",
+          delay: 100,
+          duration: 600,
+          children: {
+            type: "Cta",
+            props: { items: [app.cta.start, app.cta.contact] },
+          }
+        },
+      },
+      {
+        name: "tags",
+        type: "Enter",
+        className: "self-end",
+        props: {
+          variant: "fade-up",
+          delay: 200,
+          duration: 600,
+          children: {
+            type: "Tags",
+            props: {
+              tags: [{
+                items: [
+                  { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
+                  { icon: { name: "chart-pie" }, label: "Статистика и аналитика" },
+                  { icon: { name: "calculator" }, label: "Гибкий расчет зарплат" },
+                  { icon: { name: "calendar-check" }, label: "Онлайн-запись" },
+                  { icon: { name: "users" }, label: "CRM" },
+                ],
+                itemClassName: "bg-white [&_svg]:text-primary",
+              }]
+            },
+          }
+        },
+      },
+      {
+        name: "image",
+        type: "Enter",
+        props: {
+          variant: "fade-up",
+          delay: 150,
+          duration: 800,
+          children: {
+            type: "Image",
+            props: app.images.preview,
+          }
+        },
+      },
+      {
+        name: "card",
+        type: "Enter",
+        props: {
+          variant: "fade-up",
+          delay: 200,
+          duration: 600,
+          children: {
+            type: "Card",
+            props: {
+              title: "Легкий переход с других приложений",
+              desc: "Автоматический перенос \n услуг и настроек",
+              icon: { name: "RefreshCw" },
+              className: "bg-gradient-white",
+            },
+          }
+        },
       },
       {
         name: "telegram",
-        type: "Card",
-        props: {
-          desc: app.cta.telegram.label,
-          link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank", },
-          icon: { name: "telegram", className: "size-12" },
-          className: "bg-gradient-telegram md:px-5 md:py-4 hover-opacity md:max-w-[340px]",
-          variant: "row",
-          white: true,
-        },
+        type: "Enter",
         className: "self-start",
-      },
-      {
-        name: "tags", type: "Tags", className: "self-end", props: {
-          tags: [{
-            items: [
-              { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
-              { icon: { name: "chart-pie" }, label: "Статистика и аналитика" },
-              { icon: { name: "calculator" }, label: "Гибкий расчет зарплат" },
-              { icon: { name: "calendar-check" }, label: "Онлайн-запись" },
-              { icon: { name: "users" }, label: "CRM" },
-            ],
-            itemClassName: "bg-white [&_svg]:text-primary",
-          }]
-        },
-      },
-      { name: "image", type: "Image", props: app.images.preview, },
-      {
-        name: "card", type: "Card", props: {
-          title: "Легкий переход с других приложений",
-          desc: "Автоматический перенос \n услуг и настроек",
-          icon: { name: "RefreshCw" },
-          className: "bg-gradient-white",
+        props: {
+          variant: "fade-up",
+          delay: 300,
+          duration: 600,
+          children: {
+            type: "Card",
+            props: {
+              desc: app.cta.telegram.label,
+              link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank" },
+              icon: { name: "telegram", className: "size-12" },
+              className: "bg-gradient-telegram md:px-5 md:py-4 hover-opacity md:max-w-[340px]",
+              variant: "row",
+              white: true,
+            },
+          }
         },
       },
     ],
