@@ -41,7 +41,7 @@ const DEFAULT_BREAKPOINT_PX = 768;
 const GAP_MAP: Record<IGridGap, string> = {
     none: '0',
     sm: '0.5rem',
-    md: '1rem',
+    md: '1.5rem',
     lg: '2rem',
 };
 
@@ -73,7 +73,9 @@ const resolveProps = (props: Record<string, any>): Record<string, any> =>
     Object.fromEntries(
         Object.entries(props).map(([key, val]) => [
             key,
-            isResolvable(val) ? resolveItem(val) : val,
+            Array.isArray(val)
+                ? val.map(v => isResolvable(v) ? resolveItem(v) : v)
+                : isResolvable(val) ? resolveItem(val) : val,
         ])
     );
 

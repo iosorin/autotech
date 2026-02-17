@@ -90,19 +90,23 @@
     margin-right: 0 !important;
   }
 
-  h1 {
+  h1,
+  .h1 {
     @apply text-3xl md:text-5xl font-bold text-foreground text-balance tracking-[-1px];
   }
 
-  h2 {
+  h2,
+  .h2 {
     @apply text-2xl md:text-3xl font-bold text-foreground text-balance;
   }
 
-  h3 {
+  h3,
+  .h3 {
     @apply text-xl font-bold text-foreground text-balance;
   }
 
-  h5 {
+  h5,
+  .h5 {
     @apply text-xl font-medium text-foreground text-balance mb-3;
   }
 
@@ -112,12 +116,19 @@
   } */
 
   h1,
+  .h1,
   h2,
+  .h2,
   h3,
+  .h3,
   h4,
+  .h4,
   h5,
+  .h5,
   h6,
-  p {
+  .h6,
+  p,
+  .p {
     @apply md:whitespace-pre-line;
   }
 
@@ -241,6 +252,10 @@
 .lucide {
   flex-shrink: 0;
   stroke-width: 1.5;
+}
+
+.hover-opacity {
+  @apply hover:opacity-90 transition-opacity;
 }
 
 /* @media (prefers-reduced-motion: reduce) {

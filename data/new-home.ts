@@ -6,33 +6,42 @@ import { home } from "./pages/home";
 export const newHome = {
   hero: {
     items: [
-      { name: "lead", type: "Lead", props: { tag: "h1", title: home.hero.title, label: home.hero.subtitle } },
-      { name: "cta", type: "Cta", props: { items: home.hero.cta.items, className: "mb-4" } },
+      { name: "lead", type: "Lead", props: { tag: "h1", title: "Приложение для автомойки,\nдетейлинга и шиномонтажа", label: "Платформа Автотех" } },
+      { name: "cta", type: "Cta", props: { items: [app.cta.start, app.cta.contact], } },
       {
         name: "telegram",
         type: "Card",
         props: {
-          title: home.hero.telegram.label,
-          desc: home.hero.telegram.label,
-          link: { href: home.hero.telegram.href, rel: "noopener noreferrer", target: "_blank", },
-          icon: { name: "telegram", className: "text-white" },
-          className: "text-white shadow-sm inline-flex items-center gap-4 rounded-3xl px-5 py-4 text-sm w-fit hover:opacity-90 transition-opacity bg-gradient-telegram",
+          desc: app.cta.telegram.label,
+          link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank", },
+          icon: { name: "telegram" },
+          className: "bg-gradient-telegram hover-opacity",
+          variant: "row",
+          white: true,
         },
       },
       {
-        name: "tags",
-        type: "Tags",
-        props: { tags: home.hero.tags },
+        name: "tags", type: "Tags", props: {
+          tags: [{
+            items: [
+              { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
+              { icon: { name: "chart-pie" }, label: "Статистика и аналитика" },
+              { icon: { name: "calculator" }, label: "Гибкий расчет зарплат" },
+              { icon: { name: "calendar-check" }, label: "Онлайн-запись" },
+              { icon: { name: "users" }, label: "CRM" },
+            ],
+            itemClassName: "bg-white [&_svg]:text-primary",
+          }]
+        },
       },
+      { name: "image", type: "Image", props: app.images.preview, },
       {
-        name: "image",
-        type: "Image",
-        props: home.hero.image,
-      },
-      {
-        name: "card",
-        type: "Card",
-        props: home.hero.card,
+        name: "card", type: "Card", props: {
+          title: "Легкий переход с других приложений",
+          desc: "Автоматический перенос \n услуг и настроек",
+          icon: { name: "RefreshCw" },
+          className: "bg-gradient-white",
+        },
       },
     ],
     areas: [
@@ -49,6 +58,7 @@ export const newHome = {
       "card",
       "telegram",
     ],
+    className: "items-center",
   } satisfies IGrid,
 
   features: home.features.list.map((block) => {

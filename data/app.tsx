@@ -46,7 +46,7 @@ export const app = {
       blank: true
     },
     telegram: {
-      label: "Подпишитесь на наш телеграм-канал",
+      label: "Подпишитесь на наш\n телеграм-канал",
       href: "https://t.me/moykazdes",
       className: "bg-gradient-telegram",
     },
