@@ -9,36 +9,13 @@ export const newHome = {
       {
         name: "lead",
         type: "Lead",
-        props: {
-          tag: "h1",
-          title: home.hero.title,
-          label: home.hero.subtitle,
-        },
+        props: { tag: "h1", title: home.hero.title, label: home.hero.subtitle },
       },
-      {
-        name: "cta",
-        type: "Cta",
-        props: {
-          items: home.hero.cta.items,
-        },
-      },
-      // {
-      //   name: "dialog",
-      //   type: "DialogListener",
-      //   props: {
-      //     id: home.hero.cta.slotId,
-      //     children: {
-      //       type: "Form",
-      //       props: home.hero.cta.slot,
-      //     },
-      //   },
-      // },
+      { name: "cta", type: "Cta", props: { items: home.hero.cta.items, }, },
       {
         name: "telegram",
         type: "Card",
         props: {
-          // ...home.hero.telegram,
-          // target: "_blank",
           title: home.hero.telegram.label,
           desc: home.hero.telegram.label,
           link: {
@@ -67,10 +44,10 @@ export const newHome = {
       },
     ],
     areas: [
-      "lead     lead     lead     lead",
-      "cta      cta      telegram .",
-      "tags     tags     image    card",
-      "dialog   dialog   dialog   dialog",
+      "lead     lead     lead",
+      "cta      cta      cta",
+      "tags     image    card",
+      "telegram image    card",
     ],
     mobileAreas: [
       "lead",
@@ -79,9 +56,8 @@ export const newHome = {
       "image",
       "card",
       "telegram",
-      "dialog",
     ],
-    cols: 4,
+    cols: 3,
     gap: "lg",
   } satisfies IGrid,
 
