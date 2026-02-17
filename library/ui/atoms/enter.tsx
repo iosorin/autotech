@@ -53,7 +53,7 @@ export const Enter = ({
   return (
     <div
       ref={ref}
-      className={cn(`animate-on-scroll animate-${variant}`, className)}
+      className={cn(`animate animate-${variant}`, className)}
       style={{ transitionDuration: `${duration}ms`, ...style }}
     >
       {children}
@@ -111,7 +111,7 @@ export const StaggerChildren = ({
           <div
             key={i}
             className={cn(
-              `stagger-item animate-on-scroll animate-${variant}`,
+              `stagger-item animate animate-${variant}`,
               childClassName
             )}
             style={{ transitionDuration: `${duration}ms` }}
