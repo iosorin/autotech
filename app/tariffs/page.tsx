@@ -5,7 +5,7 @@ import { Table } from "@ui/blocks/table";
 import { Rates } from "@ui/blocks/rates";
 import { Block } from "@ui/blocks/block";
 import { app, forms, seo, tariffs } from "@data";
-import Form from "@ui/blocks/form";
+import { Form } from "@ui/blocks/form";
 import contact from "@api/contact";
 
 export const metadata: Metadata = {

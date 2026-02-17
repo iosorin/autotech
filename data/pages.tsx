@@ -13,7 +13,7 @@ export const home = {
             { icon: <CalendarCheck className="size-5 text-primary" />, label: "Онлайн-запись" },
             { icon: <Users className="size-5 text-primary" />, label: "CRM" },
         ],
-        cta: {
+        telegram: {
             label: "Подпишитесь на наш телеграм-канал",
             href: "https://t.me/moykazdes",
             className: "text-primary-foreground bg-gradient-telegram",
