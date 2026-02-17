@@ -5,7 +5,7 @@ import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
 import { Use } from "./use";
 import { app, seo } from "@data";
-import "./style.css";
+import "./style.scss";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
 

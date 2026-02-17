@@ -16,6 +16,8 @@ export const Use = ({ children }: { children?: React.ReactNode }) => {
     });
 
     React.useEffect(() => {
+        document.body.classList.add('mounted');
+
         const handler = (e: MouseEvent) => {
             const target = (e.target as HTMLElement).closest('[id]');
             if (!target) return;

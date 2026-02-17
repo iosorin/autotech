@@ -4,7 +4,7 @@ import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const cardVariants = cva(
-    "rounded-2xl p-4 md:p-6 flex items-center",
+    "rounded-2xl p-4 md:px-6 md:py-8 flex items-center",
     {
         variants: {
             variant: {
@@ -50,7 +50,7 @@ export const Card = ({ title, desc, icon, image, link, className, white, variant
                     )}
                 />
             )}
-            <div className={cn("flex flex-col gap-1", variant === 'cover' && "p-4 md:p-6")}>
+            <div className={cn("flex flex-col gap-2", variant === 'cover' && "p-4 md:p-6")}>
                 {title && (
                     <h3 className={cn(white ? "text-white" : "")}>{title}</h3>
                 )}
