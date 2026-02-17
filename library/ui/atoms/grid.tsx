@@ -93,7 +93,7 @@ export const Grid = React.memo(({
     items,
     areas,
     mobileAreas,
-    cols = 3,
+    cols,
     rows = 'auto',
     gap = 'md',
     className,
@@ -112,7 +112,10 @@ export const Grid = React.memo(({
         return unique(splitAreas(src));
     }, [areas, mobileAreas]);
 
-    const gridCols = typeof cols === 'number' ? `repeat(${cols}, 1fr)` : cols;
+    const colCount = areas[0].split(/\s+/).filter(Boolean).length;
+    const gridCols = cols
+        ? typeof cols === 'number' ? `repeat(${cols}, 1fr)` : cols
+        : `repeat(${colCount}, 1fr)`; // ← fallback из areas
     const gridRows = typeof rows === 'number' ? `repeat(${rows}, auto)` : rows;
     const desktopAreasStr = areas.map(row => `"${row}"`).join(' ');
     const mobileAreasStr = mobileAreas
