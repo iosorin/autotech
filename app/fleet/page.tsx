@@ -78,7 +78,7 @@ export default function FleetPage() {
 
       <section id="how-it-works">
         <div className="gradlayer bg-gradient-lime" />
-        <div className="max-w-[85%] mx-auto mb-16">
+        <div className="md:max-w-[85%] mx-auto mb-16">
           <Lead title={p.how.heading} />
           <Icons items={p.how.items} variant="stack" />
         </div>

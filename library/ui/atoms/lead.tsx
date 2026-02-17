@@ -26,7 +26,7 @@ export const Lead = ({ title, title2, label, hint, titleFirst, className, left, 
   if (!title && !label) return null;
 
   return (
-    <div className={cn("flex flex-col gap-2 mb-10", left ? "text-left" : "text-center", className)}>
+    <div className={cn("flex flex-col gap-2 md:mb-10 mb-5", left ? "text-left" : "text-center", className)}>
       {titleFirst ? renderTitle() : renderLabel()}
       {titleFirst ? renderLabel() : renderTitle()}
       {renderHint()}

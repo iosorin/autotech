@@ -93,7 +93,7 @@ export const Block = ({
             </Enter>
 
             {image &&
-                <Enter variant="fade-left" delay={200} duration={700} className={cn("order-2 w-full w-auto flex-1", image.className)}>
+                <Enter variant="fade-left" delay={200} duration={700} className={cn("order-2 w-full w-auto flex-1 max-md:hidden", image.className)}>
                     <Image
                         src={image.href}
                         alt={image.alt}

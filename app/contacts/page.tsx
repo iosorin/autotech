@@ -26,13 +26,14 @@ export const Contacts = () => {
 
         <Lead
           title={p.title}
-          hint={
-            <span className="text-lg inline-flex gap-1 justify-center">
+          titleFirst
+          label={
+            <>
               {p.supportHint}
               <Link href="/support" className="text-primary underline hover:text-primary/80" title={p.supportLinkLabel}>
                 «{p.supportLinkLabel}»
               </Link>
-            </span>
+            </>
           }
           tag="h1"
         />
@@ -51,7 +52,7 @@ export const Contacts = () => {
 
       <section id="mission" className="pb-0">
         <div className="gradlayer bg-gradient-lime" />
-        <div className="max-w-[85%] mx-auto">
+        <div className="md:max-w-[85%] mx-auto">
           <Lead title={p.mission.heading} />
           <Icons items={p.mission.items} variant="stack" />
         </div>
@@ -77,7 +78,7 @@ export const Contacts = () => {
 
       <section id="requisites">
         <div className="gradlayer bg-gradient-gray-light" />
-        <div className="max-w-[85%] mx-auto">
+        <div className="md:max-w-[85%] mx-auto">
 
           <Lead title={p.requisitesHeading} />
           <Requisites

@@ -57,7 +57,7 @@ export const Cabinet = ({
       )}
 
       {image && (
-        <Enter variant="scale-up" delay={150} duration={700} className="lg:w-1/3 flex justify-center">
+        <Enter variant="scale-up" delay={150} duration={700} className="lg:w-1/3 flex justify-center max-md:hidden">
           <Image
             src={image.href}
             alt={image.alt}

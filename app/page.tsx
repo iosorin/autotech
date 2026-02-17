@@ -124,12 +124,12 @@ const Page = () => {
 
       <section id="cta">
         <div className="gradlayer bg-gradient-blue" />
-        <Cta title={p.cta.defaultTitle} items={[app.cta.start, app.cta.contact]}>
+        <Lead title={p.cta.defaultTitle} />
+        <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>
             <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
-
       </section>
 
       <section id="faq">
@@ -159,7 +159,7 @@ const Page = () => {
 
       <section id="cta-join">
         <div className="gradlayer bg-muted" />
-        <Lead title={p.join.titleLine1} title2={p.join.titleLine2} className="max-md:mb-5" />
+        <Lead title={p.join.titleLine1} title2={p.join.titleLine2} />
 
         <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>

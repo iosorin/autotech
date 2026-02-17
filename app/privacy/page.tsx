@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const Privacy = () => {
     return <section id="privacy" className="pt-header">
         <Article
-            heading={<Lead title={privacy.heading} left />}
+            heading={<Lead title={privacy.heading} left tag="h1" />}
             content={privacy.content} />
     </section>
 }

@@ -13,7 +13,7 @@ export default function LicensePage() {
     return (
         <section id="license" className="pt-header">
             <Article
-                heading={<Lead title={license.heading} left />}
+                heading={<Lead title={license.heading} left tag="h1" />}
                 content={license.content}
             />
         </section>
