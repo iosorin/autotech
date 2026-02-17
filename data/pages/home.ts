@@ -11,6 +11,7 @@ export const home = {
     },
     telegram: app.cta.telegram,
     tags: [{
+      // title: "Возможности",
       items: [
         { icon: { name: "scan-line" }, label: "Распознавание марок и номеров" },
         { icon: { name: "chart-pie" }, label: "Статистика и аналитика" },
@@ -18,7 +19,7 @@ export const home = {
         { icon: { name: "calendar-check" }, label: "Онлайн-запись" },
         { icon: { name: "users" }, label: "CRM" },
       ],
-      tagClassName: "bg-white [&_svg]:text-primary",
+      itemClassName: "bg-white [&_svg]:text-primary",
     }],
     card: {
       title: "Легкий переход с других приложений",

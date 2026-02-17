@@ -7,6 +7,7 @@ import { Input } from "@ui/atoms/input";
 import { Button } from "@ui/atoms/button";
 import { Textarea } from "@ui/atoms/textarea";
 import { cn } from "@utils";
+// import contact from "@api/contact";
 
 type ISelect = {
     id: string;
@@ -20,26 +21,28 @@ type ISelect = {
 type IInput = {
     id: string;
     type: "text" | "tel" | "email" | "textarea" | "checkbox";
-    required?: boolean;
     label: React.ReactNode;
-    placeholder: string;
+    placeholder?: string;
+    required?: boolean;
 };
 
 
 export type IField = ISelect | IInput;
 
 export type IForm = {
+    id: string;
     heading?: string;
     fields: IField[];
     className?: string;
     submitLabel?: string;
-    onSubmit: (formData: FormData, heading?: string) => Promise<unknown>;
+    onSubmit?: (formData: FormData, heading?: string) => Promise<unknown>;
 };
 
 const REQUIRED = "Заполните поле";
 const CHECKED = "true";
 
 export const Form = ({
+    id,
     heading,
     fields,
     onSubmit,
@@ -71,7 +74,7 @@ export const Form = ({
 
         const formData = fields.reduce<FormData>((acc, f) => (acc.set(f.id, data[f.id].trim()), acc), new FormData());
 
-        onSubmit(formData, heading)
+        onSubmit?.(formData, heading)
             .then(() => {
                 toast.success("Сообщение успешно отправлено")
                 setSuccess(true)
@@ -177,6 +180,7 @@ export const Form = ({
 
     return (
         <form
+            id={id}
             className={cn(
                 "rounded-2xl p-6 md:p-8 bg-background w-full shadow-lg",
                 className

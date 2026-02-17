@@ -12,9 +12,8 @@ import { Icons } from "@ui/blocks/icons";
 import { Form } from "@ui/blocks/form";
 import { home } from "@data";
 import { cn } from "@utils";
-import contact from "@api/contact";
 
-const Page = () => {
+const Home = () => {
   const p = home;
   return (
     <>
@@ -23,13 +22,13 @@ const Page = () => {
 
         <Cta items={p.hero.cta.items} className="mt-2">
           <Cta.Slot id={p.hero.cta.slotId}>
-            <Form heading={p.hero.cta.slot.heading} fields={p.hero.cta.slot.fields} onSubmit={contact} />
+            <Form id="form-call" heading={p.hero.cta.slot.heading} fields={p.hero.cta.slot.fields} />
           </Cta.Slot>
         </Cta>
 
         <Block
           layout="hero"
-          tags={p.hero.tags}
+          tags={{ tags: p.hero.tags }}
           image={p.hero.image}
           card={p.hero.card}
           cta={
@@ -175,4 +174,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Home;

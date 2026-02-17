@@ -40,17 +40,17 @@ const buttonVariants = cva(
   },
 )
 
-export interface ButtonProps
+export interface IButton
   extends
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
   label?: string;
   icon?: React.ComponentProps<typeof Icon>;
   readonly?: boolean;
+  asChild?: boolean;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, IButton>(
   ({ className, variant, size, asChild = false, label, icon, children, readonly = false, ...props }, ref) => {
     const commonProps = {
       className: cn(buttonVariants({ variant, size, readonly, className })),

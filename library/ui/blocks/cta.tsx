@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Lead } from "@ui/atoms/lead";
 import { Button } from "@ui/atoms/button";
 import { Enter } from "@ui/atoms/enter";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@ui/atoms/dialog";
+import { Dialog } from "@ui/atoms/dialog";
 import { cn } from "@utils";
 
 type SlotProps = {
@@ -50,23 +50,23 @@ export const Cta = ({ title, items, className, children }: Props) => {
           if (content) {
             return (
               <Dialog key={item.id}>
-                <DialogTrigger asChild>
-                  <Button variant={i === 0 ? "default" : "outline"} size="lg" title={item.label} className="w-full md:w-auto">
+                <Dialog.Trigger asChild>
+                  <Button id={item.id} variant={i === 0 ? "default" : "outline"} size="lg" title={item.label} className="w-full md:w-auto">
                     {item.label}
                     {i === 0 && <ArrowUpRight />}
                   </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-2xl">
-                  <DialogTitle className="sr-only">{item.label}</DialogTitle>
+                </Dialog.Trigger>
+                <Dialog.Content className="max-w-2xl">
+                  <Dialog.Title className="sr-only">{item.label}</Dialog.Title>
                   {content}
-                </DialogContent>
+                </Dialog.Content>
               </Dialog>
             );
           }
 
           if (item.href) {
             return (
-              <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id} className="w-full md:w-auto">
+              <Button id={item.id} asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id} className="w-full md:w-auto">
                 <Link href={item.href} title={item.label} target={item.blank ? "_blank" : undefined} rel={item.blank ? "noopener noreferrer" : undefined}>
                   {item.label}
                   {i === 0 && <ArrowUpRight className="size-7" />}

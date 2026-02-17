@@ -48,9 +48,10 @@ export const app = {
     telegram: {
       label: "Подпишитесь на наш телеграм-канал",
       href: "https://t.me/moykazdes",
-      className: "text-primary-foreground bg-gradient-telegram",
+      className: "bg-gradient-telegram",
     },
   },
+  // deprecated
   call: {
     heading: "Запросить обратный звонок",
     fields: [
@@ -65,6 +66,7 @@ export const app = {
       },
     ] as IField[],
   },
+  // deprecated
   form: {
     heading: "Свяжитесь с нами",
     className: "md:w-[60%] mx-auto",
