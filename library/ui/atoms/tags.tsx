@@ -24,7 +24,7 @@ export const Tags = ({ tags, className, ...props }: ITags) => {
                         <div className="flex flex-wrap gap-3.5 max-w-full">
                             {t.items.map((tag) => <span
                                 key={tag.label}
-                                className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-2 text-sm w-fit bg-white md:whitespace-pre-line max-w-full", t.itemClassName ?? "bg-muted")}
+                                className={cn("inline-flex items-center shadow-sm gap-2 rounded-full px-3 py-2 md:px-4 md:py-3 text-sm w-fit bg-white md:whitespace-pre-line max-w-full", t.itemClassName ?? "bg-muted")}
                             >
                                 {tag.icon && <Icon {...tag.icon} className="flex-shrink-0" />}
                                 <span className="text-base md:text-lg truncate">{tag.label}</span>

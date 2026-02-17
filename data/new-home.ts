@@ -25,7 +25,7 @@ export const newHome = {
           desc: app.cta.telegram.label,
           link: { href: app.cta.telegram.href, rel: "noopener noreferrer", target: "_blank", },
           icon: { name: "telegram", className: "size-12" },
-          className: "bg-gradient-telegram md:p-4 hover-opacity md:max-w-[340px]",
+          className: "bg-gradient-telegram md:px-5 md:py-4 hover-opacity md:max-w-[340px]",
           variant: "row",
           white: true,
         },
