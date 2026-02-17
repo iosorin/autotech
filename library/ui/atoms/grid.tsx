@@ -4,8 +4,7 @@ import { cn } from '@utils';
 
 const registry = ATOMS as Record<string, React.ElementType | undefined>;
 
-type AtomProps<T extends keyof typeof ATOMS> =
-    React.ComponentProps<typeof ATOMS[T]>;
+type AtomProps<T extends keyof typeof ATOMS> = React.ComponentProps<typeof ATOMS[T]>;
 
 type IGridGap = 'none' | 'sm' | 'md' | 'lg';
 
@@ -21,8 +20,7 @@ type IGridItem = {
     }
 }[keyof typeof ATOMS];
 
-// Тип для рекурсивных пропсов
-type IResolvableValue = {
+type IResolvable = {
     type: string;
     props?: Record<string, any>;
 }
@@ -44,7 +42,7 @@ const GAP_MAP: Record<IGridGap, string> = {
     none: '0',
     sm: '0.5rem',
     md: '1rem',
-    lg: '1.5rem',
+    lg: '2rem',
 };
 
 const splitAreas = (rows: string[]) =>
@@ -52,42 +50,32 @@ const splitAreas = (rows: string[]) =>
 
 const unique = <T,>(arr: T[]) => [...new Set(arr)];
 
-// Рекурсивно резолвим пропсы — если значение выглядит как { type, props }, рендерим компонент
-const resolveProps = (props: Record<string, any>): Record<string, any> => {
-    return Object.fromEntries(
-        Object.entries(props).map(([key, val]) => {
-            if (isResolvable(val)) {
-                return [key, resolveItem(val)];
-            }
-            return [key, val];
-        })
-    );
-};
+const isResolvable = (val: unknown): val is IResolvable =>
+    typeof val === 'object' &&
+    val !== null &&
+    !React.isValidElement(val) &&
+    'type' in val &&
+    typeof (val as any).type === 'string' &&
+    ((val as any).type === 'div' || (val as any).type in registry);
 
-const isResolvable = (val: unknown): val is IResolvableValue => {
-    return (
-        typeof val === 'object' &&
-        val !== null &&
-        !React.isValidElement(val) &&  // не React элемент
-        'type' in val &&
-        typeof (val as any).type === 'string' &&
-        ((val as any).type === 'div' || (val as any).type in registry) // type есть в registry
-    );
-};
-
-const resolveItem = (item: { type: string; props?: Record<string, any> }): React.ReactNode => {
+const resolveItem = (item: IResolvable): React.ReactNode => {
     const Component = item.type === 'div' ? 'div' : registry[item.type];
 
-    // console for production
     if (!Component) {
         console.error(`Grid: component "${item.type}" not found in registry`);
         return null;
     }
 
-    const resolvedProps = item.props ? resolveProps(item.props) : {};
-
-    return <Component {...resolvedProps} />;
+    return <Component {...resolveProps(item.props ?? {})} />;
 };
+
+const resolveProps = (props: Record<string, any>): Record<string, any> =>
+    Object.fromEntries(
+        Object.entries(props).map(([key, val]) => [
+            key,
+            isResolvable(val) ? resolveItem(val) : val,
+        ])
+    );
 
 export const Grid = React.memo(({
     items,
@@ -115,12 +103,10 @@ export const Grid = React.memo(({
     const colCount = areas[0].split(/\s+/).filter(Boolean).length;
     const gridCols = cols
         ? typeof cols === 'number' ? `repeat(${cols}, 1fr)` : cols
-        : `repeat(${colCount}, 1fr)`; // ← fallback из areas
+        : `repeat(${colCount}, 1fr)`;
     const gridRows = typeof rows === 'number' ? `repeat(${rows}, auto)` : rows;
     const desktopAreasStr = areas.map(row => `"${row}"`).join(' ');
-    const mobileAreasStr = mobileAreas
-        ? mobileAreas.map(row => `"${row}"`).join(' ')
-        : desktopAreasStr;
+    const mobileAreasStr = mobileAreas?.map(row => `"${row}"`).join(' ') ?? desktopAreasStr;
     const gapValue = (gap in GAP_MAP ? GAP_MAP[gap as IGridGap] : gap) as string;
 
     const style = {
@@ -133,20 +119,18 @@ export const Grid = React.memo(({
         '--grid-areas-mobile': mobileAreasStr,
     } as React.CSSProperties;
 
-    const responsiveStyleTag = mobileAreas ? (
-        <style>{`
-            @media (max-width: ${mobileBreakpointPx}px) {
-                .${scopedClass} {
-                    grid-template-columns: var(--grid-cols-mobile) !important;
-                    grid-template-areas: var(--grid-areas-mobile) !important;
-                }
-            }
-        `}</style>
-    ) : null;
-
     return (
         <>
-            {responsiveStyleTag}
+            {mobileAreas && (
+                <style>{`
+                    @media (max-width: ${mobileBreakpointPx}px) {
+                        .${scopedClass} {
+                            grid-template-columns: var(--grid-cols-mobile) !important;
+                            grid-template-areas: var(--grid-areas-mobile) !important;
+                        }
+                    }
+                `}</style>
+            )}
             <div className={cn(scopedClass, className)} style={style}>
                 {areaNames.map(name => {
                     const item = itemsMap.get(name);
@@ -163,7 +147,6 @@ export const Grid = React.memo(({
                         return null;
                     }
 
-                    // Рекурсивно резолвим пропсы
                     const resolvedProps = item.props
                         ? resolveProps(item.props as Record<string, any>)
                         : {};
