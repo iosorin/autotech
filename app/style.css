@@ -125,21 +125,17 @@
     /* @apply flex flex-col gap-14 md:gap-20; */
   }
 
-  section {
-    @apply relative py-10 md:py-16;
-  }
-
-  section>section:first-child {
-    @apply !pt-0 !m-0;
-  }
-
-  section:first-child {
+  main>section:first-child {
     @apply pt-header;
   }
 
-  /* section:last-child {
-    @apply pb-16;
-  } */
+  section {
+    @apply relative py-10 md:py-20;
+  }
+
+  section:not(:first-child):not(.layered):not(.layered + section) {
+    @apply -mt-10 md:-mt-20;
+  }
 }
 
 /* Scroll-triggered animation system */

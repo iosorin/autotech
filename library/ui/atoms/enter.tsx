@@ -14,6 +14,7 @@ type Props = {
   as?: keyof HTMLElementTagNameMap;
   threshold?: number;
   once?: boolean;
+  style?: React.CSSProperties;
 }
 
 export const Enter = ({
@@ -24,6 +25,7 @@ export const Enter = ({
   className,
   threshold = 0.15,
   once = true,
+  style,
 }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,7 @@ export const Enter = ({
     <div
       ref={ref}
       className={cn(`animate-on-scroll animate-${variant}`, className)}
-      style={{ transitionDuration: `${duration}ms` }}
+      style={{ transitionDuration: `${duration}ms`, ...style }}
     >
       {children}
     </div>
