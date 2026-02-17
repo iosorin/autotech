@@ -80,7 +80,7 @@ export const newHome = {
     const left = block.items.slice(0, half).map((x) => x.text);
     const right = block.items.slice(half).map((x) => x.text);
     const items: IGrid["items"] = [
-      { name: "lead", type: "Lead", props: { title: block.title } },
+      { name: "lead", type: "Lead", props: { title: block.title }, className: "animate animate-fade-up" },
       ...(block.image
         ? [
           {
@@ -93,11 +93,12 @@ export const newHome = {
               height: 664,
               className: "w-full h-auto mx-auto",
             },
+            className: "animate animate-scale-up [transition-delay:100ms]",
           },
         ]
         : []),
-      { name: "left", type: "Checklist", props: { items: left } },
-      { name: "right", type: "Checklist", props: { items: right } },
+      { name: "left", type: "Checklist", props: { items: left }, className: "animate animate-fade-left [transition-delay:75ms]" },
+      { name: "right", type: "Checklist", props: { items: right }, className: "animate animate-fade-right [transition-delay:150ms]" },
     ];
     const areas = block.image
       ? ["lead lead", "image left right"]
@@ -128,11 +129,13 @@ export const newHome = {
           title: home.account.title,
           desc: home.account.desc,
         },
+        className: "animate animate-fade-up",
       },
       ...home.account.cards.map((card, i) => ({
         name: `card-${i}`,
         type: "Card" as const,
         props: { title: card.title, desc: card.desc, image: card.image },
+        className: `animate animate-fade-up [transition-delay:${75 + i * 80}ms]`,
       })),
     ],
     areas: ["lead lead lead", "card-0 card-1 card-2"],
@@ -152,6 +155,7 @@ export const newHome = {
             (home.extra.title?.highlight ?? "") +
             (home.extra.title?.suffix ?? ""),
         },
+        className: "animate animate-fade-up",
       },
       {
         name: "tireList",
@@ -160,8 +164,9 @@ export const newHome = {
           title: home.tire.heading,
           items: home.tire.items,
         },
+        className: "animate animate-fade-left [transition-delay:75ms]",
       },
-      { name: "tireImg", type: "Image", props: home.tire.image },
+      { name: "tireImg", type: "Image", props: home.tire.image, className: "animate animate-scale-up [transition-delay:100ms]" },
       {
         name: "intDesc",
         type: "Checklist",
@@ -169,8 +174,9 @@ export const newHome = {
           title: home.integrations.heading,
           desc: home.integrations.desc,
         },
+        className: "animate animate-fade-right [transition-delay:125ms]",
       },
-      { name: "intImg", type: "Image", props: home.integrations.image },
+      { name: "intImg", type: "Image", props: home.integrations.image, className: "animate animate-fade-left [transition-delay:150ms]" },
       {
         name: "secList",
         type: "Checklist",
@@ -178,6 +184,7 @@ export const newHome = {
           title: home.security.heading,
           items: home.security.items,
         },
+        className: "animate animate-fade-up [transition-delay:175ms]",
       },
       {
         name: "supportList",
@@ -186,8 +193,9 @@ export const newHome = {
           title: home.support.heading,
           items: home.support.items,
         },
+        className: "animate animate-fade-up [transition-delay:200ms]",
       },
-      { name: "secImg", type: "Image", props: home.security.image },
+      { name: "secImg", type: "Image", props: home.security.image, className: "animate animate-scale-up [transition-delay:225ms]" },
     ],
     areas: [
       "title title .",
@@ -211,11 +219,12 @@ export const newHome = {
 
   devices: {
     items: [
-      { name: "lead", type: "Lead", props: { title: home.devices.heading } },
+      { name: "lead", type: "Lead", props: { title: home.devices.heading }, className: "animate animate-fade-up" },
       ...home.devices.items.map((item, i) => ({
         name: `btn-${i}`,
         type: "Button" as const,
         props: { label: item.label, icon: item.icon, size: "lg" as const, readonly: true },
+        className: `animate animate-fade-up [transition-delay:${75 + i * 80}ms]`,
       })),
     ],
     areas: ["lead lead lead", "btn-0 btn-1 btn-2"],
@@ -234,11 +243,13 @@ export const newHome = {
           desc: home.migration.desc,
           icon: home.migration.icon,
         },
+        className: "animate animate-fade-up",
       },
       ...home.migration.items.map((item, i) => ({
         name: `btn-${i}`,
         type: "Button" as const,
         props: { label: item.label, icon: item.icon, size: "lg" as const, readonly: true },
+        className: `animate animate-fade-up [transition-delay:${75 + i * 60}ms]`,
       })),
     ],
     areas: ["lead lead lead lead", "btn-0 btn-1 btn-2 btn-3"],
@@ -258,6 +269,7 @@ export const newHome = {
           label: home.clients.subtitle,
           title: home.clients.title,
         },
+        className: "animate animate-fade-up",
       },
       {
         name: "intro",
@@ -266,8 +278,9 @@ export const newHome = {
           desc: home.clients.intro,
           items: home.clients.items,
         },
+        className: "animate animate-fade-left [transition-delay:75ms]",
       },
-      { name: "image", type: "Image", props: home.clients.image },
+      { name: "image", type: "Image", props: home.clients.image, className: "animate animate-fade-right [transition-delay:100ms]" },
     ],
     areas: ["lead lead", "intro image"],
     mobileAreas: ["lead", "image", "intro"],
@@ -277,7 +290,7 @@ export const newHome = {
 
   cta: {
     items: [
-      { name: "lead", type: "Lead", props: { title: home.try.title } },
+      { name: "lead", type: "Lead", props: { title: home.try.title }, className: "animate animate-fade-up" },
       {
         name: "link1",
         type: "Link",
@@ -289,6 +302,7 @@ export const newHome = {
           className:
             "bg-primary text-primary-foreground hover:opacity-85 h-[62px] px-[26px] text-[22px] rounded-full",
         },
+        className: "animate animate-fade-up [transition-delay:75ms]",
       },
       {
         name: "link2",
@@ -299,6 +313,7 @@ export const newHome = {
           className:
             "border border-secondary bg-transparent hover:bg-secondary h-[62px] px-[26px] text-[22px] rounded-full",
         },
+        className: "animate animate-fade-up [transition-delay:150ms]",
       },
     ],
     areas: ["lead", "link1 link2"],
@@ -310,8 +325,8 @@ export const newHome = {
 
   faq: {
     items: [
-      { name: "lead", type: "Lead", props: { title: home.faq.heading } },
-      { name: "faq", type: "Faq", props: { items: home.faq.items } },
+      { name: "lead", type: "Lead", props: { title: home.faq.heading }, className: "animate animate-fade-up" },
+      { name: "faq", type: "Faq", props: { items: home.faq.items }, className: "animate animate-fade-up [transition-delay:75ms]" },
     ],
     areas: ["lead", "faq"],
     mobileAreas: ["lead", "faq"],
@@ -321,7 +336,7 @@ export const newHome = {
 
   partners: {
     items: [
-      { name: "lead", type: "Lead", props: { title: home.partners.heading } },
+      { name: "lead", type: "Lead", props: { title: home.partners.heading }, className: "animate animate-fade-up" },
       {
         name: "partners",
         type: "Partners",
@@ -331,6 +346,7 @@ export const newHome = {
           desc: home.partners.desc,
           note: home.partners.note,
         },
+        className: "animate animate-fade-up [transition-delay:75ms]",
       },
     ],
     areas: ["lead", "partners"],
@@ -345,6 +361,7 @@ export const newHome = {
         name: "lead",
         type: "Lead",
         props: { title: home.testimonials.heading },
+        className: "animate animate-fade-up",
       },
       {
         name: "slider",
@@ -354,6 +371,7 @@ export const newHome = {
           nextLabel: home.testimonials.nextLabel,
           items: home.testimonials.items,
         },
+        className: "animate animate-fade-up [transition-delay:75ms]",
       },
     ],
     areas: ["lead", "slider"],
@@ -365,7 +383,7 @@ export const newHome = {
 
   join: {
     items: [
-      { name: "lead", type: "Lead", props: { title: home.join.title } },
+      { name: "lead", type: "Lead", props: { title: home.join.title }, className: "animate animate-fade-up" },
       {
         name: "link1",
         type: "Link",
@@ -377,6 +395,7 @@ export const newHome = {
           className:
             "bg-primary text-primary-foreground hover:opacity-85 h-[62px] px-[26px] text-[22px] rounded-full",
         },
+        className: "animate animate-fade-up [transition-delay:75ms]",
       },
       {
         name: "link2",
@@ -387,6 +406,7 @@ export const newHome = {
           className:
             "border border-secondary bg-transparent hover:bg-secondary h-[62px] px-[26px] text-[22px] rounded-full",
         },
+        className: "animate animate-fade-up [transition-delay:150ms]",
       },
     ],
     areas: ["lead", "link1 link2"],
