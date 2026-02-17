@@ -28,7 +28,7 @@ export const Lead = ({ tag = "h2", title, label, desc, minor, icon, titleFirst, 
   if (!title && !label) return null;
 
   return (
-    <div className={cn("flex flex-col gap-4 mb-6", left ? "text-left" : "text-center", className)}>
+    <div className={cn("flex flex-col gap-4", left ? "text-left" : "text-center", className)}>
       <Icon {...icon} />
       {titleFirst ? renderTitle() : renderLabel()}
       {titleFirst ? renderLabel() : renderTitle()}

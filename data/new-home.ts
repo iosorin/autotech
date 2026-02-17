@@ -6,23 +6,15 @@ import { home } from "./pages/home";
 export const newHome = {
   hero: {
     items: [
-      {
-        name: "lead",
-        type: "Lead",
-        props: { tag: "h1", title: home.hero.title, label: home.hero.subtitle },
-      },
-      { name: "cta", type: "Cta", props: { items: home.hero.cta.items, }, },
+      { name: "lead", type: "Lead", props: { tag: "h1", title: home.hero.title, label: home.hero.subtitle } },
+      { name: "cta", type: "Cta", props: { items: home.hero.cta.items, className: "mb-4" } },
       {
         name: "telegram",
         type: "Card",
         props: {
           title: home.hero.telegram.label,
           desc: home.hero.telegram.label,
-          link: {
-            href: home.hero.telegram.href,
-            rel: "noopener noreferrer",
-            target: "_blank",
-          },
+          link: { href: home.hero.telegram.href, rel: "noopener noreferrer", target: "_blank", },
           icon: { name: "telegram", className: "text-white" },
           className: "text-white shadow-sm inline-flex items-center gap-4 rounded-3xl px-5 py-4 text-sm w-fit hover:opacity-90 transition-opacity bg-gradient-telegram",
         },
@@ -57,8 +49,6 @@ export const newHome = {
       "card",
       "telegram",
     ],
-    cols: 3,
-    gap: "lg",
   } satisfies IGrid,
 
   features: home.features.list.map((block) => {
