@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
-import { Sonner } from "@ui/atoms/sonner";
+import { Use } from "./use";
 import { app, seo } from "@data";
 import "./style.css";
 
@@ -99,8 +99,8 @@ const Layout = ({
           copyright={app.copyright}
           className="max-w-6xl"
         />
+        <Use />
 
-        <Sonner />
       </body>
     </html>
   );

@@ -103,7 +103,7 @@
   }
 
   h5 {
-    @apply text-xl font-medium text-foreground text-balance;
+    @apply text-xl font-medium text-foreground text-balance mb-3;
   }
 
   /* 
