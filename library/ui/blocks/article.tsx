@@ -2,7 +2,8 @@ import { cn } from "@utils";
 
 export type IArticleBlock =
     | { type: "p"; text: string }
-    | { type: "section"; intro: string; list: string[] };
+    | { type: "h2"; text: string }
+    | { type: "section"; heading?: string; intro: string; list: string[] };
 
 
 export type IArticle = {
@@ -12,6 +13,14 @@ export type IArticle = {
 }
 
 export const Article = ({ heading, content, className }: IArticle) => {
+    const renderHeading = (heading?: string) => {
+        if (!heading) return null;
+        return (
+            <h2 className="text-lg text-foreground leading-relaxed">
+                {heading}
+            </h2>
+        );
+    }
     const render = (block: IArticleBlock, index: number) => {
         if (block.type === "p") {
             return (
@@ -20,10 +29,18 @@ export const Article = ({ heading, content, className }: IArticle) => {
                 </p>
             );
         }
+        if (block.type === "h2") {
+            return (
+                renderHeading(block.text)
+            );
+        }
 
         return (
             <div key={index} className="space-y-2">
+                {renderHeading(block.heading)}
+
                 <p className="text-foreground leading-relaxed">{block.intro}</p>
+
                 {block.list.length > 0 && (
                     <ul className="list-disc pl-6 space-y-1 text-foreground leading-relaxed">
                         {block.list.map((item, i) => (

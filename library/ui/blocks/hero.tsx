@@ -93,7 +93,6 @@ export const Hero = ({
                 width={500}
                 height={600}
                 className="rounded-3xl w-full h-auto"
-                priority
               />
             </div>
           }
