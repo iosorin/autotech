@@ -25,7 +25,7 @@ export default function EventsPage() {
           button={home.eventBanner.button}
           className="bg-white shadow-lg"
         />
-        <div className="gradlayer bg-gradient-blue" />
+        <div className="layer bg-gradient-blue" />
       </section>
       <section id="past">
         <Lead title={p.pastHeading} />

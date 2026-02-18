@@ -43,7 +43,7 @@ export default function FleetPage() {
           image={p.hero.image}
           cta={ctaContact}
         />
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section id="why">
@@ -81,7 +81,7 @@ export default function FleetPage() {
           <Icons items={p.how.items} variant="stack" />
         </div>
         {ctaCabinet}
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section id="transparency">
@@ -117,7 +117,7 @@ export default function FleetPage() {
       <section id="faq" className="layered">
         <Lead title={p.faq.heading} />
         <Faq items={p.faq.items} />
-        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="layer bg-gradient-gray-white" />
       </section>
     </>
   );

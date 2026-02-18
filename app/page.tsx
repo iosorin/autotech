@@ -50,7 +50,7 @@ const Page = () => {
           card={p.hero.card}
           image={p.hero.image}
         />
-        <div className="gradlayer bg-gradient-gray" />
+        <div className="layer bg-gradient-gray" />
       </section>
 
       {/* 
@@ -106,7 +106,7 @@ const Page = () => {
           desc={p.dataMigration.desc}
           items={p.dataMigration.items}
         />
-        <div className="gradlayer bg-gradient-green" />
+        <div className="layer bg-gradient-green" />
       </section>
 
       <section id="clients">
@@ -129,7 +129,7 @@ const Page = () => {
             <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
-        <div className="gradlayer bg-gradient-blue" />
+        <div className="layer bg-gradient-blue" />
       </section>
 
       <section id="faq">
@@ -154,7 +154,7 @@ const Page = () => {
           nextAria={p.testimonials.nextAria}
           list={p.testimonials.list}
         />
-        <div className="gradlayer bg-muted" />
+        <div className="layer bg-muted" />
       </section>
 
       <section id="cta-join" className="layered">
@@ -165,7 +165,7 @@ const Page = () => {
             <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
-        <div className="gradlayer bg-muted" />
+        <div className="layer bg-muted" />
       </section>
     </>
   );

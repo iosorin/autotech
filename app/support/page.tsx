@@ -21,7 +21,7 @@ export default function SupportPage() {
         <div className="md:w-[60%] mx-auto">
           <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />
         </div>
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section className="layered">
@@ -40,7 +40,7 @@ export default function SupportPage() {
             phoneRaw={app.phoneRaw}
           />
         </section>
-        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="layer bg-gradient-white-gray" />
       </section>
     </>
   );

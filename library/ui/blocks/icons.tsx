@@ -26,7 +26,7 @@ export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Prop
         <Enter key={item.title} variant="fade-up" delay={i * 100} duration={600}
           className={
             cn(`flex flex-col gap-4 p-8`,
-              stack ? (item.line ? '' : 'border-b') : 'rounded-2xl bg-gradient-gray-light',
+              stack ? (item.line ? '' : 'border-b') : 'rounded-2xl bg-gradient-gray-white',
               left ? 'items-start text-left' : 'items-center text-center', item.className)
           }>
           {item.badge && (

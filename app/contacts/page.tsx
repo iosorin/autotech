@@ -38,7 +38,7 @@ export const Contacts = () => {
 
         <Lead title={p.designedForHeading} />
         <Grid blocks={p.designedFor} />
-        <div className="gradlayer bg-gradient-gray" />
+        <div className="layer bg-gradient-gray" />
       </section>
 
 
@@ -52,7 +52,7 @@ export const Contacts = () => {
           <Lead title={p.mission.heading} />
           <Icons items={p.mission.items} variant="stack" />
         </div>
-        <div className="gradlayer bg-gradient-lime" />
+        <div className="layer bg-gradient-lime" />
       </section>
 
       <section id="form">
@@ -73,7 +73,7 @@ export const Contacts = () => {
         />
       </section>
 
-      <section id="requisites" className="layered">
+      <section id="requisites" className="layered pt-0">
         <div className="md:max-w-[85%] mx-auto">
           <Lead title={p.requisitesHeading} />
           <Requisites
@@ -90,7 +90,7 @@ export const Contacts = () => {
             bank={app.company.bank}
           />
         </div>
-        <div className="gradlayer bg-gradient-gray-light" />
+        <div className="layer bg-gradient-white-gray" />
       </section>
     </>
   );

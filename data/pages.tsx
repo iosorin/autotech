@@ -210,7 +210,7 @@ export const home = {
         ],
     },
     clients: {
-        subtitle: "Самое главное:",
+        subtitle: "Самое главное",
         titleLine1: "Мы будем приводить к вам",
         titleLine2: "новых клиентов!",
         intro: "Мы не только разрабатываем приложение, но еще сами заключаем прямые договора с корпоративными клиентами, которые выбирают вашу автомойку или шиномонтаж для получения услуг",
@@ -526,10 +526,10 @@ export const fleet = {
     why: {
         heading: "Почему это удобно",
         items: [
-            { icon: <MapPin className="size-12 text-primary" />, title: "Сотни точек оказания услуг по всей стране", desc: "Доступно для всех типов авто: представительские автомобили, легковые, грузовые, спецтехника", className: 'bg-gradient-gray-light' },
-            { icon: <ChartPie className="size-12 text-primary" />, title: "Контролируйте расходы и отчетность", desc: "Контроль факта оказания услуг, прозрачность с чеками", className: 'bg-gradient-gray-light' },
-            { icon: <TrendingDown className="size-12 text-primary" />, title: "Снижение нагрузки на бухгалтерию", desc: "Формирование единого отчета с закрывающими документами", className: 'bg-gradient-gray-light' },
-            { icon: <FileCheck className="size-12 text-primary" />, title: "Возмещение НДС", desc: "При обслуживании в точках, работающих с НДС", className: 'bg-gradient-gray-light' },
+            { icon: <MapPin className="size-12 text-primary" />, title: "Сотни точек оказания услуг по всей стране", desc: "Доступно для всех типов авто: представительские автомобили, легковые, грузовые, спецтехника", className: 'bg-gradient-gray-white' },
+            { icon: <ChartPie className="size-12 text-primary" />, title: "Контролируйте расходы и отчетность", desc: "Контроль факта оказания услуг, прозрачность с чеками", className: 'bg-gradient-gray-white' },
+            { icon: <TrendingDown className="size-12 text-primary" />, title: "Снижение нагрузки на бухгалтерию", desc: "Формирование единого отчета с закрывающими документами", className: 'bg-gradient-gray-white' },
+            { icon: <FileCheck className="size-12 text-primary" />, title: "Возмещение НДС", desc: "При обслуживании в точках, работающих с НДС", className: 'bg-gradient-gray-white' },
         ],
 
     },
@@ -575,9 +575,9 @@ export const fleet = {
     approaches: {
         heading: "Вы можете выбрать подход по каким тарифам будете обслуживать ваши автомобили",
         items: [
-            { badge: "Подход 1", title: "Задать собственные цены", desc: "Вы сможете обслуживаться в тех точках, которые примут ваш прайс", className: 'bg-gradient-gray-light' },
-            { badge: "Подход 2", title: "Обслуживать по текущим прайсам шиномонтажей и автомоек", desc: "", className: 'bg-gradient-gray-light' },
-            { badge: "Подход 3", title: "Можете выбрать микс двух подходов", desc: "Например, для автомобилей топ-менеджмента выбрать Подход 2, а для массовых автомобилей (например, доставка или такси) выбрать Подход 1", className: 'bg-gradient-gray-light' },
+            { badge: "Подход 1", title: "Задать собственные цены", desc: "Вы сможете обслуживаться в тех точках, которые примут ваш прайс", className: 'bg-gradient-gray-white' },
+            { badge: "Подход 2", title: "Обслуживать по текущим прайсам шиномонтажей и автомоек", desc: "", className: 'bg-gradient-gray-white' },
+            { badge: "Подход 3", title: "Можете выбрать микс двух подходов", desc: "Например, для автомобилей топ-менеджмента выбрать Подход 2, а для массовых автомобилей (например, доставка или такси) выбрать Подход 1", className: 'bg-gradient-gray-white' },
         ],
     },
     flexible: {

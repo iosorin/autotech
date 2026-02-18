@@ -18,7 +18,7 @@ const Tariffs = () => {
   const p = tariffs;
   return (
     <>
-      <section id="tariffs" className="layered">
+      <section id="tariffs" className="layered pb-0">
         <Lead label={p.platformLabel} title={p.title} tag="h1" titleFirst />
 
         <Table
@@ -28,7 +28,7 @@ const Tariffs = () => {
           note2={p.priceNote2}
           className="bg-gradient-white"
         />
-        <div className="gradlayer bg-gradient-blue" />
+        <div className="layer bg-gradient-blue" />
       </section>
 
       <section id="discounts">
@@ -54,7 +54,7 @@ const Tariffs = () => {
             <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
           </Cta.Slot>
         </Cta>
-        <div className="gradlayer bg-gradient-green" />
+        <div className="layer bg-gradient-green" />
       </section>
     </>
   );

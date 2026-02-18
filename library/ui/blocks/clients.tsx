@@ -18,7 +18,7 @@ export const Clients = ({ intro, items, image }: Props) => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
       {image &&
-        <Enter variant="fade-left" delay={200} duration={700} className="w-full lg:flex-[0_0_35%] max-md:hidden">
+        <Enter variant="fade-left" delay={200} duration={700} className="w-full lg:flex-[0_0_32%] max-md:hidden">
           <Image
             src={image.href}
             alt={image.alt}

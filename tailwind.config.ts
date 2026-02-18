@@ -31,7 +31,7 @@ const config: Config = {
         // xl: ['1.5rem', { lineHeight: '2rem' }],
         'xl': ['1.5rem', { lineHeight: '1.85rem' }],
         '2xl': ['1.75rem', { lineHeight: '2rem' }],
-        '3xl': ['2.5rem', { lineHeight: '2.75rem' }],
+        '3xl': ['2.35rem', { lineHeight: '2.75rem' }],
         '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
         '5xl': ['3rem', { lineHeight: '1.2' }],
       },
@@ -97,7 +97,8 @@ const config: Config = {
       backgroundImage: {
         // gray: 'var(--gray)',
         'gradient-gray': 'var(--gradient-gray)',
-        'gradient-gray-light': 'var(--gradient-gray-light)',
+        'gradient-gray-white': 'var(--gradient-gray-white)',
+        'gradient-white-gray': 'var(--gradient-white-gray)',
         'gradient-blue': 'var(--gradient-blue)',
         'gradient-telegram': 'var(--gradient-telegram)',
         'gradient-green': 'var(--gradient-green)',

@@ -15,7 +15,7 @@ export default function UpdatesPage() {
     <section id="updates" className="layered">
       <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
       <Changelog updates={p.list} />
-      <div className="gradlayer bg-gradient-blue" />
+      <div className="layer bg-gradient-blue" />
     </section>
   );
 }
