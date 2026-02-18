@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
+import { cn } from "@utils";
 
 type Props = {
   intro: string;
@@ -10,6 +11,7 @@ type Props = {
   image?: {
     alt: string;
     href: string;
+    className?: string;
   };
 };
 
@@ -18,7 +20,7 @@ export const Clients = ({ intro, items, image }: Props) => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
       {image &&
-        <Enter variant="fade-left" delay={200} duration={700} className="w-full lg:flex-[0_0_30%] max-md:hidden">
+        <Enter variant="fade-left" delay={200} duration={700} className={cn("w-full lg:flex-[0_0_30%]", image.className)}>
           <Image
             src={image.href}
             alt={image.alt}

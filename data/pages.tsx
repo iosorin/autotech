@@ -33,6 +33,7 @@ export const home = {
         image: {
             src: "/images/app-preview.png",
             alt: "Превью приложения Автотех на главной",
+            className: 'flex-[0_0_35%] max-md:hidden'
         },
     },
     eventBanner: {
@@ -54,7 +55,11 @@ export const home = {
         content: {
             orders: {
                 title: "Удобная работа с заказом",
-                image: { src: "/images/app-box.png", alt: "Работа с заказом в приложении Автотех" },
+                image: {
+                    src: "/images/app-box.png",
+                    alt: "Работа с заказом в приложении Автотех",
+                    className: 'max-md:hidden'
+                },
                 features: [
                     { icon: <ScanLine className="size-6 text-primary" />, text: "Распознавание номера, марки автомобиля и категории с использованием ИИ" },
                     { icon: <Users className="size-6 text-primary" />, text: "Выбор исполнителей и скидки на весь заказ или на каждую услугу" },
@@ -70,7 +75,11 @@ export const home = {
             },
             stats: {
                 title: "Статистика и аналитика",
-                image: { src: "/images/app-box.png", alt: "Статистика и аналитика в приложении Автотех" },
+                image: {
+                    src: "/images/app-box.png",
+                    alt: "Статистика и аналитика в приложении Автотех",
+                    className: 'max-md:hidden'
+                },
                 features: [
                     { icon: <BarChart3 className="size-6 text-primary" />, text: "Анализ выручки по типам услуг, по исполнителям, анализ скидок" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Просмотр статистики по каждой точке или агрегированной статистики по всем точкам" },
@@ -80,7 +89,11 @@ export const home = {
             },
             salary: {
                 title: "Гибкий расчет зарплат",
-                image: { src: "/images/app-box.png", alt: "Расчет зарплат в приложении Автотех" },
+                image: {
+                    src: "/images/app-box.png",
+                    alt: "Расчет зарплат в приложении Автотех",
+                    className: 'max-md:hidden'
+                },
                 features: [
                     { icon: <Calculator className="size-6 text-primary" />, text: "Индивидуальный расчет вознаграждения для каждого сотрудника" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Настройка процентов от выручки по разным услугам" },
@@ -90,7 +103,10 @@ export const home = {
             },
             booking: {
                 title: "Онлайн-запись",
-                image: { src: "/images/app-box.png", alt: "Онлайн-запись в приложении Автотех" },
+                image: {
+                    src: "/images/app-box.png", alt: "Онлайн-запись в приложении Автотех",
+                    className: 'max-md:hidden'
+                },
                 features: [
                     { icon: <CalendarCheck className="size-6 text-primary" />, text: "Удобный календарь для записи клиентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматические напоминания клиентам о записи" },
@@ -100,7 +116,10 @@ export const home = {
             },
             crm: {
                 title: "CRM система",
-                image: { src: "/images/app-box.png", alt: "CRM в приложении Автотех" },
+                image: {
+                    src: "/images/app-box.png", alt: "CRM в приложении Автотех",
+                    className: 'max-md:hidden'
+                },
                 features: [
                     { icon: <Users className="size-6 text-primary" />, text: "Полная база клиентов физических лиц и контрагентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматическое создание карточки клиента при первом визите" },
@@ -149,6 +168,7 @@ export const home = {
             image: {
                 alt: "Учет сезонного хранения шин",
                 href: "/images/work-1.png",
+                className: 'max-md:hidden'
             },
         },
         integrations: {
@@ -163,6 +183,7 @@ export const home = {
             image: {
                 alt: "Интеграции с внешними сервисами",
                 href: "/images/integrations.svg",
+                className: 'max-md:hidden'
             },
         },
         security: {
@@ -175,6 +196,7 @@ export const home = {
             image: {
                 alt: "Безопасность приложения Автотех",
                 href: "/images/work-2.png",
+                className: 'max-md:hidden'
             },
         },
         support: {
@@ -217,7 +239,7 @@ export const home = {
         image: {
             alt: "Запись и карта для корпоративных клиентов в приложении",
             href: "/images/app-shedule.png",
-            className: "flex-[0_0_30%]",
+            className: "max-md:hidden",
         },
     },
     cta: {
@@ -317,7 +339,7 @@ export const tariffs = {
         image: {
             alt: "Что включено в тариф Автотех",
             href: "/images/app-box.png",
-            // className: 'flex-[0_0_35%] '
+            className: 'flex-[0_0_35%] max-md:hidden'
         },
     },
     cta: {
@@ -510,6 +532,7 @@ export const fleet = {
         image: {
             src: "/images/app-box.png",
             alt: "Приложение Автотех для автопарков",
+            className: 'flex-[0_0_35%] max-md:hidden'
         },
         cta: {
             label: "Связаться с нами",
@@ -564,6 +587,7 @@ export const fleet = {
         image: {
             alt: "Сезонное хранение шин",
             href: "/images/work-1.png",
+            className: 'flex-[0_0_35%] max-md:hidden'
         },
     },
     approaches: {
@@ -584,6 +608,7 @@ export const fleet = {
         image: {
             alt: "Гибкое управление",
             href: "/images/app-box.png",
+            className: 'max-md:hidden'
             // className: "flex-[0_0_30%]",
         },
         cta: {
@@ -601,6 +626,7 @@ export const fleet = {
         image: {
             alt: "Возможности личного кабинета для юридических лиц",
             href: "/images/app-box.png",
+            className: 'max-md:hidden'
         },
         choice: {
             title: "Выбирать конкретные автомойки для конкретных автомобилей",
@@ -645,6 +671,7 @@ export const fleet = {
         image: {
             alt: "Гарантия прозрачности",
             href: "/images/app-box.png",
+            className: 'max-md:hidden'
         },
     },
     hrd: {
@@ -658,6 +685,7 @@ export const fleet = {
         image: {
             alt: "Специальное предложение для HRD",
             href: "/images/app-box.png",
+            className: 'max-md:hidden'
         },
     },
     faq: {

@@ -3,16 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import { Enter } from "@ui/atoms/enter";
-import { Button } from "../atoms/button";
-import { cn } from "@utils";
 import { Tabs, TabsTrigger, TabsList, TabsContent } from "../atoms/tabs";
+import { cn } from "@utils";
 
 type Tab = { id: string; label: string };
 type Feature = { icon: React.ReactNode; text: string };
 type TabContent = {
   title: string;
   features: Feature[];
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; className?: string };
 };
 
 type Props = {
@@ -68,7 +67,7 @@ export const Features = ({ tabs, content }: Props) => {
 
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 justify-between">
               {data.image && (
-                <div className="max-md:hidden relative w-full lg:flex-1 min-w-0 order-first">
+                <div className={cn("relative w-full lg:flex-1 min-w-0 order-first", data.image.className)}>
                   <Image
                     src={data.image.src}
                     alt={data.image.alt}

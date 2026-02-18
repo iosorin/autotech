@@ -49,7 +49,7 @@ export const Contacts = () => {
 
       <section id="mission" className="layered">
         <div className="md:max-w-[85%] mx-auto">
-          <Lead title={p.mission.heading} />
+          <Lead title={p.mission.heading} className="!mb-0" />
           <Icons items={p.mission.items} variant="stack" />
         </div>
         <div className="layer bg-gradient-lime" />

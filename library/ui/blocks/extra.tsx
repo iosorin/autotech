@@ -5,12 +5,13 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import Link from "next/link";
 import { Button } from "../atoms/button";
+import { cn } from "@utils";
 
 type Item = {
   heading: string;
   desc?: string;
   items?: string[];
-  image?: { alt: string; href: string; };
+  image?: { alt: string; href: string; className?: string };
   cta?: { label: string; href: string; };
 };
 
@@ -99,7 +100,7 @@ export const Extra = ({
             {renderItems(tire.items)}
             {renderCta(tire.cta)}
           </Enter>
-          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1 max-md:hidden">
+          <div className={cn("order-1 lg:order-2 w-full lg:w-auto lg:flex-1", tire.image?.className)}>
             {renderImage(tire.image)}
           </div>
         </div>
@@ -113,7 +114,7 @@ export const Extra = ({
             {renderItems(integrations.items)}
             {renderCta(integrations.cta)}
           </Enter>
-          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1 max-md:hidden">
+          <div className={cn("order-1 lg:order-2 w-full lg:w-auto lg:flex-1", integrations.image?.className)}>
             {renderImage(integrations.image)}
           </div>
         </div>
@@ -123,7 +124,7 @@ export const Extra = ({
       {/* Картинка + Безопасность + Поддержка */}
       {security && (
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
-          <div className="w-full lg:w-auto lg:flex-1 max-md:hidden">
+          <div className={cn("w-full lg:w-auto lg:flex-1", security.image?.className)}>
             {renderImage(security.image)}
           </div>
           <Enter variant="fade-right" duration={600} className="w-full lg:flex-[0_0_55%] flex flex-col gap-10 h-full justify-between">

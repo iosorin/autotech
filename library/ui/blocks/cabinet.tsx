@@ -15,7 +15,7 @@ type Props = {
   list: string[];
   choice: Group;
   filter: Group;
-  image: { alt: string; href: string; };
+  image: { alt: string; href: string; className?: string };
 };
 
 export const Cabinet = ({
@@ -42,7 +42,7 @@ export const Cabinet = ({
     );
   };
   return (
-    <div className="flex flex-col lg:flex-row items-center gap-10">
+    <div className="flex flex-col lg:flex-row md:items-center gap-10">
       {list && (
         <Enter variant="fade-right" duration={600} className="lg:w-1/3">
           <div className="flex flex-col gap-8">
@@ -57,7 +57,7 @@ export const Cabinet = ({
       )}
 
       {image && (
-        <Enter variant="scale-up" delay={150} duration={700} className="lg:w-1/3 flex justify-center max-md:hidden">
+        <Enter variant="scale-up" delay={150} duration={700} className={cn("lg:w-1/3 flex justify-center", image.className)}>
           <Image
             src={image.href}
             alt={image.alt}

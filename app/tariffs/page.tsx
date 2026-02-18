@@ -38,7 +38,7 @@ export const Tariffs = () => {
 
       <section id="included">
         <Block
-          heading={<Lead title={p.included.heading} className="text-left" />}
+          heading={<Lead title={p.included.heading} className="!mb-0 text-left" />}
           items={p.included.items}
           image={p.included.image}
           reverse

@@ -60,7 +60,7 @@ export const Fleet = () => {
       </section>
 
       <section id="approaches">
-        <Lead title={p.approaches.heading} />
+        <Lead title={p.approaches.heading} className="max-md:text-left" />
         <Icons items={p.approaches.items} left />
       </section>
 
@@ -95,7 +95,7 @@ export const Fleet = () => {
       </section>
 
       <section id="cabinet">
-        <Lead title={p.cabinet.heading} />
+        <Lead title={p.cabinet.heading} className="max-md:text-left" />
         <Cabinet
           list={p.cabinet.list}
           choice={p.cabinet.choice}
