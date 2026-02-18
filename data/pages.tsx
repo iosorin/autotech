@@ -32,7 +32,7 @@ export const home = {
         },
         image: {
             src: "/images/app-preview.png",
-            alt: "Интерфейс приложения Автотех",
+            alt: "Превью приложения Автотех на главной",
         },
     },
     eventBanner: {
@@ -54,7 +54,7 @@ export const home = {
         content: {
             orders: {
                 title: "Удобная работа с заказом",
-                image: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+                image: { src: "/images/app-box.png", alt: "Работа с заказом в приложении Автотех" },
                 features: [
                     { icon: <ScanLine className="size-6 text-primary" />, text: "Распознавание номера, марки автомобиля и категории с использованием ИИ" },
                     { icon: <Users className="size-6 text-primary" />, text: "Выбор исполнителей и скидки на весь заказ или на каждую услугу" },
@@ -70,7 +70,7 @@ export const home = {
             },
             stats: {
                 title: "Статистика и аналитика",
-                image: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+                image: { src: "/images/app-box.png", alt: "Статистика и аналитика в приложении Автотех" },
                 features: [
                     { icon: <BarChart3 className="size-6 text-primary" />, text: "Анализ выручки по типам услуг, по исполнителям, анализ скидок" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Просмотр статистики по каждой точке или агрегированной статистики по всем точкам" },
@@ -80,7 +80,7 @@ export const home = {
             },
             salary: {
                 title: "Гибкий расчет зарплат",
-                image: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+                image: { src: "/images/app-box.png", alt: "Расчет зарплат в приложении Автотех" },
                 features: [
                     { icon: <Calculator className="size-6 text-primary" />, text: "Индивидуальный расчет вознаграждения для каждого сотрудника" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Настройка процентов от выручки по разным услугам" },
@@ -90,7 +90,7 @@ export const home = {
             },
             booking: {
                 title: "Онлайн-запись",
-                image: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+                image: { src: "/images/app-box.png", alt: "Онлайн-запись в приложении Автотех" },
                 features: [
                     { icon: <CalendarCheck className="size-6 text-primary" />, text: "Удобный календарь для записи клиентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматические напоминания клиентам о записи" },
@@ -100,7 +100,7 @@ export const home = {
             },
             crm: {
                 title: "CRM система",
-                image: { src: "/images/app-box.png", alt: "Интерфейс приложения Автотех" },
+                image: { src: "/images/app-box.png", alt: "CRM в приложении Автотех" },
                 features: [
                     { icon: <Users className="size-6 text-primary" />, text: "Полная база клиентов физических лиц и контрагентов" },
                     { icon: <CheckCircle2 className="size-6 text-primary" />, text: "Автоматическое создание карточки клиента при первом визите" },
@@ -149,7 +149,7 @@ export const home = {
                 "Формирование и печать заказ-нарядов для мелкого ремонта",
             ],
             image: {
-                alt: "Хранение шин",
+                alt: "Учет сезонного хранения шин",
                 href: "/images/work-1.png",
             },
         },
@@ -163,7 +163,7 @@ export const home = {
             //     { name: "1C", label: "1С" },
             // ],
             image: {
-                alt: "Интеграции",
+                alt: "Интеграции с внешними сервисами",
                 href: "/images/integrations.svg",
             },
         },
@@ -175,7 +175,7 @@ export const home = {
                 "Логирование авторизаций и действий пользователей",
             ],
             image: {
-                alt: "Безопасность",
+                alt: "Безопасность приложения Автотех",
                 href: "/images/work-2.png",
             },
         },
@@ -218,7 +218,7 @@ export const home = {
             "Водитель автопарка подтвердит факт принятия услуг, показав QR-код из приложения или пластиковой карты",
         ],
         image: {
-            alt: "Онлайн-запись в приложении",
+            alt: "Запись и карта для корпоративных клиентов в приложении",
             href: "/images/app-shedule.png",
         },
     },
@@ -317,7 +317,7 @@ export const tariffs = {
             "Поддержка и обновления",
         ],
         image: {
-            alt: "Интерфейс приложения Автотех",
+            alt: "Что включено в тариф Автотех",
             href: "/images/app-box.png",
             // className: 'flex-[0_0_35%] '
         },
