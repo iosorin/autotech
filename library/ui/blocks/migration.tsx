@@ -1,28 +1,21 @@
-"use client";
-
 import { RefreshCw } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
+import { cn } from "@utils";
 
 type Props = {
-  titleLine1: string;
-  titleLine2: string;
-  desc: string;
+  title: React.ReactNode;
   items: string[];
+  className?: string;
 };
 
-export const Migration = ({ titleLine1, titleLine2, desc, items }: Props) => {
+export const Migration = ({ title, items, className }: Props) => {
   return (
-    <div className="center flex-col gap-10 text-center">
+    <div className={cn("center flex-col gap-10 text-center", className)}>
       <Enter variant="scale-up" duration={600}>
         <RefreshCw className="size-20 mx-auto text-primary" />
       </Enter>
       <Enter variant="fade-up" delay={100} duration={600}>
-        <h2>
-          {titleLine1}
-          <br />
-          {titleLine2}
-        </h2>
-        <p className="text-balance mx-auto text-xl mt-6">{desc}</p>
+        {title}
       </Enter>
 
       <div className="flex flex-wrap justify-center gap-3">

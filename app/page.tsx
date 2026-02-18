@@ -23,7 +23,7 @@ const Page = () => {
     <>
       <section id="hero">
 
-        <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
+        <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} primary />
 
         <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>
@@ -75,11 +75,12 @@ const Page = () => {
 
       <section id="account">
         <Account
-          titleLine1={p.account.titleLine1}
-          titleLine2={p.account.titleLine2}
-          descLine1={p.account.descLine1}
-          descLine2={p.account.descLine2}
-          subtitle={p.account.subtitle}
+          title={<Lead title={p.account.title} label={p.account.subtitle} hint={p.account.desc} primary />}
+          // titleLine1={p.account.titleLine1}
+          // titleLine2={p.account.titleLine2}
+          // descLine1={p.account.descLine1}
+          // descLine2={p.account.descLine2}
+          // subtitle={p.account.subtitle}
           cards={p.account.cards}
         />
       </section>
@@ -101,10 +102,9 @@ const Page = () => {
 
       <section id="migration" className="layered">
         <Migration
-          titleLine1={p.dataMigration.titleLine1}
-          titleLine2={p.dataMigration.titleLine2}
-          desc={p.dataMigration.desc}
-          items={p.dataMigration.items}
+          title={<Lead title={p.migration.title} hint={p.migration.desc} className="!mb-0" />}
+          items={p.migration.items}
+          className="md:max-w-[70%] mx-auto"
         />
         <div className="layer bg-gradient-green" />
       </section>

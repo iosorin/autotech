@@ -7,32 +7,16 @@ type Card = {
 };
 
 type Props = {
-  titleLine1: string;
-  titleLine2: string;
-  descLine1: string;
-  descLine2: string;
-  subtitle: string;
+  title: React.ReactNode;
   cards: Card[];
 };
 
-export const Account = ({ titleLine1, titleLine2, descLine1, descLine2, subtitle, cards }: Props) => {
+export const Account = ({ title, cards }: Props) => {
   return (
     <div className="flex flex-col items-center gap-12">
       {/* Заголовок */}
       <Enter variant="fade-up" duration={700}>
-        <div className="text-center">
-          <p className="text-lg font-medium text-primary">{subtitle}</p>
-          <h1 className="my-3">
-            {titleLine1}
-            <br />
-            {titleLine2}
-          </h1>
-          <p className="text-lg text-center text-balance">
-            {descLine1}
-            <br />
-            {descLine2}
-          </p>
-        </div>
+        {title}
       </Enter>
 
       {/* Карточки */}

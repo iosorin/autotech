@@ -10,9 +10,10 @@ type Props = {
   left?: boolean;
   tag?: Tag;
   labelTag?: Tag;
+  primary?: boolean;
 };
 
-export const Lead = ({ title, label, hint, titleFirst, className, left, tag = "h2", labelTag = "h2" }: Props) => {
+export const Lead = ({ title, label, hint, titleFirst, className, left, tag = "h2", labelTag = "h2", primary = false }: Props) => {
   const renderTitle = () => {
     const Tag = tag;
     if (!title) return null;
@@ -20,10 +21,10 @@ export const Lead = ({ title, label, hint, titleFirst, className, left, tag = "h
   };
   const renderLabel = () => {
     const Tag = labelTag;
-    return label ? <Tag className="text-lg font-medium">{label}</Tag> : null;
+    return label ? <Tag className={cn("text-lg font-medium leading-relaxed", primary ? "text-primary" : "")}>{label}</Tag> : null;
   };
 
-  const renderHint = () => hint ? <p className="mx-auto mt-2">{hint}</p> : null;
+  const renderHint = () => hint ? <p className="text-lg leading-relaxed mx-auto mt-2">{hint}</p> : null;
 
   if (!title && !label) return null;
 
