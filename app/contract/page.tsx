@@ -13,7 +13,7 @@ export const Contract = () => {
     return (
         <Article
             id="contract"
-            heading={<Lead title={contract.heading} left tag="h1" />}
+            heading={contract.heading}
             sections={contract.sections}
             className="pt-header"
         />

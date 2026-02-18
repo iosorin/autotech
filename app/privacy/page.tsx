@@ -14,7 +14,7 @@ export const Privacy = () => {
         <Article
             id="privacy"
             className="pt-header"
-            heading={<Lead title={privacy.heading} left tag="h1" />}
+            heading={privacy.heading}
             sections={privacy.sections} />
     )
 }

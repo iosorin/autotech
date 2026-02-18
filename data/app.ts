@@ -1,12 +1,13 @@
 const lkurl = "https://work.moykazdes.ru/";
 
+// https://autotech-gammma.vercel.app/
 export const app = {
   name: "Автотех",
   tagline: "Платформа Автотех",
   title: "Автотех - Приложение для автомойки, детейлинга и шиномонтажа",
   description:
     "Онлайн-запись, учёт, CRM и расчёт зарплат для вашего автосервиса в одном приложении.",
-  siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://moykazdes.ru",
+  siteurl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://autotech-gammma.vercel.app",
   app: lkurl,
   copyright: "© " + new Date().getFullYear(),
   logo: "/logo.svg",

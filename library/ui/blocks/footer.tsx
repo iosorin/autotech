@@ -41,7 +41,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2 group" title={title}>
               {logo &&
-                <Image src={logo} alt={title} width={27} height={27} />
+                <Image src={logo} alt="Логотип компании" width={27} height={27} />
               }
               {title &&
                 <span className="font-bold text-2xl text-foreground">

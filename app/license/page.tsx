@@ -14,7 +14,7 @@ export const License = () => {
         <Article
             id="license"
             className="pt-header"
-            heading={<Lead title={license.heading} left tag="h1" />}
+            heading={license.heading}
             sections={license.sections}
         />
     );
