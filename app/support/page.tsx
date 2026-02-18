@@ -16,7 +16,7 @@ export const Support = () => {
   const p = support;
   return (
     <>
-      <section id="support" className="layered pb-0">
+      <section id="support" className="layered">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
           <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />
