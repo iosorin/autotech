@@ -217,6 +217,7 @@ export const home = {
         image: {
             alt: "Запись и карта для корпоративных клиентов в приложении",
             href: "/images/app-shedule.png",
+            className: "flex-[0_0_30%]",
         },
     },
     cta: {

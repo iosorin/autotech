@@ -16,6 +16,7 @@ import { Form } from "@ui/blocks/form";
 import { cn } from "@utils";
 import contact from "@api/contact";
 import { app, forms, home } from "@data";
+import { Block } from "@/library/ui/blocks/block";
 
 const Page = () => {
   const p = home;
@@ -110,14 +111,12 @@ const Page = () => {
       </section>
 
       <section id="clients">
-        <Lead
-          label={p.clients.subtitle}
-          title={p.clients.title}
-        />
-        <Clients
-          intro={p.clients.intro}
+        <Block
+          heading={<Lead title={p.clients.title} label={p.clients.subtitle} hint={p.clients.intro} primary className="text-left !mb-0" />}
           items={p.clients.items}
           image={p.clients.image}
+          // className="flex-row-reverse"
+          reverse
         />
       </section>
 

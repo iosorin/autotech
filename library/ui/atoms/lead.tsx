@@ -21,7 +21,7 @@ export const Lead = ({ title, label, hint, titleFirst, className, left, tag = "h
   };
   const renderLabel = () => {
     const Tag = labelTag;
-    return label ? <Tag className={cn("text-lg font-medium leading-relaxed", primary ? "text-primary" : "")}>{label}</Tag> : null;
+    return label ? <Tag className={cn("text-lg md:text-xl font-medium leading-relaxed", primary ? "text-primary" : "")}>{label}</Tag> : null;
   };
 
   const renderHint = () => hint ? <p className="text-lg leading-relaxed mx-auto mt-2">{hint}</p> : null;
