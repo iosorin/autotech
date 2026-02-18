@@ -5,6 +5,11 @@ import { cn } from "@utils";
 import { Button } from "../atoms/button";
 // import { app } from "@data";
 
+type NavItem = {
+  label: string;
+  href: string;
+  alt: string;
+}
 type Props = {
   title: string;
   logo: string;
@@ -15,14 +20,8 @@ type Props = {
     label: string;
     href: string;
   }
-  nav: {
-    label: string;
-    href: string;
-  }[];
-  featured: {
-    label: string;
-    href: string;
-  };
+  nav: NavItem[];
+  featured: NavItem;
   company: {
     name: string;
     inn: string;
@@ -30,10 +29,7 @@ type Props = {
     addressLine1: string;
     addressLine2: string;
   };
-  links: {
-    label: string;
-    href: string;
-  }[];
+  links: NavItem[];
   className?: string;
 }
 
@@ -104,7 +100,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
                   key={link.href}
                   href={link.href}
                   className="hover:underline"
-                  title={link.label}
+                  title={link.alt}
                 >
                   {link.label}
                 </Link>
@@ -115,7 +111,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
 
           {featured &&
             <Button asChild variant="secondary">
-              <Link href={featured.href} title={featured.label}>
+              <Link href={featured.href} title={featured.alt}>
                 {featured.label}
                 <ArrowRight className="size-4" />
               </Link>
@@ -148,7 +144,7 @@ export const Footer = ({ title, logo, copyright, phone, email, telegram, nav, fe
                 <Link
                   key={link.href}
                   href={link.href}
-                  title={link.label}
+                  title={link.alt}
                   className="underline hover:text-foreground"
                 >
                   {link.label}

@@ -11,6 +11,7 @@ import { Button } from "@ui/atoms/button";
 type NavItem = {
   label: string;
   href: string;
+  alt: string;
 }
 
 type Props = {
@@ -44,14 +45,14 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           <Link
             key={item.label}
             href={item.href}
-            title={item.label}
+            title={item.alt}
             className={cn("font-medium transition-colors duration-200 relative", item.label === featured.label ? "text-primary" : "text-foreground", pathname === item.href ? "underline" : "text-foreground")}
           >
             {item.label}
           </Link>
         ))}
         <Button asChild variant="secondary" className={cn(hideFeatured && "max-md:hidden")}>
-          <Link href={featured.href} title={featured.label}>
+          <Link href={featured.href} title={featured.alt}>
             {featured.label}
             <ArrowRight className="size-4" />
           </Link>
