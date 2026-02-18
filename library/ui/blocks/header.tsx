@@ -50,7 +50,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             {item.label}
           </Link>
         ))}
-        <Button asChild variant="secondary" className="md:hidden">
+        <Button asChild variant="secondary" className="max-md:hidden">
           <Link href={featured.href} title={featured.label}>
             {featured.label}
             <ArrowRight className="size-4" />
@@ -85,7 +85,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           </Button>
         </div>
 
-        <div className={cn("absolute top-full left-0 right-0 mt-1 rounded-2xl w-full md:hidden overflow-hidden transition-all duration-300 ease-in-out z-50 bg-white", mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0")}>
+        <div className={cn("bg-white shadow-md absolute top-[100%] left-0 right-0 mt-1 rounded-xl w-full md:hidden overflow-hidden transition-all duration-300 ease-in-out z-50", mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0")}>
           <nav className="flex flex-col items-start gap-4 p-4">
             {renderItems(nav)}
           </nav>

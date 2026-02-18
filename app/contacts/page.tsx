@@ -21,9 +21,7 @@ export const Contacts = () => {
   const p = contacts;
   return (
     <>
-      <section id="contacts" className="pb-0">
-        <div className="gradlayer bg-gradient-gray" />
-
+      <section id="contacts" className="layered pb-0">
         <Lead
           title={p.title}
           titleFirst
@@ -38,10 +36,9 @@ export const Contacts = () => {
           tag="h1"
         />
 
-        <div className="pb-10">
-          <Lead title={p.designedForHeading} />
-          <Grid blocks={p.designedFor} />
-        </div>
+        <Lead title={p.designedForHeading} />
+        <Grid blocks={p.designedFor} />
+        <div className="gradlayer bg-gradient-gray" />
       </section>
 
 
@@ -50,15 +47,15 @@ export const Contacts = () => {
         <Icons items={p.dev} left />
       </section>
 
-      <section id="mission" className="pb-0">
-        <div className="gradlayer bg-gradient-lime" />
+      <section id="mission" className="layered">
         <div className="md:max-w-[85%] mx-auto">
           <Lead title={p.mission.heading} />
           <Icons items={p.mission.items} variant="stack" />
         </div>
+        <div className="gradlayer bg-gradient-lime" />
       </section>
 
-      <section id="form" className="pb-0">
+      <section id="form">
         <Lead title={p.form.heading} />
         <div className="md:w-[60%] mx-auto">
           <Form {...forms.call} className="shadow-primary/25" onSubmit={contact} />
@@ -76,10 +73,8 @@ export const Contacts = () => {
         />
       </section>
 
-      <section id="requisites">
-        <div className="gradlayer bg-gradient-gray-light" />
+      <section id="requisites" className="layered">
         <div className="md:max-w-[85%] mx-auto">
-
           <Lead title={p.requisitesHeading} />
           <Requisites
             bankHeading={p.bankHeading}
@@ -95,7 +90,7 @@ export const Contacts = () => {
             bank={app.company.bank}
           />
         </div>
-
+        <div className="gradlayer bg-gradient-gray-light" />
       </section>
     </>
   );

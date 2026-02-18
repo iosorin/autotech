@@ -14,8 +14,7 @@ export default function EventsPage() {
   const p = events;
   return (
     <>
-      <section id="event">
-        <div className="gradlayer bg-gradient-blue" />
+      <section id="event" className="layered">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <Event
           date={home.eventBanner.date}
@@ -26,7 +25,7 @@ export default function EventsPage() {
           button={home.eventBanner.button}
           className="bg-white shadow-lg"
         />
-
+        <div className="gradlayer bg-gradient-blue" />
       </section>
       <section id="past">
         <Lead title={p.pastHeading} />

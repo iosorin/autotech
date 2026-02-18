@@ -12,13 +12,10 @@ export const metadata: Metadata = {
 export default function UpdatesPage() {
   const p = updates;
   return (
-    <section id="updates">
+    <section id="updates" className="layered">
+      <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
+      <Changelog updates={p.list} />
       <div className="gradlayer bg-gradient-blue" />
-
-      <div className="mx-auto my-4">
-        <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
-        <Changelog updates={p.list} />
-      </div>
     </section>
   );
 }

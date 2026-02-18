@@ -16,17 +16,15 @@ export default function SupportPage() {
   const p = support;
   return (
     <>
-      <section id="support">
-        <div className="gradlayer bg-gradient-lime" />
+      <section id="support" className="layered">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
           <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />
         </div>
+        <div className="gradlayer bg-gradient-lime" />
       </section>
 
-      <section>
-        <div className="gradlayer bg-gradient-gray-light" />
-
+      <section className="layered">
         <section id="support-types">
           <Lead title={p.responseHeading} />
           <Types types={p.types} />
@@ -42,6 +40,7 @@ export default function SupportPage() {
             phoneRaw={app.phoneRaw}
           />
         </section>
+        <div className="gradlayer bg-gradient-gray-light" />
       </section>
     </>
   );
