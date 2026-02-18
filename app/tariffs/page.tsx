@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tariffs" },
 };
 
-const Tariffs = () => {
+export const Tariffs = () => {
   const p = tariffs;
   return (
     <>
@@ -60,4 +60,4 @@ const Tariffs = () => {
   );
 }
 
-export default Tariffs
+export default Tariffs;

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/updates" },
 };
 
-export default function UpdatesPage() {
+export const Updates = () => {
   const p = updates;
   return (
     <section id="updates" className="layered">
@@ -19,3 +19,5 @@ export default function UpdatesPage() {
     </section>
   );
 }
+
+export default Updates;

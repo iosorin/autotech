@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 export const Contract = () => {
     return (
-        <section id="contract" className="pt-header">
-            <Article
-                heading={<Lead title={contract.heading} left tag="h1" />}
-                content={contract.content}
-            />
-        </section>
+        <Article
+            id="contract"
+            heading={<Lead title={contract.heading} left tag="h1" />}
+            sections={contract.sections}
+            className="pt-header"
+        />
     );
 }
 

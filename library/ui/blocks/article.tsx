@@ -1,64 +1,59 @@
 import { cn } from "@utils";
 
-export type IArticleBlock =
-    | { type: "p"; text: string }
+export type IElement =
     | { type: "h2"; text: string }
-    | { type: "section"; heading?: string; intro: string; list: string[] };
-
+    | { type: "p"; text: string }
+    | { type: "list"; items: string[] };
 
 export type IArticle = {
-    heading: React.ReactNode;
-    content: IArticleBlock[];
+    id?: string;
+    heading: React.ReactNode; // h1
+    sections?: IElement[][];
     className?: string;
 }
 
-export const Article = ({ heading, content, className }: IArticle) => {
-    const renderHeading = (heading?: string) => {
-        if (!heading) return null;
-        return (
-            <h2 className="text-lg text-foreground leading-relaxed">
-                {heading}
-            </h2>
-        );
-    }
-    const render = (block: IArticleBlock, index: number) => {
-        if (block.type === "p") {
+export const Article = ({ id, heading, sections, className }: IArticle) => {
+    const renderElement = (element: IElement, index: number) => {
+        if (element.type === "h2") {
             return (
-                <p key={index} className="text-foreground leading-relaxed">
-                    {block.text}
+                <h2 key={index} className="text-lg">
+                    {element.text}
+                </h2>
+            );
+        }
+
+        if (element.type === "p") {
+            return (
+                <p key={index}>
+                    {element.text}
                 </p>
             );
         }
-        if (block.type === "h2") {
+
+        if (element.type === "list") {
             return (
-                renderHeading(block.text)
-            );
+                <ul key={index} className="list-disc pl-6 space-y-1">
+                    {element.items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                    ))}
+                </ul>
+            )
         }
 
-        return (
-            <div key={index} className="space-y-2">
-                {renderHeading(block.heading)}
-
-                <p className="text-foreground leading-relaxed">{block.intro}</p>
-
-                {block.list.length > 0 && (
-                    <ul className="list-disc pl-6 space-y-1 text-foreground leading-relaxed">
-                        {block.list.map((item, i) => (
-                            <li key={i}>{item}</li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-        );
+        return null;
     };
 
     return (
-        <article className={cn("mx-auto", className)}>
-            {heading}
+        <article id={id} className={cn("mx-auto space-y-4", className)}>
+            <h1>
+                {heading}
+            </h1>
 
-            <div className="space-y-6">
-                {content.map(render)}
-            </div>
+            {sections?.map((section, index) => (
+                <section key={index} className="space-y-4">
+                    {section.map(renderElement)}
+                </section>
+            ))}
         </article>
     );
 }

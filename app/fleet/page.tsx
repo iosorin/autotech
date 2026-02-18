@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/fleet" },
 };
 
-export default function FleetPage() {
+export const Fleet = () => {
   const p = fleet;
 
   const ctaCabinet = <Cta items={[app.cta.cabinet, app.cta.more]}>
@@ -122,3 +122,5 @@ export default function FleetPage() {
     </>
   );
 }
+
+export default Fleet; 

@@ -149,6 +149,9 @@
     @apply -mt-10 md:-mt-20;
   }
 
+  article section {
+    @apply relative !py-0 !my-8;
+  }
 }
 
 

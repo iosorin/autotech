@@ -9,13 +9,15 @@ export const metadata: Metadata = {
     alternates: { canonical: "/license" },
 };
 
-export default function LicensePage() {
+export const License = () => {
     return (
-        <section id="license" className="pt-header">
-            <Article
-                heading={<Lead title={license.heading} left tag="h1" />}
-                content={license.content}
-            />
-        </section>
+        <Article
+            id="license"
+            className="pt-header"
+            heading={<Lead title={license.heading} left tag="h1" />}
+            sections={license.sections}
+        />
     );
 }
+
+export default License;

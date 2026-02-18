@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/support" },
 };
 
-export default function SupportPage() {
+export const Support = () => {
   const p = support;
   return (
     <>
@@ -45,3 +45,5 @@ export default function SupportPage() {
     </>
   );
 }
+
+export default Support;
