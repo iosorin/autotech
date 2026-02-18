@@ -101,9 +101,9 @@ export const Hero = ({
 
         {card && (
           <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3" >
-            <div className="rounded-2xl bg-gradient-white p-4 md:p-6 center flex-col text-center gap-3 md:gap-4">
+            <div className="rounded-2xl bg-gradient-white p-4 md:p-8 center flex-col text-center gap-3 md:gap-4">
               {card.icon}
-              <h3 className="font-bold text-foreground mb-1 max-w-[235px]">{card.title}</h3>
+              <h3 className="font-bold text-foreground mb-1">{card.title}</h3>
               <p className="text-base md:text-lg text-muted-foreground max-w-[260px]">{card.desc}</p>
             </div>
           </Enter >

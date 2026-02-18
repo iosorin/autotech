@@ -4,8 +4,7 @@ import { app } from "./app"
 export const home = {
     hero: {
         subtitle: "Платформа Автотех",
-        titleLine1: "Приложение для автомойки,",
-        titleLine2: "детейлинга и шиномонтажа",
+        title: "Приложение для автомойки,\nдетейлинга и шиномонтажа",
         features: [
             { icon: <ScanLine className="size-5 text-primary" />, label: "Распознавание марок и номеров" },
             { icon: <BarChart3 className="size-5 text-primary" />, label: "Статистика и аналитика" },
@@ -27,7 +26,7 @@ export const home = {
         },
         // telegramCta: "Подпишитесь на наш телеграм-канал",
         card: {
-            title: "Легкий переход с других приложений",
+            title: "Легкий переход\n с других приложений",
             desc: "Автоматический перенос услуг и настроек",
             icon: <RefreshCw className="size-10 text-primary" />,
         },
@@ -211,8 +210,7 @@ export const home = {
     },
     clients: {
         subtitle: "Самое главное",
-        titleLine1: "Мы будем приводить к вам",
-        titleLine2: "новых клиентов!",
+        title: "Мы будем приводить к вам\nновых клиентов!",
         intro: "Мы не только разрабатываем приложение, но еще сами заключаем прямые договора с корпоративными клиентами, которые выбирают вашу автомойку или шиномонтаж для получения услуг",
         items: [
             "Корпоративные клиенты могут находить вашу автомойку или шиномонтаж на карте в приложении, записываться или просто приезжать",
@@ -277,8 +275,7 @@ export const home = {
         ],
     },
     join: {
-        titleLine1: "Присоединяйтесь к нашим",
-        titleLine2: "довольным клиентам",
+        title: "Присоединяйтесь к нашим\nдовольным клиентам",
     },
 }
 
@@ -322,12 +319,11 @@ export const tariffs = {
         image: {
             alt: "Интерфейс приложения Автотех",
             href: "/images/app-box.png",
-            className: 'flex-[0_0_40%] '
+            // className: 'flex-[0_0_35%] '
         },
     },
     cta: {
-        title1: "Подключайтесь и получите",
-        title2: "2 недели бесплатно",
+        title: "Подключайтесь и получите\n 2 недели бесплатно",
         start: {
             label: "Начать работать",
             href: "/",
@@ -493,8 +489,8 @@ export const support = {
     types: [
         { icon: <Zap className="text-amber-500 size-10" />, title: "Критическая ошибка, блокирующая работу", desc: "Берем в работу сразу, срок решения зависит от технических возможностей и от того, на чьей стороне возникла проблема — на нашей или на стороне внешних провайдеров, на кого мы не в силах повлиять", className: "bg-gradient-amber" },
         { icon: <Clock className="text-accent size-10" />, title: "Некритическая ошибка, не блокирующая работу", desc: "Берем в работу сразу, решение будет предоставлено в согласованные сроки, в среднем от 1 дня до двух недель", className: "bg-gradient-blue" },
-        { title: "Пожелание по доработке", desc: "Берем в анализ сразу, возвращаемся в течение двух-трех дней с ответом о принятии в работу или дополнительными вопросами", className: "bg-muted center p-10" },
-        { title: "Вопрос по приложению", desc: "Отвечаем в течение часа", className: "bg-muted center p-10" },
+        { title: "Пожелание по доработке", desc: "Берем в анализ сразу, возвращаемся в течение двух-трех дней с ответом о принятии в работу или дополнительными вопросами", className: "bg-gradient-gray-white center" },
+        { title: "Вопрос по приложению", desc: "Отвечаем в течение часа", className: "bg-gradient-gray-white center" },
     ],
     otherContactHeading: "Другие способы связи",
     contactLabels: { telegram: "Telegram", email: "Электронная почта", phone: "Телефон" },
@@ -514,7 +510,7 @@ export const fleet = {
             icon: <MapPlus className="size-10 text-primary" />,
         },
         image: {
-            src: "/images/app-preview.png",
+            src: "/images/app-box.png",
             alt: "Приложение Автотех для автопарков",
         },
         cta: {
@@ -589,7 +585,8 @@ export const fleet = {
         ],
         image: {
             alt: "Гибкое управление",
-            href: "/images/app-preview.png",
+            href: "/images/app-box.png",
+            // className: "flex-[0_0_30%]",
         },
         cta: {
             label: "Связаться с нами",
@@ -649,7 +646,7 @@ export const fleet = {
         ],
         image: {
             alt: "Гарантия прозрачности",
-            href: "/images/app-preview.png",
+            href: "/images/app-box.png",
         },
     },
     hrd: {
@@ -662,7 +659,7 @@ export const fleet = {
         },
         image: {
             alt: "Специальное предложение для HRD",
-            href: "/images/app-preview.png",
+            href: "/images/app-box.png",
         },
     },
     faq: {

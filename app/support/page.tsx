@@ -16,7 +16,7 @@ export default function SupportPage() {
   const p = support;
   return (
     <>
-      <section id="support" className="layered">
+      <section id="support" className="layered pb-0">
         <Lead label={p.subtitle} title={p.title} titleFirst tag="h1" />
         <div className="md:w-[60%] mx-auto">
           <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />

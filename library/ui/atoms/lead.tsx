@@ -2,7 +2,6 @@ import { cn } from "@utils";
 
 type Props = {
   title: React.ReactNode;
-  title2?: React.ReactNode;
   label?: React.ReactNode;
   hint?: React.ReactNode;
   titleFirst?: boolean;
@@ -11,14 +10,11 @@ type Props = {
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-export const Lead = ({ title, title2, label, hint, titleFirst, className, left, tag = "h2" }: Props) => {
+export const Lead = ({ title, label, hint, titleFirst, className, left, tag = "h2" }: Props) => {
   const renderTitle = () => {
     const Tag = tag;
     if (!title) return null;
-    return <Tag>
-      {title}
-      {title2 && <> <br /> {title2}</>}
-    </Tag>;
+    return <Tag>{title}</Tag>;
   };
   const renderLabel = () => label ? <p className="text-lg font-medium">{label}</p> : null;
   const renderHint = () => hint ? <p className="mx-auto mt-2">{hint}</p> : null;

@@ -1,18 +1,18 @@
-"use client";
-
 import { Enter } from "@ui/atoms/enter";
+import { cn } from "@utils";
 
 type Props = {
   name: string;
   nameSup: string;
   desc: string;
   note: string;
+  className?: string;
 };
 
-export const Partners = ({ name, nameSup, desc, note }: Props) => {
+export const Partners = ({ name, nameSup, desc, note, className }: Props) => {
   return (
     <Enter variant="scale-up" delay={150} duration={700}>
-      <div className="rounded-2xl bg-gradient-gray p-8 md:p-10 text-center max-w-2xl mx-auto">
+      <div className={cn("rounded-2xl bg-gradient-gray p-8 md:p-10 text-center mx-auto", className)}>
         <h3 className="text-2xl font-bold text-foreground mb-5">
           {name}
           <sup className="align-super">{nameSup}</sup>

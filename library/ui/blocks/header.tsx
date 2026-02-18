@@ -37,7 +37,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const renderItems = (items: NavItem[]) => {
+  const renderItems = (items: NavItem[], hideFeatured?: boolean) => {
     return (
       <>
         {items.map((item) => (
@@ -50,7 +50,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             {item.label}
           </Link>
         ))}
-        <Button asChild variant="secondary" className="max-md:hidden">
+        <Button asChild variant="secondary" className={cn(hideFeatured && "max-md:hidden")}>
           <Link href={featured.href} title={featured.label}>
             {featured.label}
             <ArrowRight className="size-4" />
@@ -61,8 +61,8 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
   };
 
   return (
-    <header className={cn('w-full center transition-all duration-300 relative')}>
-      <div className={cn('w-full flex items-center justify-between rounded-full px-4 mx-auto relative', background, className)}>
+    <header className={cn('w-full center relative')}>
+      <div className={cn('w-full flex items-center justify-between rounded-full px-4 mx-auto relative transition-all duration-200', background, className)}>
         <Link href="/" className="flex items-center gap-2 group" title={title}>
           {logo &&
             <Image src={logo} alt={title} width={27} height={27} />
@@ -76,7 +76,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
 
         <div className="flex items-center gap-3 lg:gap-7">
           <nav className="hidden md:flex items-center gap-3 lg:gap-7">
-            {renderItems(nav)}
+            {renderItems(nav, true)}
           </nav>
 
           <Button variant="secondary" className="md:hidden" size="icon" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Открыть меню">
@@ -85,7 +85,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           </Button>
         </div>
 
-        <div className={cn("bg-white shadow-md absolute top-[100%] left-0 right-0 mt-1 rounded-xl w-full md:hidden overflow-hidden transition-all duration-300 ease-in-out z-50", mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0")}>
+        <div className={cn("bg-white shadow-md p-2 absolute top-[100%] left-0 right-0 mt-1 rounded-xl w-full md:hidden overflow-hidden transition-all duration-300 ease-in-out z-50", mobileOpen ? "max-h-[100dvh] opacity-100" : "max-h-0 opacity-0 border-t-0")}>
           <nav className="flex flex-col items-start gap-4 p-4">
             {renderItems(nav)}
           </nav>

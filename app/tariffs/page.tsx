@@ -36,7 +36,7 @@ const Tariffs = () => {
         <Rates discounts={p.discounts.items} icon={p.discounts.icon} />
       </section>
 
-      <section id="included-2">
+      <section id="included">
         <Block
           heading={<Lead title={p.included.heading} className="text-left" />}
           items={p.included.items}
@@ -47,7 +47,7 @@ const Tariffs = () => {
       </section>
 
       <section id="cta" className="layered">
-        <Lead title={p.cta.title1} title2={p.cta.title2} />
+        <Lead title={p.cta.title} />
 
         <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>

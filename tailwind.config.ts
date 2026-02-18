@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       spacing: {
-        'header': 'calc(var(--header-height) + 5.25rem)',
+        // 'header': 'calc(var(--header-height) + 5.25rem)',
       },
       height: {
         'header': 'var(--header-height)',

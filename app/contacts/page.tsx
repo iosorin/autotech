@@ -55,43 +55,46 @@ export const Contacts = () => {
         <div className="layer bg-gradient-lime" />
       </section>
 
-      <section id="form">
-        <Lead title={p.form.heading} />
-        <div className="md:w-[60%] mx-auto">
-          <Form {...forms.call} className="shadow-primary/25" onSubmit={contact} />
-        </div>
-      </section>
+      <section className="layered">
+        <section id="form">
+          <Lead title={p.form.heading} />
+          <div className="md:w-[60%] mx-auto">
+            <Form {...forms.call} className="shadow-xl" onSubmit={contact} />
+          </div>
+        </section>
 
-      <section id="other-contact">
-        <Lead title={p.otherContactHeading} />
-        <Links
-          labels={p.contactLabels}
-          telegramSupport={app.telegram}
-          email={app.supportEmail}
-          phone={app.phone}
-          phoneRaw={app.phoneRaw}
-        />
-      </section>
-
-      <section id="requisites" className="layered pt-0">
-        <div className="md:max-w-[85%] mx-auto">
-          <Lead title={p.requisitesHeading} />
-          <Requisites
-            bankHeading={p.bankHeading}
-            accountLabel={p.accountLabel}
-            company={{
-              short: app.company.short,
-              addressFull: app.company.addressFull,
-              inn: app.company.inn,
-              kpp: app.company.kpp,
-              ogrn: app.company.ogrn,
-              okpo: app.company.okpo,
-            }}
-            bank={app.company.bank}
+        <section id="other-contact">
+          <Lead title={p.otherContactHeading} />
+          <Links
+            labels={p.contactLabels}
+            telegramSupport={app.telegram}
+            email={app.supportEmail}
+            phone={app.phone}
+            phoneRaw={app.phoneRaw}
           />
-        </div>
+        </section>
+
+        <section id="requisites" className="layered">
+          <div className="md:max-w-[85%] mx-auto">
+            <Lead title={p.requisitesHeading} />
+            <Requisites
+              bankHeading={p.bankHeading}
+              accountLabel={p.accountLabel}
+              company={{
+                short: app.company.short,
+                addressFull: app.company.addressFull,
+                inn: app.company.inn,
+                kpp: app.company.kpp,
+                ogrn: app.company.ogrn,
+                okpo: app.company.okpo,
+              }}
+              bank={app.company.bank}
+            />
+          </div>
+        </section>
         <div className="layer bg-gradient-white-gray" />
       </section>
+
     </>
   );
 }

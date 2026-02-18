@@ -16,7 +16,7 @@ export const Rates = ({ discounts, icon }: Props) => {
             {icon}
             <p className="text-lg font-medium text-accent">{d.range}</p>
           </div>
-          <p className="text-4xl md:text-5xl font-bold text-foreground">{d.percent}</p>
+          <p className="text-4xl md:text-5xl font-bold text-foreground ml-9">{d.percent}</p>
         </div>
       ))}
     </div>

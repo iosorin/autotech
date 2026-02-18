@@ -23,7 +23,7 @@ const Page = () => {
     <>
       <section id="hero">
 
-        <Lead title={p.hero.titleLine1} title2={p.hero.titleLine2} tag="h1" label={p.hero.subtitle} />
+        <Lead title={p.hero.title} tag="h1" label={p.hero.subtitle} />
 
         <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>
@@ -112,8 +112,7 @@ const Page = () => {
       <section id="clients">
         <Lead
           label={p.clients.subtitle}
-          title={p.clients.titleLine1}
-          title2={p.clients.titleLine2}
+          title={p.clients.title}
         />
         <Clients
           intro={p.clients.intro}
@@ -144,6 +143,7 @@ const Page = () => {
           nameSup={p.partners.nameSup}
           desc={p.partners.desc}
           note={p.partners.note}
+        // className="md:max-w-[85%]"
         />
       </section>
 
@@ -158,7 +158,7 @@ const Page = () => {
       </section>
 
       <section id="cta-join" className="layered">
-        <Lead title={p.join.titleLine1} title2={p.join.titleLine2} />
+        <Lead title={p.join.title} />
 
         <Cta items={[app.cta.start, app.cta.contact]}>
           <Cta.Slot id={app.cta.contact.id}>

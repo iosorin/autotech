@@ -8,15 +8,15 @@ type Props = {
 
 export const Types = ({ types }: Props) => (
   <div className="text-center flex flex-col items-center">
-    <div className="grid gap-4 sm:grid-cols-2">
+    <div className="grid gap-6 sm:grid-cols-2">
       {types.map((type) => (
         <div
           key={type.title}
-          className={cn(`rounded-2xl p-5 flex flex-col items-center gap-4`, type.className)}
+          className={cn(`rounded-2xl px-6 py-7 flex flex-col items-center gap-3 min-h-[25vh] bg-muted`, type.className)}
         >
           {type.icon}
-          <h3 className="md:max-w-[65%]">{type.title}</h3>
-          <p className="text-lg font-medium leading-relaxed">{type.desc}</p>
+          <h3>{type.title}</h3>
+          <p className="md:text-lg font-medium leading-relaxed">{type.desc}</p>
         </div>
       ))}
     </div>

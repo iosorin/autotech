@@ -18,7 +18,7 @@ export const Clients = ({ intro, items, image }: Props) => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
       {image &&
-        <Enter variant="fade-left" delay={200} duration={700} className="w-full lg:flex-[0_0_32%] max-md:hidden">
+        <Enter variant="fade-left" delay={200} duration={700} className="w-full lg:flex-[0_0_30%] max-md:hidden">
           <Image
             src={image.href}
             alt={image.alt}
@@ -29,7 +29,7 @@ export const Clients = ({ intro, items, image }: Props) => {
         </Enter>
       }
       <Enter variant="fade-right" duration={600} className="flex-1">
-        <p className="text-lg mb-8">{intro}</p>
+        <p className="text-lg mb-8 leading-relaxed">{intro}</p>
         <div className="flex flex-col gap-6">
           {items.map((feature) => (
             <div key={feature} className="flex items-start gap-3">
