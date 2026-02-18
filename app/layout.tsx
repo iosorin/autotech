@@ -74,7 +74,7 @@ export default function RootLayout({
           logo={app.logo}
           nav={app.nav}
           featured={app.featured}
-          className="fixed md:top-8 top-4 z-50 center-x rounded-full max-w-6xl h-header"
+          className="max-w-6xl px-4 mx-auto fixed top-4 lg:top-8 left-0 right-0 z-50 rounded-full h-header"
         />
 
         <main className="max-w-6xl px-4 mx-auto">

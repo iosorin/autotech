@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        md: '769px',
+      },
       spacing: {
         // 'header': 'calc(var(--header-height) + 5.25rem)',
       },

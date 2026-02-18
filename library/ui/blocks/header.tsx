@@ -46,7 +46,7 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             key={item.label}
             href={item.href}
             title={item.alt}
-            className={cn("font-medium transition-colors duration-200 relative", item.label === featured.label ? "text-primary" : "text-foreground", pathname === item.href ? "underline" : "text-foreground")}
+            className={cn("font-medium transition-colors duration-100 relative", item.label === featured.label ? "text-primary" : "text-foreground", pathname === item.href ? "underline" : "text-foreground")}
           >
             {item.label}
           </Link>
@@ -62,8 +62,8 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
   };
 
   return (
-    <header className={cn('w-full center relative')}>
-      <div className={cn('w-full flex items-center justify-between rounded-full px-4 mx-auto relative transition-all duration-200', background, className)}>
+    <header className={cn('w-full center', className)}>
+      <div className={cn('full flex items-center justify-between rounded-full px-4 mx-auto relative transition-all duration-100', background,)}>
         <Link href="/" className="flex items-center gap-2 group" title={title}>
           {logo &&
             <Image src={logo} alt={title} width={27} height={27} />
@@ -81,8 +81,8 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
           </nav>
 
           <Button variant="secondary" className="md:hidden" size="icon" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Открыть меню">
-            <Menu className={cn("size-5 absolute transition-all duration-200", mobileOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0")} />
-            <X className={cn("size-5 absolute transition-all duration-200", mobileOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90")} />
+            <Menu className={cn("size-5 absolute transition-all duration-100", mobileOpen ? "opacity-0 rotate-90" : "opacity-100 rotate-0")} />
+            <X className={cn("size-5 absolute transition-all duration-100", mobileOpen ? "opacity-100 rotate-0" : "opacity-0 -rotate-90")} />
           </Button>
         </div>
 

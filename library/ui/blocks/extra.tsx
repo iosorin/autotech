@@ -99,7 +99,7 @@ export const Extra = ({
             {renderItems(tire.items)}
             {renderCta(tire.cta)}
           </Enter>
-          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1">
+          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1 max-md:hidden">
             {renderImage(tire.image)}
           </div>
         </div>
@@ -113,7 +113,7 @@ export const Extra = ({
             {renderItems(integrations.items)}
             {renderCta(integrations.cta)}
           </Enter>
-          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1">
+          <div className="order-1 lg:order-2 w-full lg:w-auto lg:flex-1 max-md:hidden">
             {renderImage(integrations.image)}
           </div>
         </div>
@@ -123,7 +123,7 @@ export const Extra = ({
       {/* Картинка + Безопасность + Поддержка */}
       {security && (
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-20">
-          <div className="w-full lg:w-auto lg:flex-1">
+          <div className="w-full lg:w-auto lg:flex-1 max-md:hidden">
             {renderImage(security.image)}
           </div>
           <Enter variant="fade-right" duration={600} className="w-full lg:flex-[0_0_55%] flex flex-col gap-10 h-full justify-between">
