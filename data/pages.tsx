@@ -375,7 +375,7 @@ export const updates = {
 
 export const contacts = {
     title: "Контакты",
-    supportHint: "Обращение в техническую поддержку: перейдите на страницу ",
+    supportHint: "Для обращения в техническую поддержку перейдите на страницу ",
     supportLinkLabel: "Поддержка",
     designedForHeading: "Приложение Автотех разработано для",
     designedFor: [

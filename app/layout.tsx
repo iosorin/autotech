@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: app.siteurl,
+    // url: app.siteurl,
     siteName: seo.siteName,
     title: seo.defaultTitle,
     description: seo.defaultDescription,
@@ -31,18 +31,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seo.defaultTitle,
     description: seo.defaultDescription,
-    images: [seo.ogImage],
+    images: [{ url: seo.ogImage, width: 1200, height: 630, alt: seo.ogImageAlt }],
+
   },
   verification: {
     google: "BOArqqCtqsRqa5JhqbSN7ZSxkLVlpPNtPoGupnwPHiY",
   },
 };
-
-// export const metadata: Metadata = {
-//   metadataBase: new URL(app.siteurl),
-//   manifest: "/favicon/site.webmanifest",
-//   // ... остальное
-// };
 
 const jsonld = {
   "@context": "https://schema.org",

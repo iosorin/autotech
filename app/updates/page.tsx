@@ -13,7 +13,7 @@ export default function UpdatesPage() {
   const p = updates;
   return (
     <section id="updates" className="layered">
-      <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst />
+      <Lead label={p.subtitle} title={p.title} tag="h1" titleFirst labelTag="h2" />
       <Changelog updates={p.list} />
       <div className="layer bg-gradient-blue" />
     </section>
