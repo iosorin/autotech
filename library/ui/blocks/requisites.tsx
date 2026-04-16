@@ -1,6 +1,6 @@
 type Company = {
   short: string;
-  addressFull: string;
+  fulladdress: string;
   inn: string;
   kpp: string;
   ogrn: string;
@@ -29,7 +29,7 @@ export const Requisites = ({ bankHeading, accountLabel, company, bank }: Props) 
     <div className="grid gap-10 md:grid-cols-2">
       <div className="space-y-3">
         <p className="text-lg font-semibold mb-3">{company.short}</p>
-        <p>Юридический и фактический адрес: {company.addressFull}</p>
+        <p>Юридический и фактический адрес: {company.fulladdress}</p>
         <p>ИНН: {company.inn}</p>
         <p>КПП: {company.kpp}</p>
         <p>ОГРН: {company.ogrn}</p>

@@ -1,10 +1,11 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { Button } from "@ui/atoms/button";
 import React from "react";
-import { cn } from "@/library/utils";
+import { cn, scrollIntoView } from "@/library/utils";
 
 type Props = {
   // subtitle: string;
@@ -12,7 +13,7 @@ type Props = {
   // titleLine2?: string;
   heading: React.ReactNode;
   features: { icon: React.ReactNode; label: string }[];
-  card: { title: string; desc: string; icon: React.ReactNode; };
+  card: { title: string; desc: string; icon: React.ReactNode; more?: { label: string; id: string } };
   image: { src: string; alt: string; };
   links?: { label: string; href: string; props?: React.ComponentProps<typeof Button>; }[];
   cta?: React.ReactNode;
@@ -91,6 +92,7 @@ export const Hero = ({
                 width={640}
                 height={892}
                 title={image.alt}
+                priority
                 className="rounded-3xl w-full h-auto"
                 sizes="(max-width: 768px) 100vw, 640px"
               />
@@ -102,8 +104,13 @@ export const Hero = ({
           <Enter variant="fade-left" delay={300} duration={600} className="flex-1 w-full order-3" >
             <div className="rounded-2xl bg-gradient-white p-4 md:p-8 center flex-col text-center gap-3">
               {card.icon}
-              <h3 className="font-bold text-foreground mb-1">{card.title}</h3>
-              <p className="text-base md:text-lg opacity-80">{card.desc}</p>
+              <h3 className="font-bold text-foreground mb-1 whitespace-pre-line">{card.title}</h3>
+              <p className="text-base md:text-lg opacity-80 whitespace-pre-line">{card.desc}</p>
+              {!!card.more && (
+                <Button variant="outline" size="md2" className="mt-6 rounded-full md:min-w-[80%] min-w-full" onClick={() => scrollIntoView(card.more!.id)} aria-label={card.more.label} title={card.more.label}>
+                  {card.more.label}
+                </Button>
+              )}
             </div>
           </Enter >
         )}

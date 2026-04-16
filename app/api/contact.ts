@@ -36,28 +36,53 @@ const contact = async (formData: FormData, heading?: string) => {
 
         const telegramMessage = lines.join("\n");
 
+        // Поддержка нескольких chat_id через запятую или пробел: TELEGRAM_CHAT_ID=123,456 789
+        const chatIds = (chatId ?? '')
+            .split(/[\s,]+/)
+            .map((id: string) => id.trim())
+            .filter(Boolean);
+
         console.log('--------------------------------');
         console.log('BOT_TOKEN:', botToken);
-        console.log('CHAT_ID:', chatId);
+        console.log('CHAT_IDs:', chatIds);
         console.log('MESSAGE:', telegramMessage);
         console.log('--------------------------------');
 
-        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: telegramMessage,
-                parse_mode: 'HTML'
+        if (chatIds.length === 0) throw new Error('TELEGRAM_CHAT_ID не задан');
+
+        const proxy = process.env.PROXY;
+
+        const results = await Promise.all(
+            chatIds.map((id: string) => {
+                const options: RequestInit & { dispatcher?: unknown } = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: id,
+                        text: telegramMessage,
+                        parse_mode: 'HTML'
+                    })
+                };
+
+                if (proxy) {
+                    const { ProxyAgent } = require('undici');
+                    options.dispatcher = new ProxyAgent(proxy);
+                }
+
+                return fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, options as RequestInit)
+                    .then((r) => r.json());
             })
-        });
+        );
 
-        const result = await response.json();
+        const failed = results.filter((r: { ok?: boolean }) => !r.ok);
+        if (failed.length > 0) {
+            console.error('TELEGRAM FAILED:', failed);
+            throw new Error('Ошибка при отправке обращения');
+        }
 
         console.log('--------------------------------');
-        console.log('TELEGRAM RESPONSE:', result);
+        console.log('TELEGRAM OK:', results.length, 'chats');
         console.log('--------------------------------');
-        if (!result.ok) throw new Error('Ошибка при отправке обращения');
     } catch (error) {
         console.error('Server error:', error);
         throw new Error('Внутренняя ошибка сервера');

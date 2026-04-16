@@ -18,7 +18,7 @@
     /* --tertiary: 234 20% 94%; */
     --tertiary: 98 100% 92%;
     --muted: 234 20% 94%;
-    --muted-foreground: 229 12% 69%;
+    --muted-foreground: 210 12% 69%;
     /* --muted-foreground: 216, 17%, 53%; */
     --accent: 202 80% 53%;
     --accent-foreground: 0 0% 100%;
@@ -139,7 +139,8 @@
   h6,
   .h6,
   p,
-  .p {
+  .p,
+  li {
     @apply md:whitespace-pre-line;
   }
 

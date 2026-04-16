@@ -5,13 +5,11 @@ import { Compare } from "@ui/blocks/compare";
 import { Hero } from "@ui/blocks/hero";
 import { Cabinet } from "@ui/blocks/cabinet";
 import { Extra } from "@ui/blocks/extra";
-import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Block } from "@ui/blocks/block";
 import { Lead } from "@ui/atoms/lead";
-import { Form } from "@ui/blocks/form";
-import contact from "@api/contact";
-import { app, fleet, forms, seo } from "@data";
+import { fleet, seo } from "@data";
+import { Cta } from "@/app/client";
 import { openGraph } from "@/app/utils";
 
 export const metadata: Metadata = {
@@ -24,17 +22,6 @@ export const metadata: Metadata = {
 export const Fleet = () => {
   const p = fleet;
 
-  const ctaCabinet = <Cta items={[app.cta.cabinet, app.cta.more]}>
-    <Cta.Slot id={app.cta.more.id}>
-      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
-    </Cta.Slot>
-  </Cta>
-  const ctaContact = <Cta items={[app.cta.contact]}>
-    <Cta.Slot id={app.cta.contact.id}>
-      <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
-    </Cta.Slot>
-  </Cta>
-
   return (
     <>
       <section id="fleet" className="layered pb-0">
@@ -43,7 +30,7 @@ export const Fleet = () => {
           features={p.hero.features}
           card={p.hero.card}
           image={p.hero.image}
-          cta={ctaContact}
+          cta={<Cta items={p.hero.cta.items} goals={p.hero.cta.goals} form={p.hero.cta.form} />}
         />
         <div className="layer bg-gradient-lime" />
       </section>
@@ -71,8 +58,7 @@ export const Fleet = () => {
           heading={<Lead title={p.flexible.heading} className="text-left !mb-0" />}
           items={p.flexible.items}
           image={p.flexible.image}
-          cta={ctaContact}
-          // className="flex-row-reverse"
+          cta={<Cta items={p.flexible.cta.items} goals={p.flexible.cta.goals} form={p.flexible.cta.form} />}
           reverse
         />
       </section>
@@ -82,7 +68,7 @@ export const Fleet = () => {
           <Lead title={p.how.heading} className="!mb-0" />
           <Icons items={p.how.items} variant="stack" />
         </div>
-        {ctaCabinet}
+        <Cta items={p.how.cta.items} goals={p.how.cta.goals} form={p.how.cta.form} />
         <div className="layer bg-gradient-lime" />
       </section>
 
@@ -91,7 +77,6 @@ export const Fleet = () => {
           heading={<Lead title={p.transparency.heading} className="text-left !mb-0" />}
           items={p.transparency.items}
           image={p.transparency.image}
-          // className="flex-row-reverse"
           reverse
         />
       </section>
@@ -111,7 +96,7 @@ export const Fleet = () => {
           title={p.hrd.heading}
           desc={p.hrd.desc}
           icon={p.hrd.icon}
-          cta={ctaCabinet}
+          cta={<Cta items={p.hrd.cta.items} goals={p.hrd.cta.goals} form={p.hrd.cta.form} />}
           className="bg-gradient-blue"
         />
       </section>
@@ -125,4 +110,4 @@ export const Fleet = () => {
   );
 }
 
-export default Fleet; 
+export default Fleet;

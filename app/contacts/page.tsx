@@ -5,9 +5,9 @@ import { Grid } from "@ui/blocks/grid";
 import { Icons } from "@ui/blocks/icons";
 import { Links } from "@ui/blocks/links";
 import { Requisites } from "@ui/blocks/requisites";
-import { seo, app, contacts, forms } from "@data";
 import contact from "@api/contact";
-import { Form } from "@ui/blocks/form";
+import { seo, app, contacts, forms } from "@data";
+import { Form } from "@/app/client";
 import { openGraph } from "@/app/utils";
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export const Contacts = () => {
         <section id="form">
           <Lead title={p.form.heading} />
           <div className="md:w-[60%] mx-auto">
-            <Form {...forms.call} className="shadow-xl" onSubmit={contact} />
+            <Form {...forms.call} className="shadow-xl" onSubmit={contact} goal="contacts" />
           </div>
         </section>
 
@@ -83,7 +83,7 @@ export const Contacts = () => {
               accountLabel={p.accountLabel}
               company={{
                 short: app.company.short,
-                addressFull: app.company.addressFull,
+                fulladdress: app.company.fulladdress,
                 inn: app.company.inn,
                 kpp: app.company.kpp,
                 ogrn: app.company.ogrn,

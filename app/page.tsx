@@ -6,16 +6,15 @@ import { Account } from "@ui/blocks/account";
 import { Extra } from "@ui/blocks/extra";
 import { Badges } from "@ui/blocks/badges";
 import { Migration } from "@ui/blocks/migration";
-import { Cta } from "@ui/blocks/cta";
 import { Faq } from "@ui/blocks/faq";
 import { Partners } from "@ui/blocks/partners";
 import { Testimonials } from "@ui/blocks/testimonials";
 import { Lead } from "@ui/atoms/lead";
-import { Form } from "@ui/blocks/form";
 import { cn } from "@utils";
-import contact from "@api/contact";
-import { app, forms, home } from "@data";
-import { Block } from "@/library/ui/blocks/block";
+import { home, homeVideos, importVideo } from "@data";
+import { Cta } from "@/app/client";
+import { Videos } from "@ui/blocks/videos";
+import Icons from "@/library/ui/blocks/icons";
 
 const Page = () => {
   const p = home;
@@ -24,16 +23,12 @@ const Page = () => {
       <section id="hero">
         <Lead title={p.hero.title} label={p.hero.subtitle} tags={{ title: 'h1', label: 'h2' }} orders={{ label: 0, title: 1 }} />
 
-        <Cta items={[app.cta.start, app.cta.contact]}>
-          <Cta.Slot id={app.cta.contact.id}>
-            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
-          </Cta.Slot>
-        </Cta>
+        <Cta items={p.hero.cta.items} goals={p.hero.cta.goals} form={p.hero.cta.form} />
 
         <Hero
           heading={null}
           features={p.hero.features}
-          // links={[app.cta.start, app.cta.contact]}
+          // links={[app.cta.contact, app.cta.start]}
           cta={<Link
             href={p.hero.telegram.href}
             target="_blank"
@@ -44,7 +39,7 @@ const Page = () => {
               <path
                 d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.211-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.332-.373-.119l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.952z" />
             </svg>
-            <span className="text-lg max-w-[220px] leading-tight">{p.hero.telegram.label}</span>
+            <span className="text-lg md:max-w-[220px] leading-tight">{p.hero.telegram.label}</span>
           </Link>}
           card={p.hero.card}
           image={p.hero.image}
@@ -52,7 +47,13 @@ const Page = () => {
         <div className="layer bg-gradient-gray" />
       </section>
 
-      {/* 
+      <section id="editions">
+        <Lead title={p.editions.heading} />
+        {/* <Editions items={p.editions.items} /> */}
+        <Icons items={p.editions.items} cols={2} left />
+      </section>
+
+      {/*
       <section id="event">
         <Event
           date={p.eventBanner.date}
@@ -72,14 +73,14 @@ const Page = () => {
         />
       </section>
 
+      <section id="spotlight">
+        <Lead title={p.spotlight.title} orders={{ label: 0, title: 1 }} />
+        <Videos items={homeVideos} more={p.spotlight.more} className="max-w-6xl mx-auto px-2 md:px-0" />
+      </section>
+
       <section id="account">
         <Account
           title={<Lead title={p.account.title} label={p.account.subtitle} hint={p.account.desc} primary orders={{ label: 0, title: 1 }} />}
-          // titleLine1={p.account.titleLine1}
-          // titleLine2={p.account.titleLine2}
-          // descLine1={p.account.descLine1}
-          // descLine2={p.account.descLine2}
-          // subtitle={p.account.subtitle}
           cards={p.account.cards}
         />
       </section>
@@ -93,7 +94,6 @@ const Page = () => {
               {p.extra.title.suffix}
             </div>
           }
-          // title={p.extra.title}
           tire={p.extra.tire}
           integrations={p.extra.integrations}
           security={p.extra.security}
@@ -110,28 +110,18 @@ const Page = () => {
         <Migration
           title={<Lead title={p.migration.title} hint={p.migration.desc} className="!mb-0" />}
           items={p.migration.items}
-          className="md:max-w-[70%] mx-auto"
+          images={p.migration.images}
+          contentClassName="md:max-w-[70%] mx-auto"
         />
-        <div className="layer bg-gradient-green" />
-      </section>
 
-      <section id="clients">
-        <Block
-          heading={<Lead title={p.clients.title} label={p.clients.subtitle} hint={p.clients.intro} primary className="text-left !mb-0" orders={{ label: 0, title: 1 }} />}
-          items={p.clients.items}
-          image={p.clients.image}
-          // className="flex-row-reverse"
-          reverse
-        />
+        <Videos items={[importVideo]} more={p.spotlight.moreVideos} className="md:max-w-[38%] sm:max-w-[50%] mx-auto px-2 md:px-0 md:mt-10 mt-8" hideDescription light />
+
+        <div className="layer bg-gradient-green" />
       </section>
 
       <section id="cta" className="layered">
         <Lead title={p.cta.title} label={p.cta.subtitle} />
-        <Cta items={[app.cta.start, app.cta.contact]}>
-          <Cta.Slot id={app.cta.contact.id}>
-            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
-          </Cta.Slot>
-        </Cta>
+        <Cta items={p.cta.toolbar.items} goals={p.cta.toolbar.goals} form={p.cta.toolbar.form} />
         <div className="layer bg-gradient-blue" />
       </section>
 
@@ -147,7 +137,6 @@ const Page = () => {
           nameSup={p.partners.nameSup}
           desc={p.partners.desc}
           note={p.partners.note}
-        // className="md:max-w-[85%]"
         />
       </section>
 
@@ -163,12 +152,7 @@ const Page = () => {
 
       <section id="cta-join" className="layered">
         <Lead title={p.join.title} />
-
-        <Cta items={[app.cta.start, app.cta.contact]}>
-          <Cta.Slot id={app.cta.contact.id}>
-            <Form heading={forms.call.heading} fields={forms.call.fields} onSubmit={contact} />
-          </Cta.Slot>
-        </Cta>
+        <Cta items={p.join.cta.items} goals={p.join.cta.goals} form={p.join.cta.form} />
         <div className="layer bg-muted" />
       </section>
     </>

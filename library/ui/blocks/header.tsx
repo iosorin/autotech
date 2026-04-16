@@ -20,9 +20,10 @@ type Props = {
   nav: NavItem[];
   featured: NavItem;
   className?: string;
+  onNavClick?: (item: NavItem) => void;
 }
 
-export const Header = ({ title, logo, nav, featured, className }: Props) => {
+export const Header = ({ title, logo, nav, featured, className, onNavClick }: Props) => {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -46,13 +47,14 @@ export const Header = ({ title, logo, nav, featured, className }: Props) => {
             key={item.label}
             href={item.href}
             title={item.alt}
+            onClick={() => onNavClick?.(item)}
             className={cn("font-medium transition-colors duration-100 relative", item.label === featured.label ? "text-primary" : "text-foreground", pathname === item.href ? "underline" : "text-foreground")}
           >
             {item.label}
           </Link>
         ))}
         <Button asChild variant="secondary" className={cn(hideFeatured && "max-md:hidden")}>
-          <Link href={featured.href} title={featured.alt}>
+          <Link href={featured.href} title={featured.alt} onClick={() => onNavClick?.(featured)}>
             {featured.label}
             <ArrowRight className="size-4" />
           </Link>

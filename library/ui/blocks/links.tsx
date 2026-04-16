@@ -8,8 +8,8 @@ type Props = {
     href: string;
   }
   email: string;
-  phone: string;
-  phoneRaw: string;
+  phone?: string;
+  phoneRaw?: string;
 };
 
 export const Links = ({
@@ -47,18 +47,20 @@ export const Links = ({
           <ExternalLink className="size-4" />
         </Link>
       </div>
-      <div>
-        <p className="text-lg font-medium text-accent">{labels.phone}</p>
-        <Link
-          title="Позвонить"
-          target="_blank"
-          href={`tel:${phoneRaw}`}
-          className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
-        >
-          {phone}
-          <ExternalLink className="size-4" />
-        </Link>
-      </div>
+      {phone && phoneRaw && (
+        <div>
+          <p className="text-lg font-medium text-accent">{labels.phone}</p>
+          <Link
+            title="Позвонить"
+            target="_blank"
+            href={`tel:${phoneRaw}`}
+            className="inline-flex items-center gap-1 text-lg font-semibold text-foreground hover:text-accent"
+          >
+            {phone}
+            <ExternalLink className="size-4" />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
