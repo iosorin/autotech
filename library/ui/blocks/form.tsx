@@ -34,6 +34,7 @@ export type IForm = {
     className?: string;
     submitLabel?: string;
     onSubmit: (formData: FormData, heading?: string) => Promise<unknown>;
+    onSuccess?: () => void;
 };
 
 const REQUIRED = "Заполните поле";
@@ -43,6 +44,7 @@ export const Form = ({
     heading,
     fields,
     onSubmit,
+    onSuccess,
     className,
     submitLabel = "Отправить",
 }: IForm) => {
@@ -75,6 +77,7 @@ export const Form = ({
             .then(() => {
                 toast.success("Сообщение успешно отправлено")
                 setSuccess(true)
+                onSuccess?.()
             })
             .catch(() => toast.error("Ошибка при отправке сообщения"))
             .finally(() => setLoading(false));

@@ -1,9 +1,11 @@
+import { Check } from "lucide-react";
 import { Enter } from "@ui/atoms/enter";
 import { cn } from "@utils";
 
 type Item = {
   title: string;
-  desc: string,
+  desc?: string,
+  list?: string[],
   badge?: string,
   icon?: React.ReactNode;
   line?: boolean;
@@ -18,8 +20,8 @@ type Props = {
 };
 
 export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Props) => {
-  const renderItems = (list: Item[], stack?: boolean) => {
-    return list.map((item, i) => {
+  const renderItems = (items: Item[], stack?: boolean) => {
+    return items.map((item, i) => {
       return (
         <Enter key={item.title} variant="fade-up" delay={i * 100} duration={600}
           className={
@@ -34,7 +36,19 @@ export const Icons = ({ items, cols = 3, variant = "cards", left = false }: Prop
           )}
           {item.icon ? <div className={cn("flex-shrink-0", item.line ? 'line' : '')}>{item.icon}</div> : null}
           <h3 className="mt-1">{item.title}</h3>
-          <p>{item.desc}</p>
+          {item.desc && (
+            <p>{item.desc}</p>
+          )}
+          {item.list && (
+            <div className="space-y-4 mt-2">
+              {item.list.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="size-6 text-primary flex-shrink-0 mt-0.5" />
+                  <p className="text-base md:text-lg text-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </Enter>
       );
     });

@@ -14,6 +14,7 @@ const config: Config = {
         md: '769px',
       },
       spacing: {
+        '15': '3.7rem',
         // 'header': 'calc(var(--header-height) + 5.25rem)',
       },
       height: {
@@ -21,6 +22,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+      },
+      minWidth: {
+        'cta': '360px',
       },
       maxWidth: {
         '6xl': '76rem',
@@ -34,8 +38,9 @@ const config: Config = {
         // xl: ['1.5rem', { lineHeight: '2rem' }],
         'xl': ['1.5rem', { lineHeight: '1.85rem' }],
         '2xl': ['1.75rem', { lineHeight: '2rem' }],
+        '2.5xl': ['2.15rem', { lineHeight: '2.25rem' }],
         '3xl': ['2.35rem', { lineHeight: '2.75rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '4xl': ['2.75rem', { lineHeight: '2.90rem' }],
         '5xl': ['3rem', { lineHeight: '1.2' }],
       },
       colors: {

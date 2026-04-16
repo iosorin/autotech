@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Lead } from "@ui/atoms/lead";
 import { Links } from "@ui/blocks/links";
+import contact from "@api/contact";
 import { app, seo, support, forms } from "@data";
 import { Types } from "@ui/blocks/types";
-import contact from "@api/contact";
-import { Form } from "@ui/blocks/form";
+import { Form } from "@/app/client";
 import { openGraph } from "@/app/utils";
 
 export const metadata: Metadata = {
@@ -20,10 +20,9 @@ export const Support = () => {
     <>
       <section id="support" className="layered">
         <Lead label={p.subtitle} title={p.title} tags={{ title: 'h1', label: 'h2' }}
-        // titleFirst
         />
         <div className="md:w-[60%] mx-auto">
-          <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} />
+          <Form heading={forms.contact.heading} fields={forms.contact.fields} onSubmit={contact} goal="support" />
         </div>
         <div className="layer bg-gradient-lime" />
       </section>

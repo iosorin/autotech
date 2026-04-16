@@ -1,12 +1,12 @@
 import React from "react"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header } from "@ui/blocks/header";
 import { Footer } from "@ui/blocks/footer";
 import { Sonner } from "@ui/atoms/sonner";
+import { Header, Metrika } from "@/app/client";
 import { app, seo } from "@data";
-import "./style.css";
 import { openGraph } from "./utils";
+import "./style.css";
 
 const inter = Inter({ subsets: ["cyrillic"], variable: "--font-inter" });
 
@@ -39,7 +39,7 @@ export const Layout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ru">
+    <html lang="ru" data-scroll-behavior="smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
         <script
           type="application/ld+json"
@@ -77,6 +77,7 @@ export const Layout = ({
         />
 
         <Sonner />
+        <Metrika />
       </body>
     </html>
   );

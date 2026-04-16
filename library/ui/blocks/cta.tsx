@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Lead } from "@ui/atoms/lead";
 import { Button } from "@ui/atoms/button";
 import { Enter } from "@ui/atoms/enter";
@@ -30,30 +29,37 @@ const getSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
   return slots;
 };
 
+type ButtonProps = React.ComponentProps<typeof Button>;
+
+export type Item = { id: string; label: string; href?: string; blank?: boolean; goal?: string };
+
 type Props = {
   title?: string;
-  items?: { id: string; label: string; href?: string, blank?: boolean }[];
+  items?: Item[];
   className?: string;
   children?: React.ReactNode;
+  variant?: ButtonProps["variant"];
+  size?: ButtonProps["size"];
+  onClick?: (item: Item) => void;
 };
 
-export const Cta = ({ title, items, className, children }: Props) => {
+export const Cta = ({ title, items, className, children, variant = "default", size = "lg", onClick }: Props) => {
   const slots = React.useMemo(() => getSlots(children), [children]);
 
   return (
     <Enter variant="fade-up" duration={600} className={cn("flex flex-col gap-8 text-center", className)}>
       <Lead title={title} />
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap justify-center gap-3.5">
         {items?.map((item, i) => {
           const content = slots[item.id]
+          const handleClick = () => onClick?.(item);
 
           if (content) {
             return (
               <Dialog key={item.id}>
                 <DialogTrigger asChild>
-                  <Button variant={i === 0 ? "default" : "outline"} size="lg" title={item.label}>
+                  <Button variant={i === 0 ? variant : "outline"} size={size} title={item.label} className="max-md:w-full md:min-w-cta" onClick={handleClick}>
                     {item.label}
-                    {i === 0 && <ArrowUpRight />}
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
@@ -66,10 +72,9 @@ export const Cta = ({ title, items, className, children }: Props) => {
 
           if (item.href) {
             return (
-              <Button asChild variant={i === 0 ? "default" : "outline"} size="lg" key={item.id}>
+              <Button asChild variant={i === 0 ? variant : "outline"} size={size} key={item.id} className="max-md:w-full md:min-w-cta" onClick={handleClick}>
                 <Link href={item.href} title={item.label} target={item.blank ? "_blank" : undefined} rel={item.blank ? "noopener noreferrer" : undefined}>
                   {item.label}
-                  {i === 0 && <ArrowUpRight />}
                 </Link>
               </Button>
             );
